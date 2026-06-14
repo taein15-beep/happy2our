@@ -1,0 +1,273 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>예약상세</title>
+  <style>
+body{margin:0;background:#f4f6f8;color:#222;font-family:"Malgun Gothic","Noto Sans KR",Arial,sans-serif;font-size:13px}.app{display:grid;grid-template-columns:210px 1fr;min-height:100vh}.sidebar{background:#071122;color:#d7e1f0;padding:18px 0}.brand{padding:0 18px 18px;border-bottom:1px solid rgba(255,255,255,.1)}.brand strong{display:block;color:white;font-size:17px}.nav-title{padding:18px 18px 8px;color:#8ea0bb;font-size:11px}.nav a{display:block;padding:11px 18px;color:#cdd6e5;text-decoration:none;border-left:3px solid transparent}.nav a.active{background:rgba(255,255,255,.08);border-left-color:#5b8cff;color:white}.topbar{height:48px;background:white;border-bottom:1px solid #d9dde3;display:flex;align-items:center;justify-content:space-between;padding:0 16px}.page{padding:16px;max-width:1800px}.page-head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:14px}h1{font-size:24px;margin:0 0 6px}.desc{font-weight:700;color:#555}.btn{border:1px solid #cfd5dd;background:white;border-radius:4px;padding:8px 12px;font-weight:700;cursor:pointer;white-space:nowrap}.btn:hover{background:#f7f9fb}.btn.green{background:#18a34a;border-color:#18a34a;color:white}.btn.blue{background:#2f63f6;border-color:#2f63f6;color:white}.btn.red{background:#d92d20;border-color:#d92d20;color:white}.btn.small{padding:6px 8px;font-size:12px}.panel{background:white;border:1px solid #d9dde3;border-radius:7px;margin-bottom:12px}.panel-head{background:#e6e6e6;padding:12px 14px;font-weight:900;border-bottom:1px solid #d9dde3;display:flex;justify-content:space-between;align-items:center}.panel-body{padding:14px}input,select,textarea{border:1px solid #d6dbe1;border-radius:4px;padding:8px 9px;min-height:36px;box-sizing:border-box;background:white}textarea{width:100%;min-height:84px;resize:vertical}label{font-weight:800;color:#3b4654}.top-actions{display:flex;align-items:center;gap:8px;flex-wrap:wrap}.summary{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-bottom:12px}.card{background:white;border:1px solid #d9dde3;border-radius:7px;padding:14px}.card span{display:block;color:#667085;font-weight:800;margin-bottom:7px}.card strong{font-size:20px;color:#2f63f6}.card.money strong{color:#0f8738}.card.due strong{color:#d92d20}.badge{display:inline-flex;border-radius:14px;padding:4px 8px;font-size:12px;font-weight:900;white-space:nowrap}.b-green{background:#e7f8ee;color:#0f8738}.b-blue{background:#eaf1ff;color:#2556d9}.b-orange{background:#fff4de;color:#b45309}.b-red{background:#fff0f0;color:#d92d20}.b-gray{background:#eef1f5;color:#475467}.b-purple{background:#f1ecff;color:#6941c6}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.form-grid{display:grid;grid-template-columns:repeat(3,minmax(150px,1fr));gap:10px}.field{display:flex;flex-direction:column;gap:6px}.field.wide{grid-column:span 2}.field.full{grid-column:1/-1}.value{min-height:36px;border:1px solid #edf0f3;background:#fafbfc;border-radius:4px;padding:8px 9px;box-sizing:border-box}.money-line{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}.money-box{border:1px solid #d9dde3;border-radius:7px;padding:12px;background:#fafbfc}.money-box span{display:block;color:#667085;font-weight:800;margin-bottom:6px}.money-box strong{font-size:18px}.table-wrap{overflow:auto}.table{width:100%;border-collapse:collapse;min-width:1000px}.table th{background:#e6e6e6;border:1px solid #cfd3d8;padding:10px;text-align:center;white-space:nowrap}.table td{border:1px solid #edf0f3;padding:9px;background:white;vertical-align:middle}.table td.center{text-align:center}.table td.money{text-align:right;white-space:nowrap}.muted{color:#667085;font-size:12px}.link{color:#2556d9;font-weight:900;text-decoration:none}.link:hover{text-decoration:underline}.memo-row{display:grid;grid-template-columns:1fr 1fr;gap:10px}.file-list{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}.file-item{border:1px solid #d9dde3;border-radius:7px;padding:12px;background:#fafbfc}.modal-backdrop{display:none;position:fixed;inset:0;background:rgba(7,17,34,.42);align-items:center;justify-content:center;padding:16px}.modal{width:min(520px,100%);background:white;border-radius:7px;border:1px solid #d9dde3}.modal-head{padding:14px;font-weight:900;border-bottom:1px solid #d9dde3;background:#e6e6e6}.modal-body{padding:14px}.modal-foot{padding:12px 14px;border-top:1px solid #edf0f3;text-align:right}@media(max-width:1300px){.summary{grid-template-columns:repeat(3,1fr)}.form-grid{grid-template-columns:repeat(2,1fr)}.file-list{grid-template-columns:repeat(3,1fr)}}@media(max-width:1000px){.app{grid-template-columns:1fr}.sidebar{display:none}.page-head{display:block}.top-actions{margin-top:10px}.summary,.grid,.money-line,.memo-row,.file-list{grid-template-columns:1fr}.form-grid{grid-template-columns:1fr}.field.wide{grid-column:span 1}}
+  </style>
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <div class="brand"><strong>AviaNext</strong><small>AOS Admin Prototype</small></div>
+      <div class="nav-title">관리메뉴</div>
+      <nav class="nav">
+        <a href="product_register.html">상품등록</a>
+        <a href="product_list.html">상품리스트</a>
+        <a href="schedule_register.html">일정표등록</a>
+        <a href="price_setting.html">요금설정</a>
+        <a class="active" href="reservation_list.html">예약접수현황</a>
+      </nav>
+    </aside>
+    <main>
+      <header class="topbar"><strong>예약상세</strong><span>윤호님 · 로그아웃</span></header>
+      <div class="page">
+        <div class="page-head">
+          <div>
+            <h1>예약상세</h1>
+            <div class="desc">예약 1건의 상태, 결제, 여행자, 판매사/공급사 정보를 한 화면에서 관리합니다.</div>
+          </div>
+          <div class="top-actions">
+            <button class="btn" onclick="location.href='reservation_list.html'">목록으로</button>
+            <button class="btn" onclick="msg('예약수정 샘플입니다.')">예약수정</button>
+            <button class="btn green" onclick="msg('예약상태를 예약확정으로 변경하는 샘플입니다.')">예약확정</button>
+            <button class="btn blue" onclick="msg('미수금 160,000원 결제요청 알림을 발송합니다.')">결제요청</button>
+            <button class="btn green" onclick="openModal('알림톡 발송','예약접수, 예약확정, 결제요청, 출발안내 템플릿 중 선택해 발송하는 샘플 모달입니다.')">알림톡 발송</button>
+            <button class="btn red" onclick="openModal('취소/환불 처리','취소사유와 환불금액을 입력해 처리하는 샘플 모달입니다.')">취소/환불 처리</button>
+            <button class="btn" onclick="msg('예약확인서 출력 샘플입니다.')">예약확인서 출력</button>
+          </div>
+        </div>
+
+        <section class="summary" aria-label="예약 요약">
+          <div class="card"><span>예약번호</span><strong>RV20260610015</strong></div>
+          <div class="card"><span>예약상태</span><strong><span class="badge b-orange">대기예약</span></strong></div>
+          <div class="card"><span>결제상태</span><strong><span class="badge b-blue">예약금완료</span></strong></div>
+          <div class="card"><span>예약접수일 / 출발일</span><strong>06-10 / 06-18</strong></div>
+          <div class="card"><span>예약자명 / 총인원</span><strong>최정우 / 4명</strong></div>
+          <div class="card money"><span>총금액</span><strong>240,000원</strong></div>
+          <div class="card money"><span>결제금액</span><strong>80,000원</strong></div>
+          <div class="card due"><span>미수금</span><strong>160,000원</strong></div>
+          <div class="card"><span>판매채널</span><strong>관리자등록</strong></div>
+          <div class="card"><span>담당자</span><strong>이도현</strong></div>
+        </section>
+
+        <div class="grid">
+          <section class="panel">
+            <div class="panel-head">예약 기본정보</div>
+            <div class="panel-body">
+              <div class="form-grid">
+                <div class="field"><label>예약번호</label><div class="value">RV20260610015</div></div>
+                <div class="field"><label>예약접수일</label><div class="value">2026-06-10 11:05</div></div>
+                <div class="field"><label>예약경로</label><select><option>관리자등록</option><option>자사몰</option><option>판매사</option><option>지자체</option></select></div>
+                <div class="field"><label>예약상태</label><select><option>대기예약</option><option>예약접수</option><option>예약확정</option><option>예약보류</option><option>취소요청</option><option>취소완료</option><option>출발완료</option></select></div>
+                <div class="field"><label>담당자</label><select><option>이도현</option><option>김윤호</option><option>박서연</option></select></div>
+                <div class="field"><label>처리 우선순위</label><div class="value"><span class="badge b-orange">잔금 확인 필요</span></div></div>
+                <div class="field full"><label>예약자 요청사항</label><textarea>부모님 동반 예약입니다. 탑승지는 수원역으로 요청합니다.</textarea></div>
+              </div>
+            </div>
+          </section>
+
+          <section class="panel">
+            <div class="panel-head">상품/출발정보</div>
+            <div class="panel-body">
+              <div class="form-grid">
+                <div class="field wide"><label>상품명</label><div class="value"><a class="link" href="product_list.html">강화 역사문화 테마여행</a></div></div>
+                <div class="field"><label>상품코드</label><div class="value">PDT-TRV-2026-031</div></div>
+                <div class="field"><label>출발일</label><div class="value">2026-06-18</div></div>
+                <div class="field"><label>여행기간</label><div class="value">당일</div></div>
+                <div class="field"><label>출발상태</label><div class="value"><span class="badge b-blue">출발대기</span></div></div>
+                <div class="field"><label>일정표 보기</label><button class="btn" onclick="msg('일정표 보기 샘플입니다.')">일정표 보기</button></div>
+                <div class="field"><label>요금설정 보기</label><button class="btn" onclick="msg('예약 당시 적용요금 확인 샘플입니다.')">요금설정 보기</button></div>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <div class="grid">
+          <section class="panel">
+            <div class="panel-head">예약자 정보</div>
+            <div class="panel-body">
+              <div class="form-grid">
+                <div class="field"><label>예약자명</label><input value="최정우"></div>
+                <div class="field"><label>휴대폰번호</label><input value="010-3456-7890"></div>
+                <div class="field"><label>이메일</label><input value="jungwoo@example.com"></div>
+                <div class="field"><label>생년월일</label><input type="date" value="1981-04-12"></div>
+                <div class="field"><label>성별</label><select><option>남성</option><option>여성</option></select></div>
+                <div class="field"><label>비상연락처</label><input value="010-9876-5432"></div>
+                <div class="field full"><label>주소</label><input value="경기도 수원시 팔달구 효원로 1"></div>
+              </div>
+            </div>
+          </section>
+
+          <section class="panel">
+            <div class="panel-head">인원/요금 정보</div>
+            <div class="panel-body">
+              <div class="money-line">
+                <div class="money-box"><span>대인/소인/유아</span><strong>대3 / 소1 / 유0</strong></div>
+                <div class="money-box"><span>상품금액</span><strong>220,000원</strong></div>
+                <div class="money-box"><span>옵션금액</span><strong>30,000원</strong></div>
+                <div class="money-box"><span>할인금액</span><strong>-10,000원</strong></div>
+                <div class="money-box"><span>총 예약금액</span><strong>240,000원</strong></div>
+                <div class="money-box"><span>결제완료금액</span><strong>80,000원</strong></div>
+                <div class="money-box"><span>미수금</span><strong style="color:#d92d20">160,000원</strong></div>
+                <div class="money-box"><span>금액 정책</span><strong>예약 당시 금액 고정</strong></div>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <section class="panel">
+          <div class="panel-head"><span>여행자 정보</span><button class="btn small" onclick="msg('여행자 추가 샘플입니다.')">여행자 추가</button></div>
+          <div class="table-wrap">
+            <table class="table">
+              <thead><tr><th>여행자명</th><th>성별</th><th>생년월일</th><th>연락처</th><th>탑승지</th><th>보험가입</th><th>여권정보</th><th>지자체 증빙</th><th>요청사항</th></tr></thead>
+              <tbody>
+                <tr><td>최정우</td><td>남성</td><td>1981-04-12</td><td>010-3456-7890</td><td>수원역</td><td><span class="badge b-green">가입</span></td><td><span class="badge b-gray">해당없음</span></td><td><span class="badge b-green">제출</span></td><td>대표 예약자</td></tr>
+                <tr><td>김미연</td><td>여성</td><td>1983-09-21</td><td>010-2222-3333</td><td>수원역</td><td><span class="badge b-green">가입</span></td><td><span class="badge b-gray">해당없음</span></td><td><span class="badge b-green">제출</span></td><td>-</td></tr>
+                <tr><td>최하늘</td><td>여성</td><td>2014-02-03</td><td>-</td><td>수원역</td><td><span class="badge b-green">가입</span></td><td><span class="badge b-gray">해당없음</span></td><td><span class="badge b-orange">확인중</span></td><td>소인</td></tr>
+                <tr><td>최민준</td><td>남성</td><td>1954-11-18</td><td>010-4444-5555</td><td>수원역</td><td><span class="badge b-green">가입</span></td><td><span class="badge b-gray">해당없음</span></td><td><span class="badge b-green">제출</span></td><td>거동 불편</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <div class="grid">
+          <section class="panel">
+            <div class="panel-head">옵션 정보</div>
+            <div class="table-wrap">
+              <table class="table">
+                <thead><tr><th>선택 옵션명</th><th>적용방식</th><th>수량</th><th>옵션금액</th><th>필수/선택</th></tr></thead>
+                <tbody>
+                  <tr><td>강화 루지 체험권</td><td><span class="badge b-blue">고객 수량선택</span></td><td class="center">3</td><td class="money">30,000원</td><td><span class="badge b-gray">선택</span></td></tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <section class="panel">
+            <div class="panel-head">결제/입금 정보</div>
+            <div class="panel-body">
+              <div class="form-grid">
+                <div class="field"><label>결제방식</label><select><option>무통장입금</option><option>카드결제</option><option>가상계좌</option></select></div>
+                <div class="field"><label>예약금</label><input value="80,000원"></div>
+                <div class="field"><label>잔금</label><input value="160,000원"></div>
+                <div class="field"><label>입금자명</label><input value="최정우"></div>
+                <div class="field"><label>결제일</label><input type="date" value="2026-06-10"></div>
+                <div class="field"><label>결제상태</label><select><option>예약금완료</option><option>미결제</option><option>잔금완료</option><option>전액결제완료</option><option>환불요청</option><option>환불완료</option></select></div>
+                <div class="field"><label>현금영수증</label><div class="value"><span class="badge b-blue">신청</span></div></div>
+                <div class="field"><label>세금계산서</label><div class="value"><span class="badge b-gray">미신청</span></div></div>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <section class="panel">
+          <div class="panel-head">알림톡/문자 발송내역</div>
+          <div class="table-wrap">
+            <table class="table">
+              <thead><tr><th>구분</th><th>발송상태</th><th>발송일시</th><th>수신자</th><th>관리</th></tr></thead>
+              <tbody>
+                <tr><td>예약접수 안내</td><td><span class="badge b-green">발송완료</span></td><td>2026-06-10 11:06</td><td>최정우</td><td class="center"><button class="btn small" onclick="msg('예약접수 안내 재발송 샘플입니다.')">재발송</button></td></tr>
+                <tr><td>예약확정 안내</td><td><span class="badge b-gray">미발송</span></td><td>-</td><td>최정우</td><td class="center"><button class="btn small" onclick="msg('예약확정 안내 발송 샘플입니다.')">재발송</button></td></tr>
+                <tr><td>결제요청</td><td><span class="badge b-green">발송완료</span></td><td>2026-06-11 09:30</td><td>최정우</td><td class="center"><button class="btn small" onclick="msg('결제요청 재발송 샘플입니다.')">재발송</button></td></tr>
+                <tr><td>출발안내</td><td><span class="badge b-gray">예약</span></td><td>2026-06-17 10:00</td><td>최정우</td><td class="center"><button class="btn small" onclick="msg('출발안내 예약 발송 샘플입니다.')">재발송</button></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <div class="grid">
+          <section class="panel">
+            <div class="panel-head">취소/환불 정보</div>
+            <div class="panel-body">
+              <div class="form-grid">
+                <div class="field"><label>취소요청일</label><input type="date"></div>
+                <div class="field"><label>환불금액</label><input value="0원"></div>
+                <div class="field"><label>환불수단</label><select><option>계좌환불</option><option>카드취소</option><option>포인트환불</option></select></div>
+                <div class="field"><label>환불상태</label><select><option>해당없음</option><option>환불요청</option><option>환불완료</option></select></div>
+                <div class="field"><label>환불완료일</label><input type="date"></div>
+                <div class="field full"><label>취소사유 / 환불 메모</label><textarea>현재 취소 요청 없음.</textarea></div>
+              </div>
+            </div>
+          </section>
+
+          <section class="panel">
+            <div class="panel-head">판매사/공급사 정보</div>
+            <div class="panel-body">
+              <div class="form-grid">
+                <div class="field"><label>판매채널</label><div class="value"><span class="badge b-purple">판매사</span></div></div>
+                <div class="field"><label>판매사명</label><div class="value">지역몰A</div></div>
+                <div class="field"><label>공급사명</label><div class="value">강화테마투어</div></div>
+                <div class="field"><label>커미션</label><div class="value">8%</div></div>
+                <div class="field"><label>정산상태</label><div class="value"><span class="badge b-orange">정산대기</span></div></div>
+                <div class="field"><label>예약 수정 권한</label><div class="value"><span class="badge b-blue">본사 승인 필요</span></div></div>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <section class="panel">
+          <div class="panel-head">관리자 메모</div>
+          <div class="panel-body">
+            <div class="memo-row">
+              <div><label>내부메모</label><textarea>잔금 결제 요청 완료. 출발 2일 전까지 결제 확인 필요.</textarea><div class="muted">작성자: 이도현 · 2026-06-11 09:32</div></div>
+              <div><label>판매사 공유메모</label><textarea>탑승지는 수원역으로 확정 요청드립니다.</textarea><div class="muted">작성자: 박서연 · 2026-06-11 10:15</div></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="panel">
+          <div class="panel-head"><span>첨부파일</span><button class="btn small" onclick="msg('파일 업로드 샘플입니다.')">파일 추가</button></div>
+          <div class="panel-body">
+            <div class="file-list">
+              <div class="file-item"><strong>계약서</strong><br><span class="muted">미등록</span></div>
+              <div class="file-item"><strong>증빙서류</strong><br><a class="link" href="#" onclick="msg('증빙서류 보기 샘플입니다.');return false;">subsidy_doc.pdf</a></div>
+              <div class="file-item"><strong>보험서류</strong><br><span class="muted">insurance.xlsx</span></div>
+              <div class="file-item"><strong>지자체 제출서류</strong><br><a class="link" href="#" onclick="msg('지자체 제출서류 보기 샘플입니다.');return false;">city_form.zip</a></div>
+              <div class="file-item"><strong>기타 파일</strong><br><span class="muted">미등록</span></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="panel">
+          <div class="panel-head">변경이력</div>
+          <div class="table-wrap">
+            <table class="table">
+              <thead><tr><th>일시</th><th>구분</th><th>변경 전</th><th>변경 후</th><th>처리자</th><th>메모</th></tr></thead>
+              <tbody>
+                <tr><td>2026-06-10 11:05</td><td>예약상태</td><td>-</td><td>예약접수</td><td>시스템</td><td>관리자등록 예약 생성</td></tr>
+                <tr><td>2026-06-10 11:12</td><td>결제상태</td><td>미결제</td><td>예약금완료</td><td>이도현</td><td>예약금 입금 확인</td></tr>
+                <tr><td>2026-06-10 11:20</td><td>인원</td><td>3명</td><td>4명</td><td>이도현</td><td>소인 1명 추가</td></tr>
+                <tr><td>2026-06-10 11:21</td><td>금액</td><td>180,000원</td><td>240,000원</td><td>이도현</td><td>인원 및 옵션 반영</td></tr>
+                <tr><td>2026-06-11 09:30</td><td>담당자</td><td>김윤호</td><td>이도현</td><td>김윤호</td><td>출발 관리 담당 변경</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+      </div>
+    </main>
+  </div>
+
+  <div id="sampleModal" class="modal-backdrop" role="dialog" aria-modal="true">
+    <div class="modal">
+      <div id="modalTitle" class="modal-head">샘플 처리</div>
+      <div id="modalBody" class="modal-body">샘플 모달입니다.</div>
+      <div class="modal-foot"><button class="btn green" onclick="closeModal()">확인</button></div>
+    </div>
+  </div>
+
+  <script>
+function msg(t){alert(t)}
+function openModal(title, body){
+  document.getElementById('modalTitle').textContent=title;
+  document.getElementById('modalBody').textContent=body;
+  document.getElementById('sampleModal').style.display='flex';
+}
+function closeModal(){
+  document.getElementById('sampleModal').style.display='none';
+}
+  </script>
+</body>
+</html>
