@@ -6,7 +6,7 @@
   <title>상품등록</title>
   <style>
 body{margin:0;background:#f4f6f8;color:#222;font-family:"Malgun Gothic","Noto Sans KR",Arial,sans-serif;font-size:13px}.app{display:grid;grid-template-columns:210px 1fr;min-height:100vh}.sidebar{background:#071122;color:#d7e1f0;padding:18px 0}.brand{padding:0 18px 18px;border-bottom:1px solid rgba(255,255,255,.1)}.brand strong{display:block;color:white;font-size:17px}.nav-title{padding:18px 18px 8px;color:#8ea0bb;font-size:11px}.nav a{display:block;padding:11px 18px;color:#cdd6e5;text-decoration:none;border-left:3px solid transparent}.nav a.active{background:rgba(255,255,255,.08);border-left-color:#5b8cff;color:white}.topbar{height:48px;background:white;border-bottom:1px solid #d9dde3;display:flex;align-items:center;justify-content:space-between;padding:0 16px}.page{padding:16px;max-width:1800px}.page-head{display:flex;justify-content:space-between;gap:12px;align-items:flex-start;margin-bottom:12px}h1{font-size:24px;margin:0 0 6px}.desc{font-weight:700;color:#555}.tabs{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 12px}.tab{border:1px solid #cfd5dd;background:white;border-radius:18px;padding:8px 14px;text-decoration:none;color:#344054;font-weight:900}.tab.active{background:#7c3aed;border-color:#7c3aed;color:white}.btn{border:1px solid #cfd5dd;background:white;border-radius:4px;padding:8px 12px;font-weight:800;cursor:pointer;white-space:nowrap}.btn:hover{background:#f7f9fb}.btn.green{background:#18a34a;border-color:#18a34a;color:white}.btn.blue{background:#2f63f6;border-color:#2f63f6;color:white}.btn.red{background:#d92d20;border-color:#d92d20;color:white}.btn.small{padding:6px 8px;font-size:12px}.layout{display:grid;grid-template-columns:1fr 1fr;gap:12px}.panel{background:white;border:1px solid #d9dde3;border-radius:7px;margin-bottom:12px;overflow:hidden}.panel.full{grid-column:1/-1}.panel-head{background:#e6e6e6;padding:12px 14px;font-weight:900;border-bottom:1px solid #d9dde3;display:flex;align-items:center;justify-content:space-between;gap:8px}.panel-body{padding:14px}.form-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}.form-grid.two{grid-template-columns:repeat(2,minmax(0,1fr))}.field{display:flex;flex-direction:column;gap:6px}.field.full{grid-column:1/-1}.field.wide{grid-column:span 2}label{font-weight:900;color:#3b4654}input,select,textarea{border:1px solid #d6dbe1;border-radius:4px;padding:8px 9px;min-height:36px;box-sizing:border-box;background:white;width:100%}textarea{min-height:100px;resize:vertical}.hint{color:#667085;font-size:12px;font-weight:700}.muted{color:#667085;font-size:12px}.table-wrap{overflow:auto}.table{width:100%;border-collapse:collapse;min-width:760px}.table.compact{min-width:0}.table th{background:#e6e6e6;border:1px solid #cfd3d8;padding:9px;text-align:center;white-space:nowrap}.table td{border:1px solid #edf0f3;padding:8px;background:white;vertical-align:middle}.table td.center{text-align:center}.table td.money{text-align:right}.badge{display:inline-flex;border-radius:14px;padding:4px 8px;font-size:12px;font-weight:900}.b-green{background:#e7f8ee;color:#0f8738}.b-blue{background:#eaf1ff;color:#2556d9}.b-gray{background:#eef1f5;color:#475467}.b-orange{background:#fff4de;color:#b45309}.b-red{background:#fff0f0;color:#d92d20}.tag{display:inline-flex;background:#f2f4f7;border:1px solid #d9dde3;border-radius:16px;padding:6px 10px;margin:3px;font-weight:800}.category-row{display:grid;grid-template-columns:1fr 1fr 1fr auto;gap:8px;align-items:end}.category-list{margin-top:8px}.image-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}.image-item{height:112px;border:1px solid #d9dde3;border-radius:7px;background:#e9ecef;display:flex;align-items:center;justify-content:center;color:#98a2b3;font-weight:900;position:relative;overflow:hidden}.image-item.primary{outline:3px solid #18a34a}.image-item img{width:100%;height:100%;object-fit:cover}.image-tools{position:absolute;left:6px;right:6px;bottom:6px;display:flex;gap:4px;justify-content:center}.image-tools button{padding:4px 6px;font-size:11px}.toggle{display:inline-flex;align-items:center;gap:6px}.toggle input{width:auto;min-height:auto}.editor-toolbar{border:1px solid #d9dde3;border-bottom:0;border-radius:5px 5px 0 0;background:#f7f9fb;padding:8px;display:flex;gap:6px;flex-wrap:wrap}.editor-toolbar span{font-weight:900;padding:4px 6px}.editor{border-radius:0 0 5px 5px;min-height:150px}.content-tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px}.content-tab{border:1px solid #cfd5dd;border-radius:18px;background:white;padding:8px 12px;font-weight:900;cursor:pointer}.content-tab.active{background:#7c3aed;color:white;border-color:#7c3aed}.save-bar{position:sticky;bottom:0;background:white;border:1px solid #d9dde3;border-radius:7px;padding:12px 14px;margin-top:12px;display:flex;justify-content:space-between;align-items:center;gap:10px;box-shadow:0 -4px 14px rgba(7,17,34,.06)}@media(max-width:1200px){.layout{grid-template-columns:1fr}.form-grid,.form-grid.two{grid-template-columns:repeat(2,minmax(0,1fr))}.image-grid{grid-template-columns:repeat(3,1fr)}}@media(max-width:760px){.app{grid-template-columns:1fr}.sidebar{display:none}.page-head{display:block}.form-grid,.form-grid.two,.category-row{grid-template-columns:1fr}.image-grid{grid-template-columns:repeat(2,1fr)}}
-.basic-stack{display:grid;gap:12px}.basic-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;align-items:start}.basic-box{border:1px solid #edf0f3;border-radius:6px;background:#fafbfc;padding:10px}.basic-box-title{font-weight:900;color:#344054;margin-bottom:8px;display:flex;justify-content:space-between;gap:8px}.basic-category{display:grid;grid-template-columns:1.05fr 1.05fr .9fr;gap:8px}.extra-category-stack{display:grid;gap:8px}.extra-category-row{display:grid;grid-template-columns:1fr 1fr 1fr 82px;gap:6px}.extra-category-row .btn{min-height:36px}.basic-row.names{grid-template-columns:1.15fr .85fr}.basic-row.info-period{grid-template-columns:1.4fr .6fr}.period-row{display:grid;grid-template-columns:1fr 1fr;gap:8px}@media(max-width:1100px){.basic-row,.basic-row.names,.basic-row.info-period{grid-template-columns:1fr}.basic-category,.extra-category-row,.period-row{grid-template-columns:1fr}}
+.basic-stack{display:grid;gap:12px}.basic-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;align-items:start}.basic-box{border:1px solid #edf0f3;border-radius:6px;background:#fafbfc;padding:10px}.basic-box-title{font-weight:900;color:#344054;margin-bottom:8px;display:flex;justify-content:space-between;gap:8px}.basic-category{display:grid;grid-template-columns:1.05fr 1.05fr .9fr;gap:8px}.extra-category-stack{display:grid;gap:8px}.extra-category-row{display:grid;grid-template-columns:1fr 1fr 1fr 82px;gap:6px}.extra-category-row .btn{min-height:36px}.basic-row.names{grid-template-columns:1.15fr .85fr}.basic-row.info-period{grid-template-columns:1.4fr .6fr}.period-row{display:grid;grid-template-columns:1fr 1fr;gap:8px}.basic-policy-row{display:grid;grid-template-columns:520px 1fr;border:1px solid #d9dde3;border-radius:6px;overflow:hidden;background:white}.policy-cell{display:grid;grid-template-columns:118px 1fr;align-items:center;border-right:1px solid #d9dde3}.policy-cell:last-child{border-right:0}.policy-title{height:100%;background:#eef1f5;font-weight:900;color:#344054;display:flex;align-items:center;padding:0 12px;white-space:nowrap}.policy-body{padding:8px 10px}.label-policy-input{max-width:380px}.traveler-options{display:flex;align-items:center;justify-content:flex-start;gap:12px;flex-wrap:nowrap;white-space:nowrap}.traveler-options .pay-item{font-size:13px;gap:6px}@media(max-width:1300px){.basic-policy-row{grid-template-columns:460px 1fr}.label-policy-input{max-width:330px}.traveler-options{gap:8px}.traveler-options .pay-item{font-size:12px}}@media(max-width:1100px){.basic-row,.basic-row.names,.basic-row.info-period,.basic-policy-row{grid-template-columns:1fr}.basic-category,.extra-category-row,.period-row{grid-template-columns:1fr}.policy-cell{grid-template-columns:120px 1fr;border-right:0;border-bottom:1px solid #d9dde3}.policy-cell:last-child{border-bottom:0}.traveler-options{flex-wrap:wrap;white-space:normal}.label-policy-input{max-width:100%}}
 .pricing-ops-row{grid-column:1/-1;display:grid;grid-template-columns:minmax(380px,.6fr) minmax(720px,1.2fr) minmax(300px,.45fr);gap:12px}.price-panel .table-wrap,.stay-panel .table-wrap{overflow:visible}.price-table,.stay-table{min-width:0;table-layout:fixed}.price-table th,.price-table td,.stay-table th,.stay-table td{padding:7px 6px}.price-table th:nth-child(1),.price-table td:nth-child(1){width:96px}.price-table th:nth-child(2),.price-table td:nth-child(2){width:96px}.price-table th:nth-child(3),.price-table td:nth-child(3){width:56px}.price-table th:nth-child(4),.price-table td:nth-child(4){width:52px}.stay-table th:nth-child(1),.stay-table td:nth-child(1){width:auto}.stay-table th:nth-child(2),.stay-table td:nth-child(2){width:58px}.stay-table th:nth-child(3),.stay-table td:nth-child(3){width:52px}.price-table input,.stay-table input{min-height:32px;padding:6px}.price-table th,.price-table td,.stay-table th,.stay-table td{font-size:12px}.head-toggle{display:inline-flex;align-items:center;gap:8px;margin-left:10px;font-size:12px;font-weight:900;color:#344054}.ops-stack{display:grid;gap:8px}.ops-row{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}.ops-row .field{gap:4px}.ops-row input,.ops-row select{padding:7px 8px}.stay-disabled{opacity:.48;pointer-events:none}.stay-disabled-note{display:none;color:#d92d20;font-weight:800;margin-top:8px}.stay-disabled+.stay-disabled-note{display:block}@media(max-width:1400px){.pricing-ops-row{grid-template-columns:1fr 1fr}.stay-panel{grid-column:1/-1}.ops-row{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:760px){.pricing-ops-row{grid-template-columns:1fr}.ops-row{grid-template-columns:1fr}}
 .ops-divider{border-top:1px solid #d9dde3;margin:2px -14px 0;padding-top:0}
 .ops-subtitle{background:#e6e6e6;border-bottom:1px solid #d9dde3;font-weight:900;color:#222;margin:0 0 10px;padding:12px 14px}
@@ -14,6 +14,7 @@ body{margin:0;background:#f4f6f8;color:#222;font-family:"Malgun Gothic","Noto Sa
 .payment-row{display:flex;align-items:center;gap:14px;flex-wrap:wrap;border-top:1px solid #d9dde3;margin-top:2px;padding-top:9px}.pay-item{display:inline-flex;align-items:center;gap:7px;font-size:13px;font-weight:800;white-space:nowrap}.pay-item input[type=text]{width:92px;text-align:center;font-size:13px;min-height:32px;padding:6px 8px}.switch{position:relative;display:inline-block;width:42px;height:24px;flex:0 0 auto}.switch input{opacity:0;width:0;height:0}.slider{position:absolute;cursor:pointer;inset:0;background:#c8ced6;border-radius:999px;transition:.15s}.slider:before{content:"";position:absolute;width:18px;height:18px;left:3px;top:3px;background:white;border-radius:50%;transition:.15s;box-shadow:0 1px 3px rgba(0,0,0,.2)}.switch input:checked+.slider{background:#20a64a}.switch input:checked+.slider:before{transform:translateX(18px)}.point-row{display:grid;grid-template-columns:125px 1fr;border:1px solid #d9dde3;border-left:0;border-right:0;margin-top:8px}.point-title{background:#eef1f5;font-weight:900;font-size:13px;padding:13px 10px;display:flex;align-items:center}.point-body{display:flex;align-items:center;gap:9px;flex-wrap:wrap;padding:10px 14px;font-size:13px}.point-body input[type=text]{width:150px;min-height:32px}.point-body input[type=radio]{width:auto;min-height:auto}@media(max-width:900px){.point-row{grid-template-columns:1fr}.point-title{padding:9px 10px}.point-body{padding:10px}.payment-row{gap:10px}}
 .commission-panel .panel-head{align-items:center;padding:10px 12px}.commission-title{font-size:14px}.commission-mode{display:flex;align-items:center;justify-content:center;gap:7px;font-size:12px;font-weight:900;flex:1;color:#1f2937}.commission-body{display:grid;grid-template-columns:118px 1fr 1fr;gap:5px}.commission-groups{border:2px dashed #9b4dff;border-radius:6px;padding:8px;display:grid;gap:7px;align-content:start}.group-chip{background:#8a1ff0;color:white;border-radius:5px;text-align:center;font-size:12px;font-weight:900;padding:11px 5px;white-space:nowrap}.commission-box{border:2px dashed #98a2b3;border-radius:6px;padding:8px;display:grid;grid-template-columns:1fr 1fr;gap:7px;align-content:start}.commission-box.fixed{border-color:#ff3b3b}.commission-box.rate{border-color:#98a2b3}.commission-box.active{box-shadow:inset 0 0 0 2px rgba(24,163,74,.08)}.commission-input{display:flex;align-items:center;gap:5px;background:#f8fafc;border:1px solid #e1e6ec;border-radius:5px;padding:5px 6px;font-size:11px;font-weight:800;color:#344054;white-space:nowrap}.commission-input input{flex:1;width:100%;min-width:58px;min-height:26px;text-align:right;font-size:12px;padding:4px 5px}.commission-note{grid-column:1/-1;color:#667085;font-size:11px;font-weight:700;margin-top:6px}@media(max-width:1500px){.commission-body{grid-template-columns:110px 1fr 1fr}.commission-box{grid-template-columns:1fr;gap:6px}.commission-mode{font-size:11px;gap:5px}}@media(max-width:1200px){.commission-body{grid-template-columns:1fr}.commission-groups{grid-template-columns:repeat(4,1fr)}.commission-box{grid-template-columns:repeat(2,1fr)}}@media(max-width:760px){.commission-groups,.commission-box{grid-template-columns:1fr}.commission-mode{order:3;flex-basis:100%;justify-content:flex-start}}
 .internal-row{grid-column:1/-1;display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}.internal-row .panel{margin-bottom:0}.internal-row textarea{min-height:132px}.file-list{min-height:132px}@media(max-width:1100px){.internal-row{grid-template-columns:1fr}}
+.detail-content{display:grid;grid-template-columns:minmax(0,1fr) 360px;gap:14px}.detail-editor-area{min-width:0}.detail-editor-box{border:1px solid #d9dde3;border-radius:8px;overflow:hidden;background:white}.detail-toolbar-menu{display:flex;gap:20px;padding:14px 18px 10px;font-weight:900;color:#1f2937}.detail-toolbar-tools{display:flex;align-items:center;gap:18px;padding:12px 18px;border-top:1px solid #edf0f3;border-bottom:1px solid #edf0f3;box-shadow:0 2px 8px rgba(7,17,34,.06);font-size:18px;color:#1f2937}.tool-chip{display:inline-flex;align-items:center;gap:10px;background:#f5f6f8;border-radius:4px;padding:6px 10px;font-size:14px}.detail-editor-box textarea{border:0;border-radius:0;min-height:330px;font-size:13px}.editor-status{border-top:1px solid #edf0f3;padding:6px 10px;color:#667085;font-size:12px}.template-panel{border:1px solid #d9dde3;border-radius:8px;overflow:hidden;background:white}.template-head{background:#f3f4f6;border-bottom:1px solid #d9dde3;padding:12px 14px;display:flex;align-items:center;justify-content:space-between;gap:8px}.template-head strong{font-size:15px}.template-list{display:grid}.template-item{border:0;border-bottom:1px solid #e1e6ec;background:white;text-align:left;padding:15px 20px;color:#1f2937;font-weight:900;cursor:pointer}.template-item:before{content:"‹";color:#2563eb;font-size:22px;margin-right:14px;vertical-align:-1px}.template-item:hover,.template-item.active{background:#eef5ff;color:#1459e6}.detail-actions{text-align:right;margin-top:8px}@media(max-width:1200px){.detail-content{grid-template-columns:1fr}.template-panel{max-width:none}}@media(max-width:760px){.detail-toolbar-menu,.detail-toolbar-tools{gap:10px;overflow:auto}.template-head{align-items:flex-start;flex-direction:column}}
   </style>
 </head>
 <body>
@@ -95,6 +96,20 @@ body{margin:0;background:#f4f6f8;color:#222;font-family:"Malgun Gothic","Noto Sa
                     <div class="period-row">
                       <input type="date" value="2026-06-01" title="판매기간 시작">
                       <input type="date" value="2026-06-30" title="판매기간 종료">
+                    </div>
+                  </div>
+                </div>
+
+                <div class="basic-policy-row">
+                  <div class="policy-cell">
+                    <div class="policy-title">라벨관리</div>
+                    <div class="policy-body"><input class="label-policy-input" value="팔도장터열차,수국정원,계룡산"></div>
+                  </div>
+                  <div class="policy-cell">
+                    <div class="policy-title">여행자 정보 설정</div>
+                    <div class="policy-body traveler-options">
+                      <span class="pay-item">모든여행자 생년월일/성별을 반드시 입력 <label class="switch"><input type="checkbox"><span class="slider"></span></label></span>
+                      <span class="pay-item">모든여행자의 모든정보를 반드시 입력 <label class="switch"><input type="checkbox"><span class="slider"></span></label></span>
                     </div>
                   </div>
                 </div>
@@ -266,19 +281,36 @@ body{margin:0;background:#f4f6f8;color:#222;font-family:"Malgun Gothic","Noto Sa
           <section class="panel full">
             <div class="panel-head">
               <span>상세페이지 콘텐츠</span>
-              <div><button class="btn small" onclick="addContentTab()">탭 추가</button> <button class="btn small green" onclick="applyDetailTemplate()">상품유형별 템플릿</button></div>
+              <div><button class="btn small" onclick="addContentTab()">탭 추가</button></div>
             </div>
             <div class="panel-body">
-              <div id="contentTabs" class="content-tabs">
-                <button class="content-tab active" onclick="selectContentTab(this)">상세안내</button>
-                <button class="content-tab" onclick="selectContentTab(this)">이용안내</button>
-                <button class="content-tab" onclick="selectContentTab(this)">취소/환불 규정</button>
-                <button class="content-tab" onclick="selectContentTab(this)">선택관광/쇼핑</button>
-                <button class="content-tab" onclick="selectContentTab(this)">숙소정보</button>
+              <div class="detail-content">
+                <div class="detail-editor-area">
+                  <div id="contentTabs" class="content-tabs">
+                    <button class="content-tab active" onclick="selectContentTab(this)">상세안내</button>
+                    <button class="content-tab" onclick="selectContentTab(this)">이용안내</button>
+                    <button class="content-tab" onclick="selectContentTab(this)">취소/환불 규정</button>
+                    <button class="content-tab" onclick="selectContentTab(this)">선택관광/쇼핑</button>
+                    <button class="content-tab" onclick="selectContentTab(this)">숙소정보</button>
+                  </div>
+                  <div class="detail-editor-box">
+                    <div class="detail-toolbar-menu"><span>파일</span><span>편집</span><span>보기</span><span>삽입</span><span>서식</span><span>도구</span><span>표</span></div>
+                    <div class="detail-toolbar-tools"><span>↶</span><span>↷</span><span class="tool-chip">− 16px +</span><strong>B</strong><em>I</em><u>A</u><span>▰</span><span>☰</span><span>≡</span><span>☷</span><span>•≡</span><span>1≡</span><span>🔗</span><span>▧</span><span>▦</span></div>
+                    <textarea id="detailEditor" class="editor">홈페이지 상세 영역에 노출되는 상세안내를 입력합니다.</textarea>
+                    <div class="editor-status">p</div>
+                  </div>
+                  <div class="detail-actions"><button class="btn small red" onclick="deleteActiveContentTab()">현재 탭 삭제</button></div>
+                </div>
+                <aside class="template-panel">
+                  <div class="template-head"><strong id="templatePanelTitle">상세안내 템플릿 선택</strong><button class="btn small green" onclick="msg('템플릿 관리 샘플입니다.')">템플릿 관리</button></div>
+                  <div id="templateList" class="template-list">
+                    <button class="template-item" onclick="applySelectedTemplate(this)">버스여행 당일 상세안내</button>
+                    <button class="template-item active" onclick="applySelectedTemplate(this)">버스여행 1박2일 상세안내</button>
+                    <button class="template-item" onclick="applySelectedTemplate(this)">기차여행 1박2일 상세안내</button>
+                    <button class="template-item" onclick="applySelectedTemplate(this)">해외여행 상세안내</button>
+                  </div>
+                </aside>
               </div>
-              <div class="editor-toolbar"><span>파일</span><span>편집</span><span>B</span><span>I</span><span>이미지</span><span>표</span></div>
-              <textarea id="detailEditor" class="editor" style="min-height:260px">홈페이지 상세 영역에 노출되는 상세안내를 입력합니다.</textarea>
-              <div style="text-align:right;margin-top:8px"><button class="btn small red" onclick="deleteActiveContentTab()">현재 탭 삭제</button></div>
             </div>
           </section>
 
@@ -364,7 +396,36 @@ function applyTemplate(id,type){
   if(!confirm('템플릿을 선택하면 기존 내용이 덮어쓰기됩니다. 적용할까요?')) return;
   document.getElementById(id).value=type==='include'?'왕복 교통비\\n가이드\\n기본 입장료':'개인경비\\n여행자보험\\n제공 외 식사비';
 }
-function selectContentTab(btn){document.querySelectorAll('.content-tab').forEach(function(t){t.classList.remove('active')});btn.classList.add('active')}
+var detailTemplates={
+  '상세안내':['버스여행 당일 상세안내','버스여행 1박2일 상세안내','기차여행 1박2일 상세안내','해외여행 상세안내'],
+  '이용안내':['국내여행 이용안내','기차여행 이용안내','버스여행 이용안내','단체예약 이용안내'],
+  '취소/환불 규정':['국내여행 취소/환불 규정','숙박여행 취소/환불 규정','당일여행 취소/환불 규정','특가상품 취소/환불 규정'],
+  '선택관광/쇼핑':['선택관광 없음 안내','선택관광 포함 안내','쇼핑센터 방문 안내','자유일정 안내'],
+  '숙소정보':['호텔 기본 숙소정보','리조트 숙소정보','온천호텔 숙소정보','객실 배정 안내']
+};
+function selectContentTab(btn){
+  document.querySelectorAll('.content-tab').forEach(function(t){t.classList.remove('active')});
+  btn.classList.add('active');
+  updateTemplatePanel(btn.textContent.trim());
+}
+function updateTemplatePanel(tabName){
+  var title=document.getElementById('templatePanelTitle');
+  var list=document.getElementById('templateList');
+  if(!title||!list) return;
+  title.textContent=tabName+' 템플릿 선택';
+  var items=detailTemplates[tabName]||[tabName+' 기본 템플릿',tabName+' 상품유형 템플릿',tabName+' 공통 템플릿'];
+  list.innerHTML=items.map(function(item,index){
+    return '<button class="template-item'+(index===1?' active':'')+'" onclick="applySelectedTemplate(this)">'+item+'</button>';
+  }).join('');
+}
+function applySelectedTemplate(btn){
+  document.querySelectorAll('.template-item').forEach(function(item){item.classList.remove('active')});
+  btn.classList.add('active');
+  var tab=document.querySelector('.content-tab.active').textContent.trim();
+  if(confirm(btn.textContent+' 템플릿을 적용하면 현재 '+tab+' 내용이 덮어쓰기됩니다. 적용할까요?')){
+    document.getElementById('detailEditor').value=btn.textContent+' 템플릿이 적용되었습니다.\n'+tab+' 내용을 상품에 맞게 수정하세요.';
+  }
+}
 function addContentTab(){
   var name=prompt('추가할 상세안내 탭명을 입력하세요.','상품 특전');
   if(!name) return;
@@ -379,7 +440,7 @@ function deleteActiveContentTab(){
   if(!active){return}
   if(document.querySelectorAll('.content-tab').length<=1){msg('상세안내 탭은 최소 1개 이상 필요합니다.');return}
   active.remove();
-  document.querySelector('.content-tab').classList.add('active');
+  selectContentTab(document.querySelector('.content-tab'));
 }
 function applyDetailTemplate(){
   if(confirm('상품유형별 상세안내 템플릿을 적용하면 현재 상세내용이 덮어쓰기됩니다.')){
