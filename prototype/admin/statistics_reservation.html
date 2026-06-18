@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>예약통계</title>
   <style>
-body{margin:0;background:#f4f6f8;color:#222;font-family:"Malgun Gothic","Noto Sans KR",Arial,sans-serif;font-size:13px}.app{display:grid;grid-template-columns:250px 1fr;min-height:100vh}.sidebar{background:#071122;color:#d7e1f0;padding:18px 0}.brand{padding:0 18px 18px;border-bottom:1px solid rgba(255,255,255,.1)}.brand strong{display:block;color:white;font-size:17px}.nav-title{padding:18px 18px 8px;color:#8ea0bb;font-size:11px}.nav a{display:block;padding:11px 18px;color:#cdd6e5;text-decoration:none;border-left:3px solid transparent}.nav a.active{background:rgba(255,255,255,.08);border-left-color:#5b8cff;color:white}.nav-tree{padding:8px 0 18px}.nav-group{border-bottom:1px solid rgba(255,255,255,.06);padding:6px 0}.nav-depth1{padding:10px 18px 8px;color:#fff;font-weight:900;font-size:13px;cursor:pointer;display:flex;align-items:center;justify-content:space-between}.nav-depth1:after{content:'▾';font-size:10px;color:#8ea0bb}.nav-group:not(.open) .nav-depth1:after{content:'▸'}.nav-group:not(.open) a{display:none}.nav-group a{position:relative;padding:7px 18px 7px 46px;font-size:12px;color:#b9c6d8}.nav-group a:before{content:'├';position:absolute;left:26px;top:7px;color:rgba(185,198,216,.7);font-size:12px;line-height:1}.nav-group a.active{background:rgba(91,140,255,.18);border-left-color:#5b8cff;color:white}.nav-group.open .nav-depth1{color:#8fb3ff}.topbar{height:48px;background:white;border-bottom:1px solid #d9dde3;display:flex;align-items:center;justify-content:space-between;padding:0 16px}.page{padding:16px;max-width:1800px}.page-head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:14px}h1{font-size:24px;margin:0 0 6px}.desc{font-weight:700;color:#555}.btn{border:1px solid #cfd5dd;background:white;border-radius:4px;padding:8px 12px;font-weight:700;cursor:pointer;white-space:nowrap}.btn:hover{background:#f7f9fb}.btn.green{background:#18a34a;border-color:#18a34a;color:white}.btn.green:hover{background:#138a3e}.btn.blue{background:#2f63f6;border-color:#2f63f6;color:white}.panel{background:white;border:1px solid #d9dde3;border-radius:7px;margin-bottom:12px}.panel-head{background:#e6e6e6;padding:12px 14px;font-weight:900;border-bottom:1px solid #d9dde3;display:flex;justify-content:space-between;align-items:center}.panel-body{padding:14px;overflow:auto}input,select{border:1px solid #d6dbe1;border-radius:4px;padding:8px 9px;min-height:36px;box-sizing:border-box;background:white}label{font-weight:800;color:#3b4654}.field{display:flex;flex-direction:column;gap:6px}.summary{display:grid;grid-template-columns:repeat(6,1fr);gap:10px;margin-bottom:12px}.card{background:white;border:1px solid #d9dde3;border-radius:7px;padding:14px}.card span{display:block;color:#667085;font-weight:800;margin-bottom:8px}.card strong{font-size:22px;color:#2f63f6}.card.warn strong{color:#b45309}.card.danger strong{color:#d92d20}.card.good strong{color:#0f8738}.filter-grid{display:grid;grid-template-columns:128px 116px 116px 118px 128px 128px 108px 108px 110px auto auto auto;gap:8px 10px;align-items:end;min-width:1420px}.filter-grid input,.filter-grid select{width:100%;min-height:32px;padding:6px 7px;font-size:12px}.filter-grid label{display:none}.filter-action button{width:100%;min-height:32px;padding:6px 9px}.table-wrap{overflow:auto}.table{width:100%;border-collapse:collapse;min-width:1280px}.table th{background:#e6e6e6;border:1px solid #cfd3d8;padding:10px;text-align:center;white-space:nowrap}.table td{border:1px solid #edf0f3;padding:9px;background:white;vertical-align:middle;white-space:nowrap}.table td.center{text-align:center}.table td.money{text-align:right}.badge{display:inline-flex;border-radius:14px;padding:4px 8px;font-size:12px;font-weight:900;white-space:nowrap}.b-green{background:#e7f8ee;color:#0f8738}.b-blue{background:#eaf1ff;color:#2556d9}.b-orange{background:#fff4de;color:#b45309}.b-red{background:#fff0f0;color:#d92d20}.b-gray{background:#eef1f5;color:#475467}.b-purple{background:#f1ecff;color:#6941c6}.stat-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px}.mini-chart{display:grid;gap:8px}.bar-row{display:grid;grid-template-columns:110px 1fr 90px;gap:10px;align-items:center}.bar-track{height:12px;background:#edf0f3;border-radius:12px;overflow:hidden}.bar-fill{height:100%;background:#2f63f6}.bar-fill.green{background:#18a34a}.bar-fill.orange{background:#f59e0b}.bar-fill.red{background:#d92d20}.muted{color:#667085;font-size:12px}.top-actions{display:flex;align-items:center;gap:8px;flex-wrap:wrap}@media(max-width:1300px){.summary{grid-template-columns:repeat(3,1fr)}.stat-grid{grid-template-columns:1fr}}@media(max-width:1000px){.app{grid-template-columns:1fr}.sidebar{display:none}.page-head{display:block}.top-actions{margin-top:10px}.summary{grid-template-columns:repeat(2,1fr)}.filter-grid{grid-template-columns:repeat(2,minmax(0,1fr));min-width:0}.filter-action{grid-column:auto}.table{min-width:1100px}}.chart-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px}.chart-box{background:white;border:1px solid #d9dde3;border-radius:7px;overflow:hidden}.chart-head{background:#e6e6e6;padding:12px 14px;font-weight:900;border-bottom:1px solid #d9dde3;display:flex;justify-content:space-between;align-items:center}.chart-body{padding:14px}.chart-bars{display:grid;gap:10px}.chart-bar{display:grid;grid-template-columns:120px 1fr 90px;gap:10px;align-items:center}.chart-label{font-weight:800;color:#344054}.chart-track{height:14px;background:#edf0f3;border-radius:14px;overflow:hidden}.chart-fill{height:100%;background:#2f63f6}.chart-fill.green{background:#18a34a}.chart-fill.orange{background:#f59e0b}.chart-fill.red{background:#d92d20}.chart-fill.purple{background:#7c3aed}.line-chart{width:100%;height:210px}.line-chart text{font-size:11px;fill:#667085}.line-chart .grid{stroke:#edf0f3;stroke-width:1}.line-chart .axis{stroke:#cfd5dd;stroke-width:1}.line-chart .line{fill:none;stroke:#2f63f6;stroke-width:3}.line-chart .line.orange{stroke:#f59e0b}.line-chart .line.green{stroke:#18a34a}.line-chart .dot{fill:white;stroke:#2f63f6;stroke-width:3}.line-chart .dot.orange{stroke:#f59e0b}.line-chart .dot.green{stroke:#18a34a}@media(max-width:1100px){.chart-grid{grid-template-columns:1fr}.chart-bar{grid-template-columns:96px 1fr 74px}}
+body{margin:0;background:#f4f6f8;color:#222;font-family:"Malgun Gothic","Noto Sans KR",Arial,sans-serif;font-size:13px}.app{display:grid;grid-template-columns:250px 1fr;min-height:100vh}.sidebar{background:#071122;color:#d7e1f0;padding:18px 0}.brand{padding:0 18px 18px;border-bottom:1px solid rgba(255,255,255,.1)}.brand strong{display:block;color:white;font-size:17px}.nav-title{padding:18px 18px 8px;color:#8ea0bb;font-size:11px}.nav a{display:block;padding:11px 18px;color:#cdd6e5;text-decoration:none;border-left:3px solid transparent}.nav a.active{background:rgba(255,255,255,.08);border-left-color:#5b8cff;color:white}.nav-tree{padding:8px 0 18px}.nav-group{border-bottom:1px solid rgba(255,255,255,.06);padding:6px 0}.nav-depth1{padding:10px 18px 8px;color:#fff;font-weight:900;font-size:13px;cursor:pointer;display:flex;align-items:center;justify-content:space-between}.nav-depth1:after{content:'▾';font-size:10px;color:#8ea0bb}.nav-group:not(.open) .nav-depth1:after{content:'▸'}.nav-group:not(.open) a{display:none}.nav-group a{position:relative;padding:7px 18px 7px 46px;font-size:12px;color:#b9c6d8}.nav-group a:before{content:'├';position:absolute;left:26px;top:7px;color:rgba(185,198,216,.7);font-size:12px;line-height:1}.nav-group a.active{background:rgba(91,140,255,.18);border-left-color:#5b8cff;color:white}.nav-group.open .nav-depth1{color:#8fb3ff}.topbar{height:48px;background:white;border-bottom:1px solid #d9dde3;display:flex;align-items:center;justify-content:space-between;padding:0 16px}.page{padding:16px;max-width:1800px}.page-head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:14px}h1{font-size:24px;margin:0 0 6px}.desc{font-weight:700;color:#555}.btn{border:1px solid #cfd5dd;background:white;border-radius:4px;padding:8px 12px;font-weight:700;cursor:pointer;white-space:nowrap}.btn:hover{background:#f7f9fb}.btn.green{background:#18a34a;border-color:#18a34a;color:white}.btn.green:hover{background:#138a3e}.btn.blue{background:#2f63f6;border-color:#2f63f6;color:white}.panel{background:white;border:1px solid #d9dde3;border-radius:7px;margin-bottom:12px}.panel-head{background:#e6e6e6;padding:12px 14px;font-weight:900;border-bottom:1px solid #d9dde3;display:flex;justify-content:space-between;align-items:center;gap:8px}.panel-body{padding:14px;overflow:auto}input,select{border:1px solid #d6dbe1;border-radius:4px;padding:8px 9px;min-height:36px;box-sizing:border-box;background:white}label{font-weight:800;color:#3b4654}.field{display:flex;flex-direction:column;gap:6px}.summary{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:10px;margin-bottom:12px}.card{background:white;border:1px solid #d9dde3;border-radius:7px;padding:14px;min-width:0}.card span{display:block;color:#667085;font-weight:800;margin-bottom:8px}.card strong{font-size:20px;color:#2f63f6;word-break:keep-all}.card.warn strong{color:#b45309}.card.danger strong{color:#d92d20}.card.good strong{color:#0f8738}.filter-grid{display:grid;grid-template-columns:repeat(7,minmax(116px,1fr)) auto auto auto;gap:8px 10px;align-items:end;min-width:1540px}.filter-grid input,.filter-grid select{width:100%;min-height:34px;padding:6px 7px;font-size:12px}.filter-action button{width:100%;min-height:34px;padding:6px 9px}.table-wrap{overflow:auto}.table{width:100%;border-collapse:collapse;min-width:1280px}.table.wide{min-width:1600px}.table th{background:#e6e6e6;border:1px solid #cfd3d8;padding:10px;text-align:center;white-space:nowrap}.table td{border:1px solid #edf0f3;padding:9px;background:white;vertical-align:middle;white-space:nowrap}.table td.center{text-align:center}.table td.money{text-align:right}.badge{display:inline-flex;border-radius:14px;padding:4px 8px;font-size:12px;font-weight:900;white-space:nowrap}.b-green{background:#e7f8ee;color:#0f8738}.b-blue{background:#eaf1ff;color:#2556d9}.b-orange{background:#fff4de;color:#b45309}.b-red{background:#fff0f0;color:#d92d20}.b-gray{background:#eef1f5;color:#475467}.b-purple{background:#f1ecff;color:#6941c6}.b-warn{background:#fff1f0;color:#b42318;border:1px solid #fecdca}.muted{color:#667085;font-size:12px}.top-actions{display:flex;align-items:center;gap:8px;flex-wrap:wrap}.chart-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px}.chart-box{background:white;border:1px solid #d9dde3;border-radius:7px;overflow:hidden}.chart-head{background:#e6e6e6;padding:12px 14px;font-weight:900;border-bottom:1px solid #d9dde3;display:flex;justify-content:space-between;align-items:center}.chart-body{padding:14px}.chart-bars{display:grid;gap:10px}.chart-bar{display:grid;grid-template-columns:120px 1fr 92px;gap:10px;align-items:center}.chart-label{font-weight:800;color:#344054}.chart-track{height:14px;background:#edf0f3;border-radius:14px;overflow:hidden}.chart-fill{height:100%;background:#2f63f6}.chart-fill.green{background:#18a34a}.chart-fill.orange{background:#f59e0b}.chart-fill.red{background:#d92d20}.chart-fill.purple{background:#7c3aed}.line-chart{width:100%;height:230px}.line-chart text{font-size:11px;fill:#667085}.line-chart .grid{stroke:#edf0f3;stroke-width:1}.line-chart .axis{stroke:#cfd5dd;stroke-width:1}.line-chart .line{fill:none;stroke:#2f63f6;stroke-width:3}.line-chart .line.orange{stroke:#f59e0b}.line-chart .line.red{stroke:#d92d20}.line-chart .dot{fill:white;stroke:#2f63f6;stroke-width:3}.line-chart .dot.red{stroke:#d92d20}.table-set{display:grid;gap:12px}@media(max-width:1500px){.summary{grid-template-columns:repeat(4,minmax(0,1fr))}.filter-grid{grid-template-columns:repeat(5,minmax(120px,1fr));min-width:0}.chart-grid{grid-template-columns:1fr 1fr}}@media(max-width:1000px){.app{grid-template-columns:1fr}.sidebar{display:none}.page-head{display:block}.top-actions{margin-top:10px}.summary{grid-template-columns:repeat(2,minmax(0,1fr))}.filter-grid{grid-template-columns:repeat(2,minmax(0,1fr));min-width:0}.chart-grid{grid-template-columns:1fr}.chart-bar{grid-template-columns:96px 1fr 74px}.table,.table.wide{min-width:1120px}}
   </style>
 </head>
 <body>
@@ -106,20 +106,27 @@ body{margin:0;background:#f4f6f8;color:#222;font-family:"Malgun Gothic","Noto Sa
         <div class="page-head">
           <div>
             <h1>예약통계</h1>
-            <div class="desc">예약일, 출발일, 결제일 기준 예약 흐름과 취소율을 확인합니다.</div>
+            <div class="desc">예약상태, 결제대기, 잔금미납, 취소사유, 리드타임을 한 화면에서 확인합니다.</div>
           </div>
           <div class="top-actions">
-            <button class="btn" onclick="msg('통계 기준 안내 모달 샘플입니다.')">기준 안내</button>
-            <button class="btn blue" onclick="msg('현재 검색조건 기준으로 엑셀을 다운로드합니다.')">엑셀 다운로드</button>
+            <button class="btn" onclick="msg('평균 리드타임은 예약접수일과 출발일 사이 평균 일수 기준 샘플입니다.')">기준 안내</button>
+            <button class="btn blue" onclick="msg('현재 검색조건 기준으로 예약통계 엑셀을 다운로드합니다.')">엑셀 다운로드</button>
           </div>
         </div>
 
-        <section class="summary" aria-label="통계 요약">
-          <div class="card"><span>예약건수</span><strong>428건</strong></div>
-          <div class="card good"><span>예약인원</span><strong>1,284명</strong></div>
-          <div class="card good"><span>예약확정</span><strong>356건</strong></div>
-          <div class="card warn"><span>대기/보류</span><strong>41건</strong></div>
-          <div class="card"><span>예약매출</span><strong>128,450,000원</strong></div>
+        <section class="summary" aria-label="예약 요약">
+          <div class="card"><span>예약접수</span><strong>642건</strong></div>
+          <div class="card good"><span>예약확정</span><strong>486건</strong></div>
+          <div class="card warn"><span>확인중</span><strong>38건</strong></div>
+          <div class="card warn"><span>예약대기</span><strong>42건</strong></div>
+          <div class="card warn"><span>변경요청</span><strong>17건</strong></div>
+          <div class="card danger"><span>취소요청</span><strong>21건</strong></div>
+          <div class="card danger"><span>예약취소</span><strong>38건</strong></div>
+          <div class="card warn"><span>결제대기</span><strong>64건</strong></div>
+          <div class="card danger"><span>잔금미납</span><strong>29건</strong></div>
+          <div class="card good"><span>예약인원</span><strong>1,926명</strong></div>
+          <div class="card good"><span>예약확정률</span><strong>75.7%</strong></div>
+          <div class="card"><span>평균 리드타임</span><strong>18.4일</strong></div>
           <div class="card danger"><span>취소율</span><strong>6.8%</strong></div>
         </section>
 
@@ -127,16 +134,18 @@ body{margin:0;background:#f4f6f8;color:#222;font-family:"Malgun Gothic","Noto Sa
           <div class="panel-head">검색/필터</div>
           <div class="panel-body">
             <div class="filter-grid">
-              <div class="field"><label>조회기간</label><select><option>조회기간</option><option>오늘</option><option>이번주</option><option>이번달</option><option>직접입력</option></select></div>
+              <div class="field"><label>조회기간</label><select><option>이번달</option><option>오늘</option><option>이번주</option><option>전월</option><option>직접입력</option></select></div>
               <div class="field"><label>시작일</label><input type="date" value="2026-06-01"></div>
               <div class="field"><label>종료일</label><input type="date" value="2026-06-30"></div>
               <div class="field"><label>기준일자</label><select><option>예약일</option><option>결제일</option><option>출발일</option></select></div>
-              <div class="field"><label>상품유형</label><select><option>상품유형 전체</option><option>자사상품</option><option>공유상품</option><option>위탁상품</option></select></div>
-              <div class="field"><label>공급여행사</label><select><option>공급여행사 전체</option><option>AOS 직영</option><option>강화테마투어</option><option>제주로컬투어</option><option>남도기차여행</option></select></div>
-              <div class="field"><label>판매여행사</label><select><option>판매여행사 전체</option><option>AOS 직영</option><option>수도권투어</option><option>복지몰파트너</option></select></div>
-              <div class="field"><label>판매점</label><select><option>판매점 전체</option><option>본사몰</option><option>강남지점</option><option>기업복지몰</option><option>콜센터</option></select></div>
-              <div class="field"><label>판매채널</label><select><option>판매채널 전체</option><option>자사몰</option><option>판매사</option><option>관리자등록</option></select></div>
-              <div class="field"><label>상품지역</label><select><option>상품지역 전체</option><option>인천 강화</option><option>경남 거제</option><option>제주 서귀포</option><option>경기 화성</option></select></div>
+              <div class="field"><label>상품유형</label><select><option>전체</option><option>자사상품</option><option>공유상품</option><option>위탁상품</option></select></div>
+              <div class="field"><label>공급여행사</label><select><option>전체</option><option>AOS 직영</option><option>현담여행사</option><option>행복투어</option><option>남도기차여행</option></select></div>
+              <div class="field"><label>판매점</label><select><option>전체</option><option>본사몰</option><option>강남판매점</option><option>수원판매점</option><option>기업복지몰</option></select></div>
+              <div class="field"><label>판매채널</label><select><option>전체</option><option>자사몰</option><option>관리자등록</option><option>판매점</option><option>제휴채널</option><option>인스타그램</option><option>카카오채널</option><option>복지몰</option><option>지자체연계</option></select></div>
+              <div class="field"><label>예약상태</label><select><option>전체</option><option>예약접수</option><option>확인중</option><option>예약대기</option><option>예약확정</option><option>변경요청</option><option>취소요청</option><option>예약취소</option><option>출발완료</option></select></div>
+              <div class="field"><label>결제상태</label><select><option>전체</option><option>미결제</option><option>결제요청</option><option>예약금결제</option><option>잔금대기</option><option>완납</option><option>환불요청</option><option>환불완료</option></select></div>
+              <div class="field"><label>상품지역</label><select><option>전체</option><option>제주</option><option>전남 순천</option><option>강원 속초</option><option>경기 화성</option></select></div>
+              <div class="field"><label>정산상태</label><select><option>전체</option><option>미정산</option><option>정산대기</option><option>정산완료</option><option>보류</option></select></div>
               <div class="field filter-action"><label>&nbsp;</label><button class="btn green" onclick="msg('샘플 데이터 기준으로 검색했습니다.')">검색</button></div>
               <div class="field filter-action"><label>&nbsp;</label><button class="btn" onclick="msg('검색조건을 초기화했습니다.')">초기화</button></div>
               <div class="field filter-action"><label>&nbsp;</label><button class="btn blue" onclick="msg('현재 검색조건 기준으로 엑셀을 다운로드합니다.')">엑셀 다운로드</button></div>
@@ -144,50 +153,104 @@ body{margin:0;background:#f4f6f8;color:#222;font-family:"Malgun Gothic","Noto Sa
           </div>
         </section>
 
-        <section class="panel">
-          <div class="panel-head">
-            <span>예약 상태별 통계</span>
-            <span class="muted">샘플 데이터 · DB 연동 전 프로토타입</span>
-          </div>
-          <div class="table-wrap">
-            <table class="table">
-              <thead>
-                <tr><th>기준일</th><th>상품유형</th><th>공급여행사</th><th>판매여행사</th><th>판매점</th><th>판매채널</th><th>예약접수</th><th>예약확정</th><th>취소요청</th><th>매출</th><th>정산금액</th><th>취소율</th><th>정산상태</th></tr>
-              </thead>
-              <tbody>
-                <tr><td>2026-06-01</td><td>자사상품</td><td>AOS 직영</td><td>AOS 직영</td><td>본사몰</td><td>자사몰</td><td class="center">48건</td><td class="center">42건</td><td class="center">2건</td><td class="money">14,420,000원</td><td class="money">14,420,000원</td><td class="center">2.1%</td><td><span class="badge b-green">정산완료</span></td></tr>
-                <tr><td>2026-06-02</td><td>공유상품</td><td>강화테마투어</td><td>수도권투어</td><td>강남지점</td><td>판매사</td><td class="center">39건</td><td class="center">31건</td><td class="center">3건</td><td class="money">11,820,000원</td><td class="money">10,120,000원</td><td class="center">5.1%</td><td><span class="badge b-orange">정산중</span></td></tr>
-                <tr><td>2026-06-03</td><td>위탁상품</td><td>제주로컬투어</td><td>복지몰파트너</td><td>기업복지몰</td><td>판매사</td><td class="center">35건</td><td class="center">27건</td><td class="center">4건</td><td class="money">9,760,000원</td><td class="money">7,820,000원</td><td class="center">8.6%</td><td><span class="badge b-red">미작성</span></td></tr>
-                <tr><td>2026-06-04</td><td>공유상품</td><td>남도기차여행</td><td>AOS 직영</td><td>콜센터</td><td>관리자등록</td><td class="center">28건</td><td class="center">24건</td><td class="center">1건</td><td class="money">8,240,000원</td><td class="money">7,460,000원</td><td class="center">3.6%</td><td><span class="badge b-orange">정산중</span></td></tr>
-              </tbody>
-            </table>
-          </div>
-        </section>
-
-
-        <section class="chart-grid">
-          <div class="chart-box">
+        <div class="chart-grid">
+          <section class="chart-box">
             <div class="chart-head"><span>예약상태 분포</span><span class="muted">예약건수 기준</span></div>
             <div class="chart-body chart-bars">
-              <div class="chart-bar"><span class="chart-label">예약확정</span><div class="chart-track"><div class="chart-fill green" style="width:83%"></div></div><strong>356건</strong></div>
-              <div class="chart-bar"><span class="chart-label">대기/보류</span><div class="chart-track"><div class="chart-fill orange" style="width:28%"></div></div><strong>41건</strong></div>
-              <div class="chart-bar"><span class="chart-label">취소요청</span><div class="chart-track"><div class="chart-fill red" style="width:18%"></div></div><strong>19건</strong></div>
-              <div class="chart-bar"><span class="chart-label">취소완료</span><div class="chart-track"><div class="chart-fill red" style="width:12%"></div></div><strong>12건</strong></div>
+              <div class="chart-bar"><span class="chart-label">예약확정</span><div class="chart-track"><div class="chart-fill green" style="width:76%"></div></div><strong>486건</strong></div>
+              <div class="chart-bar"><span class="chart-label">확인중</span><div class="chart-track"><div class="chart-fill orange" style="width:18%"></div></div><strong>38건</strong></div>
+              <div class="chart-bar"><span class="chart-label">예약대기</span><div class="chart-track"><div class="chart-fill orange" style="width:20%"></div></div><strong>42건</strong></div>
+              <div class="chart-bar"><span class="chart-label">예약취소</span><div class="chart-track"><div class="chart-fill red" style="width:17%"></div></div><strong>38건</strong></div>
             </div>
-          </div>
-          <div class="chart-box">
+          </section>
+          <section class="chart-box">
+            <div class="chart-head"><span>결제상태 분포</span><span class="muted">결제대기/잔금미납 확인</span></div>
+            <div class="chart-body chart-bars">
+              <div class="chart-bar"><span class="chart-label">완납</span><div class="chart-track"><div class="chart-fill green" style="width:68%"></div></div><strong>318건</strong></div>
+              <div class="chart-bar"><span class="chart-label">예약금결제</span><div class="chart-track"><div class="chart-fill" style="width:25%"></div></div><strong>118건</strong></div>
+              <div class="chart-bar"><span class="chart-label">잔금대기</span><div class="chart-track"><div class="chart-fill orange" style="width:19%"></div></div><strong>92건</strong></div>
+              <div class="chart-bar"><span class="chart-label">미결제</span><div class="chart-track"><div class="chart-fill red" style="width:14%"></div></div><strong>64건</strong></div>
+            </div>
+          </section>
+        </div>
+
+        <div class="chart-grid">
+          <section class="chart-box">
             <div class="chart-head"><span>예약/취소 추이</span><span class="muted">일자별 건수</span></div>
             <div class="chart-body">
-              <svg class="line-chart" viewBox="0 0 520 210" role="img" aria-label="예약과 취소 추이 그래프">
-                <line class="grid" x1="40" y1="40" x2="500" y2="40"/><line class="grid" x1="40" y1="90" x2="500" y2="90"/><line class="grid" x1="40" y1="140" x2="500" y2="140"/><line class="axis" x1="40" y1="170" x2="500" y2="170"/><line class="axis" x1="40" y1="25" x2="40" y2="170"/>
-                <polyline class="line green" points="40,138 118,118 196,92 274,104 352,78 430,86 500,62"/><polyline class="line orange" points="40,160 118,154 196,148 274,150 352,138 430,144 500,132"/>
-                <circle class="dot green" cx="40" cy="138" r="4"/><circle class="dot green" cx="196" cy="92" r="4"/><circle class="dot green" cx="352" cy="78" r="4"/><circle class="dot green" cx="500" cy="62" r="4"/>
-                <text x="36" y="195">6/1</text><text x="188" y="195">6/10</text><text x="344" y="195">6/20</text><text x="486" y="195">6/30</text>
+              <svg class="line-chart" viewBox="0 0 620 230" role="img" aria-label="예약과 취소 추이 그래프">
+                <line class="grid" x1="40" y1="40" x2="600" y2="40"/><line class="grid" x1="40" y1="90" x2="600" y2="90"/><line class="grid" x1="40" y1="140" x2="600" y2="140"/><line class="axis" x1="40" y1="180" x2="600" y2="180"/><line class="axis" x1="40" y1="25" x2="40" y2="180"/>
+                <polyline class="line" points="40,142 130,126 220,98 310,110 400,76 500,84 600,58"/><polyline class="line red" points="40,166 130,158 220,150 310,154 400,138 500,144 600,130"/>
+                <circle class="dot" cx="40" cy="142" r="4"/><circle class="dot" cx="220" cy="98" r="4"/><circle class="dot" cx="400" cy="76" r="4"/><circle class="dot red" cx="600" cy="130" r="4"/>
+                <text x="36" y="210">6/1</text><text x="212" y="210">6/10</text><text x="392" y="210">6/20</text><text x="584" y="210">6/30</text>
               </svg>
             </div>
-          </div>
-        </section>
-</div>
+          </section>
+          <section class="chart-box">
+            <div class="chart-head"><span>상품유형별 예약 비중</span><span class="muted">예약건수 기준</span></div>
+            <div class="chart-body chart-bars">
+              <div class="chart-bar"><span class="chart-label">자사상품</span><div class="chart-track"><div class="chart-fill green" style="width:44%"></div></div><strong>44.0%</strong></div>
+              <div class="chart-bar"><span class="chart-label">공유상품</span><div class="chart-track"><div class="chart-fill" style="width:35%"></div></div><strong>35.0%</strong></div>
+              <div class="chart-bar"><span class="chart-label">위탁상품</span><div class="chart-track"><div class="chart-fill purple" style="width:21%"></div></div><strong>21.0%</strong></div>
+            </div>
+          </section>
+        </div>
+
+        <div class="table-set">
+          <section class="panel">
+            <div class="panel-head"><span>기간별 예약통계</span><span class="muted">예약상태 흐름 및 리드타임</span></div>
+            <div class="table-wrap"><table class="table wide"><thead><tr><th>기간</th><th>예약접수</th><th>확인중</th><th>예약대기</th><th>예약확정</th><th>변경요청</th><th>취소요청</th><th>예약취소</th><th>출발완료</th><th>예약확정률</th><th>취소율</th><th>평균 리드타임</th></tr></thead><tbody>
+              <tr><td>2026-06-01 ~ 2026-06-07</td><td class="center">146건</td><td class="center">8건</td><td class="center">12건</td><td class="center">112건</td><td class="center">3건</td><td class="center">5건</td><td class="center">6건</td><td class="center">82건</td><td class="center">76.7%</td><td class="center">4.1%</td><td class="center">21.2일</td></tr>
+              <tr><td>2026-06-08 ~ 2026-06-14</td><td class="center">158건</td><td class="center">11건</td><td class="center">9건</td><td class="center">122건</td><td class="center">4건</td><td class="center">6건</td><td class="center">6건</td><td class="center">96건</td><td class="center">77.2%</td><td class="center">3.8%</td><td class="center">19.6일</td></tr>
+              <tr><td>2026-06-15 ~ 2026-06-21</td><td class="center">171건</td><td class="center">10건</td><td class="center">13건</td><td class="center">128건</td><td class="center">5건</td><td class="center">7건</td><td class="center">8건</td><td class="center">104건</td><td class="center">74.9%</td><td class="center">4.7%</td><td class="center">17.8일</td></tr>
+              <tr><td>2026-06-22 ~ 2026-06-30</td><td class="center">167건</td><td class="center">9건</td><td class="center">8건</td><td class="center">124건</td><td class="center">5건</td><td class="center">3건</td><td class="center">18건</td><td class="center">88건</td><td class="center">74.3%</td><td class="center">10.8%</td><td class="center">15.1일</td></tr>
+            </tbody></table></div>
+          </section>
+
+          <section class="panel">
+            <div class="panel-head"><span>예약상태별 통계</span><span class="muted">상태별 금액과 채널</span></div>
+            <div class="table-wrap"><table class="table"><thead><tr><th>예약상태</th><th>예약건수</th><th>예약인원</th><th>총 총 총 예약금액</th><th>비중</th><th>주요 상품</th><th>주요 판매채널</th></tr></thead><tbody>
+              <tr><td><span class="badge b-blue">예약접수</span></td><td class="center">642건</td><td class="center">1,926명</td><td class="money">186,420,000원</td><td class="center">100.0%</td><td>제주 2박3일 패키지</td><td>자사몰</td></tr>
+              <tr><td><span class="badge b-orange">확인중</span></td><td class="center">38건</td><td class="center">114명</td><td class="money">10,860,000원</td><td class="center">5.9%</td><td>남도 힐링여행</td><td>관리자등록</td></tr>
+              <tr><td><span class="badge b-orange">예약대기</span></td><td class="center">42건</td><td class="center">126명</td><td class="money">12,420,000원</td><td class="center">6.5%</td><td>속초 당일여행</td><td>판매점</td></tr>
+              <tr><td><span class="badge b-green">예약확정</span></td><td class="center">486건</td><td class="center">1,458명</td><td class="money">142,880,000원</td><td class="center">75.7%</td><td>화성·수원 만원의행복</td><td>지자체연계</td></tr>
+              <tr><td><span class="badge b-red">예약취소</span></td><td class="center">38건</td><td class="center">114명</td><td class="money">9,640,000원</td><td class="center">5.9%</td><td>제주 2박3일 패키지</td><td>복지몰</td></tr>
+            </tbody></table></div>
+          </section>
+
+          <section class="panel">
+            <div class="panel-head"><span>결제상태별 예약현황</span><span class="muted">결제대기 및 미수금 확인</span></div>
+            <div class="table-wrap"><table class="table"><thead><tr><th>결제상태</th><th>예약건수</th><th>예약인원</th><th>총 총 총 예약금액</th><th>실실결제금액</th><th>미수금</th><th>비중</th></tr></thead><tbody>
+              <tr><td><span class="badge b-gray">미결제</span></td><td class="center">64건</td><td class="center">192명</td><td class="money">18,400,000원</td><td class="money">0원</td><td class="money">18,400,000원</td><td class="center">10.0%</td></tr>
+              <tr><td><span class="badge b-blue">결제요청</span></td><td class="center">33건</td><td class="center">99명</td><td class="money">9,820,000원</td><td class="money">0원</td><td class="money">9,820,000원</td><td class="center">5.1%</td></tr>
+              <tr><td><span class="badge b-blue">예약금결제</span></td><td class="center">118건</td><td class="center">354명</td><td class="money">32,600,000원</td><td class="money">12,840,000원</td><td class="money">19,760,000원</td><td class="center">18.4%</td></tr>
+              <tr><td><span class="badge b-orange">잔금대기</span></td><td class="center">92건</td><td class="center">276명</td><td class="money">29,700,000원</td><td class="money">18,420,000원</td><td class="money">11,280,000원</td><td class="center">14.3%</td></tr>
+              <tr><td><span class="badge b-green">완납</span></td><td class="center">318건</td><td class="center">954명</td><td class="money">96,820,000원</td><td class="money">96,820,000원</td><td class="money">0원</td><td class="center">49.5%</td></tr>
+            </tbody></table></div>
+          </section>
+
+          <section class="panel">
+            <div class="panel-head"><span>잔금미납 현황</span><span class="muted">출발임박 미처리 예약은 주의 배지 표시</span></div>
+            <div class="table-wrap"><table class="table wide"><thead><tr><th>예약번호</th><th>예약자</th><th>상품명</th><th>출발일</th><th>총금액</th><th>실실결제금액</th><th>잔금</th><th>잔금마감일</th><th>담당자</th><th>상태</th></tr></thead><tbody>
+              <tr><td>R202606-0184</td><td>김민지</td><td>속초 당일여행</td><td>2026-06-20</td><td class="money">480,000원</td><td class="money">120,000원</td><td class="money">360,000원</td><td>2026-06-18</td><td>박서연</td><td><span class="badge b-warn">주의</span> <span class="badge b-orange">잔금대기</span></td></tr>
+              <tr><td>R202606-0207</td><td>이준호</td><td>제주 2박3일 패키지</td><td>2026-06-22</td><td class="money">1,260,000원</td><td class="money">300,000원</td><td class="money">960,000원</td><td>2026-06-19</td><td>김윤호</td><td><span class="badge b-warn">주의</span> <span class="badge b-orange">잔금대기</span></td></tr>
+              <tr><td>R202606-0231</td><td>최은아</td><td>남도 힐링여행</td><td>2026-06-24</td><td class="money">720,000원</td><td class="money">0원</td><td class="money">720,000원</td><td>2026-06-20</td><td>이도현</td><td><span class="badge b-warn">주의</span> <span class="badge b-gray">미결제</span></td></tr>
+              <tr><td>R202606-0255</td><td>정하늘</td><td>화성·수원 만원의행복</td><td>2026-06-29</td><td class="money">240,000원</td><td class="money">120,000원</td><td class="money">120,000원</td><td>2026-06-25</td><td>박서연</td><td><span class="badge b-orange">잔금대기</span></td></tr>
+            </tbody></table></div>
+          </section>
+
+          <section class="panel">
+            <div class="panel-head"><span>취소사유별 통계</span><span class="muted">취소금액 및 주요 상품</span></div>
+            <div class="table-wrap"><table class="table"><thead><tr><th>취소사유</th><th>취소건수</th><th>취소금액</th><th>비중</th><th>주요 상품</th></tr></thead><tbody>
+              <tr><td>개인사정</td><td class="center">14건</td><td class="money">3,420,000원</td><td class="center">36.8%</td><td>제주 2박3일 패키지</td></tr>
+              <tr><td>일정변경</td><td class="center">9건</td><td class="money">2,180,000원</td><td class="center">23.7%</td><td>남도 힐링여행</td></tr>
+              <tr><td>결제지연</td><td class="center">7건</td><td class="money">1,760,000원</td><td class="center">18.4%</td><td>속초 당일여행</td></tr>
+              <tr><td>모객미달</td><td class="center">5건</td><td class="money">1,220,000원</td><td class="center">13.2%</td><td>화성·수원 만원의행복</td></tr>
+              <tr><td>기상/현지사정</td><td class="center">3건</td><td class="money">740,000원</td><td class="center">7.9%</td><td>강화 역사문화 여행</td></tr>
+            </tbody></table></div>
+          </section>
+        </div>
+      </div>
     </main>
   </div>
   <script>

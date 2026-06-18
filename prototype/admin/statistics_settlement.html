@@ -106,7 +106,7 @@ body{margin:0;background:#f4f6f8;color:#222;font-family:"Malgun Gothic","Noto Sa
         <div class="page-head">
           <div>
             <h1>정산통계</h1>
-            <div class="desc">공급여행사, 판매여행사, 판매점 기준 정산금액과 수수료를 확인합니다.</div>
+            <div class="desc">공급여행사, 판매점 기준 정산금액과 수수료를 확인합니다.</div>
           </div>
           <div class="top-actions">
             <button class="btn" onclick="msg('통계 기준 안내 모달 샘플입니다.')">기준 안내</button>
@@ -115,11 +115,11 @@ body{margin:0;background:#f4f6f8;color:#222;font-family:"Malgun Gothic","Noto Sa
         </div>
 
         <section class="summary" aria-label="통계 요약">
-          <div class="card"><span>정산대상 매출</span><strong>96,820,000원</strong></div>
+          <div class="card"><span>정산대상 총 예약금액</span><strong>96,820,000원</strong></div>
           <div class="card good"><span>정산완료</span><strong>44,760,000원</strong></div>
-          <div class="card warn"><span>정산중</span><strong>33,300,000원</strong></div>
-          <div class="card danger"><span>미작성</span><strong>18,760,000원</strong></div>
-          <div class="card"><span>수수료 합계</span><strong>8,740,000원</strong></div>
+          <div class="card warn"><span>정산대기</span><strong>33,300,000원</strong></div>
+          <div class="card danger"><span>미정산</span><strong>18,760,000원</strong></div>
+          <div class="card"><span>판매판매수수료 합계</span><strong>8,740,000원</strong></div>
           <div class="card danger"><span>미수금</span><strong>12,210,000원</strong></div>
         </section>
 
@@ -133,10 +133,11 @@ body{margin:0;background:#f4f6f8;color:#222;font-family:"Malgun Gothic","Noto Sa
               <div class="field"><label>기준일자</label><select><option>예약일</option><option>결제일</option><option>출발일</option></select></div>
               <div class="field"><label>상품유형</label><select><option>상품유형 전체</option><option>자사상품</option><option>공유상품</option><option>위탁상품</option></select></div>
               <div class="field"><label>공급여행사</label><select><option>공급여행사 전체</option><option>AOS 직영</option><option>강화테마투어</option><option>제주로컬투어</option><option>남도기차여행</option></select></div>
-              <div class="field"><label>판매여행사</label><select><option>판매여행사 전체</option><option>AOS 직영</option><option>수도권투어</option><option>복지몰파트너</option></select></div>
               <div class="field"><label>판매점</label><select><option>판매점 전체</option><option>본사몰</option><option>강남지점</option><option>기업복지몰</option><option>콜센터</option></select></div>
-              <div class="field"><label>판매채널</label><select><option>판매채널 전체</option><option>자사몰</option><option>판매사</option><option>관리자등록</option></select></div>
+              <div class="field"><label>판매채널</label><select><option>전체</option><option>자사몰</option><option>관리자등록</option><option>판매점</option><option>제휴채널</option><option>인스타그램</option><option>카카오채널</option><option>복지몰</option><option>지자체연계</option></select></div>
               <div class="field"><label>상품지역</label><select><option>상품지역 전체</option><option>인천 강화</option><option>경남 거제</option><option>제주 서귀포</option><option>경기 화성</option></select></div>
+              <div class="field"><label>결제상태</label><select><option>전체</option><option>미결제</option><option>예약금결제</option><option>잔금대기</option><option>완납</option><option>환불요청</option><option>환불완료</option></select></div>
+              <div class="field"><label>정산상태</label><select><option>전체</option><option>미정산</option><option>정산대기</option><option>정산완료</option><option>보류</option></select></div>
               <div class="field filter-action"><label>&nbsp;</label><button class="btn green" onclick="msg('샘플 데이터 기준으로 검색했습니다.')">검색</button></div>
               <div class="field filter-action"><label>&nbsp;</label><button class="btn" onclick="msg('검색조건을 초기화했습니다.')">초기화</button></div>
               <div class="field filter-action"><label>&nbsp;</label><button class="btn blue" onclick="msg('현재 검색조건 기준으로 엑셀을 다운로드합니다.')">엑셀 다운로드</button></div>
@@ -152,13 +153,13 @@ body{margin:0;background:#f4f6f8;color:#222;font-family:"Malgun Gothic","Noto Sa
           <div class="table-wrap">
             <table class="table">
               <thead>
-                <tr><th>정산상태</th><th>공급여행사</th><th>판매여행사</th><th>판매점</th><th>판매채널</th><th>예약건수</th><th>매출</th><th>결제금액</th><th>미수금</th><th>정산금액</th><th>수수료</th><th>수수료율</th></tr>
+                <tr><th>정산상태</th><th>공급여행사</th><th>판매점</th><th>판매채널</th><th>예약건수</th><th>총 총 총 예약금액</th><th>실실결제금액</th><th>미수금</th><th>정산금액</th><th>판매수수료</th><th>판매판매수수료율</th></tr>
               </thead>
               <tbody>
-                <tr><td><span class="badge b-green">정산완료</span></td><td>AOS 직영</td><td>AOS 직영</td><td>본사몰</td><td>자사몰</td><td class="center">142건</td><td class="money">42,860,000원</td><td class="money">42,860,000원</td><td class="money">0원</td><td class="money">42,860,000원</td><td class="money">0원</td><td class="center">0%</td></tr>
-                <tr><td><span class="badge b-orange">정산중</span></td><td>강화테마투어</td><td>수도권투어</td><td>강남지점</td><td>판매사</td><td class="center">96건</td><td class="money">31,420,000원</td><td class="money">28,300,000원</td><td class="money">3,120,000원</td><td class="money">26,890,000원</td><td class="money">2,210,000원</td><td class="center">7.0%</td></tr>
-                <tr><td><span class="badge b-red">미작성</span></td><td>제주로컬투어</td><td>복지몰파트너</td><td>기업복지몰</td><td>판매사</td><td class="center">74건</td><td class="money">24,950,000원</td><td class="money">19,100,000원</td><td class="money">5,850,000원</td><td class="money">19,740,000원</td><td class="money">1,880,000원</td><td class="center">7.5%</td></tr>
-                <tr><td><span class="badge b-orange">정산중</span></td><td>남도기차여행</td><td>AOS 직영</td><td>콜센터</td><td>관리자등록</td><td class="center">58건</td><td class="money">16,780,000원</td><td class="money">13,540,000원</td><td class="money">3,240,000원</td><td class="money">15,220,000원</td><td class="money">720,000원</td><td class="center">4.3%</td></tr>
+                <tr><td><span class="badge b-green">정산완료</span></td><td>AOS 직영</td><td>본사몰</td><td>자사몰</td><td class="center">142건</td><td class="money">42,860,000원</td><td class="money">42,860,000원</td><td class="money">0원</td><td class="money">42,860,000원</td><td class="money">0원</td><td class="center">0%</td></tr>
+                <tr><td><span class="badge b-orange">정산대기</span></td><td>강화테마투어</td><td>강남지점</td><td>판매점</td><td class="center">96건</td><td class="money">31,420,000원</td><td class="money">28,300,000원</td><td class="money">3,120,000원</td><td class="money">26,890,000원</td><td class="money">2,210,000원</td><td class="center">7.0%</td></tr>
+                <tr><td><span class="badge b-red">미정산</span></td><td>제주로컬투어</td><td>기업복지몰</td><td>판매점</td><td class="center">74건</td><td class="money">24,950,000원</td><td class="money">19,100,000원</td><td class="money">5,850,000원</td><td class="money">19,740,000원</td><td class="money">1,880,000원</td><td class="center">7.5%</td></tr>
+                <tr><td><span class="badge b-orange">정산대기</span></td><td>남도기차여행</td><td>콜센터</td><td>관리자등록</td><td class="center">58건</td><td class="money">16,780,000원</td><td class="money">13,540,000원</td><td class="money">3,240,000원</td><td class="money">15,220,000원</td><td class="money">720,000원</td><td class="center">4.3%</td></tr>
               </tbody>
             </table>
           </div>
@@ -170,13 +171,13 @@ body{margin:0;background:#f4f6f8;color:#222;font-family:"Malgun Gothic","Noto Sa
             <div class="chart-head"><span>정산상태별 금액</span><span class="muted">정산 진행률 확인</span></div>
             <div class="chart-body chart-bars">
               <div class="chart-bar"><span class="chart-label">정산완료</span><div class="chart-track"><div class="chart-fill green" style="width:100%"></div></div><strong>44.8백만</strong></div>
-              <div class="chart-bar"><span class="chart-label">정산중</span><div class="chart-track"><div class="chart-fill orange" style="width:74%"></div></div><strong>33.3백만</strong></div>
-              <div class="chart-bar"><span class="chart-label">미작성</span><div class="chart-track"><div class="chart-fill red" style="width:42%"></div></div><strong>18.8백만</strong></div>
+              <div class="chart-bar"><span class="chart-label">정산대기</span><div class="chart-track"><div class="chart-fill orange" style="width:74%"></div></div><strong>33.3백만</strong></div>
+              <div class="chart-bar"><span class="chart-label">미정산</span><div class="chart-track"><div class="chart-fill red" style="width:42%"></div></div><strong>18.8백만</strong></div>
               <div class="chart-bar"><span class="chart-label">미수금</span><div class="chart-track"><div class="chart-fill purple" style="width:27%"></div></div><strong>12.2백만</strong></div>
             </div>
           </div>
           <div class="chart-box">
-            <div class="chart-head"><span>수수료/미수금 추이</span><span class="muted">정산 리스크 추적</span></div>
+            <div class="chart-head"><span>판매판매수수료/미수금 추이</span><span class="muted">정산 리스크 추적</span></div>
             <div class="chart-body">
               <svg class="line-chart" viewBox="0 0 520 210" role="img" aria-label="수수료와 미수금 추이 그래프">
                 <line class="grid" x1="40" y1="40" x2="500" y2="40"/><line class="grid" x1="40" y1="90" x2="500" y2="90"/><line class="grid" x1="40" y1="140" x2="500" y2="140"/><line class="axis" x1="40" y1="170" x2="500" y2="170"/><line class="axis" x1="40" y1="25" x2="40" y2="170"/>

@@ -106,7 +106,7 @@ body{margin:0;background:#f4f6f8;color:#222;font-family:"Malgun Gothic","Noto Sa
         <div class="page-head">
           <div>
             <h1>지역별 통계</h1>
-            <div class="desc">상품지역별 예약수요, 매출, 취소율을 확인합니다.</div>
+            <div class="desc">상품지역별 예약수요, 총 예약금액, 취소율을 확인합니다.</div>
           </div>
           <div class="top-actions">
             <button class="btn" onclick="msg('통계 기준 안내 모달 샘플입니다.')">기준 안내</button>
@@ -116,7 +116,7 @@ body{margin:0;background:#f4f6f8;color:#222;font-family:"Malgun Gothic","Noto Sa
 
         <section class="summary" aria-label="통계 요약">
           <div class="card"><span>운영지역</span><strong>24곳</strong></div>
-          <div class="card"><span>상위지역 매출</span><strong>38,900,000원</strong></div>
+          <div class="card"><span>상위지역 총 예약금액</span><strong>38,900,000원</strong></div>
           <div class="card good"><span>지역 평균 예약</span><strong>53.5건</strong></div>
           <div class="card warn"><span>지역 평균 취소율</span><strong>6.1%</strong></div>
           <div class="card"><span>공유상품 지역</span><strong>14곳</strong></div>
@@ -133,10 +133,11 @@ body{margin:0;background:#f4f6f8;color:#222;font-family:"Malgun Gothic","Noto Sa
               <div class="field"><label>기준일자</label><select><option>예약일</option><option>결제일</option><option>출발일</option></select></div>
               <div class="field"><label>상품유형</label><select><option>상품유형 전체</option><option>자사상품</option><option>공유상품</option><option>위탁상품</option></select></div>
               <div class="field"><label>공급여행사</label><select><option>공급여행사 전체</option><option>AOS 직영</option><option>강화테마투어</option><option>제주로컬투어</option><option>남도기차여행</option></select></div>
-              <div class="field"><label>판매여행사</label><select><option>판매여행사 전체</option><option>AOS 직영</option><option>수도권투어</option><option>복지몰파트너</option></select></div>
               <div class="field"><label>판매점</label><select><option>판매점 전체</option><option>본사몰</option><option>강남지점</option><option>기업복지몰</option><option>콜센터</option></select></div>
-              <div class="field"><label>판매채널</label><select><option>판매채널 전체</option><option>자사몰</option><option>판매사</option><option>관리자등록</option></select></div>
+              <div class="field"><label>판매채널</label><select><option>전체</option><option>자사몰</option><option>관리자등록</option><option>판매점</option><option>제휴채널</option><option>인스타그램</option><option>카카오채널</option><option>복지몰</option><option>지자체연계</option></select></div>
               <div class="field"><label>상품지역</label><select><option>상품지역 전체</option><option>인천 강화</option><option>경남 거제</option><option>제주 서귀포</option><option>경기 화성</option></select></div>
+              <div class="field"><label>결제상태</label><select><option>전체</option><option>미결제</option><option>예약금결제</option><option>잔금대기</option><option>완납</option><option>환불요청</option><option>환불완료</option></select></div>
+              <div class="field"><label>정산상태</label><select><option>전체</option><option>미정산</option><option>정산대기</option><option>정산완료</option><option>보류</option></select></div>
               <div class="field filter-action"><label>&nbsp;</label><button class="btn green" onclick="msg('샘플 데이터 기준으로 검색했습니다.')">검색</button></div>
               <div class="field filter-action"><label>&nbsp;</label><button class="btn" onclick="msg('검색조건을 초기화했습니다.')">초기화</button></div>
               <div class="field filter-action"><label>&nbsp;</label><button class="btn blue" onclick="msg('현재 검색조건 기준으로 엑셀을 다운로드합니다.')">엑셀 다운로드</button></div>
@@ -152,13 +153,13 @@ body{margin:0;background:#f4f6f8;color:#222;font-family:"Malgun Gothic","Noto Sa
           <div class="table-wrap">
             <table class="table">
               <thead>
-                <tr><th>상품지역</th><th>대표상품</th><th>상품유형</th><th>공급여행사</th><th>판매여행사</th><th>판매채널</th><th>예약건수</th><th>예약인원</th><th>매출</th><th>정산금액</th><th>취소율</th><th>정산상태</th></tr>
+                <tr><th>상품지역</th><th>대표상품</th><th>상품유형</th><th>공급여행사</th><th>판매채널</th><th>예약건수</th><th>예약인원</th><th>총 총 총 예약금액</th><th>정산금액</th><th>취소율</th><th>정산상태</th></tr>
               </thead>
               <tbody>
-                <tr><td>인천 강화</td><td>강화 역사문화 테마여행</td><td>자사상품</td><td>AOS 직영</td><td>AOS 직영</td><td>자사몰</td><td class="center">68건</td><td class="center">204명</td><td class="money">18,360,000원</td><td class="money">18,360,000원</td><td class="center">2.9%</td><td><span class="badge b-green">정산완료</span></td></tr>
-                <tr><td>경남 거제</td><td class="money">팔도장터열차 수국정원</td><td>공유상품</td><td>남도기차여행</td><td>AOS 직영</td><td>관리자등록</td><td class="center">72건</td><td class="center">216명</td><td class="money">21,600,000원</td><td class="money">19,440,000원</td><td class="center">4.2%</td><td><span class="badge b-orange">정산중</span></td></tr>
-                <tr><td>제주 서귀포</td><td>제주 와이너리 체험</td><td>위탁상품</td><td>제주로컬투어</td><td>복지몰파트너</td><td>판매사</td><td class="center">51건</td><td class="center">153명</td><td class="money">15,300,000원</td><td class="money">12,240,000원</td><td class="center">9.8%</td><td><span class="badge b-red">미작성</span></td></tr>
-                <tr><td>경기 화성</td><td>화성 수원 나들이</td><td>자사상품</td><td>AOS 직영</td><td>수도권투어</td><td>판매사</td><td class="center">44건</td><td class="center">132명</td><td class="money">8,800,000원</td><td class="money">8,360,000원</td><td class="center">3.4%</td><td><span class="badge b-green">정산완료</span></td></tr>
+                <tr><td>인천 강화</td><td>강화 역사문화 테마여행</td><td>자사상품</td><td>AOS 직영</td><td>자사몰</td><td class="center">68건</td><td class="center">204명</td><td class="money">18,360,000원</td><td class="money">18,360,000원</td><td class="center">2.9%</td><td><span class="badge b-green">정산완료</span></td></tr>
+                <tr><td>경남 거제</td><td class="money">팔도장터열차 수국정원</td><td>공유상품</td><td>남도기차여행</td><td>관리자등록</td><td class="center">72건</td><td class="center">216명</td><td class="money">21,600,000원</td><td class="money">19,440,000원</td><td class="center">4.2%</td><td><span class="badge b-orange">정산대기</span></td></tr>
+                <tr><td>제주 서귀포</td><td>제주 와이너리 체험</td><td>위탁상품</td><td>제주로컬투어</td><td>판매점</td><td class="center">51건</td><td class="center">153명</td><td class="money">15,300,000원</td><td class="money">12,240,000원</td><td class="center">9.8%</td><td><span class="badge b-red">미정산</span></td></tr>
+                <tr><td>경기 화성</td><td>화성 수원 나들이</td><td>자사상품</td><td>AOS 직영</td><td>판매점</td><td class="center">44건</td><td class="center">132명</td><td class="money">8,800,000원</td><td class="money">8,360,000원</td><td class="center">3.4%</td><td><span class="badge b-green">정산완료</span></td></tr>
               </tbody>
             </table>
           </div>
@@ -176,7 +177,7 @@ body{margin:0;background:#f4f6f8;color:#222;font-family:"Malgun Gothic","Noto Sa
             </div>
           </div>
           <div class="chart-box">
-            <div class="chart-head"><span>지역별 매출/취소율</span><span class="muted">지역 운영 효율</span></div>
+            <div class="chart-head"><span>지역별 총 예약금액/취소율</span><span class="muted">지역 운영 효율</span></div>
             <div class="chart-body">
               <svg class="line-chart" viewBox="0 0 520 210" role="img" aria-label="지역별 매출과 취소율 그래프">
                 <line class="grid" x1="40" y1="40" x2="500" y2="40"/><line class="grid" x1="40" y1="90" x2="500" y2="90"/><line class="grid" x1="40" y1="140" x2="500" y2="140"/><line class="axis" x1="40" y1="170" x2="500" y2="170"/><line class="axis" x1="40" y1="25" x2="40" y2="170"/>
