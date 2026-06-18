@@ -1,11 +1,11 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="ko">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>예약상세</title>
   <style>
-body{margin:0;background:#f4f6f8;color:#222;font-family:"Malgun Gothic","Noto Sans KR",Arial,sans-serif;font-size:13px}.app{display:grid;grid-template-columns:210px 1fr;min-height:100vh}.sidebar{background:#071122;color:#d7e1f0;padding:18px 0}.brand{padding:0 18px 18px;border-bottom:1px solid rgba(255,255,255,.1)}.brand strong{display:block;color:white;font-size:17px}.nav-title{padding:18px 18px 8px;color:#8ea0bb;font-size:11px}.nav a{display:block;padding:11px 18px;color:#cdd6e5;text-decoration:none;border-left:3px solid transparent}.nav a.active{background:rgba(255,255,255,.08);border-left-color:#5b8cff;color:white}.topbar{height:48px;background:white;border-bottom:1px solid #d9dde3;display:flex;align-items:center;justify-content:space-between;padding:0 16px}.page{padding:16px;max-width:1800px}.page-head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:14px}h1{font-size:24px;margin:0 0 6px}.desc{font-weight:700;color:#555}.btn{border:1px solid #cfd5dd;background:white;border-radius:4px;padding:8px 12px;font-weight:700;cursor:pointer;white-space:nowrap}.btn:hover{background:#f7f9fb}.btn.green{background:#18a34a;border-color:#18a34a;color:white}.btn.blue{background:#2f63f6;border-color:#2f63f6;color:white}.btn.red{background:#d92d20;border-color:#d92d20;color:white}.btn.small{padding:6px 8px;font-size:12px}.panel{background:white;border:1px solid #d9dde3;border-radius:7px;margin-bottom:12px}.panel-head{background:#e6e6e6;padding:12px 14px;font-weight:900;border-bottom:1px solid #d9dde3;display:flex;justify-content:space-between;align-items:center}.panel-body{padding:14px}input,select,textarea{border:1px solid #d6dbe1;border-radius:4px;padding:8px 9px;min-height:36px;box-sizing:border-box;background:white}textarea{width:100%;min-height:84px;resize:vertical}label{font-weight:800;color:#3b4654}.top-actions{display:flex;align-items:center;gap:8px;flex-wrap:wrap}.summary{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:10px;margin-bottom:12px}.card{background:white;border:1px solid #d9dde3;border-radius:7px;padding:14px;min-width:0}.card > span{display:block;color:#667085;font-weight:800;margin-bottom:7px}.card strong{font-size:20px;color:#2f63f6}.card.money strong{color:#0f8738}.card.paid strong{color:#2f63f6}.card.due strong{color:#d92d20}.summary .card strong .summary-date-received{color:#2f63f6}.summary .card strong .summary-date-departure{color:#d92d20}.summary .card.summary-date-card strong{white-space:nowrap;font-size:clamp(15px,1.1vw,20px)}.badge{display:inline-flex;border-radius:14px;padding:4px 8px;font-size:12px;font-weight:900;white-space:nowrap}.b-green{background:#e7f8ee;color:#0f8738}.b-blue{background:#eaf1ff;color:#2556d9}.b-orange{background:#fff4de;color:#b45309}.b-red{background:#fff0f0;color:#d92d20}.b-gray{background:#eef1f5;color:#475467}.b-purple{background:#f1ecff;color:#6941c6}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.form-grid{display:grid;grid-template-columns:repeat(3,minmax(150px,1fr));gap:10px}.field{display:flex;flex-direction:column;gap:6px}.field.wide{grid-column:span 2}.field.full{grid-column:1/-1}.value{min-height:36px;border:1px solid #edf0f3;background:#fafbfc;border-radius:4px;padding:8px 9px;box-sizing:border-box}.money-line{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}.money-box{border:1px solid #d9dde3;border-radius:7px;padding:12px;background:#fafbfc}.money-box span{display:block;color:#667085;font-weight:800;margin-bottom:6px}.money-box strong{font-size:18px}.money-box.total strong{color:#0f8738}.money-box.paid strong{color:#2f63f6}.table-wrap{overflow:auto}.table{width:100%;border-collapse:collapse;min-width:1000px}.table th{background:#e6e6e6;border:1px solid #cfd3d8;padding:10px;text-align:center;white-space:nowrap}.table td{border:1px solid #edf0f3;padding:9px;background:white;vertical-align:middle}.table td.center{text-align:center}.table td.money{text-align:right;white-space:nowrap}.muted{color:#667085;font-size:12px}.link{color:#2556d9;font-weight:900;text-decoration:none}.link:hover{text-decoration:underline}.memo-row{display:grid;grid-template-columns:1fr 1fr;gap:10px}.file-list{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}.file-item{border:1px solid #d9dde3;border-radius:7px;padding:12px;background:#fafbfc}.modal-backdrop{display:none;position:fixed;inset:0;background:rgba(7,17,34,.42);align-items:center;justify-content:center;padding:16px}.modal{width:min(520px,100%);background:white;border-radius:7px;border:1px solid #d9dde3}.modal.edit-modal{width:min(980px,100%);max-height:92vh;display:flex;flex-direction:column}.modal.option-modal{width:min(1180px,100%);max-height:92vh;display:flex;flex-direction:column}.modal-head{padding:14px;font-weight:900;border-bottom:1px solid #d9dde3;background:#e6e6e6;display:flex;align-items:center;justify-content:space-between}.modal-body{padding:14px}.edit-modal .modal-body,.option-modal .modal-body{overflow:auto}.modal-foot{padding:12px 14px;border-top:1px solid #edf0f3;text-align:right}.edit-section{border:1px solid #edf0f3;border-radius:7px;margin-bottom:12px}.edit-section-title{background:#f7f9fb;border-bottom:1px solid #edf0f3;padding:10px 12px;font-weight:900}.edit-section-body{padding:12px}.edit-help{background:#fff8e6;border:1px solid #f2d48b;border-radius:7px;padding:10px 12px;margin-bottom:12px;color:#6b4e00;font-weight:700}.edit-readonly{background:#f3f5f7;color:#667085}.foot-left{float:left;color:#667085;font-weight:700;padding-top:8px}.option-config-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}.option-config-head h2{font-size:22px;margin:0}.option-chip{display:inline-flex;align-items:center;border:1px solid #d9dde3;border-radius:5px;padding:6px 10px;margin:2px 4px 2px 0;background:#fff;font-weight:900}.option-chip .plus{color:#4d6dde}.option-chip .minus{color:red}.drag-mark{font-size:24px;color:#333}.icon-delete{width:30px;height:30px;border:0;border-radius:50%;background:#ff4848;color:white;font-weight:900;cursor:pointer}.option-add-form{display:none;border-top:2px solid #999;margin-top:14px}.option-add-row{display:grid;grid-template-columns:170px 1fr;border-bottom:1px solid #cfd3d8}.option-add-label{background:#ddd;font-weight:900;text-align:center;padding:17px 10px}.option-add-cell{padding:10px 12px;display:flex;gap:10px;align-items:center;flex-wrap:wrap}.option-add-cell input,.option-add-cell select{min-width:180px}.option-add-cell input.price{width:160px;text-align:right}.radio-group{display:flex;gap:16px;align-items:center;font-weight:900}.radio-group input{min-height:auto}.option-actions{display:flex;gap:8px}.option-list-table{min-width:980px}.option-list-table th,.option-list-table td{font-size:14px}.option-row-order{display:flex;gap:12px;align-items:center;justify-content:center;font-weight:900}.option-price{color:#4d6dde}.option-price.minus{color:red}@media(max-width:1300px){.summary{grid-template-columns:repeat(4,minmax(0,1fr))}.form-grid{grid-template-columns:repeat(2,1fr)}.file-list{grid-template-columns:repeat(3,1fr)}}@media(max-width:1000px){.app{grid-template-columns:1fr}.sidebar{display:none}.page-head{display:block}.top-actions{margin-top:10px}.summary,.grid,.money-line,.memo-row,.file-list{grid-template-columns:1fr}.form-grid{grid-template-columns:1fr}.field.wide{grid-column:span 1}.foot-left{float:none;display:block;margin-bottom:8px}.option-add-row{grid-template-columns:1fr}.option-add-label{text-align:left}.option-add-cell input,.option-add-cell select{min-width:100%;width:100%}}
+body{margin:0;background:#f4f6f8;color:#222;font-family:"Malgun Gothic","Noto Sans KR",Arial,sans-serif;font-size:13px}.app{display:grid;grid-template-columns:250px 1fr;min-height:100vh}.sidebar{background:#071122;color:#d7e1f0;padding:18px 0}.brand{padding:0 18px 18px;border-bottom:1px solid rgba(255,255,255,.1)}.brand strong{display:block;color:white;font-size:17px}.nav-title{padding:18px 18px 8px;color:#8ea0bb;font-size:11px}.nav a{display:block;padding:11px 18px;color:#cdd6e5;text-decoration:none;border-left:3px solid transparent}.nav a.active{background:rgba(255,255,255,.08);border-left-color:#5b8cff;color:white}.nav-tree{padding:8px 0 18px}.nav-group{border-bottom:1px solid rgba(255,255,255,.06);padding:6px 0}.nav-depth1{padding:10px 18px 8px;color:#fff;font-weight:900;font-size:13px;cursor:pointer;display:flex;align-items:center;justify-content:space-between}.nav-depth1:after{content:'▾';font-size:10px;color:#8ea0bb}.nav-group:not(.open) .nav-depth1:after{content:'▸'}.nav-group:not(.open) a{display:none}.nav-group a{position:relative;padding:7px 18px 7px 46px;font-size:12px;color:#b9c6d8}.nav-group a:before{content:'├';position:absolute;left:26px;top:7px;color:rgba(185,198,216,.7);font-size:12px;line-height:1}.nav-group a.active{background:rgba(91,140,255,.18);border-left-color:#5b8cff;color:white}.nav-group.open .nav-depth1{color:#8fb3ff}.topbar{height:48px;background:white;border-bottom:1px solid #d9dde3;display:flex;align-items:center;justify-content:space-between;padding:0 16px}.page{padding:16px;max-width:1800px}.page-head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:14px}h1{font-size:24px;margin:0 0 6px}.desc{font-weight:700;color:#555}.btn{border:1px solid #cfd5dd;background:white;border-radius:4px;padding:8px 12px;font-weight:700;cursor:pointer;white-space:nowrap}.btn:hover{background:#f7f9fb}.btn.green{background:#18a34a;border-color:#18a34a;color:white}.btn.blue{background:#2f63f6;border-color:#2f63f6;color:white}.btn.red{background:#d92d20;border-color:#d92d20;color:white}.btn.small{padding:6px 8px;font-size:12px}.panel{background:white;border:1px solid #d9dde3;border-radius:7px;margin-bottom:12px}.panel-head{background:#e6e6e6;padding:12px 14px;font-weight:900;border-bottom:1px solid #d9dde3;display:flex;justify-content:space-between;align-items:center}.panel-body{padding:14px}input,select,textarea{border:1px solid #d6dbe1;border-radius:4px;padding:8px 9px;min-height:36px;box-sizing:border-box;background:white}textarea{width:100%;min-height:84px;resize:vertical}label{font-weight:800;color:#3b4654}.top-actions{display:flex;align-items:center;gap:8px;flex-wrap:wrap}.summary{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:10px;margin-bottom:12px}.card{background:white;border:1px solid #d9dde3;border-radius:7px;padding:14px;min-width:0}.card > span{display:block;color:#667085;font-weight:800;margin-bottom:7px}.card strong{font-size:20px;color:#2f63f6}.card.money strong{color:#0f8738}.card.paid strong{color:#2f63f6}.card.due strong{color:#d92d20}.summary .card strong .summary-date-received{color:#2f63f6}.summary .card strong .summary-date-departure{color:#d92d20}.summary .card.summary-date-card strong{white-space:nowrap;font-size:clamp(15px,1.1vw,20px)}.badge{display:inline-flex;border-radius:14px;padding:4px 8px;font-size:12px;font-weight:900;white-space:nowrap}.b-green{background:#e7f8ee;color:#0f8738}.b-blue{background:#eaf1ff;color:#2556d9}.b-orange{background:#fff4de;color:#b45309}.b-red{background:#fff0f0;color:#d92d20}.b-gray{background:#eef1f5;color:#475467}.b-purple{background:#f1ecff;color:#6941c6}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.form-grid{display:grid;grid-template-columns:repeat(3,minmax(150px,1fr));gap:10px}.field{display:flex;flex-direction:column;gap:6px}.field.wide{grid-column:span 2}.field.full{grid-column:1/-1}.value{min-height:36px;border:1px solid #edf0f3;background:#fafbfc;border-radius:4px;padding:8px 9px;box-sizing:border-box}.money-line{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}.money-box{border:1px solid #d9dde3;border-radius:7px;padding:12px;background:#fafbfc}.money-box span{display:block;color:#667085;font-weight:800;margin-bottom:6px}.money-box strong{font-size:18px}.money-box.total strong{color:#0f8738}.money-box.paid strong{color:#2f63f6}.table-wrap{overflow:auto}.table{width:100%;border-collapse:collapse;min-width:1000px}.table th{background:#e6e6e6;border:1px solid #cfd3d8;padding:10px;text-align:center;white-space:nowrap}.table td{border:1px solid #edf0f3;padding:9px;background:white;vertical-align:middle}.table td.center{text-align:center}.table td.money{text-align:right;white-space:nowrap}.muted{color:#667085;font-size:12px}.link{color:#2556d9;font-weight:900;text-decoration:none}.link:hover{text-decoration:underline}.memo-row{display:grid;grid-template-columns:1fr 1fr;gap:10px}.file-list{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}.file-item{border:1px solid #d9dde3;border-radius:7px;padding:12px;background:#fafbfc}.modal-backdrop{display:none;position:fixed;inset:0;background:rgba(7,17,34,.42);align-items:center;justify-content:center;padding:16px}.modal{width:min(520px,100%);background:white;border-radius:7px;border:1px solid #d9dde3}.modal.edit-modal{width:min(980px,100%);max-height:92vh;display:flex;flex-direction:column}.modal.option-modal{width:min(1180px,100%);max-height:92vh;display:flex;flex-direction:column}.modal-head{padding:14px;font-weight:900;border-bottom:1px solid #d9dde3;background:#e6e6e6;display:flex;align-items:center;justify-content:space-between}.modal-body{padding:14px}.edit-modal .modal-body,.option-modal .modal-body{overflow:auto}.modal-foot{padding:12px 14px;border-top:1px solid #edf0f3;text-align:right}.edit-section{border:1px solid #edf0f3;border-radius:7px;margin-bottom:12px}.edit-section-title{background:#f7f9fb;border-bottom:1px solid #edf0f3;padding:10px 12px;font-weight:900}.edit-section-body{padding:12px}.edit-help{background:#fff8e6;border:1px solid #f2d48b;border-radius:7px;padding:10px 12px;margin-bottom:12px;color:#6b4e00;font-weight:700}.edit-readonly{background:#f3f5f7;color:#667085}.foot-left{float:left;color:#667085;font-weight:700;padding-top:8px}.option-config-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}.option-config-head h2{font-size:22px;margin:0}.option-chip{display:inline-flex;align-items:center;border:1px solid #d9dde3;border-radius:5px;padding:6px 10px;margin:2px 4px 2px 0;background:#fff;font-weight:900}.option-chip .plus{color:#4d6dde}.option-chip .minus{color:red}.drag-mark{font-size:24px;color:#333}.icon-delete{width:30px;height:30px;border:0;border-radius:50%;background:#ff4848;color:white;font-weight:900;cursor:pointer}.option-add-form{display:none;border-top:2px solid #999;margin-top:14px}.option-add-row{display:grid;grid-template-columns:170px 1fr;border-bottom:1px solid #cfd3d8}.option-add-label{background:#ddd;font-weight:900;text-align:center;padding:17px 10px}.option-add-cell{padding:10px 12px;display:flex;gap:10px;align-items:center;flex-wrap:wrap}.option-add-cell input,.option-add-cell select{min-width:180px}.option-add-cell input.price{width:160px;text-align:right}.radio-group{display:flex;gap:16px;align-items:center;font-weight:900}.radio-group input{min-height:auto}.option-actions{display:flex;gap:8px}.option-list-table{min-width:980px}.option-list-table th,.option-list-table td{font-size:14px}.option-row-order{display:flex;gap:12px;align-items:center;justify-content:center;font-weight:900}.option-price{color:#4d6dde}.option-price.minus{color:red}@media(max-width:1300px){.summary{grid-template-columns:repeat(4,minmax(0,1fr))}.form-grid{grid-template-columns:repeat(2,1fr)}.file-list{grid-template-columns:repeat(3,1fr)}}@media(max-width:1000px){.app{grid-template-columns:1fr}.sidebar{display:none}.page-head{display:block}.top-actions{margin-top:10px}.summary,.grid,.money-line,.memo-row,.file-list{grid-template-columns:1fr}.form-grid{grid-template-columns:1fr}.field.wide{grid-column:span 1}.foot-left{float:none;display:block;margin-bottom:8px}.option-add-row{grid-template-columns:1fr}.option-add-label{text-align:left}.option-add-cell input,.option-add-cell select{min-width:100%;width:100%}}
   </style>
   <style>
 .modal.option-modal{width:min(1680px,calc(100vw - 32px))}.option-edit-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:14px}.option-edit-block{border:1px solid #d9dde3;border-radius:7px;background:#fff;overflow:hidden;min-width:0}.option-edit-title{background:#f1f3f5;border-bottom:1px solid #d9dde3;padding:12px 14px;font-weight:900;display:flex;align-items:center;justify-content:space-between}.option-edit-body{padding:12px;min-width:0}.option-edit-body .table-wrap{overflow-x:visible}.option-note{background:#fff8e6;border:1px solid #f2d48b;border-radius:7px;padding:10px 12px;margin-bottom:12px;color:#6b4e00;font-weight:700}.qty-control{display:inline-flex;align-items:center;gap:6px}.qty-control button{width:28px;height:28px;border:1px solid #cfd5dd;background:white;border-radius:4px;font-weight:900;cursor:pointer}.qty-control input{width:48px;text-align:center;min-height:30px;padding:4px}.option-select{width:100%;min-width:0}.option-total-line{display:flex;justify-content:flex-end;gap:18px;align-items:center;margin-top:10px;font-size:14px;font-weight:900}.option-total-line strong{color:#2f63f6;font-size:18px}.option-available-table,.option-selected-table{min-width:0;width:100%;table-layout:auto}.option-available-table th,.option-available-table td,.option-selected-table th,.option-selected-table td{padding:8px 7px;font-size:13px}.option-empty{padding:18px;text-align:center;color:#667085;font-weight:800;border:1px dashed #cfd5dd;border-radius:7px;background:#fafbfc}.price-negative{color:#d92d20}@media(max-width:1280px){.option-edit-grid{grid-template-columns:1fr}.option-edit-body .table-wrap{overflow-x:auto}.option-available-table,.option-selected-table{min-width:760px}}
@@ -16,15 +16,94 @@ body{margin:0;background:#f4f6f8;color:#222;font-family:"Malgun Gothic","Noto Sa
 </head>
 <body>
   <div class="app">
-    <aside class="sidebar">
+        <aside class="sidebar">
       <div class="brand"><strong>AviaNext</strong><small>AOS Admin Prototype</small></div>
       <div class="nav-title">관리메뉴</div>
-      <nav class="nav">
-        <a href="product_register.html">상품등록</a>
-        <a href="product_list.html">상품리스트</a>
-        <a href="schedule_register.html">일정표등록</a>
-        <a href="price_setting.html">요금설정</a>
-        <a class="active" href="reservation_list.html">예약접수현황</a>
+      <nav class="nav nav-tree">
+        <div class="nav-group">
+          <div class="nav-depth1" onclick="toggleNavGroup(this)">📦 상품관리</div>
+          <a href="product_register.html">상품관리</a>
+          <a href="#" onclick="msg('재고관리 화면은 준비 중입니다.');return false;">재고관리</a>
+          <a href="#" onclick="msg('이미지관리 화면은 준비 중입니다.');return false;">이미지관리</a>
+          <a href="template_manage.html">템플릿관리</a>
+          <a href="#" onclick="msg('상품분류관리 화면은 준비 중입니다.');return false;">상품분류관리</a>
+        </div>
+        <div class="nav-group open">
+          <div class="nav-depth1" onclick="toggleNavGroup(this)">📋 예약관리</div>
+          <a class="active" href="reservation_list.html">예약목록</a>
+          <a href="#" onclick="msg('예약현황 화면은 준비 중입니다.');return false;">예약현황</a>
+          <a href="#" onclick="msg('좌석관리 화면은 준비 중입니다.');return false;">좌석관리</a>
+        </div>
+        <div class="nav-group">
+          <div class="nav-depth1" onclick="toggleNavGroup(this)">✈️ 항공예약관리</div>
+          <a href="#" onclick="msg('국제선예약 화면은 준비 중입니다.');return false;">국제선예약</a>
+          <a href="#" onclick="msg('국제선예약목록 화면은 준비 중입니다.');return false;">국제선예약목록</a>
+          <a href="#" onclick="msg('국내선예약 화면은 준비 중입니다.');return false;">국내선예약</a>
+          <a href="#" onclick="msg('국내선예약목록 화면은 준비 중입니다.');return false;">국내선예약목록</a>
+        </div>
+        <div class="nav-group">
+          <div class="nav-depth1" onclick="toggleNavGroup(this)">👤 회원관리</div>
+          <a href="#" onclick="msg('웹회원관리 화면은 준비 중입니다.');return false;">웹회원관리</a>
+          <a href="#" onclick="msg('관리자/직원 관리 화면은 준비 중입니다.');return false;">관리자/직원 관리</a>
+          <a href="#" onclick="msg('판매점관리 화면은 준비 중입니다.');return false;">판매점관리</a>
+          <a href="#" onclick="msg('거래처관리 화면은 준비 중입니다.');return false;">거래처관리</a>
+          <a href="#" onclick="msg('그룹관리 화면은 준비 중입니다.');return false;">그룹관리</a>
+          <a href="#" onclick="msg('탈퇴회원 화면은 준비 중입니다.');return false;">탈퇴회원</a>
+        </div>
+        <div class="nav-group">
+          <div class="nav-depth1" onclick="toggleNavGroup(this)">💰 정산관리</div>
+          <a href="#" onclick="msg('인보이스관리 화면은 준비 중입니다.');return false;">인보이스관리</a>
+          <a href="#" onclick="msg('입금/환불현황 화면은 준비 중입니다.');return false;">입금/환불현황</a>
+          <a href="#" onclick="msg('미수금관리 화면은 준비 중입니다.');return false;">미수금관리</a>
+          <a href="#" onclick="msg('국제선정산(항공) 화면은 준비 중입니다.');return false;">국제선정산(항공)</a>
+          <a href="#" onclick="msg('발권데이터(항공) 화면은 준비 중입니다.');return false;">발권데이터(항공)</a>
+        </div>
+        <div class="nav-group">
+          <div class="nav-depth1" onclick="toggleNavGroup(this)">📊 통계관리</div>
+          <a href="#" onclick="msg('통계 대시보드 화면은 준비 중입니다.');return false;">통계 대시보드</a>
+          <a href="#" onclick="msg('매출통계 화면은 준비 중입니다.');return false;">매출통계</a>
+          <a href="#" onclick="msg('예약통계 화면은 준비 중입니다.');return false;">예약통계</a>
+          <a href="#" onclick="msg('상품별통계 화면은 준비 중입니다.');return false;">상품별통계</a>
+          <a href="#" onclick="msg('판매점별통계 화면은 준비 중입니다.');return false;">판매점별통계</a>
+          <a href="#" onclick="msg('지역별통계 화면은 준비 중입니다.');return false;">지역별통계</a>
+          <a href="#" onclick="msg('정산통계 화면은 준비 중입니다.');return false;">정산통계</a>
+        </div>
+        <div class="nav-group">
+          <div class="nav-depth1" onclick="toggleNavGroup(this)">🎨 디자인설정</div>
+          <a href="#" onclick="msg('템플릿관리 화면은 준비 중입니다.');return false;">템플릿관리</a>
+          <a href="#" onclick="msg('섹션관리 화면은 준비 중입니다.');return false;">섹션관리</a>
+          <a href="#" onclick="msg('홈페이지 설정 화면은 준비 중입니다.');return false;">홈페이지 설정</a>
+          <a href="#" onclick="msg('메인메뉴관리 화면은 준비 중입니다.');return false;">메인메뉴관리</a>
+          <a href="#" onclick="msg('팝업관리 화면은 준비 중입니다.');return false;">팝업관리</a>
+          <a href="#" onclick="msg('상단띠배너 화면은 준비 중입니다.');return false;">상단띠배너</a>
+          <a href="#" onclick="msg('7-7 관리자메뉴관리 화면은 준비 중입니다.');return false;">관리자메뉴관리</a>
+        </div>
+        <div class="nav-group">
+          <div class="nav-depth1" onclick="toggleNavGroup(this)">💬 알림톡/문자관리</div>
+          <a href="#" onclick="msg('알림톡 설정 화면은 준비 중입니다.');return false;">알림톡 설정</a>
+          <a href="#" onclick="msg('이메일발송 화면은 준비 중입니다.');return false;">이메일발송</a>
+          <a href="#" onclick="msg('문자발송 화면은 준비 중입니다.');return false;">문자발송</a>
+          <a href="#" onclick="msg('발송내역 화면은 준비 중입니다.');return false;">발송내역</a>
+          <a href="#" onclick="msg('메크로설정 화면은 준비 중입니다.');return false;">메크로설정</a>
+        </div>
+        <div class="nav-group">
+          <div class="nav-depth1" onclick="toggleNavGroup(this)">📝 게시판관리</div>
+          <a href="#" onclick="msg('공지사항 화면은 준비 중입니다.');return false;">공지사항</a>
+          <a href="#" onclick="msg('고객문의 화면은 준비 중입니다.');return false;">고객문의</a>
+          <a href="#" onclick="msg('여행후기 화면은 준비 중입니다.');return false;">여행후기</a>
+          <a href="#" onclick="msg('자주묻는질문 화면은 준비 중입니다.');return false;">자주묻는질문</a>
+          <a href="#" onclick="msg('고객문의 화면은 준비 중입니다.');return false;">고객문의</a>
+          <a href="#" onclick="msg('스캔목록 화면은 준비 중입니다.');return false;">스캔목록</a>
+          <a href="#" onclick="msg('자료실 화면은 준비 중입니다.');return false;">자료실</a>
+        </div>
+        <div class="nav-group">
+          <div class="nav-depth1" onclick="toggleNavGroup(this)">⚙️ 기본설정</div>
+          <a href="#" onclick="msg('항공사 Bin관리 화면은 준비 중입니다.');return false;">항공사 Bin관리</a>
+          <a href="#" onclick="msg('노선관리 화면은 준비 중입니다.');return false;">노선관리</a>
+          <a href="#" onclick="msg('탑승역관리 화면은 준비 중입니다.');return false;">탑승역관리</a>
+          <a href="#" onclick="msg('열차관리 화면은 준비 중입니다.');return false;">열차관리</a>
+          <a href="#" onclick="msg('템플릿사이트관리 화면은 준비 중입니다.');return false;">템플릿사이트관리</a>
+        </div>
       </nav>
     </aside>
     <main>
@@ -803,6 +882,10 @@ function escapeHtml(text){
     return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[ch];
   });
 }
+  function toggleNavGroup(el){el.closest('.nav-group').classList.toggle('open')}
   </script>
 </body>
 </html>
+
+
+

@@ -1,11 +1,11 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="ko">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>상품등록</title>
   <style>
-body{margin:0;background:#f4f6f8;color:#222;font-family:"Malgun Gothic","Noto Sans KR",Arial,sans-serif;font-size:13px}.app{display:grid;grid-template-columns:210px 1fr;min-height:100vh}.sidebar{background:#071122;color:#d7e1f0;padding:18px 0}.brand{padding:0 18px 18px;border-bottom:1px solid rgba(255,255,255,.1)}.brand strong{display:block;color:white;font-size:17px}.nav-title{padding:18px 18px 8px;color:#8ea0bb;font-size:11px}.nav a{display:block;padding:11px 18px;color:#cdd6e5;text-decoration:none;border-left:3px solid transparent}.nav a.active{background:rgba(255,255,255,.08);border-left-color:#5b8cff;color:white}.topbar{height:48px;background:white;border-bottom:1px solid #d9dde3;display:flex;align-items:center;justify-content:space-between;padding:0 16px}.page{padding:16px;max-width:1800px}.page-head{display:flex;justify-content:space-between;gap:12px;align-items:flex-start;margin-bottom:12px}h1{font-size:24px;margin:0 0 6px}.desc{font-weight:700;color:#555}.tabs{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 12px}.tab{border:1px solid #cfd5dd;background:white;border-radius:18px;padding:8px 14px;text-decoration:none;color:#344054;font-weight:900}.tab.active{background:#7c3aed;border-color:#7c3aed;color:white}.btn{border:1px solid #cfd5dd;background:white;border-radius:4px;padding:8px 12px;font-weight:800;cursor:pointer;white-space:nowrap}.btn:hover{background:#f7f9fb}.btn.green{background:#18a34a;border-color:#18a34a;color:white}.btn.blue{background:#2f63f6;border-color:#2f63f6;color:white}.btn.red{background:#d92d20;border-color:#d92d20;color:white}.btn.small{padding:6px 8px;font-size:12px}.layout{display:grid;grid-template-columns:1fr 1fr;gap:12px}.panel{background:white;border:1px solid #d9dde3;border-radius:7px;margin-bottom:12px;overflow:hidden}.panel.full{grid-column:1/-1}.panel-head{background:#e6e6e6;padding:12px 14px;font-weight:900;border-bottom:1px solid #d9dde3;display:flex;align-items:center;justify-content:space-between;gap:8px}.panel-body{padding:14px}.form-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}.form-grid.two{grid-template-columns:repeat(2,minmax(0,1fr))}.field{display:flex;flex-direction:column;gap:6px}.field.full{grid-column:1/-1}.field.wide{grid-column:span 2}label{font-weight:900;color:#3b4654}input,select,textarea{border:1px solid #d6dbe1;border-radius:4px;padding:8px 9px;min-height:36px;box-sizing:border-box;background:white;width:100%}textarea{min-height:100px;resize:vertical}.hint{color:#667085;font-size:12px;font-weight:700}.muted{color:#667085;font-size:12px}.table-wrap{overflow:auto}.table{width:100%;border-collapse:collapse;min-width:760px}.table.compact{min-width:0}.table th{background:#e6e6e6;border:1px solid #cfd3d8;padding:9px;text-align:center;white-space:nowrap}.table td{border:1px solid #edf0f3;padding:8px;background:white;vertical-align:middle}.table td.center{text-align:center}.table td.money{text-align:right}.badge{display:inline-flex;border-radius:14px;padding:4px 8px;font-size:12px;font-weight:900}.b-green{background:#e7f8ee;color:#0f8738}.b-blue{background:#eaf1ff;color:#2556d9}.b-gray{background:#eef1f5;color:#475467}.b-orange{background:#fff4de;color:#b45309}.b-red{background:#fff0f0;color:#d92d20}.tag{display:inline-flex;background:#f2f4f7;border:1px solid #d9dde3;border-radius:16px;padding:6px 10px;margin:3px;font-weight:800}.category-row{display:grid;grid-template-columns:1fr 1fr 1fr auto;gap:8px;align-items:end}.category-list{margin-top:8px}.image-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}.image-item{height:112px;border:1px solid #d9dde3;border-radius:7px;background:#e9ecef;display:flex;align-items:center;justify-content:center;color:#98a2b3;font-weight:900;position:relative;overflow:hidden}.image-item.primary{outline:3px solid #18a34a}.image-item img{width:100%;height:100%;object-fit:cover}.image-tools{position:absolute;left:6px;right:6px;bottom:6px;display:flex;gap:4px;justify-content:center}.image-tools button{padding:4px 6px;font-size:11px}.toggle{display:inline-flex;align-items:center;gap:6px}.toggle input{width:auto;min-height:auto}.editor-toolbar{border:1px solid #d9dde3;border-bottom:0;border-radius:5px 5px 0 0;background:#f7f9fb;padding:8px;display:flex;gap:6px;flex-wrap:wrap}.editor-toolbar span{font-weight:900;padding:4px 6px}.editor{border-radius:0 0 5px 5px;min-height:150px}.content-tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px}.content-tab{border:1px solid #cfd5dd;border-radius:18px;background:white;padding:8px 12px;font-weight:900;cursor:pointer}.content-tab.active{background:#7c3aed;color:white;border-color:#7c3aed}.save-bar{position:sticky;bottom:0;background:white;border:1px solid #d9dde3;border-radius:7px;padding:12px 14px;margin-top:12px;display:flex;justify-content:space-between;align-items:center;gap:10px;box-shadow:0 -4px 14px rgba(7,17,34,.06)}@media(max-width:1200px){.layout{grid-template-columns:1fr}.form-grid,.form-grid.two{grid-template-columns:repeat(2,minmax(0,1fr))}.image-grid{grid-template-columns:repeat(3,1fr)}}@media(max-width:760px){.app{grid-template-columns:1fr}.sidebar{display:none}.page-head{display:block}.form-grid,.form-grid.two,.category-row{grid-template-columns:1fr}.image-grid{grid-template-columns:repeat(2,1fr)}}
+body{margin:0;background:#f4f6f8;color:#222;font-family:"Malgun Gothic","Noto Sans KR",Arial,sans-serif;font-size:13px}.app{display:grid;grid-template-columns:250px 1fr;min-height:100vh}.sidebar{background:#071122;color:#d7e1f0;padding:18px 0}.brand{padding:0 18px 18px;border-bottom:1px solid rgba(255,255,255,.1)}.brand strong{display:block;color:white;font-size:17px}.nav-title{padding:18px 18px 8px;color:#8ea0bb;font-size:11px}.nav a{display:block;padding:11px 18px;color:#cdd6e5;text-decoration:none;border-left:3px solid transparent}.nav a.active{background:rgba(255,255,255,.08);border-left-color:#5b8cff;color:white}.nav-tree{padding:8px 0 18px}.nav-group{border-bottom:1px solid rgba(255,255,255,.06);padding:6px 0}.nav-depth1{padding:10px 18px 8px;color:#fff;font-weight:900;font-size:13px;cursor:pointer;display:flex;align-items:center;justify-content:space-between}.nav-depth1:after{content:'▾';font-size:10px;color:#8ea0bb}.nav-group:not(.open) .nav-depth1:after{content:'▸'}.nav-group:not(.open) a{display:none}.nav-group a{position:relative;padding:7px 18px 7px 46px;font-size:12px;color:#b9c6d8}.nav-group a:before{content:'├';position:absolute;left:26px;top:7px;color:rgba(185,198,216,.7);font-size:12px;line-height:1}.nav-group a.active{background:rgba(91,140,255,.18);border-left-color:#5b8cff;color:white}.nav-group.open .nav-depth1{color:#8fb3ff}.topbar{height:48px;background:white;border-bottom:1px solid #d9dde3;display:flex;align-items:center;justify-content:space-between;padding:0 16px}.page{padding:16px;max-width:1800px}.page-head{display:flex;justify-content:space-between;gap:12px;align-items:flex-start;margin-bottom:12px}h1{font-size:24px;margin:0 0 6px}.desc{font-weight:700;color:#555}.tabs{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 12px}.tab{border:1px solid #cfd5dd;background:white;border-radius:18px;padding:8px 14px;text-decoration:none;color:#344054;font-weight:900}.tab.active{background:#7c3aed;border-color:#7c3aed;color:white}.btn{border:1px solid #cfd5dd;background:white;border-radius:4px;padding:8px 12px;font-weight:800;cursor:pointer;white-space:nowrap}.btn:hover{background:#f7f9fb}.btn.green{background:#18a34a;border-color:#18a34a;color:white}.btn.blue{background:#2f63f6;border-color:#2f63f6;color:white}.btn.red{background:#d92d20;border-color:#d92d20;color:white}.btn.small{padding:6px 8px;font-size:12px}.layout{display:grid;grid-template-columns:1fr 1fr;gap:12px}.panel{background:white;border:1px solid #d9dde3;border-radius:7px;margin-bottom:12px;overflow:hidden}.panel.full{grid-column:1/-1}.panel-head{background:#e6e6e6;padding:12px 14px;font-weight:900;border-bottom:1px solid #d9dde3;display:flex;align-items:center;justify-content:space-between;gap:8px}.panel-body{padding:14px}.form-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}.form-grid.two{grid-template-columns:repeat(2,minmax(0,1fr))}.field{display:flex;flex-direction:column;gap:6px}.field.full{grid-column:1/-1}.field.wide{grid-column:span 2}label{font-weight:900;color:#3b4654}input,select,textarea{border:1px solid #d6dbe1;border-radius:4px;padding:8px 9px;min-height:36px;box-sizing:border-box;background:white;width:100%}textarea{min-height:100px;resize:vertical}.hint{color:#667085;font-size:12px;font-weight:700}.muted{color:#667085;font-size:12px}.table-wrap{overflow:auto}.table{width:100%;border-collapse:collapse;min-width:760px}.table.compact{min-width:0}.table th{background:#e6e6e6;border:1px solid #cfd3d8;padding:9px;text-align:center;white-space:nowrap}.table td{border:1px solid #edf0f3;padding:8px;background:white;vertical-align:middle}.table td.center{text-align:center}.table td.money{text-align:right}.badge{display:inline-flex;border-radius:14px;padding:4px 8px;font-size:12px;font-weight:900}.b-green{background:#e7f8ee;color:#0f8738}.b-blue{background:#eaf1ff;color:#2556d9}.b-gray{background:#eef1f5;color:#475467}.b-orange{background:#fff4de;color:#b45309}.b-red{background:#fff0f0;color:#d92d20}.tag{display:inline-flex;background:#f2f4f7;border:1px solid #d9dde3;border-radius:16px;padding:6px 10px;margin:3px;font-weight:800}.category-row{display:grid;grid-template-columns:1fr 1fr 1fr auto;gap:8px;align-items:end}.category-list{margin-top:8px}.image-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}.image-item{height:112px;border:1px solid #d9dde3;border-radius:7px;background:#e9ecef;display:flex;align-items:center;justify-content:center;color:#98a2b3;font-weight:900;position:relative;overflow:hidden}.image-item.primary{outline:3px solid #18a34a}.image-item img{width:100%;height:100%;object-fit:cover}.image-tools{position:absolute;left:6px;right:6px;bottom:6px;display:flex;gap:4px;justify-content:center}.image-tools button{padding:4px 6px;font-size:11px}.toggle{display:inline-flex;align-items:center;gap:6px}.toggle input{width:auto;min-height:auto}.editor-toolbar{border:1px solid #d9dde3;border-bottom:0;border-radius:5px 5px 0 0;background:#f7f9fb;padding:8px;display:flex;gap:6px;flex-wrap:wrap}.editor-toolbar span{font-weight:900;padding:4px 6px}.editor{border-radius:0 0 5px 5px;min-height:150px}.content-tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px}.content-tab{border:1px solid #cfd5dd;border-radius:18px;background:white;padding:8px 12px;font-weight:900;cursor:pointer}.content-tab.active{background:#7c3aed;color:white;border-color:#7c3aed}.save-bar{position:sticky;bottom:0;background:white;border:1px solid #d9dde3;border-radius:7px;padding:12px 14px;margin-top:12px;display:flex;justify-content:space-between;align-items:center;gap:10px;box-shadow:0 -4px 14px rgba(7,17,34,.06)}@media(max-width:1200px){.layout{grid-template-columns:1fr}.form-grid,.form-grid.two{grid-template-columns:repeat(2,minmax(0,1fr))}.image-grid{grid-template-columns:repeat(3,1fr)}}@media(max-width:760px){.app{grid-template-columns:1fr}.sidebar{display:none}.page-head{display:block}.form-grid,.form-grid.two,.category-row{grid-template-columns:1fr}.image-grid{grid-template-columns:repeat(2,1fr)}}
 .basic-stack{display:grid;gap:12px}.basic-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;align-items:start}.basic-box{border:1px solid #edf0f3;border-radius:6px;background:#fafbfc;padding:10px}.basic-box-title{font-weight:900;color:#344054;margin-bottom:8px;display:flex;justify-content:space-between;gap:8px}.basic-category{display:grid;grid-template-columns:1.05fr 1.05fr .9fr;gap:8px}.extra-category-stack{display:grid;gap:8px}.extra-category-row{display:grid;grid-template-columns:1fr 1fr 1fr 82px;gap:6px}.extra-category-row .btn{min-height:36px}.basic-row.names{grid-template-columns:1.15fr .85fr}.basic-row.info-period{grid-template-columns:1.4fr .6fr}.period-row{display:grid;grid-template-columns:1fr 1fr;gap:8px}.basic-policy-row{display:grid;grid-template-columns:520px 1fr;border:1px solid #d9dde3;border-radius:6px;overflow:hidden;background:white}.policy-cell{display:grid;grid-template-columns:118px 1fr;align-items:center;border-right:1px solid #d9dde3}.policy-cell:last-child{border-right:0}.policy-title{height:100%;background:#eef1f5;font-weight:900;color:#344054;display:flex;align-items:center;padding:0 12px;white-space:nowrap}.policy-body{padding:8px 10px}.label-policy-input{max-width:380px}.traveler-options{display:flex;align-items:center;justify-content:flex-start;gap:12px;flex-wrap:nowrap;white-space:nowrap}.traveler-options .pay-item{font-size:13px;gap:6px}@media(max-width:1300px){.basic-policy-row{grid-template-columns:460px 1fr}.label-policy-input{max-width:330px}.traveler-options{gap:8px}.traveler-options .pay-item{font-size:12px}}@media(max-width:1100px){.basic-row,.basic-row.names,.basic-row.info-period,.basic-policy-row{grid-template-columns:1fr}.basic-category,.extra-category-row,.period-row{grid-template-columns:1fr}.policy-cell{grid-template-columns:120px 1fr;border-right:0;border-bottom:1px solid #d9dde3}.policy-cell:last-child{border-bottom:0}.traveler-options{flex-wrap:wrap;white-space:normal}.label-policy-input{max-width:100%}}
 .pricing-ops-row{grid-column:1/-1;display:grid;grid-template-columns:minmax(380px,.6fr) minmax(720px,1.2fr) minmax(300px,.45fr);gap:12px}.price-panel .table-wrap,.stay-panel .table-wrap{overflow:visible}.price-table,.stay-table{min-width:0;table-layout:fixed}.price-table th,.price-table td,.stay-table th,.stay-table td{padding:7px 6px}.price-table th:nth-child(1),.price-table td:nth-child(1){width:96px}.price-table th:nth-child(2),.price-table td:nth-child(2){width:96px}.price-table th:nth-child(3),.price-table td:nth-child(3){width:56px}.price-table th:nth-child(4),.price-table td:nth-child(4){width:52px}.stay-table th:nth-child(1),.stay-table td:nth-child(1){width:auto}.stay-table th:nth-child(2),.stay-table td:nth-child(2){width:58px}.stay-table th:nth-child(3),.stay-table td:nth-child(3){width:52px}.price-table input,.stay-table input{min-height:32px;padding:6px}.price-table th,.price-table td,.stay-table th,.stay-table td{font-size:12px}.head-toggle{display:inline-flex;align-items:center;gap:8px;margin-left:10px;font-size:12px;font-weight:900;color:#344054}.ops-stack{display:grid;gap:8px}.ops-row{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}.ops-row .field{gap:4px}.ops-row input,.ops-row select{padding:7px 8px}.stay-disabled{opacity:.48;pointer-events:none}.stay-disabled-note{display:none;color:#d92d20;font-weight:800;margin-top:8px}.stay-disabled+.stay-disabled-note{display:block}@media(max-width:1400px){.pricing-ops-row{grid-template-columns:1fr 1fr}.stay-panel{grid-column:1/-1}.ops-row{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:760px){.pricing-ops-row{grid-template-columns:1fr}.ops-row{grid-template-columns:1fr}}
 .ops-divider{border-top:1px solid #d9dde3;margin:2px -14px 0;padding-top:0}
@@ -19,15 +19,94 @@ body{margin:0;background:#f4f6f8;color:#222;font-family:"Malgun Gothic","Noto Sa
 </head>
 <body>
   <div class="app">
-    <aside class="sidebar">
+        <aside class="sidebar">
       <div class="brand"><strong>AviaNext</strong><small>AOS Admin Prototype</small></div>
       <div class="nav-title">관리메뉴</div>
-      <nav class="nav">
-        <a class="active" href="product_register.html">상품등록</a>
-        <a href="product_list.html">상품리스트</a>
-        <a href="schedule_register.html">일정표등록</a>
-        <a href="price_setting.html">요금설정</a>
-        <a href="reservation_list.html">예약접수현황</a>
+      <nav class="nav nav-tree">
+        <div class="nav-group open">
+          <div class="nav-depth1" onclick="toggleNavGroup(this)">📦 상품관리</div>
+          <a class="active" href="product_register.html">상품관리</a>
+          <a href="#" onclick="msg('재고관리 화면은 준비 중입니다.');return false;">재고관리</a>
+          <a href="#" onclick="msg('이미지관리 화면은 준비 중입니다.');return false;">이미지관리</a>
+          <a href="template_manage.html">템플릿관리</a>
+          <a href="#" onclick="msg('상품분류관리 화면은 준비 중입니다.');return false;">상품분류관리</a>
+        </div>
+        <div class="nav-group">
+          <div class="nav-depth1" onclick="toggleNavGroup(this)">📋 예약관리</div>
+          <a href="reservation_list.html">예약목록</a>
+          <a href="#" onclick="msg('예약현황 화면은 준비 중입니다.');return false;">예약현황</a>
+          <a href="#" onclick="msg('좌석관리 화면은 준비 중입니다.');return false;">좌석관리</a>
+        </div>
+        <div class="nav-group">
+          <div class="nav-depth1" onclick="toggleNavGroup(this)">✈️ 항공예약관리</div>
+          <a href="#" onclick="msg('국제선예약 화면은 준비 중입니다.');return false;">국제선예약</a>
+          <a href="#" onclick="msg('국제선예약목록 화면은 준비 중입니다.');return false;">국제선예약목록</a>
+          <a href="#" onclick="msg('국내선예약 화면은 준비 중입니다.');return false;">국내선예약</a>
+          <a href="#" onclick="msg('국내선예약목록 화면은 준비 중입니다.');return false;">국내선예약목록</a>
+        </div>
+        <div class="nav-group">
+          <div class="nav-depth1" onclick="toggleNavGroup(this)">👤 회원관리</div>
+          <a href="#" onclick="msg('웹회원관리 화면은 준비 중입니다.');return false;">웹회원관리</a>
+          <a href="#" onclick="msg('관리자/직원 관리 화면은 준비 중입니다.');return false;">관리자/직원 관리</a>
+          <a href="#" onclick="msg('판매점관리 화면은 준비 중입니다.');return false;">판매점관리</a>
+          <a href="#" onclick="msg('거래처관리 화면은 준비 중입니다.');return false;">거래처관리</a>
+          <a href="#" onclick="msg('그룹관리 화면은 준비 중입니다.');return false;">그룹관리</a>
+          <a href="#" onclick="msg('탈퇴회원 화면은 준비 중입니다.');return false;">탈퇴회원</a>
+        </div>
+        <div class="nav-group">
+          <div class="nav-depth1" onclick="toggleNavGroup(this)">💰 정산관리</div>
+          <a href="#" onclick="msg('인보이스관리 화면은 준비 중입니다.');return false;">인보이스관리</a>
+          <a href="#" onclick="msg('입금/환불현황 화면은 준비 중입니다.');return false;">입금/환불현황</a>
+          <a href="#" onclick="msg('미수금관리 화면은 준비 중입니다.');return false;">미수금관리</a>
+          <a href="#" onclick="msg('국제선정산(항공) 화면은 준비 중입니다.');return false;">국제선정산(항공)</a>
+          <a href="#" onclick="msg('발권데이터(항공) 화면은 준비 중입니다.');return false;">발권데이터(항공)</a>
+        </div>
+        <div class="nav-group">
+          <div class="nav-depth1" onclick="toggleNavGroup(this)">📊 통계관리</div>
+          <a href="#" onclick="msg('통계 대시보드 화면은 준비 중입니다.');return false;">통계 대시보드</a>
+          <a href="#" onclick="msg('매출통계 화면은 준비 중입니다.');return false;">매출통계</a>
+          <a href="#" onclick="msg('예약통계 화면은 준비 중입니다.');return false;">예약통계</a>
+          <a href="#" onclick="msg('상품별통계 화면은 준비 중입니다.');return false;">상품별통계</a>
+          <a href="#" onclick="msg('판매점별통계 화면은 준비 중입니다.');return false;">판매점별통계</a>
+          <a href="#" onclick="msg('지역별통계 화면은 준비 중입니다.');return false;">지역별통계</a>
+          <a href="#" onclick="msg('정산통계 화면은 준비 중입니다.');return false;">정산통계</a>
+        </div>
+        <div class="nav-group">
+          <div class="nav-depth1" onclick="toggleNavGroup(this)">🎨 디자인설정</div>
+          <a href="#" onclick="msg('템플릿관리 화면은 준비 중입니다.');return false;">템플릿관리</a>
+          <a href="#" onclick="msg('섹션관리 화면은 준비 중입니다.');return false;">섹션관리</a>
+          <a href="#" onclick="msg('홈페이지 설정 화면은 준비 중입니다.');return false;">홈페이지 설정</a>
+          <a href="#" onclick="msg('메인메뉴관리 화면은 준비 중입니다.');return false;">메인메뉴관리</a>
+          <a href="#" onclick="msg('팝업관리 화면은 준비 중입니다.');return false;">팝업관리</a>
+          <a href="#" onclick="msg('상단띠배너 화면은 준비 중입니다.');return false;">상단띠배너</a>
+          <a href="#" onclick="msg('7-7 관리자메뉴관리 화면은 준비 중입니다.');return false;">관리자메뉴관리</a>
+        </div>
+        <div class="nav-group">
+          <div class="nav-depth1" onclick="toggleNavGroup(this)">💬 알림톡/문자관리</div>
+          <a href="#" onclick="msg('알림톡 설정 화면은 준비 중입니다.');return false;">알림톡 설정</a>
+          <a href="#" onclick="msg('이메일발송 화면은 준비 중입니다.');return false;">이메일발송</a>
+          <a href="#" onclick="msg('문자발송 화면은 준비 중입니다.');return false;">문자발송</a>
+          <a href="#" onclick="msg('발송내역 화면은 준비 중입니다.');return false;">발송내역</a>
+          <a href="#" onclick="msg('메크로설정 화면은 준비 중입니다.');return false;">메크로설정</a>
+        </div>
+        <div class="nav-group">
+          <div class="nav-depth1" onclick="toggleNavGroup(this)">📝 게시판관리</div>
+          <a href="#" onclick="msg('공지사항 화면은 준비 중입니다.');return false;">공지사항</a>
+          <a href="#" onclick="msg('고객문의 화면은 준비 중입니다.');return false;">고객문의</a>
+          <a href="#" onclick="msg('여행후기 화면은 준비 중입니다.');return false;">여행후기</a>
+          <a href="#" onclick="msg('자주묻는질문 화면은 준비 중입니다.');return false;">자주묻는질문</a>
+          <a href="#" onclick="msg('고객문의 화면은 준비 중입니다.');return false;">고객문의</a>
+          <a href="#" onclick="msg('스캔목록 화면은 준비 중입니다.');return false;">스캔목록</a>
+          <a href="#" onclick="msg('자료실 화면은 준비 중입니다.');return false;">자료실</a>
+        </div>
+        <div class="nav-group">
+          <div class="nav-depth1" onclick="toggleNavGroup(this)">⚙️ 기본설정</div>
+          <a href="#" onclick="msg('항공사 Bin관리 화면은 준비 중입니다.');return false;">항공사 Bin관리</a>
+          <a href="#" onclick="msg('노선관리 화면은 준비 중입니다.');return false;">노선관리</a>
+          <a href="#" onclick="msg('탑승역관리 화면은 준비 중입니다.');return false;">탑승역관리</a>
+          <a href="#" onclick="msg('열차관리 화면은 준비 중입니다.');return false;">열차관리</a>
+          <a href="#" onclick="msg('템플릿사이트관리 화면은 준비 중입니다.');return false;">템플릿사이트관리</a>
+        </div>
       </nav>
     </aside>
 
@@ -554,6 +633,10 @@ function applyDetailTemplate(){
   }
 }
 toggleStayTypeByDuration();
+  function toggleNavGroup(el){el.closest('.nav-group').classList.toggle('open')}
   </script>
 </body>
 </html>
+
+
+
