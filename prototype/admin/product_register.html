@@ -14,7 +14,7 @@ body{margin:0;background:#f4f6f8;color:#222;font-family:"Malgun Gothic","Noto Sa
 .payment-row{display:flex;align-items:center;gap:14px;flex-wrap:wrap;border-top:1px solid #d9dde3;margin-top:2px;padding-top:9px}.pay-item{display:inline-flex;align-items:center;gap:7px;font-size:13px;font-weight:800;white-space:nowrap}.pay-item input[type=text]{width:92px;text-align:center;font-size:13px;min-height:32px;padding:6px 8px}.switch{position:relative;display:inline-block;width:42px;height:24px;flex:0 0 auto}.switch input{opacity:0;width:0;height:0}.slider{position:absolute;cursor:pointer;inset:0;background:#c8ced6;border-radius:999px;transition:.15s}.slider:before{content:"";position:absolute;width:18px;height:18px;left:3px;top:3px;background:white;border-radius:50%;transition:.15s;box-shadow:0 1px 3px rgba(0,0,0,.2)}.switch input:checked+.slider{background:#20a64a}.switch input:checked+.slider:before{transform:translateX(18px)}.point-row{display:grid;grid-template-columns:125px 1fr;border:1px solid #d9dde3;border-left:0;border-right:0;margin-top:8px}.point-title{background:#eef1f5;font-weight:900;font-size:13px;padding:13px 10px;display:flex;align-items:center}.point-body{display:flex;align-items:center;gap:9px;flex-wrap:wrap;padding:10px 14px;font-size:13px}.point-body input[type=text]{width:150px;min-height:32px}.point-body input[type=radio]{width:auto;min-height:auto}@media(max-width:900px){.point-row{grid-template-columns:1fr}.point-title{padding:9px 10px}.point-body{padding:10px}.payment-row{gap:10px}}
 .commission-panel .panel-head{align-items:center;padding:10px 12px}.commission-title{font-size:14px}.commission-mode{display:flex;align-items:center;justify-content:center;gap:7px;font-size:12px;font-weight:900;flex:1;color:#1f2937}.commission-body{display:grid;grid-template-columns:118px 1fr 1fr;gap:5px}.commission-groups{border:2px dashed #9b4dff;border-radius:6px;padding:8px;display:grid;gap:7px;align-content:start}.group-chip{background:#8a1ff0;color:white;border-radius:5px;text-align:center;font-size:12px;font-weight:900;padding:11px 5px;white-space:nowrap}.commission-box{border:2px dashed #98a2b3;border-radius:6px;padding:8px;display:grid;grid-template-columns:1fr 1fr;gap:7px;align-content:start}.commission-box.fixed{border-color:#ff3b3b}.commission-box.rate{border-color:#98a2b3}.commission-box.active{box-shadow:inset 0 0 0 2px rgba(24,163,74,.08)}.commission-input{display:flex;align-items:center;gap:5px;background:#f8fafc;border:1px solid #e1e6ec;border-radius:5px;padding:5px 6px;font-size:11px;font-weight:800;color:#344054;white-space:nowrap}.commission-input input{flex:1;width:100%;min-width:58px;min-height:26px;text-align:right;font-size:12px;padding:4px 5px}.commission-note{grid-column:1/-1;color:#667085;font-size:11px;font-weight:700;margin-top:6px}@media(max-width:1500px){.commission-body{grid-template-columns:110px 1fr 1fr}.commission-box{grid-template-columns:1fr;gap:6px}.commission-mode{font-size:11px;gap:5px}}@media(max-width:1200px){.commission-body{grid-template-columns:1fr}.commission-groups{grid-template-columns:repeat(4,1fr)}.commission-box{grid-template-columns:repeat(2,1fr)}}@media(max-width:760px){.commission-groups,.commission-box{grid-template-columns:1fr}.commission-mode{order:3;flex-basis:100%;justify-content:flex-start}}
 .internal-row{grid-column:1/-1;display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}.internal-row .panel{margin-bottom:0}.internal-row textarea{min-height:132px}.file-list{min-height:132px}@media(max-width:1100px){.internal-row{grid-template-columns:1fr}}
-.detail-content{display:grid;grid-template-columns:minmax(0,1fr) 360px;gap:14px}.detail-editor-area{min-width:0}.detail-editor-box{border:1px solid #d9dde3;border-radius:8px;overflow:hidden;background:white}.detail-toolbar-menu{display:flex;gap:20px;padding:14px 18px 10px;font-weight:900;color:#1f2937}.detail-toolbar-tools{display:flex;align-items:center;gap:18px;padding:12px 18px;border-top:1px solid #edf0f3;border-bottom:1px solid #edf0f3;box-shadow:0 2px 8px rgba(7,17,34,.06);font-size:18px;color:#1f2937}.tool-chip{display:inline-flex;align-items:center;gap:10px;background:#f5f6f8;border-radius:4px;padding:6px 10px;font-size:14px}.detail-editor-box textarea{border:0;border-radius:0;min-height:330px;font-size:13px}.editor-status{border-top:1px solid #edf0f3;padding:6px 10px;color:#667085;font-size:12px}.template-panel{border:1px solid #d9dde3;border-radius:8px;overflow:hidden;background:white}.template-head{background:#f3f4f6;border-bottom:1px solid #d9dde3;padding:12px 14px;display:flex;align-items:center;justify-content:space-between;gap:8px}.template-head strong{font-size:15px}.template-list{display:grid}.template-item{border:0;border-bottom:1px solid #e1e6ec;background:white;text-align:left;padding:15px 20px;color:#1f2937;font-weight:900;cursor:pointer}.template-item:before{content:"‹";color:#2563eb;font-size:22px;margin-right:14px;vertical-align:-1px}.template-item:hover,.template-item.active{background:#eef5ff;color:#1459e6}.detail-actions{text-align:right;margin-top:8px}@media(max-width:1200px){.detail-content{grid-template-columns:1fr}.template-panel{max-width:none}}@media(max-width:760px){.detail-toolbar-menu,.detail-toolbar-tools{gap:10px;overflow:auto}.template-head{align-items:flex-start;flex-direction:column}}
+.detail-content{display:grid;grid-template-columns:minmax(0,1fr) 400px;gap:14px}.detail-editor-area{min-width:0}.detail-editor-box{border:1px solid #d9dde3;border-radius:8px;overflow:hidden;background:white}.detail-toolbar-menu{display:flex;gap:20px;padding:14px 18px 10px;font-weight:900;color:#1f2937}.detail-toolbar-tools{display:flex;align-items:center;gap:18px;padding:12px 18px;border-top:1px solid #edf0f3;border-bottom:1px solid #edf0f3;box-shadow:0 2px 8px rgba(7,17,34,.06);font-size:18px;color:#1f2937}.tool-chip{display:inline-flex;align-items:center;gap:10px;background:#f5f6f8;border-radius:4px;padding:6px 10px;font-size:14px}.detail-editor-box textarea{border:0;border-radius:0;min-height:330px;font-size:13px}.editor-status{border-top:1px solid #edf0f3;padding:6px 10px;color:#667085;font-size:12px}.template-panel{border:1px solid #d9dde3;border-radius:8px;overflow:hidden;background:white}.template-head{background:#f3f4f6;border-bottom:1px solid #d9dde3;padding:12px 14px;display:flex;align-items:center;justify-content:space-between;gap:8px}.template-head strong{font-size:15px}.template-filter{padding:12px 14px;border-bottom:1px solid #edf0f3;background:#fafbfc}.template-list{display:grid}.template-list-row{display:grid;grid-template-columns:1fr auto auto;gap:6px;align-items:center;border-bottom:1px solid #e1e6ec;padding:10px 12px}.template-list-row.active{background:#eef5ff}.template-name{font-weight:900;color:#1f2937;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.template-actions{display:flex;gap:6px}.detail-actions{text-align:right;margin-top:8px}.modal-backdrop{position:fixed;inset:0;background:rgba(7,17,34,.42);display:none;align-items:center;justify-content:center;z-index:30}.modal-backdrop.open{display:flex}.modal-box{width:min(760px,92vw);background:white;border-radius:8px;border:1px solid #d9dde3;overflow:hidden;box-shadow:0 18px 40px rgba(7,17,34,.22)}.modal-head{background:#e6e6e6;padding:12px 16px;font-weight:900;display:flex;justify-content:space-between;gap:12px}.modal-body{padding:16px;white-space:pre-line;line-height:1.7}.modal-body .template-list-row{margin:0 -16px;padding:12px 16px}.modal-foot{padding:12px 16px;border-top:1px solid #edf0f3;text-align:right}@media(max-width:1200px){.detail-content{grid-template-columns:1fr}.template-panel{max-width:none}}@media(max-width:760px){.detail-toolbar-menu,.detail-toolbar-tools{gap:10px;overflow:auto}.template-head{align-items:flex-start;flex-direction:column}.template-list-row{grid-template-columns:1fr}.template-actions{justify-content:flex-end}}
   </style>
 </head>
 <body>
@@ -256,7 +256,7 @@ body{margin:0;background:#f4f6f8;color:#222;font-family:"Malgun Gothic","Noto Sa
 
           <!-- 포함/불포함 사항: 템플릿 선택 시 기존 내용을 덮어쓰기합니다. -->
           <section class="panel">
-            <div class="panel-head"><span>포함사항</span><button class="btn small green" onclick="applyTemplate('includeEditor','include')">템플릿 선택</button></div>
+            <div class="panel-head"><span>포함사항</span><button class="btn small green" onclick="openSimpleTemplateModal('includeEditor','include')">템플릿 선택</button></div>
             <div class="panel-body">
               <div class="editor-toolbar"><span>파일</span><span>편집</span><span>B</span><span>I</span><span>링크</span><span>표</span></div>
               <textarea id="includeEditor" class="editor">🚍 왕복 팔도장터열차
@@ -268,7 +268,7 @@ body{margin:0;background:#f4f6f8;color:#222;font-family:"Malgun Gothic","Noto Sa
           </section>
 
           <section class="panel">
-            <div class="panel-head"><span>불포함사항</span><button class="btn small green" onclick="applyTemplate('excludeEditor','exclude')">템플릿 선택</button></div>
+            <div class="panel-head"><span>불포함사항</span><button class="btn small green" onclick="openSimpleTemplateModal('excludeEditor','exclude')">템플릿 선택</button></div>
             <div class="panel-body">
               <div class="editor-toolbar"><span>파일</span><span>편집</span><span>B</span><span>I</span><span>링크</span><span>표</span></div>
               <textarea id="excludeEditor" class="editor">🍽 제공 외 식사비
@@ -302,17 +302,30 @@ body{margin:0;background:#f4f6f8;color:#222;font-family:"Malgun Gothic","Noto Sa
                   <div class="detail-actions"><button class="btn small red" onclick="deleteActiveContentTab()">현재 탭 삭제</button></div>
                 </div>
                 <aside class="template-panel">
-                  <div class="template-head"><strong id="templatePanelTitle">상세안내 템플릿 선택</strong><button class="btn small green" onclick="msg('템플릿 관리 샘플입니다.')">템플릿 관리</button></div>
+                  <div class="template-head"><strong id="templatePanelTitle">상세안내 템플릿 선택</strong><a class="btn small green" href="template_manage.html">템플릿 등록관리</a></div>
+                  <div class="template-filter">
+                    <select id="templateCategorySelect" onchange="updateTemplatePanel()">
+                      <option>버스여행</option>
+                      <option>기차여행</option>
+                      <option>해외여행</option>
+                      <option>지자체지원</option>
+                    </select>
+                  </div>
                   <div id="templateList" class="template-list">
-                    <button class="template-item" onclick="applySelectedTemplate(this)">버스여행 당일 상세안내</button>
-                    <button class="template-item active" onclick="applySelectedTemplate(this)">버스여행 1박2일 상세안내</button>
-                    <button class="template-item" onclick="applySelectedTemplate(this)">기차여행 1박2일 상세안내</button>
-                    <button class="template-item" onclick="applySelectedTemplate(this)">해외여행 상세안내</button>
+                    <div class="template-list-row active" data-content="버스여행 1박2일 상세안내 템플릿 샘플입니다.&#10;일정 소개, 포함사항, 이용안내 문구를 상품에 맞게 수정하세요."><span class="template-name">버스여행 1박2일 상세안내</span><button class="btn small" onclick="viewTemplate(this)">보기</button><button class="btn small green" onclick="applySelectedTemplate(this)">선택</button></div>
                   </div>
                 </aside>
               </div>
             </div>
           </section>
+
+          <div id="templatePreviewModal" class="modal-backdrop" onclick="closeTemplatePreview(event)">
+            <div class="modal-box" onclick="event.stopPropagation()">
+              <div class="modal-head"><span id="templatePreviewTitle">템플릿 보기</span><button class="btn small" onclick="closeTemplatePreview()">닫기</button></div>
+              <div id="templatePreviewBody" class="modal-body"></div>
+              <div class="modal-foot"><button class="btn green" onclick="applyPreviewTemplate()">선택</button></div>
+            </div>
+          </div>
 
           <!-- 내부관리: 관리자 전용 메모와 판매사 공유 메모, 내부 파일을 분리합니다. -->
           <div class="internal-row">
@@ -392,38 +405,131 @@ function toggleCommissionMode(){
   document.getElementById('commissionFixedBox').classList.toggle('active',!isRate);
   document.getElementById('commissionRateBox').classList.toggle('active',isRate);
 }
-function applyTemplate(id,type){
-  if(!confirm('템플릿을 선택하면 기존 내용이 덮어쓰기됩니다. 적용할까요?')) return;
-  document.getElementById(id).value=type==='include'?'왕복 교통비\\n가이드\\n기본 입장료':'개인경비\\n여행자보험\\n제공 외 식사비';
+var selectedPreviewTemplate=null;
+var selectedTemplateTarget=null;
+var selectedTemplateMode='detail';
+var simpleTemplates={
+  include:[
+    {name:'버스여행 포함사항 기본',content:'왕복 교통비\n가이드\n기본 입장료'},
+    {name:'기차여행 포함사항 기본',content:'열차비\n연계버스\n현지 가이드'},
+    {name:'당일여행 포함사항',content:'식사 1회\n관광지 입장권\n여행자보험'}
+  ],
+  exclude:[
+    {name:'버스여행 불포함사항 기본',content:'개인경비\n제공 외 식사비\n여행자보험'},
+    {name:'숙박여행 불포함사항',content:'싱글룸 추가비\n개인 세면도구\n기타 개인경비'},
+    {name:'기차여행 불포함사항',content:'현지 자유식\n개별 이동비\n선택관광 비용'}
+  ]
+};
+function openSimpleTemplateModal(targetId,type){
+  selectedTemplateTarget=targetId;
+  selectedTemplateMode='simple';
+  var title=type==='include'?'포함사항 템플릿 선택':'불포함사항 템플릿 선택';
+  var items=simpleTemplates[type];
+  document.getElementById('templatePreviewTitle').textContent=title;
+  document.getElementById('templatePreviewBody').innerHTML=items.map(function(item,index){
+    return '<div class="template-list-row'+(index===0?' active':'')+'" data-content="'+item.content.replace(/"/g,'&quot;')+'"><span class="template-name">'+item.name+'</span><button class="btn small" onclick="viewSimpleTemplate(this)">보기</button><button class="btn small green" onclick="selectSimpleTemplate(this)">선택</button></div>';
+  }).join('');
+  selectedPreviewTemplate=document.querySelector('#templatePreviewBody .template-list-row');
+  document.getElementById('templatePreviewModal').classList.add('open');
+}
+function viewSimpleTemplate(btn){
+  var row=btn.closest('.template-list-row');
+  document.querySelectorAll('#templatePreviewBody .template-list-row').forEach(function(item){item.classList.remove('active')});
+  row.classList.add('active');
+  selectedPreviewTemplate=row;
+}
+function selectSimpleTemplate(btn){
+  var row=btn.closest('.template-list-row');
+  document.querySelectorAll('#templatePreviewBody .template-list-row').forEach(function(item){item.classList.remove('active')});
+  row.classList.add('active');
+  selectedPreviewTemplate=row;
+  applyPreviewTemplate();
 }
 var detailTemplates={
-  '상세안내':['버스여행 당일 상세안내','버스여행 1박2일 상세안내','기차여행 1박2일 상세안내','해외여행 상세안내'],
-  '이용안내':['국내여행 이용안내','기차여행 이용안내','버스여행 이용안내','단체예약 이용안내'],
-  '취소/환불 규정':['국내여행 취소/환불 규정','숙박여행 취소/환불 규정','당일여행 취소/환불 규정','특가상품 취소/환불 규정'],
-  '선택관광/쇼핑':['선택관광 없음 안내','선택관광 포함 안내','쇼핑센터 방문 안내','자유일정 안내'],
-  '숙소정보':['호텔 기본 숙소정보','리조트 숙소정보','온천호텔 숙소정보','객실 배정 안내']
+  '버스여행':{
+    '상세안내':['버스여행 당일 상세안내','버스여행 1박2일 상세안내','버스여행 프리미엄 상세안내'],
+    '이용안내':['버스여행 탑승 안내','버스여행 준비물 안내','단체예약 이용안내'],
+    '취소/환불 규정':['버스여행 당일 취소규정','버스여행 숙박 취소규정'],
+    '선택관광/쇼핑':['선택관광 없음 안내','지역 쇼핑센터 방문 안내'],
+    '숙소정보':['버스여행 연계 호텔 안내','리조트 숙소정보']
+  },
+  '기차여행':{
+    '상세안내':['기차여행 당일 상세안내','기차여행 1박2일 상세안내'],
+    '이용안내':['열차 탑승 안내','역 집결 안내'],
+    '취소/환불 규정':['기차여행 취소/환불 규정'],
+    '선택관광/쇼핑':['기차여행 선택관광 안내'],
+    '숙소정보':['기차여행 숙소정보']
+  },
+  '해외여행':{
+    '상세안내':['해외여행 상세안내','해외 패키지 상세안내'],
+    '이용안내':['여권/비자 안내','해외여행 준비물 안내'],
+    '취소/환불 규정':['해외여행 특별약관','항공 포함 취소규정'],
+    '선택관광/쇼핑':['해외 선택관광 안내','쇼핑센터 방문 안내'],
+    '숙소정보':['해외 호텔 안내']
+  },
+  '지자체지원':{
+    '상세안내':['지자체 지원상품 상세안내','만원의행복 상세안내'],
+    '이용안내':['증빙서류 제출 안내','지원대상 이용안내'],
+    '취소/환불 규정':['지원상품 취소/환불 규정'],
+    '선택관광/쇼핑':['지원상품 선택관광 안내'],
+    '숙소정보':['지원상품 숙소정보']
+  }
 };
 function selectContentTab(btn){
   document.querySelectorAll('.content-tab').forEach(function(t){t.classList.remove('active')});
   btn.classList.add('active');
-  updateTemplatePanel(btn.textContent.trim());
+  updateTemplatePanel();
 }
-function updateTemplatePanel(tabName){
+function updateTemplatePanel(){
+  var tabName=document.querySelector('.content-tab.active').textContent.trim();
+  var category=document.getElementById('templateCategorySelect')?document.getElementById('templateCategorySelect').value:'버스여행';
   var title=document.getElementById('templatePanelTitle');
   var list=document.getElementById('templateList');
   if(!title||!list) return;
   title.textContent=tabName+' 템플릿 선택';
-  var items=detailTemplates[tabName]||[tabName+' 기본 템플릿',tabName+' 상품유형 템플릿',tabName+' 공통 템플릿'];
+  var items=(detailTemplates[category]&&detailTemplates[category][tabName])||[category+' '+tabName+' 기본 템플릿'];
   list.innerHTML=items.map(function(item,index){
-    return '<button class="template-item'+(index===1?' active':'')+'" onclick="applySelectedTemplate(this)">'+item+'</button>';
+    var content=item+' 샘플 내용입니다.\n'+category+' 카테고리의 '+tabName+' 영역에 적용되는 템플릿입니다.\n선택 시 기존 내용을 삭제하고 이 내용으로 입력합니다.';
+    return '<div class="template-list-row'+(index===0?' active':'')+'" data-content="'+content.replace(/"/g,'&quot;')+'"><span class="template-name">'+item+'</span><button class="btn small" onclick="viewTemplate(this)">보기</button><button class="btn small green" onclick="applySelectedTemplate(this)">선택</button></div>';
   }).join('');
 }
 function applySelectedTemplate(btn){
-  document.querySelectorAll('.template-item').forEach(function(item){item.classList.remove('active')});
-  btn.classList.add('active');
+  var row=btn.closest('.template-list-row');
+  document.querySelectorAll('.template-list-row').forEach(function(item){item.classList.remove('active')});
+  row.classList.add('active');
   var tab=document.querySelector('.content-tab.active').textContent.trim();
-  if(confirm(btn.textContent+' 템플릿을 적용하면 현재 '+tab+' 내용이 덮어쓰기됩니다. 적용할까요?')){
-    document.getElementById('detailEditor').value=btn.textContent+' 템플릿이 적용되었습니다.\n'+tab+' 내용을 상품에 맞게 수정하세요.';
+  var name=row.querySelector('.template-name').textContent;
+  if(confirm(name+' 템플릿을 선택하면 현재 '+tab+' 내용이 삭제되고 신규 입력됩니다. 적용할까요?')){
+    document.getElementById('detailEditor').value=row.dataset.content;
+  }
+}
+function viewTemplate(btn){
+  selectedTemplateMode='detail';
+  selectedTemplateTarget=null;
+  var row=btn.closest('.template-list-row');
+  selectedPreviewTemplate=row;
+  document.getElementById('templatePreviewTitle').textContent=row.querySelector('.template-name').textContent;
+  document.getElementById('templatePreviewBody').textContent=row.dataset.content;
+  document.getElementById('templatePreviewModal').classList.add('open');
+}
+function closeTemplatePreview(event){
+  if(event&&event.target.id!=='templatePreviewModal') return;
+  document.getElementById('templatePreviewModal').classList.remove('open');
+  selectedTemplateMode='detail';
+  selectedTemplateTarget=null;
+}
+function applyPreviewTemplate(){
+  if(selectedPreviewTemplate){
+    if(selectedTemplateMode==='simple'&&selectedTemplateTarget){
+      var name=selectedPreviewTemplate.querySelector('.template-name').textContent;
+      if(confirm(name+' 템플릿을 선택하면 현재 내용이 삭제되고 신규 입력됩니다. 적용할까요?')){
+        document.getElementById(selectedTemplateTarget).value=selectedPreviewTemplate.dataset.content;
+        closeTemplatePreview();
+      }
+      return;
+    }
+    applySelectedTemplate(selectedPreviewTemplate.querySelector('.btn.green'));
+    closeTemplatePreview();
   }
 }
 function addContentTab(){
