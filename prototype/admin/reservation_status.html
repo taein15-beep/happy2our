@@ -1,0 +1,330 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>예약현황</title>
+  <style>
+body{margin:0;background:#f4f6f8;color:#222;font-family:"Malgun Gothic","Noto Sans KR",Arial,sans-serif;font-size:13px}.app{display:grid;grid-template-columns:250px 1fr;min-height:100vh}.sidebar{background:#071122;color:#d7e1f0;padding:18px 0}.brand{padding:0 18px 18px;border-bottom:1px solid rgba(255,255,255,.1)}.brand strong{display:block;color:white;font-size:17px}.nav-title{padding:18px 18px 8px;color:#8ea0bb;font-size:11px}.nav a{display:block;padding:11px 18px;color:#cdd6e5;text-decoration:none;border-left:3px solid transparent}.nav a.active{background:rgba(255,255,255,.08);border-left-color:#5b8cff;color:white}.nav-tree{padding:8px 0 18px}.nav-group{border-bottom:1px solid rgba(255,255,255,.06);padding:6px 0}.nav-depth1{padding:10px 18px 8px;color:#fff;font-weight:900;font-size:13px;cursor:pointer;display:flex;align-items:center;justify-content:space-between}.nav-depth1:after{content:'▾';font-size:10px;color:#8ea0bb}.nav-group:not(.open) .nav-depth1:after{content:'▸'}.nav-group:not(.open) a{display:none}.nav-group a{position:relative;padding:7px 18px 7px 46px;font-size:12px;color:#b9c6d8}.nav-group a:before{content:'├';position:absolute;left:26px;top:7px;color:rgba(185,198,216,.7);font-size:12px;line-height:1}.nav-group a.active{background:rgba(91,140,255,.18);border-left-color:#5b8cff;color:white}.nav-group.open .nav-depth1{color:#8fb3ff}.topbar{height:48px;background:white;border-bottom:1px solid #d9dde3;display:flex;align-items:center;justify-content:space-between;padding:0 16px}.page{padding:16px;max-width:1800px}.page-head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:14px}h1{font-size:24px;margin:0 0 6px}.desc{font-weight:700;color:#555}.btn{border:1px solid #cfd5dd;background:white;border-radius:4px;padding:8px 12px;font-weight:700;cursor:pointer;white-space:nowrap}.btn:hover{background:#f7f9fb}.btn.green{background:#18a34a;border-color:#18a34a;color:white}.btn.blue{background:#2f63f6;border-color:#2f63f6;color:white}.btn.red{background:#d92d20;border-color:#d92d20;color:white}.btn.small{padding:6px 8px;font-size:12px}.panel{background:white;border:1px solid #d9dde3;border-radius:7px;margin-bottom:12px}.panel-head{background:#e6e6e6;padding:12px 14px;font-weight:900;border-bottom:1px solid #d9dde3;display:flex;justify-content:space-between;align-items:center;gap:10px}.panel-body{padding:14px;overflow:auto}input,select{border:1px solid #d6dbe1;border-radius:4px;padding:8px 9px;min-height:36px;box-sizing:border-box;background:white}label{font-weight:800;color:#3b4654}.muted{color:#667085;font-size:12px}.filter-grid{display:grid;grid-template-columns:repeat(8,minmax(120px,1fr));gap:10px;align-items:end}.field{display:flex;flex-direction:column;gap:6px;min-width:0}.field.wide{grid-column:span 2}.field.search{grid-column:span 3}.search-combo{display:grid;grid-template-columns:130px minmax(0,1fr);gap:8px}.field.actions{grid-column:span 2;flex-direction:row;align-items:flex-end;gap:8px}.field.actions .btn{flex:1}.content-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:12px}.calendar-toolbar,.list-head{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}.calendar-nav,.view-toggle{display:flex;gap:6px;align-items:center}.view-toggle button.active{background:#2f63f6;border-color:#2f63f6;color:white}.current-month{font-size:18px;font-weight:900}.calendar{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));border-left:1px solid #d9dde3;border-top:1px solid #d9dde3}.weekday,.day{border-right:1px solid #d9dde3;border-bottom:1px solid #d9dde3}.weekday{background:#f1f3f5;text-align:center;font-weight:900;padding:9px}.day{min-height:124px;background:white;padding:8px;box-sizing:border-box;cursor:pointer}.day:hover{background:#f8fbff}.day.other{background:#fafbfc;color:#98a2b3}.day.selected{outline:2px solid #2f63f6;outline-offset:-2px}.day-no{font-weight:900;margin-bottom:7px}.day-lines{display:grid;gap:4px}.stat-line{display:flex;align-items:center;justify-content:space-between;gap:4px;border:1px solid transparent;border-radius:4px;padding:3px 5px;background:#f7f9fb;font-size:12px;cursor:pointer}.stat-line:hover{border-color:#2f63f6;background:#eef4ff}.stat-line strong{font-size:12px}.s-receipt{color:#2556d9}.s-depart{color:#0f8738}.s-wait{color:#b45309}.s-cancel{color:#d92d20}.badge{display:inline-flex;border-radius:14px;padding:4px 8px;font-size:12px;font-weight:900;white-space:nowrap}.b-green{background:#e7f8ee;color:#0f8738}.b-blue{background:#eaf1ff;color:#2556d9}.b-orange{background:#fff4de;color:#b45309}.b-red{background:#fff0f0;color:#d92d20}.b-gray{background:#eef1f5;color:#475467}.b-purple{background:#f1ecff;color:#6941c6}.table-wrap{overflow:auto}.table{width:100%;border-collapse:collapse;min-width:1280px}.table th{background:#e6e6e6;border:1px solid #cfd3d8;padding:9px;text-align:center;white-space:nowrap}.table td{border:1px solid #edf0f3;padding:8px;background:white;vertical-align:middle}.table td.center{text-align:center}.table td.money{text-align:right;white-space:nowrap}.detail-link{color:#2556d9;font-weight:900;text-decoration:none}.detail-link:hover{text-decoration:underline}.manage{display:flex;gap:5px;justify-content:center;flex-wrap:wrap}.unpaid{color:#d92d20;font-weight:900}.selected-condition{font-weight:900;color:#2f63f6}.empty{padding:24px;text-align:center;color:#667085;font-weight:800}.summary-strip{display:flex;gap:8px;flex-wrap:wrap}.summary-chip{border:1px solid #d9dde3;background:#fff;border-radius:5px;padding:6px 9px;font-weight:900}.summary-chip .unpaid{margin-left:4px}@media(max-width:1400px){.filter-grid{grid-template-columns:repeat(4,minmax(120px,1fr))}}@media(max-width:1100px){.app{grid-template-columns:1fr}.sidebar{display:none}.content-grid{grid-template-columns:1fr}.filter-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.field.wide,.field.search,.field.actions{grid-column:1/-1}.day{min-height:112px}}@media(max-width:720px){.filter-grid{grid-template-columns:1fr}.search-combo{grid-template-columns:1fr}.calendar{font-size:12px}.day{min-height:104px;padding:6px}.stat-line{padding:2px 4px}.page-head{display:block}}
+  </style>
+  <style>
+.reservation-list-table{min-width:700px;table-layout:fixed}.reservation-list-table th:nth-child(1){width:118px}.reservation-list-table th:nth-child(2){width:122px}.reservation-list-table th:nth-child(4){width:58px}.reservation-list-table th:nth-child(5){width:92px}.reservation-list-table th:nth-child(6){width:96px}.reservation-list-table td{word-break:keep-all}.reservation-list-table td:nth-child(3){word-break:keep-all}.date-received{color:#2556d9;font-size:13px;font-weight:900}.selected-condition{font-size:15px}.selected-date{color:#d92d20;font-weight:900}
+  </style>
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <div class="brand"><strong>AviaNext</strong><small>AOS Admin Prototype</small></div>
+      <div class="nav-title">관리메뉴</div>
+      <nav class="nav nav-tree">
+        <div class="nav-group">
+          <div class="nav-depth1" onclick="toggleNavGroup(this)">📦 상품관리</div>
+          <a href="product_list.html">상품목록</a>
+          <a href="product_register.html">상품등록</a>
+          <a href="#" onclick="msg('재고관리 화면은 준비 중입니다.');return false;">재고관리</a>
+          <a href="#" onclick="msg('이미지관리 화면은 준비 중입니다.');return false;">이미지관리</a>
+          <a href="template_manage.html">템플릿관리</a>
+          <a href="#" onclick="msg('상품분류관리 화면은 준비 중입니다.');return false;">상품분류관리</a>
+        </div>
+        <div class="nav-group open">
+          <div class="nav-depth1" onclick="toggleNavGroup(this)">📋 예약관리</div>
+          <a href="reservation_list.html">예약목록</a>
+          <a class="active" href="reservation_status.html">예약현황</a>
+          <a href="#" onclick="msg('좌석관리 화면은 준비 중입니다.');return false;">좌석관리</a>
+        </div>
+        <div class="nav-group">
+          <div class="nav-depth1" onclick="toggleNavGroup(this)">✈️ 항공예약관리</div>
+          <a href="#" onclick="msg('국제선예약 화면은 준비 중입니다.');return false;">국제선예약</a>
+          <a href="#" onclick="msg('국제선예약목록 화면은 준비 중입니다.');return false;">국제선예약목록</a>
+          <a href="#" onclick="msg('국내선예약 화면은 준비 중입니다.');return false;">국내선예약</a>
+          <a href="#" onclick="msg('국내선예약목록 화면은 준비 중입니다.');return false;">국내선예약목록</a>
+        </div>
+        <div class="nav-group">
+          <div class="nav-depth1" onclick="toggleNavGroup(this)">👤 회원관리</div>
+          <a href="#" onclick="msg('웹회원관리 화면은 준비 중입니다.');return false;">웹회원관리</a>
+          <a href="#" onclick="msg('관리자/직원 관리 화면은 준비 중입니다.');return false;">관리자/직원 관리</a>
+          <a href="#" onclick="msg('판매점관리 화면은 준비 중입니다.');return false;">판매점관리</a>
+          <a href="#" onclick="msg('거래처관리 화면은 준비 중입니다.');return false;">거래처관리</a>
+          <a href="#" onclick="msg('그룹관리 화면은 준비 중입니다.');return false;">그룹관리</a>
+          <a href="#" onclick="msg('탈퇴회원 화면은 준비 중입니다.');return false;">탈퇴회원</a>
+        </div>
+        <div class="nav-group">
+          <div class="nav-depth1" onclick="toggleNavGroup(this)">💰 정산관리</div>
+          <a href="#" onclick="msg('인보이스관리 화면은 준비 중입니다.');return false;">인보이스관리</a>
+          <a href="#" onclick="msg('입금/환불현황 화면은 준비 중입니다.');return false;">입금/환불현황</a>
+          <a href="#" onclick="msg('미수금관리 화면은 준비 중입니다.');return false;">미수금관리</a>
+          <a href="#" onclick="msg('국제선정산(항공) 화면은 준비 중입니다.');return false;">국제선정산(항공)</a>
+          <a href="#" onclick="msg('발권데이터(항공) 화면은 준비 중입니다.');return false;">발권데이터(항공)</a>
+        </div>
+        <div class="nav-group">
+          <div class="nav-depth1" onclick="toggleNavGroup(this)">📊 통계관리</div>
+          <a href="statistics_dashboard.html">통계 대시보드</a>
+          <a href="statistics_sales.html">매출통계</a>
+          <a href="statistics_reservation.html">예약통계</a>
+          <a href="statistics_product.html">상품별 통계</a>
+          <a href="statistics_seller.html">판매점별 통계</a>
+          <a href="statistics_region.html">지역별 통계</a>
+          <a href="statistics_settlement.html">정산통계</a>
+        </div>
+        <div class="nav-group">
+          <div class="nav-depth1" onclick="toggleNavGroup(this)">🎨 디자인설정</div>
+          <a href="#" onclick="msg('템플릿관리 화면은 준비 중입니다.');return false;">템플릿관리</a>
+          <a href="#" onclick="msg('섹션관리 화면은 준비 중입니다.');return false;">섹션관리</a>
+          <a href="#" onclick="msg('홈페이지 설정 화면은 준비 중입니다.');return false;">홈페이지 설정</a>
+          <a href="#" onclick="msg('메인메뉴관리 화면은 준비 중입니다.');return false;">메인메뉴관리</a>
+          <a href="#" onclick="msg('팝업관리 화면은 준비 중입니다.');return false;">팝업관리</a>
+          <a href="#" onclick="msg('상단띠배너 화면은 준비 중입니다.');return false;">상단띠배너</a>
+          <a href="#" onclick="msg('관리자메뉴관리 화면은 준비 중입니다.');return false;">관리자메뉴관리</a>
+        </div>
+        <div class="nav-group">
+          <div class="nav-depth1" onclick="toggleNavGroup(this)">💬 알림톡/문자관리</div>
+          <a href="#" onclick="msg('알림톡 설정 화면은 준비 중입니다.');return false;">알림톡 설정</a>
+          <a href="#" onclick="msg('이메일발송 화면은 준비 중입니다.');return false;">이메일발송</a>
+          <a href="#" onclick="msg('문자발송 화면은 준비 중입니다.');return false;">문자발송</a>
+          <a href="#" onclick="msg('발송내역 화면은 준비 중입니다.');return false;">발송내역</a>
+          <a href="#" onclick="msg('메크로설정 화면은 준비 중입니다.');return false;">메크로설정</a>
+        </div>
+        <div class="nav-group">
+          <div class="nav-depth1" onclick="toggleNavGroup(this)">⚙️ 기본설정</div>
+          <a href="#" onclick="msg('항공사 Bin관리 화면은 준비 중입니다.');return false;">항공사 Bin관리</a>
+          <a href="#" onclick="msg('노선관리 화면은 준비 중입니다.');return false;">노선관리</a>
+          <a href="#" onclick="msg('탑승역관리 화면은 준비 중입니다.');return false;">탑승역관리</a>
+          <a href="#" onclick="msg('열차관리 화면은 준비 중입니다.');return false;">열차관리</a>
+        </div>
+      </nav>
+    </aside>
+    <main>
+      <header class="topbar"><strong>예약현황</strong><span>윤호님 · 로그아웃</span></header>
+      <div class="page">
+        <div class="page-head">
+          <div>
+            <h1>예약현황</h1>
+            <div class="desc">월간 달력에서 날짜와 상태를 선택해 예약 리스트를 빠르게 확인합니다.</div>
+          </div>
+          <div class="summary-strip" aria-label="현황 요약">
+            <span class="summary-chip">접수 31명</span>
+            <span class="summary-chip">출발 78명</span>
+            <span class="summary-chip">대기 14명</span>
+            <span class="summary-chip">취소 6명</span>
+            <span class="summary-chip">미입금 <span class="unpaid">9건</span></span>
+          </div>
+        </div>
+
+        <section class="panel">
+          <div class="panel-head">검색 필터</div>
+          <div class="panel-body">
+            <div class="filter-grid">
+              <div class="field"><label for="processStatus">처리상태</label><select id="processStatus"><option>전체</option><option selected>접수</option><option>확정</option><option>대기</option><option>취소</option><option>완료</option></select></div>
+              <div class="field"><label for="paymentStatus">입금상태</label><select id="paymentStatus"><option>전체</option><option>미입금</option><option>일부입금</option><option>입금완료</option><option>환불대기</option><option>환불완료</option></select></div>
+              <div class="field"><label for="settlementStatus">정산상태</label><select id="settlementStatus"><option>전체</option><option>미정산</option><option>정산대기</option><option>정산완료</option><option>보류</option></select></div>
+              <div class="field"><label for="category1">상품분류 대분류</label><select id="category1"><option>대분류</option><option>국내여행</option><option>지자체지원</option><option>테마여행</option></select></div>
+              <div class="field"><label for="category2">상품분류 중분류</label><select id="category2"><option>중분류</option><option>당일여행</option><option>1박2일</option><option>체험여행</option></select></div>
+              <div class="field"><label for="category3">상품분류 소분류</label><select id="category3"><option>소분류</option><option>수도권</option><option>강화</option><option>남이섬</option></select></div>
+              <div class="field search">
+                <label for="searchType">검색항목</label>
+                <div class="search-combo">
+                  <select id="searchType"><option>상품명</option><option>예약번호</option><option>예약자명</option><option>연락처</option><option>판매점</option><option>담당자</option></select>
+                  <input id="searchKeyword" placeholder="검색어 입력">
+                </div>
+              </div>
+              <div class="field actions">
+                <button class="btn green" onclick="applySearch()">검색</button>
+                <button class="btn" onclick="resetSearch()">초기화</button>
+                <button class="btn blue" onclick="msg('현재 조건 기준으로 엑셀을 다운로드합니다.')">엑셀다운로드</button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <div class="content-grid">
+          <section class="panel">
+            <div class="panel-head">
+              <div class="calendar-toolbar">
+                <div class="calendar-nav">
+                  <button class="btn small" onclick="msg('이전달 샘플 이동입니다.')">이전달</button>
+                  <button class="btn small" onclick="selectDate('2026-06-22')">오늘</button>
+                  <button class="btn small" onclick="msg('다음달 샘플 이동입니다.')">다음달</button>
+                </div>
+                <span class="current-month">2026년 6월</span>
+              </div>
+              <div class="view-toggle" aria-label="표시 기준">
+                <button id="peopleModeBtn" class="btn small active" onclick="setCountMode('people')">인원 기준</button>
+                <button id="caseModeBtn" class="btn small" onclick="setCountMode('case')">건수 기준</button>
+              </div>
+            </div>
+            <div class="panel-body">
+              <div class="calendar" id="calendar">
+                <div class="weekday">일</div><div class="weekday">월</div><div class="weekday">화</div><div class="weekday">수</div><div class="weekday">목</div><div class="weekday">금</div><div class="weekday">토</div>
+              </div>
+            </div>
+          </section>
+
+          <section class="panel">
+            <div class="panel-head list-head">
+              <span>예약 리스트</span>
+              <span id="selectedCondition" class="selected-condition"><span class="selected-date">2026-06-25</span> / 접수 예약 / 총 12명</span>
+            </div>
+            <div class="table-wrap">
+              <table class="table reservation-list-table">
+                <thead>
+                  <tr><th>예약번호</th><th>예약자명/연락처</th><th>상품명</th><th>인원</th><th>예약일</th><th>판매점</th></tr>
+                </thead>
+                <tbody id="reservationRows"></tbody>
+              </table>
+              <div id="emptyRows" class="empty" style="display:none">선택 조건에 해당하는 예약이 없습니다.</div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script>
+var countMode='people';
+var selectedDate='2026-06-25';
+var selectedStatus='접수';
+var activeFilters={process:'접수',payment:'전체',settlement:'전체',category1:'대분류',category2:'중분류',category3:'소분류',searchType:'상품명',keyword:''};
+var dayStats={
+  '2026-06-02':{receipt:{people:6,cases:2},depart:{people:14,cases:5},wait:{people:2,cases:1},cancel:{people:0,cases:0}},
+  '2026-06-08':{receipt:{people:9,cases:4},depart:{people:18,cases:6},wait:{people:3,cases:2},cancel:{people:1,cases:1}},
+  '2026-06-15':{receipt:{people:4,cases:2},depart:{people:21,cases:8},wait:{people:1,cases:1},cancel:{people:2,cases:1}},
+  '2026-06-18':{receipt:{people:7,cases:3},depart:{people:16,cases:5},wait:{people:4,cases:1},cancel:{people:0,cases:0}},
+  '2026-06-21':{receipt:{people:5,cases:2},depart:{people:12,cases:4},wait:{people:1,cases:1},cancel:{people:1,cases:1}},
+  '2026-06-25':{receipt:{people:12,cases:5},depart:{people:24,cases:9},wait:{people:3,cases:2},cancel:{people:2,cases:1}},
+  '2026-06-30':{receipt:{people:8,cases:3},depart:{people:19,cases:7},wait:{people:0,cases:0},cancel:{people:0,cases:0}}
+};
+var reservations=[
+  {no:'RV20260625001',name:'홍길동',phone:'010-1234-5678',product:'화성·수원 만원의행복 나들이',received:'2026-06-12',departure:'2026-06-25',people:3,status:'접수',payment:'미입금',settlement:'미정산',category1:'지자체지원',category2:'당일여행',category3:'수도권',seller:'직접판매',supplier:'화성투어',manager:'김윤호',total:48000,balance:48000},
+  {no:'RV20260625004',name:'정민아',phone:'010-8899-1212',product:'화성·수원 만원의행복 나들이',received:'2026-06-13',departure:'2026-06-25',people:2,status:'접수',payment:'일부입금',settlement:'미정산',category1:'지자체지원',category2:'당일여행',category3:'수도권',seller:'지역몰A',supplier:'화성투어',manager:'김윤호',total:32000,balance:16000},
+  {no:'RV20260625007',name:'최선우',phone:'010-7777-3344',product:'강화 역사문화 테마여행',received:'2026-06-14',departure:'2026-06-25',people:4,status:'접수',payment:'입금완료',settlement:'정산대기',category1:'테마여행',category2:'체험여행',category3:'강화',seller:'복지몰B',supplier:'강화테마투어',manager:'이도현',total:240000,balance:0},
+  {no:'RV20260625011',name:'이하린',phone:'010-2222-9080',product:'남이섬 힐링 패키지',received:'2026-06-15',departure:'2026-06-25',people:3,status:'접수',payment:'미입금',settlement:'보류',category1:'국내여행',category2:'1박2일',category3:'남이섬',seller:'하나투어 제휴',supplier:'힐링트래블',manager:'박서연',total:360000,balance:360000},
+  {no:'RV20260625014',name:'박민지',phone:'010-2345-6789',product:'제부도 해상케이블카 당일여행',received:'2026-06-16',departure:'2026-06-25',people:24,status:'출발',payment:'입금완료',settlement:'정산대기',category1:'국내여행',category2:'당일여행',category3:'수도권',seller:'하나투어 제휴',supplier:'제부도투어',manager:'박서연',total:1152000,balance:0},
+  {no:'RV20260625018',name:'최정우',phone:'010-3456-7890',product:'강화 역사문화 테마여행',received:'2026-06-17',departure:'2026-06-25',people:3,status:'대기',payment:'일부입금',settlement:'미정산',category1:'테마여행',category2:'체험여행',category3:'강화',seller:'지역몰A',supplier:'강화테마투어',manager:'이도현',total:180000,balance:120000},
+  {no:'RV20260625022',name:'이수진',phone:'010-4567-8901',product:'남이섬 힐링 패키지',received:'2026-06-18',departure:'2026-06-25',people:2,status:'취소',payment:'환불대기',settlement:'보류',category1:'국내여행',category2:'1박2일',category3:'남이섬',seller:'복지몰B',supplier:'힐링트래블',manager:'박서연',total:240000,balance:0},
+  {no:'RV20260618015',name:'오세준',phone:'010-6060-1818',product:'강화 역사문화 테마여행',received:'2026-06-10',departure:'2026-06-18',people:4,status:'대기',payment:'일부입금',settlement:'미정산',category1:'테마여행',category2:'체험여행',category3:'강화',seller:'콜센터',supplier:'강화테마투어',manager:'이도현',total:240000,balance:160000},
+  {no:'RV20260621008',name:'김미연',phone:'010-3333-2121',product:'제부도 해상케이블카 당일여행',received:'2026-06-11',departure:'2026-06-21',people:2,status:'출발',payment:'입금완료',settlement:'정산완료',category1:'국내여행',category2:'당일여행',category3:'수도권',seller:'직접판매',supplier:'제부도투어',manager:'김윤호',total:96000,balance:0},
+  {no:'RV20260630001',name:'문서현',phone:'010-3030-6060',product:'화성·수원 만원의행복 나들이',received:'2026-06-20',departure:'2026-06-30',people:8,status:'접수',payment:'미입금',settlement:'미정산',category1:'지자체지원',category2:'당일여행',category3:'수도권',seller:'직접판매',supplier:'화성투어',manager:'김윤호',total:128000,balance:128000}
+];
+var statusMap={receipt:'접수',depart:'출발',wait:'대기',cancel:'취소'};
+var labelMap={receipt:'접수',depart:'출발',wait:'대기',cancel:'취소'};
+function money(n){return n.toLocaleString('ko-KR')+'원'}
+function badgeStatus(status){
+  var cls=status==='접수'?'b-blue':status==='출발'?'b-green':status==='대기'?'b-orange':status==='취소'?'b-red':'b-gray';
+  return '<span class="badge '+cls+'">'+status+'</span>';
+}
+function badgePayment(status){
+  var cls=status==='미입금'?'b-red':status==='입금완료'?'b-green':status.indexOf('환불')>-1?'b-purple':'b-blue';
+  return '<span class="badge '+cls+'">'+status+'</span>';
+}
+function badgeSettlement(status){
+  var cls=status==='정산완료'?'b-green':status==='보류'?'b-orange':status==='정산대기'?'b-blue':'b-gray';
+  return '<span class="badge '+cls+'">'+status+'</span>';
+}
+function buildCalendar(){
+  var calendar=document.getElementById('calendar');
+  calendar.querySelectorAll('.day').forEach(function(el){el.remove()});
+  var startBlank=1;
+  for(var i=0;i<startBlank;i++) calendar.insertAdjacentHTML('beforeend','<div class="day other"><div class="day-no">31</div></div>');
+  for(var d=1;d<=30;d++){
+    var date='2026-06-'+String(d).padStart(2,'0');
+    var stats=dayStats[date]||{receipt:{people:0,cases:0},depart:{people:0,cases:0},wait:{people:0,cases:0},cancel:{people:0,cases:0}};
+    var html='<div class="day '+(date===selectedDate?'selected':'')+'" onclick="selectDate(\''+date+'\')"><div class="day-no">'+d+'</div><div class="day-lines">';
+    ['receipt','depart','wait','cancel'].forEach(function(key){
+      var val=stats[key][countMode];
+      html+='<button class="stat-line" type="button" onclick="selectStatus(event,\''+date+'\',\''+key+'\')"><span class="s-'+key+'">'+labelMap[key]+'</span><strong>'+val+(countMode==='people'?'명':'건')+'</strong></button>';
+    });
+    html+='</div></div>';
+    calendar.insertAdjacentHTML('beforeend',html);
+  }
+}
+function setCountMode(mode){
+  countMode=mode;
+  document.getElementById('peopleModeBtn').classList.toggle('active',mode==='people');
+  document.getElementById('caseModeBtn').classList.toggle('active',mode==='case');
+  buildCalendar();
+  renderRows();
+}
+function selectDate(date){
+  selectedDate=date;
+  selectedStatus='전체';
+  document.getElementById('processStatus').value='전체';
+  activeFilters.process='전체';
+  buildCalendar();
+  renderRows();
+}
+function selectStatus(e,date,statusKey){
+  e.stopPropagation();
+  selectedDate=date;
+  selectedStatus=statusMap[statusKey];
+  document.getElementById('processStatus').value=selectedStatus;
+  activeFilters.process=selectedStatus;
+  buildCalendar();
+  renderRows();
+}
+function matchesSearch(item){
+  var keyword=activeFilters.keyword.trim().toLowerCase();
+  if(!keyword) return true;
+  var fieldMap={'상품명':'product','예약번호':'no','예약자명':'name','연락처':'phone','판매점':'seller','담당자':'manager'};
+  var key=fieldMap[activeFilters.searchType]||'product';
+  return String(item[key]||'').toLowerCase().indexOf(keyword)>-1;
+}
+function getFilteredReservations(){
+  return reservations.filter(function(item){
+    var processOk=activeFilters.process==='전체'||item.status===activeFilters.process;
+    var paymentOk=activeFilters.payment==='전체'||item.payment===activeFilters.payment;
+    var settlementOk=activeFilters.settlement==='전체'||item.settlement===activeFilters.settlement;
+    var category1Ok=activeFilters.category1==='대분류'||item.category1===activeFilters.category1;
+    var category2Ok=activeFilters.category2==='중분류'||item.category2===activeFilters.category2;
+    var category3Ok=activeFilters.category3==='소분류'||item.category3===activeFilters.category3;
+    return item.departure===selectedDate && processOk && paymentOk && settlementOk && category1Ok && category2Ok && category3Ok && matchesSearch(item);
+  });
+}
+function renderRows(){
+  var rows=document.getElementById('reservationRows');
+  rows.innerHTML='';
+  var list=getFilteredReservations();
+  var totalPeople=list.reduce(function(sum,item){return sum+item.people},0);
+  var label=activeFilters.process==='전체'?'전체 예약':activeFilters.process+' 예약';
+  document.getElementById('selectedCondition').innerHTML='<span class="selected-date">'+selectedDate+'</span> / '+label+' / 총 '+(countMode==='people'?totalPeople+'명':list.length+'건');
+  document.getElementById('emptyRows').style.display=list.length?'none':'block';
+  list.forEach(function(item){
+    rows.insertAdjacentHTML('beforeend',
+      '<tr><td><a class="detail-link" href="reservation_detail.html">'+item.no+'</a></td><td>'+item.name+'<br><span class="muted">'+item.phone+'</span></td><td>'+item.product+'</td><td class="center">'+item.people+'명</td><td><span class="date-received">'+item.received+'</span></td><td>'+item.seller+'</td></tr>'
+    );
+  });
+}
+function applySearch(){
+  activeFilters.process=document.getElementById('processStatus').value;
+  activeFilters.payment=document.getElementById('paymentStatus').value;
+  activeFilters.settlement=document.getElementById('settlementStatus').value;
+  activeFilters.category1=document.getElementById('category1').value;
+  activeFilters.category2=document.getElementById('category2').value;
+  activeFilters.category3=document.getElementById('category3').value;
+  activeFilters.searchType=document.getElementById('searchType').value;
+  activeFilters.keyword=document.getElementById('searchKeyword').value;
+  selectedStatus=activeFilters.process;
+  buildCalendar();
+  renderRows();
+  msg('검색 조건을 적용했습니다.');
+}
+function resetSearch(){
+  ['processStatus','paymentStatus','settlementStatus'].forEach(function(id){document.getElementById(id).value='전체'});
+  document.getElementById('category1').value='대분류';
+  document.getElementById('category2').value='중분류';
+  document.getElementById('category3').value='소분류';
+  document.getElementById('searchType').value='상품명';
+  document.getElementById('searchKeyword').value='';
+  selectedDate='2026-06-25';
+  selectedStatus='접수';
+  activeFilters={process:'접수',payment:'전체',settlement:'전체',category1:'대분류',category2:'중분류',category3:'소분류',searchType:'상품명',keyword:''};
+  countMode='people';
+  setCountMode('people');
+  msg('검색 조건을 초기화했습니다.');
+}
+function toggleNavGroup(el){el.parentElement.classList.toggle('open')}
+function msg(text){alert(text)}
+buildCalendar();
+renderRows();
+  </script>
+</body>
+</html>
