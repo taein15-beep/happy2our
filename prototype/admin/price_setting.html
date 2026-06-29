@@ -1,101 +1,220 @@
-﻿<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>요금설정</title><style>
-body{margin:0;background:#f4f6f8;color:#222;font-family:"Malgun Gothic","Noto Sans KR",Arial,sans-serif;font-size:13px}.app{display:grid;grid-template-columns:250px 1fr;min-height:100vh}.sidebar{background:#071122;color:#d7e1f0;padding:18px 0}.brand{padding:0 18px 18px;border-bottom:1px solid rgba(255,255,255,.1)}.brand strong{display:block;color:white;font-size:17px}.nav-title{padding:18px 18px 8px;color:#8ea0bb;font-size:11px}.nav a{display:block;padding:11px 18px;color:#cdd6e5;text-decoration:none;border-left:3px solid transparent}.nav a.active{background:rgba(255,255,255,.08);border-left-color:#5b8cff;color:white}.nav-tree{padding:8px 0 18px}.nav-group{border-bottom:1px solid rgba(255,255,255,.06);padding:6px 0}.nav-depth1{padding:10px 18px 8px;color:#fff;font-weight:900;font-size:13px;cursor:pointer;display:flex;align-items:center;justify-content:space-between}.nav-depth1:after{content:'▾';font-size:10px;color:#8ea0bb}.nav-group:not(.open) .nav-depth1:after{content:'▸'}.nav-group:not(.open) a{display:none}.nav-group a{position:relative;padding:7px 18px 7px 46px;font-size:12px;color:#b9c6d8}.nav-group a:before{content:'├';position:absolute;left:26px;top:7px;color:rgba(185,198,216,.7);font-size:12px;line-height:1}.nav-group a.active{background:rgba(91,140,255,.18);border-left-color:#5b8cff;color:white}.nav-group.open .nav-depth1{color:#8fb3ff}.topbar{height:48px;background:white;border-bottom:1px solid #d9dde3;display:flex;align-items:center;justify-content:space-between;padding:0 16px}.page{padding:16px;max-width:1800px}h1{font-size:24px;margin:0 0 6px}.desc{font-weight:700;color:#555;margin-bottom:14px}.btn{border:1px solid #cfd5dd;background:white;border-radius:4px;padding:8px 12px;font-weight:700;cursor:pointer}.btn.green{background:#18a34a;border-color:#18a34a;color:white}.btn.blue{background:#2f63f6;border-color:#2f63f6;color:white}.panel{background:white;border:1px solid #d9dde3;border-radius:7px;margin-bottom:12px}.panel-head{background:#e6e6e6;padding:12px 14px;font-weight:900;border-bottom:1px solid #d9dde3}.panel-body{padding:14px}input,select,textarea{border:1px solid #d6dbe1;border-radius:4px;padding:8px 9px;min-height:36px}textarea{width:100%;min-height:100px}.table-wrap{overflow:auto}.table{width:100%;border-collapse:collapse;min-width:1100px}.table th{background:#e6e6e6;border:1px solid #cfd3d8;padding:10px;text-align:center}.table td{border:1px solid #edf0f3;padding:9px;background:white}.badge{display:inline-flex;border-radius:14px;padding:4px 8px;font-size:12px;font-weight:900}.b-green{background:#e7f8ee;color:#0f8738}.b-blue{background:#eaf1ff;color:#2556d9}.b-orange{background:#fff4de;color:#b45309}.b-red{background:#fff0f0;color:#d92d20}.tag{display:inline-flex;background:#f2f2f2;border:1px solid #ddd;border-radius:15px;padding:5px 9px;margin:2px}.summary{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}.card{background:white;border:1px solid #d9dde3;border-radius:7px;padding:14px}.card strong{font-size:24px;color:#2f63f6}@media(max-width:1000px){.app{grid-template-columns:1fr}.sidebar{display:none}.summary{grid-template-columns:repeat(2,1fr)}}
-</style></head><body><div class="app">    <aside class="sidebar">
-      <div class="brand"><strong>AviaNext</strong><small>AOS Admin Prototype</small></div>
-      <div class="nav-title">관리메뉴</div>
-      <nav class="nav nav-tree">
-        <div class="nav-group open">
-          <div class="nav-depth1" onclick="toggleNavGroup(this)">📦 상품관리</div>
-          <a href="product_list.html">상품목록</a>
-          <a class="active" href="product_register.html">상품등록</a>
-          <a href="#" onclick="msg('재고관리 화면은 준비 중입니다.');return false;">재고관리</a>
-          <a href="#" onclick="msg('이미지관리 화면은 준비 중입니다.');return false;">이미지관리</a>
-          <a href="template_manage.html">템플릿관리</a>
-          <a href="#" onclick="msg('상품분류관리 화면은 준비 중입니다.');return false;">상품분류관리</a>
-        </div>
-        <div class="nav-group">
-          <div class="nav-depth1" onclick="toggleNavGroup(this)">📋 예약관리</div>
-          <a href="reservation_list.html">예약목록</a>
-          <a href="reservation_status.html">예약현황</a>
-          <a href="#" onclick="msg('좌석관리 화면은 준비 중입니다.');return false;">좌석관리</a>
-        </div>
-        <div class="nav-group">
-          <div class="nav-depth1" onclick="toggleNavGroup(this)">✈️ 항공예약관리</div>
-          <a href="#" onclick="msg('국제선예약 화면은 준비 중입니다.');return false;">국제선예약</a>
-          <a href="#" onclick="msg('국제선예약목록 화면은 준비 중입니다.');return false;">국제선예약목록</a>
-          <a href="#" onclick="msg('국내선예약 화면은 준비 중입니다.');return false;">국내선예약</a>
-          <a href="#" onclick="msg('국내선예약목록 화면은 준비 중입니다.');return false;">국내선예약목록</a>
-        </div>
-        <div class="nav-group">
-          <div class="nav-depth1" onclick="toggleNavGroup(this)">👤 회원관리</div>
-          <a href="#" onclick="msg('웹회원관리 화면은 준비 중입니다.');return false;">웹회원관리</a>
-          <a href="#" onclick="msg('관리자/직원 관리 화면은 준비 중입니다.');return false;">관리자/직원 관리</a>
-          <a href="#" onclick="msg('판매점관리 화면은 준비 중입니다.');return false;">판매점관리</a>
-          <a href="#" onclick="msg('거래처관리 화면은 준비 중입니다.');return false;">거래처관리</a>
-          <a href="#" onclick="msg('그룹관리 화면은 준비 중입니다.');return false;">그룹관리</a>
-          <a href="#" onclick="msg('탈퇴회원 화면은 준비 중입니다.');return false;">탈퇴회원</a>
-        </div>
-        <div class="nav-group">
-          <div class="nav-depth1" onclick="toggleNavGroup(this)">💰 정산관리</div>
-          <a href="#" onclick="msg('인보이스관리 화면은 준비 중입니다.');return false;">인보이스관리</a>
-          <a href="#" onclick="msg('입금/환불현황 화면은 준비 중입니다.');return false;">입금/환불현황</a>
-          <a href="#" onclick="msg('미수금관리 화면은 준비 중입니다.');return false;">미수금관리</a>
-          <a href="#" onclick="msg('국제선정산(항공) 화면은 준비 중입니다.');return false;">국제선정산(항공)</a>
-          <a href="#" onclick="msg('발권데이터(항공) 화면은 준비 중입니다.');return false;">발권데이터(항공)</a>
-        </div>
-        <div class="nav-group">
-          <div class="nav-depth1" onclick="toggleNavGroup(this)">📊 통계관리</div>
-          <a href="statistics_dashboard.html">통계 대시보드</a>
-          <a href="statistics_sales.html">매출통계</a>
-          <a href="statistics_reservation.html">예약통계</a>
-          <a href="statistics_product.html">상품별 통계</a>
-          <a href="statistics_seller.html">판매점별 통계</a>
-          <a href="statistics_region.html">지역별 통계</a>
-          <a href="statistics_settlement.html">정산통계</a>
-        </div>
-        <div class="nav-group">
-          <div class="nav-depth1" onclick="toggleNavGroup(this)">🎨 디자인설정</div>
-          <a href="#" onclick="msg('템플릿관리 화면은 준비 중입니다.');return false;">템플릿관리</a>
-          <a href="#" onclick="msg('섹션관리 화면은 준비 중입니다.');return false;">섹션관리</a>
-          <a href="#" onclick="msg('홈페이지 설정 화면은 준비 중입니다.');return false;">홈페이지 설정</a>
-          <a href="#" onclick="msg('메인메뉴관리 화면은 준비 중입니다.');return false;">메인메뉴관리</a>
-          <a href="#" onclick="msg('팝업관리 화면은 준비 중입니다.');return false;">팝업관리</a>
-          <a href="#" onclick="msg('상단띠배너 화면은 준비 중입니다.');return false;">상단띠배너</a>
-          <a href="#" onclick="msg('관리자메뉴관리 화면은 준비 중입니다.');return false;">관리자메뉴관리</a>
-        </div>
-        <div class="nav-group">
-          <div class="nav-depth1" onclick="toggleNavGroup(this)">💬 알림톡/문자관리</div>
-          <a href="#" onclick="msg('알림톡 설정 화면은 준비 중입니다.');return false;">알림톡 설정</a>
-          <a href="#" onclick="msg('이메일발송 화면은 준비 중입니다.');return false;">이메일발송</a>
-          <a href="#" onclick="msg('문자발송 화면은 준비 중입니다.');return false;">문자발송</a>
-          <a href="#" onclick="msg('발송내역 화면은 준비 중입니다.');return false;">발송내역</a>
-          <a href="#" onclick="msg('메크로설정 화면은 준비 중입니다.');return false;">메크로설정</a>
-        </div>
-        <div class="nav-group">
-          <div class="nav-depth1" onclick="toggleNavGroup(this)">📝 게시판관리</div>
-          <a href="#" onclick="msg('공지사항 화면은 준비 중입니다.');return false;">공지사항</a>
-          <a href="#" onclick="msg('고객문의 화면은 준비 중입니다.');return false;">고객문의</a>
-          <a href="#" onclick="msg('여행후기 화면은 준비 중입니다.');return false;">여행후기</a>
-          <a href="#" onclick="msg('자주묻는질문 화면은 준비 중입니다.');return false;">자주묻는질문</a>
-          <a href="#" onclick="msg('고객문의 화면은 준비 중입니다.');return false;">고객문의</a>
-          <a href="#" onclick="msg('스캔목록 화면은 준비 중입니다.');return false;">스캔목록</a>
-          <a href="#" onclick="msg('자료실 화면은 준비 중입니다.');return false;">자료실</a>
-        </div>
-        <div class="nav-group">
-          <div class="nav-depth1" onclick="toggleNavGroup(this)">⚙️ 기본설정</div>
-          <a href="#" onclick="msg('항공사 Bin관리 화면은 준비 중입니다.');return false;">항공사 Bin관리</a>
-          <a href="#" onclick="msg('노선관리 화면은 준비 중입니다.');return false;">노선관리</a>
-          <a href="#" onclick="msg('탑승역관리 화면은 준비 중입니다.');return false;">탑승역관리</a>
-          <a href="#" onclick="msg('열차관리 화면은 준비 중입니다.');return false;">열차관리</a>
-          <a href="#" onclick="msg('템플릿사이트관리 화면은 준비 중입니다.');return false;">템플릿사이트관리</a>
-        </div>
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>상품상세 - 요금설정</title>
+  <style>
+body{margin:0;background:#f4f6f8;color:#222;font-family:"Malgun Gothic","Noto Sans KR",Arial,sans-serif;font-size:13px}.app{display:grid;grid-template-columns:250px 1fr;min-height:100vh}.sidebar{background:#071122;color:#d7e1f0;padding:18px 0}.brand{padding:0 18px 18px;border-bottom:1px solid rgba(255,255,255,.1)}.brand strong{display:block;color:white;font-size:17px}.nav-title{padding:18px 18px 8px;color:#8ea0bb;font-size:11px}.nav a{display:block;padding:11px 18px;color:#cdd6e5;text-decoration:none;border-left:3px solid transparent}.nav a.active{background:rgba(255,255,255,.08);border-left-color:#5b8cff;color:white}.nav-tree{padding:8px 0 18px}.nav-group{border-bottom:1px solid rgba(255,255,255,.06);padding:6px 0}.nav-depth1{padding:10px 18px 8px;color:#fff;font-weight:900;font-size:13px;cursor:pointer;display:flex;align-items:center;justify-content:space-between}.nav-depth1:after{content:'▾';font-size:10px;color:#8ea0bb}.nav-group:not(.open) .nav-depth1:after{content:'▸'}.nav-group:not(.open) a{display:none}.nav-group a{position:relative;padding:7px 18px 7px 46px;font-size:12px;color:#b9c6d8}.nav-group a:before{content:'├';position:absolute;left:26px;top:7px;color:rgba(185,198,216,.7);font-size:12px;line-height:1}.nav-group a.active{background:rgba(91,140,255,.18);border-left-color:#5b8cff;color:white}.nav-group.open .nav-depth1{color:#8fb3ff}.topbar{height:48px;background:white;border-bottom:1px solid #d9dde3;display:flex;align-items:center;justify-content:space-between;padding:0 16px}.page{padding:16px;max-width:1800px}.page-head{display:flex;justify-content:space-between;gap:12px;align-items:flex-start;margin-bottom:12px}h1{font-size:24px;margin:0 0 6px}.desc{font-weight:700;color:#555}.tabs{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 12px}.tab{border:1px solid #cfd5dd;background:white;border-radius:18px;padding:8px 14px;text-decoration:none;color:#344054;font-weight:900}.tab.active{background:#7c3aed;border-color:#7c3aed;color:white}.btn{border:1px solid #cfd5dd;background:white;border-radius:4px;padding:8px 12px;font-weight:800;cursor:pointer;white-space:nowrap}.btn:hover{background:#f7f9fb}.btn.green{background:#18a34a;border-color:#18a34a;color:white}.btn.blue{background:#2f63f6;border-color:#2f63f6;color:white}.btn.red{background:#d92d20;border-color:#d92d20;color:white}.btn.small{padding:6px 8px;font-size:12px}.layout{display:grid;grid-template-columns:minmax(0,1fr) 390px;gap:12px}.panel{background:white;border:1px solid #d9dde3;border-radius:7px;margin-bottom:12px;overflow:hidden}.panel-head{background:#e6e6e6;padding:12px 14px;font-weight:900;border-bottom:1px solid #d9dde3;display:flex;align-items:center;justify-content:space-between;gap:8px}.panel-body{padding:14px}.form-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}.field{display:flex;flex-direction:column;gap:6px}.field.full{grid-column:1/-1}label{font-weight:900;color:#3b4654}input,select{border:1px solid #d6dbe1;border-radius:4px;padding:8px 9px;min-height:36px;box-sizing:border-box;background:white;width:100%}input[readonly],input:disabled{background:#f3f5f7;color:#667085}.table-wrap{overflow:auto}.table{width:100%;border-collapse:collapse;min-width:980px}.table th{background:#e6e6e6;border:1px solid #cfd3d8;padding:9px;text-align:center;white-space:nowrap}.table td{border:1px solid #edf0f3;padding:8px;background:white;vertical-align:middle}.center{text-align:center}.money{text-align:right}.badge{display:inline-flex;border-radius:14px;padding:4px 8px;font-size:12px;font-weight:900}.b-green{background:#e7f8ee;color:#0f8738}.b-blue{background:#eaf1ff;color:#2556d9}.b-gray{background:#eef1f5;color:#475467}.b-orange{background:#fff4de;color:#b45309}.b-red{background:#fff0f0;color:#d92d20}.tag{display:inline-flex;background:#f2f4f7;border:1px solid #d9dde3;border-radius:16px;padding:6px 10px;margin:2px;font-weight:800}.basic-grid{display:grid;grid-template-columns:repeat(5,minmax(110px,1fr));gap:8px}.basic-meta{display:grid;grid-template-columns:1fr 2fr;gap:10px;margin-top:12px}.inline{display:flex;align-items:center;gap:8px;flex-wrap:wrap}.check-list{display:flex;gap:10px;flex-wrap:wrap}.check-list label,.radio-list label{display:inline-flex;align-items:center;gap:6px;font-weight:800}.check-list input,.radio-list input{width:auto;min-height:auto}.radio-list{display:flex;gap:12px;flex-wrap:wrap}.modal-backdrop{position:fixed;inset:0;background:rgba(7,17,34,.42);display:none;align-items:center;justify-content:center;z-index:30}.modal-backdrop.open{display:flex}.modal-box{width:min(1120px,94vw);max-height:90vh;background:white;border-radius:8px;border:1px solid #d9dde3;overflow:hidden;box-shadow:0 18px 40px rgba(7,17,34,.22);display:flex;flex-direction:column}.modal-head{background:#e6e6e6;padding:12px 16px;font-weight:900;display:flex;justify-content:space-between;gap:12px}.modal-body{padding:16px;overflow:auto}.modal-foot{padding:12px 16px;border-top:1px solid #edf0f3;text-align:right}.price-grid{width:100%;border-collapse:collapse}.price-grid th,.price-grid td{border:1px solid #edf0f3;padding:8px;text-align:center}.price-grid th{background:#f3f5f7}.date-tags{min-height:36px;border:1px dashed #cfd5dd;border-radius:5px;padding:6px}.calendar-lite{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;margin-top:8px}.preview-panel{position:sticky;top:12px}.preview-row{display:grid;grid-template-columns:1fr 1fr;gap:8px}.calc-box{border:1px solid #edf0f3;border-radius:6px;background:#fafbfc;padding:10px;margin-top:10px}.calc-line{display:flex;justify-content:space-between;gap:8px;padding:5px 0;border-bottom:1px solid #edf0f3}.calc-line:last-child{border-bottom:0}.total{display:flex;justify-content:space-between;font-size:18px;font-weight:900;color:#175cd3;border-top:2px solid #d9dde3;margin-top:10px;padding-top:10px}.hint{color:#667085;font-size:12px;font-weight:700}.warn{background:#fff8ed;border:1px solid #ffd7a8;color:#9a5b00;border-radius:6px;padding:8px;margin:8px 0}.drag{cursor:grab;font-weight:900;color:#667085}.option-item-row{display:grid;grid-template-columns:1.2fr 1fr 110px 70px;gap:8px;align-items:end;margin-bottom:8px}.option-tags{display:grid;gap:4px}.save-bar{position:sticky;bottom:0;background:white;border:1px solid #d9dde3;border-radius:7px;padding:12px 14px;margin-top:12px;display:flex;justify-content:space-between;align-items:center;gap:10px;box-shadow:0 -4px 14px rgba(7,17,34,.06)}@media(max-width:1200px){.layout{grid-template-columns:1fr}.preview-panel{position:static}.basic-grid,.form-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.basic-meta{grid-template-columns:1fr}}@media(max-width:760px){.app{grid-template-columns:1fr}.sidebar{display:none}.page-head{display:block}.basic-grid,.form-grid,.preview-row,.calendar-lite,.option-item-row{grid-template-columns:1fr}}
+/* 날짜별 요금추가 모달 */
+#rateModal{background:rgba(255,255,255,.78)}#rateModal .modal-box{width:min(1690px,98vw);max-height:92vh;border:1px solid #5d6875;border-radius:6px;box-shadow:none}#rateModal .modal-head{background:white;border-bottom:0;justify-content:center;padding:6px 16px 16px;font-size:18px;color:#0f2238}#rateModal .modal-head:before,#rateModal .modal-head:after{content:"❖";font-size:14px;margin:0 7px;color:#0f2238}#rateModal .modal-body{padding:0;background:white}#rateModal .modal-foot{text-align:center;background:#fbfbfc;padding:18px 16px;border-top:1px solid #e5e9ef}.rate-config-table{width:100%;border-collapse:collapse;table-layout:fixed}.rate-config-table th{width:164px;background:#eef1f5;color:#162334;font-size:13px;text-align:left;padding:0 20px;border:1px solid #e1e6ec}.rate-config-table td{height:68px;border:1px solid #e5e9ef;padding:10px 18px;vertical-align:middle}.rate-config-table input[type=text],.rate-config-table input[type=date]{height:40px;border-radius:8px;font-size:13px}.rate-config-table input[type=checkbox],.rate-config-table input[type=radio]{width:16px;height:16px;min-height:16px;accent-color:#1473ff}.rate-title-input{max-width:375px;font-style:italic}.rate-days-row,.rate-status-row,.rate-term-row,.rate-range-row{display:flex;align-items:center;gap:16px;flex-wrap:wrap}.rate-days-row label,.rate-status-row label,.rate-term-row label{display:inline-flex;align-items:center;gap:7px;font-size:13px;font-weight:800;color:#1f2937}.rate-divider{height:20px;border-left:2px solid #9db6d7}.rate-member-row{display:flex;align-items:center;gap:8px;font-size:13px;font-weight:800}.rate-member-row input{width:110px;text-align:right}.rate-period-wrap{display:flex;flex-direction:column;gap:10px}.rate-range-row input[type=date]{width:180px}.rate-range-row .btn{height:40px;min-width:112px;font-size:13px;border-radius:8px;background:white}.rate-date-select-row{display:flex;align-items:center;gap:10px;flex-wrap:wrap}.rate-date-select-row input{max-width:180px}.rate-price-area{padding:28px 32px}.rate-price-area .table-wrap{overflow:visible}.rate-price-area .price-grid{width:796px;min-width:796px}.rate-price-area .price-grid th{height:48px;background:#eef1f5;color:#1f2d42;font-size:13px}.rate-price-area .price-grid td{height:50px;font-size:13px}.rate-price-area .price-grid input{height:40px;border-radius:8px;text-align:right;font-size:13px}.rate-price-area .price-grid th:first-child,.rate-price-area .price-grid td:first-child{width:180px;color:#1f3760;font-weight:500}.rate-modal-actions{display:flex;justify-content:center;gap:6px}.rate-modal-actions .btn{min-width:94px;height:40px;font-size:13px;border-radius:8px}.rate-modal-actions .btn.green{background:#1f9d45;border-color:#1f9d45}
+.rate-calendar-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;width:100%;max-height:450px;overflow-y:auto;padding-right:4px}.rate-calendar-month{background:#fafbfc;border-radius:16px;padding:18px 18px 16px}.rate-calendar-title{text-align:center;color:#113b8f;font-size:18px;font-weight:900;padding-bottom:10px;border-bottom:1px solid #e7ebf0}.rate-calendar-week,.rate-calendar-days{display:grid;grid-template-columns:repeat(7,1fr);gap:7px;text-align:center}.rate-calendar-week{padding:14px 0 8px;color:#344054;font-weight:900}.rate-calendar-week span:first-child,.rate-calendar-week span:last-child{color:#ff2d2d}.rate-day{height:34px;border:0;border-radius:50%;background:transparent;color:#0b3a63;font-size:13px;font-weight:800;cursor:pointer}.rate-day:hover{background:#eaf1ff}.rate-day.blank{cursor:default}.rate-day.selected{background:#bdbdbd;color:white}.rate-selected-row{display:grid;grid-template-columns:164px 1fr;border-top:1px solid #e5e9ef}.rate-selected-label{background:#eef1f5;font-weight:900;color:#162334;padding:18px 20px;border-right:1px solid #e1e6ec}.rate-selected-tags{min-height:48px;padding:12px 18px}.rate-selected-tags .tag{background:white}
+.radio-field{display:flex;align-items:center;gap:14px;min-height:36px}.radio-field label{display:inline-flex;align-items:center;gap:6px;font-weight:800}.radio-field input{width:auto;min-height:auto}.toggle-switch{position:relative;display:inline-block;width:42px;height:24px;flex:0 0 auto}.toggle-switch input{opacity:0;width:0;height:0}.toggle-slider{position:absolute;cursor:pointer;inset:0;background:#c8ced6;border-radius:999px;transition:.15s}.toggle-slider:before{content:"";position:absolute;width:18px;height:18px;left:3px;top:3px;background:white;border-radius:50%;transition:.15s;box-shadow:0 1px 3px rgba(0,0,0,.2)}.toggle-switch input:checked+.toggle-slider{background:#20a64a}.toggle-switch input:checked+.toggle-slider:before{transform:translateX(18px)}.option-use-field{align-items:center}.option-use-label{display:flex;align-items:center;justify-content:center;height:36px}
+  </style>
+</head>
+<body>
+<div class="app">
+  <aside class="sidebar">
+    <div class="brand"><strong>AviaNext</strong><small>AOS Admin Prototype</small></div>
+    <div class="nav-title">관리메뉴</div>
+    <nav class="nav nav-tree">
+      <div class="nav-group open">
+        <div class="nav-depth1" onclick="toggleNavGroup(this)">상품관리</div>
+        <a href="product_list.html">상품목록</a>
+        <a class="active" href="product_register.html">상품등록</a>
+        <a href="template_manage.html">템플릿관리</a>
+        <a href="attraction_manage.html">관광지관리</a>
+      </div>
+      <div class="nav-group"><div class="nav-depth1" onclick="toggleNavGroup(this)">예약관리</div><a href="reservation_list.html">예약목록</a><a href="reservation_status.html">예약현황</a></div>
+      <div class="nav-group"><div class="nav-depth1" onclick="toggleNavGroup(this)">통계관리</div><a href="statistics_dashboard.html">통계 대시보드</a><a href="statistics_sales.html">매출통계</a><a href="statistics_product.html">상품별 통계</a></div>
+    </nav>
+  </aside>
+  <main>
+    <header class="topbar"><strong>상품상세</strong><span>윤호님 · 로그아웃</span></header>
+    <div class="page">
+      <div class="page-head">
+        <div><h1>상품상세</h1><div class="desc">대표요금 기준으로 날짜별 판매요금과 선택 옵션을 관리합니다.</div></div>
+        <button class="btn green" onclick="saveAll()">저장</button>
+      </div>
+      <nav class="tabs" aria-label="상품 관리 탭">
+        <a class="tab" href="product_detail.html">상품기본설정</a>
+        <a class="tab" href="schedule_register.html">일정표</a>
+        <a class="tab active" href="price_setting.html">요금설정</a>
+        <a class="tab" href="#" onclick="msg('판매점설정 샘플입니다.');return false;">판매점설정</a>
+        <a class="tab" href="#" onclick="msg('거래처설정 샘플입니다.');return false;">거래처설정</a>
       </nav>
-    </aside><main><header class="topbar"><strong>요금설정</strong><span>윤호님 · 로그아웃</span></header><div class="page">
-<h1>요금설정</h1><div class="desc">기본요금, 기간별 요금, 개별일자 요금, 옵션요금을 설정합니다.</div>
-<section class="panel"><div class="panel-head">기본요금</div><div class="panel-body"><input value="대인 16,000"> <input value="소인 16,000"> <button class="btn green">저장</button></div></section>
-<section class="panel"><div class="panel-head">기간별 요금</div><div class="table-wrap"><table class="table"><thead><tr><th>우선순위</th><th>적용구분</th><th>기간</th><th>요일</th><th>대인</th><th>소인</th><th>사용</th></tr></thead><tbody><tr><td>☰ 1</td><td>성수기</td><td>2026-07-01~2026-08-31</td><td>전체</td><td>120,000</td><td>110,000</td><td><span class="badge b-green">사용</span></td></tr></tbody></table></div></section>
-<section class="panel"><div class="panel-head">옵션설정</div><div class="panel-body"><input placeholder="옵션명"> <select><option>예약건당 1회 적용</option><option>예약인원 전체 자동적용</option><option>고객 수량선택</option></select> <input placeholder="금액"> <button class="btn green">옵션추가</button></div></section>
-</div></main></div><script>function msg(t){alert(t)};function toggleNavGroup(el){el.closest('.nav-group').classList.toggle('open')}
-  </script></body></html>
 
+      <div class="layout">
+        <div>
+          <section class="panel">
+            <div class="panel-head">기본요금</div>
+            <div class="panel-body">
+              <div id="basePriceGrid" class="basic-grid"></div>
+              <div class="basic-meta">
+                <div class="field"><label>여행기간 / 숙박</label><input readonly value="2일 / 2인1실, 3인1실, 4인1실"></div>
+                <div class="field"><label>출발확정/예약마감 기준</label><div class="inline"><input readonly value="2명 이상 → 출발확정"><input readonly value="30명 이상 → 예약마감"></div></div>
+              </div>
+            </div>
+          </section>
 
+          <section class="panel">
+            <div class="panel-head"><span>날짜별 요금</span><button class="btn green small" onclick="openRateModal()">요금추가</button></div>
+            <div class="table-wrap">
+              <table class="table">
+                <thead><tr id="rateHead"></tr></thead>
+                <tbody id="rateBody"></tbody>
+              </table>
+            </div>
+          </section>
+
+          <section class="panel">
+            <div class="panel-head"><span>옵션</span><button class="btn green small" onclick="openOptionModal()">옵션추가</button></div>
+            <div class="table-wrap">
+              <table class="table">
+                <thead><tr><th>노출순위</th><th>옵션명</th><th>옵션항목</th><th>계산방식</th><th>필수여부</th><th>삭제</th></tr></thead>
+                <tbody id="optionBody"></tbody>
+              </table>
+            </div>
+          </section>
+        </div>
+
+        <aside class="panel preview-panel">
+          <div class="panel-head">요금 미리보기</div>
+          <div class="panel-body">
+            <div class="preview-row">
+              <div class="field"><label>출발일</label><input id="previewDate" type="date" value="2026-09-24"></div>
+              <div class="field"><label>숙박타입</label><select id="previewStayType"></select></div>
+            </div>
+            <div id="previewPeople" class="preview-row" style="margin-top:8px"></div>
+            <div class="field full" style="margin-top:8px"><label>선택 옵션</label><div id="previewOptions"></div></div>
+            <button class="btn blue" style="width:100%;margin-top:10px" onclick="calculatePreview()">요금계산하기</button>
+            <div id="previewResult" class="calc-box"><span class="hint">조건을 선택한 뒤 계산해주세요.</span></div>
+          </div>
+        </aside>
+      </div>
+      <div class="save-bar"><span class="hint">상품상세 상단 탭 구조와 저장 버튼 위치는 유지됩니다.</span><button class="btn green" onclick="saveAll()">저장</button></div>
+    </div>
+  </main>
+</div>
+
+<div id="rateModal" class="modal-backdrop">
+  <div class="modal-box">
+    <div class="modal-head"><span>날짜별 요금추가</span></div>
+    <div class="modal-body">
+      <table class="rate-config-table">
+        <tr>
+          <th>적용구분</th>
+          <td><input id="rateTitle" class="rate-title-input" placeholder="이름을 입력하세요"></td>
+          <th>요일</th>
+          <td colspan="3">
+            <div id="rateDays" class="rate-days-row"></div>
+          </td>
+        </tr>
+        <tr>
+          <th>최소/최대인원</th>
+          <td colspan="2">
+            <div class="rate-member-row">
+              <input id="rateConfirm" value="1"><span>명 이상 → 출발확정</span>
+              <input id="rateClose" value="30"><span>명 이상 → 예약마감</span>
+            </div>
+          </td>
+          <th>상태</th>
+          <td colspan="2"><div id="rateStatus" class="rate-status-row"></div></td>
+        </tr>
+        <tr>
+          <th>적용기간</th>
+          <td colspan="5">
+            <div class="rate-period-wrap">
+              <div class="rate-term-row">
+                <label><input type="radio" name="applyType" value="period" checked onchange="toggleApplyType()">기간으로 설정</label>
+                <label><input type="radio" name="applyType" value="dates" onchange="toggleApplyType()">개별일자 ( 최대 10일 선택 가능 )</label>
+              </div>
+              <div id="periodBox" class="rate-range-row">
+                <input id="rateStart" type="date" value="2026-07-01">
+                <span>~</span>
+                <input id="rateEnd" type="date" value="2026-08-31">
+                <button class="btn" onclick="setRangeMonth(1)">1개월</button>
+                <button class="btn" onclick="setRangeMonth(2)">2개월</button>
+                <button class="btn" onclick="setRangeMonth(3)">3개월</button>
+                <button class="btn" onclick="setRangeMonth(6)">6개월</button>
+                <button class="btn" onclick="setYearEnd()">연말까지</button>
+              </div>
+              <div id="datesBox" style="display:none">
+                <div id="rateCalendarGrid" class="rate-calendar-grid"></div>
+              </div>
+            </div>
+          </td>
+        </tr>
+      </table>
+      <div id="selectedDateRow" class="rate-selected-row" style="display:none">
+        <div class="rate-selected-label">선택날짜</div>
+        <div id="selectedDates" class="rate-selected-tags"></div>
+      </div>
+      <div class="rate-price-area">
+        <div class="table-wrap"><table class="price-grid"><thead id="ratePriceHead"></thead><tbody id="ratePriceBody"></tbody></table></div>
+      </div>
+    </div>
+    <div class="modal-foot"><div class="rate-modal-actions"><button class="btn" onclick="closeModal('rateModal')">취소</button><button class="btn green" onclick="saveRateRule()">저장</button></div></div>
+  </div>
+</div>
+
+<div id="optionModal" class="modal-backdrop">
+  <div class="modal-box">
+    <div class="modal-head"><span>옵션추가</span><button class="btn small" onclick="closeModal('optionModal')">닫기</button></div>
+    <div class="modal-body">
+      <div class="form-grid">
+        <div class="field"><label>옵션명</label><input id="optionName" placeholder="예) 독도 선택관광, 석식 변경, 객실 업그레이드"></div>
+        <div class="field"><label>옵션 계산방식</label><select id="optionCalcType" onchange="syncOptionRequired()"><option value="per_booking">예약건당 1회</option><option value="per_selected_person">선택인원별</option><option value="per_all_people">전체인원 자동적용</option></select></div>
+        <div class="field"><label>필수여부</label><div id="optionRequiredGroup" class="radio-field"><label><input type="radio" name="optionRequired" value="false" checked>선택</label><label><input type="radio" name="optionRequired" value="true">필수</label></div></div>
+      </div>
+      <h3>옵션항목</h3>
+      <div id="optionItemRows"></div>
+      <button class="btn small" onclick="addOptionItemRow()">항목추가</button>
+    </div>
+    <div class="modal-foot"><button class="btn" onclick="closeModal('optionModal')">취소</button> <button class="btn green" onclick="saveOptionGroup()">저장</button></div>
+  </div>
+</div>
+
+<script>
+const personTypes=[{id:'adult',name:'대인',price:79000,enabled:true},{id:'child',name:'소인',price:79000,enabled:true},{id:'infant',name:'유아',price:0,enabled:false},{id:'youth',name:'청소년',price:0,enabled:false},{id:'senior',name:'경로',price:0,enabled:false}];
+const stayTypes=[{id:'room2',name:'2인1실'},{id:'room3',name:'3인1실'},{id:'room4',name:'4인1실'}];
+const statusMap={NS:'출발안함',AV:'예약가능',CF:'출발확정',CL:'예약마감',WL:'대기'};
+const statusClass={NS:'b-gray',AV:'b-green',CF:'b-blue',CL:'b-red',WL:'b-orange'};
+let selectedRateDates=[];
+let rateRules=[{id:1,priority:1,title:'추석연휴',applyType:'dates',selectedDates:['2026-09-24','2026-09-25'],days:[],status:'AV',confirmMinCount:2,bookingMaxCount:30,prices:{room2:{adult:365000,child:345000},room3:{adult:360000,child:340000},room4:{adult:355000,child:335000}}},{id:2,priority:2,title:'성수기요금',applyType:'period',startDate:'2026-07-01',endDate:'2026-12-31',selectedDates:[],days:['토','일'],status:'AV',confirmMinCount:2,bookingMaxCount:30,prices:{room2:{adult:120000,child:110000},room3:{adult:115000,child:105000},room4:{adult:110000,child:100000}}}];
+let optionGroups=[{id:1,order:1,name:'독도 선택관광',calcType:'per_selected_person',required:false,items:[{id:1,name:'독도',price:30000,enabled:true},{id:2,name:'관음도',price:10000,enabled:true}]},{id:2,order:2,name:'온수풀 변경',calcType:'per_all_people',required:true,items:[{id:1,name:'온수풀',price:10000,enabled:true}]}];
+function fmt(n){return Number(n||0).toLocaleString('ko-KR')}function num(v){return Number(String(v||'').replace(/[^0-9]/g,''))}function msg(t){alert(t)}function toggleNavGroup(el){el.closest('.nav-group').classList.toggle('open')}function activePeople(){return personTypes.filter(p=>p.enabled)}
+function init(){renderBase();renderRateTable();renderOptions();renderPreviewInputs();renderRateModalDefaults()}
+function renderBase(){basePriceGrid.innerHTML=personTypes.map(p=>`<div class="field"><label>${p.name}</label><input readonly ${p.enabled?'':'disabled'} value="${p.enabled?fmt(p.price)+'원':'사용안함'}"></div>`).join('')}
+function renderRateTable(){rateHead.innerHTML=['우선순위','적용구분','요일','적용기간','상태',...activePeople().map(p=>p.name),'삭제'].map(h=>`<th>${h}</th>`).join('');rateBody.innerHTML=rateRules.sort((a,b)=>a.priority-b.priority).map(r=>`<tr><td class="center"><span class="drag">☰</span> ${r.priority}</td><td>${r.title}</td><td>${r.days.length?r.days.join(', '):'-'}</td><td>${periodText(r)}</td><td class="center"><span class="badge ${statusClass[r.status]}">${statusMap[r.status]}</span></td>${activePeople().map(p=>`<td class="money">${fmt((r.prices.room2||{})[p.id])}</td>`).join('')}<td class="center"><button class="btn small red" onclick="deleteRate(${r.id})">삭제</button></td></tr>`).join('')}
+function periodText(r){return r.applyType==='dates'?r.selectedDates.map(d=>`<span class="tag">${d}</span>`).join(''):`${r.startDate} ~ ${r.endDate}`}
+function renderOptions(){optionBody.innerHTML=optionGroups.sort((a,b)=>a.order-b.order).map(g=>`<tr><td class="center"><span class="drag">☰</span> ${g.order}</td><td>${g.name}</td><td><div class="option-tags">${g.items.map(i=>`<span>${i.name} +${fmt(i.price)}원</span>`).join('')}</div></td><td>${calcName(g.calcType)}</td><td>${g.required?'필수':'선택'}</td><td class="center"><button class="btn small red" onclick="deleteOption(${g.id})">삭제</button></td></tr>`).join('')}
+function calcName(v){return v==='per_booking'?'예약건당 1회':v==='per_selected_person'?'선택인원별':'전체인원 자동적용'}
+function renderPreviewInputs(){previewStayType.innerHTML=stayTypes.map(s=>`<option value="${s.id}">${s.name}</option>`).join('');previewPeople.innerHTML=activePeople().map(p=>`<div class="field"><label>${p.name} 인원</label><input id="cnt_${p.id}" type="number" min="0" value="${p.id==='adult'?2:p.id==='child'?1:0}"></div>`).join('');previewOptions.innerHTML=optionGroups.map(g=>`<div class="field" style="margin-bottom:8px"><label>${g.name} (${calcName(g.calcType)})</label><select id="opt_${g.id}"><option value="">선택안함</option>${g.items.filter(i=>i.enabled).map(i=>`<option value="${i.id}">${i.name} +${fmt(i.price)}원</option>`).join('')}</select>${g.calcType==='per_selected_person'?`<input id="optCnt_${g.id}" type="number" min="0" value="1" style="margin-top:4px">`:''}</div>`).join('')}
+function openRateModal(){selectedRateDates=[];rateTitle.value='';rateConfirm.value='1';rateClose.value='30';rateStatus.innerHTML=Object.entries(statusMap).map(([k,v])=>`<label><input type="radio" name="status" value="${k}" ${k==='AV'?'checked':''}>${v}</label>`).join('');rateDays.innerHTML=['일','월','화','수','목','금','토','공휴일'].map(d=>`<label><input type="checkbox" class="day-check" value="${d}">${d}</label>`).join('')+`<span class="rate-divider"></span><label><input type="checkbox" onchange="quickDays('weekday',this)">주중</label><label><input type="checkbox" onchange="quickDays('weekend',this)">주말</label><label><input type="checkbox" onchange="quickDays('all',this)">모두선택</label>`;renderRateModalDefaults();renderSelectedDates();openModal('rateModal')}
+function renderRateModalDefaults(){if(!document.getElementById('ratePriceHead'))return;ratePriceHead.innerHTML=`<tr><th>구분</th>${stayTypes.map(s=>`<th>${s.name}</th>`).join('')}</tr>`;ratePriceBody.innerHTML=activePeople().map(p=>`<tr><th>${p.name}</th>${stayTypes.map(s=>`<td><input class="money-input" data-person="${p.id}" data-stay="${s.id}" value="${fmt(p.price)}"></td>`).join('')}</tr>`).join('')}
+function openOptionModal(){optionName.value='';optionCalcType.value='per_booking';setOptionRequired(false,false);optionItemRows.innerHTML='';addOptionItemRow();openModal('optionModal')}
+function openModal(id){document.getElementById(id).classList.add('open')}function closeModal(id){document.getElementById(id).classList.remove('open')}
+function quickDays(type,trigger){let days=type==='weekday'?['월','화','수','목','금']:type==='weekend'?['토','일']:['일','월','화','수','목','금','토','공휴일'];document.querySelectorAll('#rateDays .day-check').forEach(i=>i.checked=trigger.checked&&days.includes(i.value))}
+function toggleApplyType(){let v=document.querySelector('input[name=applyType]:checked').value;periodBox.style.display=v==='period'?'flex':'none';datesBox.style.display=v==='dates'?'block':'none';selectedDateRow.style.display=v==='dates'?'grid':'none';if(v==='dates'&&!selectedRateDates.length){let t=new Date();selectedRateDates=[`${t.getFullYear()}-${String(t.getMonth()+1).padStart(2,'0')}-${String(t.getDate()).padStart(2,'0')}`]}if(v==='dates')renderSelectedDates()}
+function setRangeMonth(m){let s=new Date();let e=new Date();e.setMonth(e.getMonth()+m);rateStart.value=s.toISOString().slice(0,10);rateEnd.value=e.toISOString().slice(0,10)}function setYearEnd(){let y=new Date().getFullYear();rateStart.value=new Date().toISOString().slice(0,10);rateEnd.value=`${y}-12-31`}
+function addSelectedDate(d){if(!d)return msg('날짜를 선택하세요.');if(selectedRateDates.includes(d)){selectedRateDates=selectedRateDates.filter(item=>item!==d)}else{if(selectedRateDates.length>=10)return msg('개별일자는 최대 10일까지 선택할 수 있습니다.');selectedRateDates.push(d)}selectedRateDates.sort();renderSelectedDates()}
+function renderSelectedDates(){document.getElementById('selectedDates').innerHTML=selectedRateDates.map(d=>`<span class="tag">${d}</span>`).join('');if(document.querySelector('input[name=applyType]:checked')?.value==='dates')selectedDateRow.style.display='grid';renderRateCalendar()}
+function renderRateCalendar(){const grid=document.getElementById('rateCalendarGrid');if(!grid)return;const base=new Date();base.setDate(1);let html='';for(let m=0;m<3;m++){const cur=new Date(base.getFullYear(),base.getMonth()+m,1);const year=cur.getFullYear();const month=cur.getMonth();const last=new Date(year,month+1,0).getDate();const first=cur.getDay();let cells='';for(let i=0;i<first;i++)cells+='<button type="button" class="rate-day blank" tabindex="-1"></button>';for(let day=1;day<=last;day++){const iso=`${year}-${String(month+1).padStart(2,'0')}-${String(day).padStart(2,'0')}`;cells+=`<button type="button" class="rate-day ${selectedRateDates.includes(iso)?'selected':''}" onclick="addSelectedDate('${iso}')">${String(day).padStart(2,'0')}</button>`}html+=`<div class="rate-calendar-month"><div class="rate-calendar-title">${year}년 ${month+1}월</div><div class="rate-calendar-week"><span>일</span><span>월</span><span>화</span><span>수</span><span>목</span><span>금</span><span>토</span></div><div class="rate-calendar-days">${cells}</div></div>`}grid.innerHTML=html}
+function saveRateRule(){let title=rateTitle.value.trim();let applyType=document.querySelector('input[name=applyType]:checked').value;if(!title)return msg('적용구분을 입력하세요.');if(applyType==='period'&&(!rateStart.value||!rateEnd.value))return msg('시작일/종료일을 입력하세요.');if(applyType==='dates'&&selectedRateDates.length<1)return msg('개별일자를 최소 1개 이상 선택하세요.');if(num(rateConfirm.value)>=num(rateClose.value))return msg('출발확정 기준 인원은 예약마감 기준 인원보다 작아야 합니다.');let days=[...document.querySelectorAll('#rateDays .day-check:checked')].map(i=>i.value);let prices={};stayTypes.forEach(s=>{prices[s.id]={};activePeople().forEach(p=>{let el=document.querySelector(`.money-input[data-person="${p.id}"][data-stay="${s.id}"]`);prices[s.id][p.id]=num(el.value)})});if(hasOverlap({applyType,startDate:rateStart.value,endDate:rateEnd.value,selectedDates:selectedRateDates,days})&&!confirm('이미 등록된 요금과 적용기간이 일부 겹칩니다. 저장하시겠습니까? 동일 날짜에는 우선순위가 높은 요금이 적용됩니다.'))return;rateRules.push({id:Date.now(),priority:rateRules.length+1,title,applyType,startDate:rateStart.value,endDate:rateEnd.value,selectedDates:[...selectedRateDates],days,status:document.querySelector('input[name=status]:checked').value,confirmMinCount:num(rateConfirm.value),bookingMaxCount:num(rateClose.value),prices});closeModal('rateModal');renderRateTable()}
+function hasOverlap(rule){return rateRules.some(r=>{let a=expandRuleDates(r),b=expandRuleDates(rule);return a.some(d=>b.includes(d))})}
+function expandRuleDates(r){if(r.applyType==='dates')return r.selectedDates;let out=[],s=new Date(r.startDate),e=new Date(r.endDate);for(let d=new Date(s);d<=e;d.setDate(d.getDate()+1)){let iso=d.toISOString().slice(0,10),ko=['일','월','화','수','목','금','토'][d.getDay()];if(!r.days.length||r.days.includes(ko))out.push(iso)}return out}
+function deleteRate(id){rateRules=rateRules.filter(r=>r.id!==id).map((r,i)=>({...r,priority:i+1}));renderRateTable()}
+function addOptionItemRow(){let div=document.createElement('div');div.className='option-item-row';div.innerHTML='<div class="field"><label>항목명</label><input class="item-name" placeholder="독도"></div><div class="field"><label>금액</label><input class="item-price" value="0"></div><div class="field option-use-field"><label>사용여부</label><span class="option-use-label"><label class="toggle-switch"><input type="checkbox" class="item-enabled" checked><span class="toggle-slider"></span></label></span></div><button class="btn small red" onclick="this.parentElement.remove()">삭제</button>';optionItemRows.appendChild(div)}
+function setOptionRequired(required,locked){document.querySelectorAll('input[name="optionRequired"]').forEach(input=>{input.checked=String(required)===input.value;input.disabled=!!locked})}
+function getOptionRequired(){return document.querySelector('input[name="optionRequired"]:checked')?.value==='true'}
+function syncOptionRequired(){if(optionCalcType.value==='per_all_people')setOptionRequired(true,true);else document.querySelectorAll('input[name="optionRequired"]').forEach(input=>input.disabled=false)}
+function saveOptionGroup(){let name=optionName.value.trim();if(!name)return msg('옵션명을 입력하세요.');let rows=[...document.querySelectorAll('.option-item-row')];if(!rows.length)return msg('옵션항목을 최소 1개 이상 입력하세요.');let items=[];for(let i=0;i<rows.length;i++){let n=rows[i].querySelector('.item-name').value.trim(),p=num(rows[i].querySelector('.item-price').value),en=rows[i].querySelector('.item-enabled').checked;if(!n)return msg('항목명을 입력하세요.');items.push({id:i+1,name:n,price:p,enabled:en})}let required=getOptionRequired()||optionCalcType.value==='per_all_people';if(required&&!items.some(i=>i.enabled))return msg('필수 옵션은 최소 1개 항목이 사용 상태여야 합니다.');optionGroups.push({id:Date.now(),order:optionGroups.length+1,name,calcType:optionCalcType.value,required,items});closeModal('optionModal');renderOptions();renderPreviewInputs()}
+function deleteOption(id){optionGroups=optionGroups.filter(g=>g.id!==id).map((g,i)=>({...g,order:i+1}));renderOptions();renderPreviewInputs()}
+function findRule(date){return rateRules.filter(r=>expandRuleDates(r).includes(date)).sort((a,b)=>a.priority-b.priority)[0]}
+function calculatePreview(){let date=previewDate.value,stay=previewStayType.value;if(!date)return msg('출발일을 선택하세요.');if(!stay)return msg('숙박타입을 선택하세요.');let counts={},totalPeople=0;activePeople().forEach(p=>{counts[p.id]=num(document.getElementById('cnt_'+p.id).value);totalPeople+=counts[p.id]});if(totalPeople===0)return msg('전체 예약인원이 0명입니다.');let rule=findRule(date);let priceSource=rule?rule.prices[stay]:Object.fromEntries(activePeople().map(p=>[p.id,p.price]));let lines=[],sum=0;activePeople().forEach(p=>{if(counts[p.id]){let unit=priceSource[p.id]||0,total=unit*counts[p.id];sum+=total;lines.push(`<div class="calc-line"><span>${p.name} ${counts[p.id]}명 × ${fmt(unit)}원</span><strong>${fmt(total)}원</strong></div>`)}});let optionLines=[];optionGroups.forEach(g=>{let sel=document.getElementById('opt_'+g.id),item=g.items.find(i=>String(i.id)===sel.value);if(!item)return;let cnt=g.calcType==='per_booking'?1:g.calcType==='per_all_people'?totalPeople:num(document.getElementById('optCnt_'+g.id)?.value);let total=item.price*cnt;sum+=total;optionLines.push(`<div class="calc-line"><span>${item.name} ${g.calcType==='per_all_people'?'전체 ':''}${cnt}${g.calcType==='per_booking'?'회':'명'} × ${fmt(item.price)}원</span><strong>${fmt(total)}원</strong></div>`)});
+let warns=[];if(rule&&totalPeople>=rule.bookingMaxCount)warns.push('예약마감 기준 인원을 초과했습니다.');if(rule&&totalPeople<rule.confirmMinCount)warns.push('출발확정 기준 인원 미만입니다.');previewResult.innerHTML=`${warns.map(w=>`<div class="warn">${w}</div>`).join('')}<div><strong>적용요금:</strong> ${rule?rule.title:'기본요금'}</div><div><strong>상태:</strong> ${rule?statusMap[rule.status]:'예약가능'}</div><div><strong>숙박타입:</strong> ${stayTypes.find(s=>s.id===stay).name}</div><div class="calc-box">${lines.join('')}</div><h4>선택옵션</h4><div class="calc-box">${optionLines.join('')||'<span class="hint">선택된 옵션이 없습니다.</span>'}</div><div class="total"><span>총금액</span><strong>${fmt(sum)}원</strong></div>`}
+function saveAll(){msg('요금설정이 저장되었습니다.')}document.addEventListener('input',e=>{if(e.target.classList.contains('money-input')||e.target.classList.contains('item-price'))e.target.value=fmt(num(e.target.value))});init();
+</script>
+</body>
+</html>

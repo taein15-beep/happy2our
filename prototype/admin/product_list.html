@@ -1,102 +1,522 @@
-﻿<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>상품목록</title><style>
-body{margin:0;background:#f4f6f8;color:#222;font-family:"Malgun Gothic","Noto Sans KR",Arial,sans-serif;font-size:13px}.app{display:grid;grid-template-columns:250px 1fr;min-height:100vh}.sidebar{background:#071122;color:#d7e1f0;padding:18px 0}.brand{padding:0 18px 18px;border-bottom:1px solid rgba(255,255,255,.1)}.brand strong{display:block;color:white;font-size:17px}.nav-title{padding:18px 18px 8px;color:#8ea0bb;font-size:11px}.nav a{display:block;padding:11px 18px;color:#cdd6e5;text-decoration:none;border-left:3px solid transparent}.nav a.active{background:rgba(255,255,255,.08);border-left-color:#5b8cff;color:white}.nav-tree{padding:8px 0 18px}.nav-group{border-bottom:1px solid rgba(255,255,255,.06);padding:6px 0}.nav-depth1{padding:10px 18px 8px;color:#fff;font-weight:900;font-size:13px;cursor:pointer;display:flex;align-items:center;justify-content:space-between}.nav-depth1:after{content:'▾';font-size:10px;color:#8ea0bb}.nav-group:not(.open) .nav-depth1:after{content:'▸'}.nav-group:not(.open) a{display:none}.nav-group a{position:relative;padding:7px 18px 7px 46px;font-size:12px;color:#b9c6d8}.nav-group a:before{content:'├';position:absolute;left:26px;top:7px;color:rgba(185,198,216,.7);font-size:12px;line-height:1}.nav-group a.active{background:rgba(91,140,255,.18);border-left-color:#5b8cff;color:white}.nav-group.open .nav-depth1{color:#8fb3ff}.topbar{height:48px;background:white;border-bottom:1px solid #d9dde3;display:flex;align-items:center;justify-content:space-between;padding:0 16px}.page{padding:16px;max-width:1800px}h1{font-size:24px;margin:0 0 6px}.desc{font-weight:700;color:#555;margin-bottom:14px}.btn{border:1px solid #cfd5dd;background:white;border-radius:4px;padding:8px 12px;font-weight:700;cursor:pointer}.btn.green{background:#18a34a;border-color:#18a34a;color:white}.btn.blue{background:#2f63f6;border-color:#2f63f6;color:white}.panel{background:white;border:1px solid #d9dde3;border-radius:7px;margin-bottom:12px}.panel-head{background:#e6e6e6;padding:12px 14px;font-weight:900;border-bottom:1px solid #d9dde3}.panel-body{padding:14px}input,select,textarea{border:1px solid #d6dbe1;border-radius:4px;padding:8px 9px;min-height:36px}textarea{width:100%;min-height:100px}.table-wrap{overflow:auto}.table{width:100%;border-collapse:collapse;min-width:1100px}.table th{background:#e6e6e6;border:1px solid #cfd3d8;padding:10px;text-align:center}.table td{border:1px solid #edf0f3;padding:9px;background:white}.badge{display:inline-flex;border-radius:14px;padding:4px 8px;font-size:12px;font-weight:900}.b-green{background:#e7f8ee;color:#0f8738}.b-blue{background:#eaf1ff;color:#2556d9}.b-orange{background:#fff4de;color:#b45309}.b-red{background:#fff0f0;color:#d92d20}.tag{display:inline-flex;background:#f2f2f2;border:1px solid #ddd;border-radius:15px;padding:5px 9px;margin:2px}.summary{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}.card{background:white;border:1px solid #d9dde3;border-radius:7px;padding:14px}.card strong{font-size:24px;color:#2f63f6}@media(max-width:1000px){.app{grid-template-columns:1fr}.sidebar{display:none}.summary{grid-template-columns:repeat(2,1fr)}}
-</style></head><body><div class="app">    <aside class="sidebar">
-      <div class="brand"><strong>AviaNext</strong><small>AOS Admin Prototype</small></div>
-      <div class="nav-title">관리메뉴</div>
-      <nav class="nav nav-tree">
-        <div class="nav-group open">
-          <div class="nav-depth1" onclick="toggleNavGroup(this)">📦 상품관리</div>
-          <a class="active" href="product_list.html">상품목록</a>
-          <a href="product_register.html">상품등록</a>
-          <a href="#" onclick="msg('재고관리 화면은 준비 중입니다.');return false;">재고관리</a>
-          <a href="#" onclick="msg('이미지관리 화면은 준비 중입니다.');return false;">이미지관리</a>
-          <a href="template_manage.html">템플릿관리</a>
-          <a href="#" onclick="msg('상품분류관리 화면은 준비 중입니다.');return false;">상품분류관리</a>
-        </div>
-        <div class="nav-group">
-          <div class="nav-depth1" onclick="toggleNavGroup(this)">📋 예약관리</div>
-          <a href="reservation_list.html">예약목록</a>
-          <a href="reservation_status.html">예약현황</a>
-          <a href="#" onclick="msg('좌석관리 화면은 준비 중입니다.');return false;">좌석관리</a>
-        </div>
-        <div class="nav-group">
-          <div class="nav-depth1" onclick="toggleNavGroup(this)">✈️ 항공예약관리</div>
-          <a href="#" onclick="msg('국제선예약 화면은 준비 중입니다.');return false;">국제선예약</a>
-          <a href="#" onclick="msg('국제선예약목록 화면은 준비 중입니다.');return false;">국제선예약목록</a>
-          <a href="#" onclick="msg('국내선예약 화면은 준비 중입니다.');return false;">국내선예약</a>
-          <a href="#" onclick="msg('국내선예약목록 화면은 준비 중입니다.');return false;">국내선예약목록</a>
-        </div>
-        <div class="nav-group">
-          <div class="nav-depth1" onclick="toggleNavGroup(this)">👤 회원관리</div>
-          <a href="#" onclick="msg('웹회원관리 화면은 준비 중입니다.');return false;">웹회원관리</a>
-          <a href="#" onclick="msg('관리자/직원 관리 화면은 준비 중입니다.');return false;">관리자/직원 관리</a>
-          <a href="#" onclick="msg('판매점관리 화면은 준비 중입니다.');return false;">판매점관리</a>
-          <a href="#" onclick="msg('거래처관리 화면은 준비 중입니다.');return false;">거래처관리</a>
-          <a href="#" onclick="msg('그룹관리 화면은 준비 중입니다.');return false;">그룹관리</a>
-          <a href="#" onclick="msg('탈퇴회원 화면은 준비 중입니다.');return false;">탈퇴회원</a>
-        </div>
-        <div class="nav-group">
-          <div class="nav-depth1" onclick="toggleNavGroup(this)">💰 정산관리</div>
-          <a href="#" onclick="msg('인보이스관리 화면은 준비 중입니다.');return false;">인보이스관리</a>
-          <a href="#" onclick="msg('입금/환불현황 화면은 준비 중입니다.');return false;">입금/환불현황</a>
-          <a href="#" onclick="msg('미수금관리 화면은 준비 중입니다.');return false;">미수금관리</a>
-          <a href="#" onclick="msg('국제선정산(항공) 화면은 준비 중입니다.');return false;">국제선정산(항공)</a>
-          <a href="#" onclick="msg('발권데이터(항공) 화면은 준비 중입니다.');return false;">발권데이터(항공)</a>
-        </div>
-        <div class="nav-group">
-          <div class="nav-depth1" onclick="toggleNavGroup(this)">📊 통계관리</div>
-          <a href="statistics_dashboard.html">통계 대시보드</a>
-          <a href="statistics_sales.html">매출통계</a>
-          <a href="statistics_reservation.html">예약통계</a>
-          <a href="statistics_product.html">상품별 통계</a>
-          <a href="statistics_seller.html">판매점별 통계</a>
-          <a href="statistics_region.html">지역별 통계</a>
-          <a href="statistics_settlement.html">정산통계</a>
-        </div>
-        <div class="nav-group">
-          <div class="nav-depth1" onclick="toggleNavGroup(this)">🎨 디자인설정</div>
-          <a href="#" onclick="msg('템플릿관리 화면은 준비 중입니다.');return false;">템플릿관리</a>
-          <a href="#" onclick="msg('섹션관리 화면은 준비 중입니다.');return false;">섹션관리</a>
-          <a href="#" onclick="msg('홈페이지 설정 화면은 준비 중입니다.');return false;">홈페이지 설정</a>
-          <a href="#" onclick="msg('메인메뉴관리 화면은 준비 중입니다.');return false;">메인메뉴관리</a>
-          <a href="#" onclick="msg('팝업관리 화면은 준비 중입니다.');return false;">팝업관리</a>
-          <a href="#" onclick="msg('상단띠배너 화면은 준비 중입니다.');return false;">상단띠배너</a>
-          <a href="#" onclick="msg('관리자메뉴관리 화면은 준비 중입니다.');return false;">관리자메뉴관리</a>
-        </div>
-        <div class="nav-group">
-          <div class="nav-depth1" onclick="toggleNavGroup(this)">💬 알림톡/문자관리</div>
-          <a href="#" onclick="msg('알림톡 설정 화면은 준비 중입니다.');return false;">알림톡 설정</a>
-          <a href="#" onclick="msg('이메일발송 화면은 준비 중입니다.');return false;">이메일발송</a>
-          <a href="#" onclick="msg('문자발송 화면은 준비 중입니다.');return false;">문자발송</a>
-          <a href="#" onclick="msg('발송내역 화면은 준비 중입니다.');return false;">발송내역</a>
-          <a href="#" onclick="msg('메크로설정 화면은 준비 중입니다.');return false;">메크로설정</a>
-        </div>
-        <div class="nav-group">
-          <div class="nav-depth1" onclick="toggleNavGroup(this)">📝 게시판관리</div>
-          <a href="#" onclick="msg('공지사항 화면은 준비 중입니다.');return false;">공지사항</a>
-          <a href="#" onclick="msg('고객문의 화면은 준비 중입니다.');return false;">고객문의</a>
-          <a href="#" onclick="msg('여행후기 화면은 준비 중입니다.');return false;">여행후기</a>
-          <a href="#" onclick="msg('자주묻는질문 화면은 준비 중입니다.');return false;">자주묻는질문</a>
-          <a href="#" onclick="msg('고객문의 화면은 준비 중입니다.');return false;">고객문의</a>
-          <a href="#" onclick="msg('스캔목록 화면은 준비 중입니다.');return false;">스캔목록</a>
-          <a href="#" onclick="msg('자료실 화면은 준비 중입니다.');return false;">자료실</a>
-        </div>
-        <div class="nav-group">
-          <div class="nav-depth1" onclick="toggleNavGroup(this)">⚙️ 기본설정</div>
-          <a href="#" onclick="msg('항공사 Bin관리 화면은 준비 중입니다.');return false;">항공사 Bin관리</a>
-          <a href="#" onclick="msg('노선관리 화면은 준비 중입니다.');return false;">노선관리</a>
-          <a href="#" onclick="msg('탑승역관리 화면은 준비 중입니다.');return false;">탑승역관리</a>
-          <a href="#" onclick="msg('열차관리 화면은 준비 중입니다.');return false;">열차관리</a>
-          <a href="#" onclick="msg('템플릿사이트관리 화면은 준비 중입니다.');return false;">템플릿사이트관리</a>
-        </div>
-      </nav>
-    </aside><main><header class="topbar"><strong>상품목록</strong><span>윤호님 · 로그아웃</span></header><div class="page">
-<h1>상품목록</h1><div class="desc">상품수정, 일정관리, 요금관리, 예약관리로 바로 이동하는 운영 허브입니다.</div>
-<section class="panel"><div class="panel-head">검색/필터</div><div class="panel-body"><select><option>상품상태 전체</option></select> <select><option>노출상태 전체</option></select> <input placeholder="상품명, 상품코드 검색"> <button class="btn green">검색</button> <button class="btn blue" onclick="location.href='product_register.html'">+ 신규등록</button></div></section>
-<section class="panel"><div class="table-wrap"><table class="table"><thead><tr><th>상품코드</th><th>상품명</th><th>대표요금</th><th>판매기간</th><th>예약</th><th>상태</th><th>일정</th><th>요금</th><th>예약관리</th><th>노출</th></tr></thead><tbody>
-<tr><td>HP0001</td><td><strong>화성·수원 나들이</strong><br>지자체지원 > 당일여행</td><td>16,000원</td><td>2026-06-01~2026-12-31</td><td>3건/8명</td><td><span class="badge b-green">판매중</span></td><td><button onclick="location.href='schedule_register.html'">일정</button></td><td><button onclick="location.href='price_setting.html'">요금</button></td><td><button>예약</button></td><td>ON</td></tr>
-</tbody></table></div></section>
-</div></main></div><script>function msg(t){alert(t)};function toggleNavGroup(el){el.closest('.nav-group').classList.toggle('open')}
-  </script></body></html>
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>상품목록</title>
+  <style>
+    body{margin:0;background:#f4f6f8;color:#222;font-family:"Malgun Gothic","Noto Sans KR",Arial,sans-serif;font-size:13px}.app{display:grid;grid-template-columns:250px 1fr;min-height:100vh}.sidebar{background:#071122;color:#d7e1f0;padding:18px 0}.brand{padding:0 18px 18px;border-bottom:1px solid rgba(255,255,255,.1)}.brand strong{display:block;color:white;font-size:17px}.nav-title{padding:18px 18px 8px;color:#8ea0bb;font-size:11px}.nav a{display:block;padding:11px 18px;color:#cdd6e5;text-decoration:none;border-left:3px solid transparent}.nav a.active{background:rgba(255,255,255,.08);border-left-color:#5b8cff;color:white}.nav-tree{padding:8px 0 18px}.nav-group{border-bottom:1px solid rgba(255,255,255,.06);padding:6px 0}.nav-depth1{padding:10px 18px 8px;color:#fff;font-weight:900;font-size:13px;cursor:pointer;display:flex;align-items:center;justify-content:space-between}.nav-depth1:after{content:'▾';font-size:10px;color:#8ea0bb}.nav-group:not(.open) .nav-depth1:after{content:'▸'}.nav-group:not(.open) a{display:none}.nav-group a{position:relative;padding:7px 18px 7px 46px;font-size:12px;color:#b9c6d8}.nav-group a:before{content:'├';position:absolute;left:26px;top:7px;color:rgba(185,198,216,.7);font-size:12px;line-height:1}.nav-group a.active{background:rgba(91,140,255,.18);border-left-color:#5b8cff;color:white}.nav-group.open .nav-depth1{color:#8fb3ff}.topbar{height:48px;background:white;border-bottom:1px solid #d9dde3;display:flex;align-items:center;justify-content:space-between;padding:0 16px}.page{padding:16px;max-width:1800px}h1{font-size:24px;margin:0 0 6px}.desc{font-weight:700;color:#555;margin-bottom:14px}.btn{border:1px solid #cfd5dd;background:white;border-radius:4px;padding:8px 12px;font-weight:700;cursor:pointer;white-space:nowrap}.btn.green{background:#18a34a;border-color:#18a34a;color:white}.btn.blue{background:#2f63f6;border-color:#2f63f6;color:white}.btn.red{background:#d92d20;border-color:#d92d20;color:white}.btn.small{padding:6px 9px;font-size:12px}.btn.icon{min-width:34px;padding:7px 8px}.btn:disabled{background:#f2f4f7;color:#98a2b3;cursor:not-allowed}.panel{background:white;border:1px solid #d9dde3;border-radius:7px;margin-bottom:12px}.panel-head{background:#e6e6e6;padding:12px 14px;font-weight:900;border-bottom:1px solid #d9dde3;display:flex;align-items:center;justify-content:space-between;gap:10px}.panel-body{padding:14px}input,select,textarea{border:1px solid #d6dbe1;border-radius:4px;padding:8px 9px;min-height:36px;box-sizing:border-box}textarea{width:100%;min-height:100px}.search-grid{display:grid;grid-template-columns:1.4fr repeat(3,1fr);gap:10px;align-items:end}.field label{display:block;margin-bottom:5px;font-weight:900;color:#475467}.field input,.field select{width:100%}.category-row{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.search-actions{display:flex;justify-content:flex-end;gap:8px;margin-top:12px}.detail-toggle{margin-top:12px;border-top:1px solid #edf0f3;padding-top:12px}.detail-toggle summary{cursor:pointer;font-weight:900;color:#2556d9}.detail-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:12px}.date-range{display:grid;grid-template-columns:1fr auto 1fr;gap:6px;align-items:center}.summary{display:grid;grid-template-columns:repeat(8,1fr);gap:10px}.card{background:white;border:1px solid #d9dde3;border-radius:7px;padding:14px}.card span{display:block;color:#667085;font-weight:900;margin-bottom:7px}.card strong{font-size:24px;color:#2f63f6}.card.warn strong{color:#b45309}.card.danger strong{color:#d92d20}.toolbar{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}.bulk-actions{display:flex;gap:6px;flex-wrap:wrap}.table-wrap{overflow:auto}.table{width:100%;border-collapse:collapse;min-width:1380px}.table th{background:#e6e6e6;border:1px solid #cfd3d8;padding:10px;text-align:center;white-space:nowrap}.table td{border:1px solid #edf0f3;padding:9px;background:white;vertical-align:middle}.table .center{text-align:center}.product-info{min-width:270px}.code{font-weight:900;color:#2556d9}.category{color:#667085;font-size:12px;margin:4px 0}.product-name{font-weight:900;font-size:14px}.badge{display:inline-flex;border-radius:14px;padding:4px 8px;font-size:12px;font-weight:900;white-space:nowrap;margin:2px}.b-green{background:#e7f8ee;color:#0f8738}.b-blue{background:#eaf1ff;color:#2556d9}.b-orange{background:#fff4de;color:#b45309}.b-red{background:#fff0f0;color:#d92d20}.b-gray{background:#f2f4f7;color:#475467}.tag{display:inline-flex;background:#f2f2f2;border:1px solid #ddd;border-radius:15px;padding:5px 9px;margin:2px;font-size:12px}.status-stack{display:flex;flex-wrap:wrap;gap:2px;min-width:210px}.metric{display:grid;grid-template-columns:1fr 1fr;gap:5px;min-width:130px}.metric span{display:flex;justify-content:space-between;border-bottom:1px dashed #e4e7ec;padding-bottom:3px;color:#667085}.metric b{color:#222}.quick-actions,.manage-actions{display:flex;gap:6px;justify-content:center;align-items:center;white-space:nowrap}.toggle-line{display:flex;align-items:center;justify-content:center;gap:8px;margin-top:6px}.switch{position:relative;display:inline-block;width:38px;height:20px}.switch input{opacity:0;width:0;height:0}.slider{position:absolute;cursor:pointer;inset:0;background:#cfd5dd;border-radius:999px;transition:.2s}.slider:before{content:"";position:absolute;width:16px;height:16px;left:2px;top:2px;background:white;border-radius:50%;transition:.2s;box-shadow:0 1px 2px rgba(0,0,0,.25)}.switch input:checked+.slider{background:#18a34a}.switch input:checked+.slider:before{transform:translateX(18px)}.menu-wrap{position:relative}.more-menu{display:none;position:absolute;right:0;top:34px;z-index:10;min-width:130px;background:white;border:1px solid #d9dde3;border-radius:6px;box-shadow:0 8px 20px rgba(16,24,40,.14);padding:6px}.more-menu.open{display:block}.more-menu button{display:block;width:100%;border:0;background:white;text-align:left;padding:8px;border-radius:4px;cursor:pointer;font-weight:700}.more-menu button:hover{background:#f4f6f8}.more-menu .danger{color:#d92d20}.modal-backdrop{display:none;position:fixed;inset:0;background:rgba(7,17,34,.46);z-index:30;align-items:center;justify-content:center;padding:20px}.modal-backdrop.open{display:flex}.modal{width:min(420px,100%);background:white;border-radius:8px;border:1px solid #d9dde3;box-shadow:0 16px 40px rgba(16,24,40,.2)}.modal-head{padding:14px 16px;border-bottom:1px solid #edf0f3;font-weight:900}.modal-body{padding:16px;line-height:1.6;color:#475467}.modal-actions{padding:12px 16px;border-top:1px solid #edf0f3;display:flex;justify-content:flex-end;gap:8px}@media(max-width:1400px){.summary{grid-template-columns:repeat(4,1fr)}.search-grid,.detail-grid{grid-template-columns:repeat(2,1fr)}}@media(max-width:1000px){.app{grid-template-columns:1fr}.sidebar{display:none}.summary{grid-template-columns:repeat(2,1fr)}.search-grid,.detail-grid{grid-template-columns:1fr}.category-row{grid-template-columns:1fr}.toolbar{align-items:flex-start}.page{padding:12px}}
+    .image-list-panel{border-radius:0;margin-top:12px}.image-list-panel .panel-body{padding:0}.image-table-wrap{overflow:auto;background:#f4f6f8}.image-table{width:100%;min-width:1628px;border-collapse:collapse;table-layout:fixed;background:white}.image-table th{height:62px;background:#e7e7e7;border:1px solid #c9ced4;color:#203047;font-weight:900;text-align:center;vertical-align:middle}.image-table td{height:64px;border:1px solid #eceff3;background:#fff;text-align:center;vertical-align:middle;padding:0 10px;font-size:14px}.image-table .col-code{width:102px}.image-table .col-name{width:625px}.image-table .col-price{width:86px}.image-table .col-period{width:124px}.image-table .col-reserve{width:103px}.image-table .col-view{width:103px}.image-table .col-icon{width:57px}.image-table .col-toggle{width:66px}.image-table .col-delete{width:58px}.list-code{line-height:1.6;color:#101828}.list-name{text-align:left!important;line-height:1.45}.list-category{display:block;color:#9aa3ad;font-size:12px;margin-bottom:3px}.list-title{font-weight:900;color:#000;text-decoration:none}.list-title:hover{text-decoration:underline}.list-price{text-align:right!important}.list-period{line-height:1.55}.list-icon{display:inline-flex;width:28px;height:28px;align-items:center;justify-content:center;border:0;background:transparent;color:#111;cursor:pointer;padding:0}.list-icon svg{width:18px;height:18px;stroke:currentColor;stroke-width:1.9;fill:none;stroke-linecap:round;stroke-linejoin:round}.list-icon.danger{color:#98a2b3}.mini-switch{position:relative;display:inline-block;width:34px;height:18px}.mini-switch input{opacity:0;width:0;height:0}.mini-switch span{position:absolute;inset:0;background:#cfd5dd;border-radius:999px;transition:.2s}.mini-switch span:before{content:"";position:absolute;width:14px;height:14px;left:2px;top:2px;background:#fff;border-radius:50%;transition:.2s;box-shadow:0 1px 2px rgba(0,0,0,.18)}.mini-switch input:checked+span{background:#22a753}.mini-switch input:checked+span:before{transform:translateX(16px)}
+  </style>
+</head>
+<body>
+<div class="app">
+  <aside class="sidebar">
+    <div class="brand"><strong>AviaNext</strong><small>AOS Admin Prototype</small></div>
+    <div class="nav-title">관리메뉴</div>
+    <nav class="nav nav-tree">
+      <div class="nav-group open">
+        <div class="nav-depth1" onclick="toggleNavGroup(this)">📦 상품관리</div>
+        <a class="active" href="product_list.html">상품목록</a>
+        <a href="product_register.html">상품등록</a>
+        <a href="#" onclick="msg('재고관리 화면은 준비 중입니다.');return false;">재고관리</a>
+        <a href="#" onclick="msg('이미지관리 화면은 준비 중입니다.');return false;">이미지관리</a>
+        <a href="template_manage.html">템플릿관리</a>
+          <a href="attraction_manage.html">관광지관리</a>
+        <a href="#" onclick="msg('상품분류관리 화면은 준비 중입니다.');return false;">상품분류관리</a>
+      </div>
+      <div class="nav-group">
+        <div class="nav-depth1" onclick="toggleNavGroup(this)">📋 예약관리</div>
+        <a href="reservation_list.html">예약목록</a>
+        <a href="reservation_status.html">예약현황</a>
+        <a href="#" onclick="msg('좌석관리 화면은 준비 중입니다.');return false;">좌석관리</a>
+      </div>
+      <div class="nav-group">
+        <div class="nav-depth1" onclick="toggleNavGroup(this)">✈️ 항공예약관리</div>
+        <a href="#" onclick="msg('국제선예약 화면은 준비 중입니다.');return false;">국제선예약</a>
+        <a href="#" onclick="msg('국제선예약목록 화면은 준비 중입니다.');return false;">국제선예약목록</a>
+        <a href="#" onclick="msg('국내선예약 화면은 준비 중입니다.');return false;">국내선예약</a>
+        <a href="#" onclick="msg('국내선예약목록 화면은 준비 중입니다.');return false;">국내선예약목록</a>
+      </div>
+      <div class="nav-group">
+        <div class="nav-depth1" onclick="toggleNavGroup(this)">👤 회원관리</div>
+        <a href="#" onclick="msg('웹회원관리 화면은 준비 중입니다.');return false;">웹회원관리</a>
+        <a href="#" onclick="msg('관리자/직원 관리 화면은 준비 중입니다.');return false;">관리자/직원 관리</a>
+        <a href="#" onclick="msg('판매점관리 화면은 준비 중입니다.');return false;">판매점관리</a>
+        <a href="#" onclick="msg('거래처관리 화면은 준비 중입니다.');return false;">거래처관리</a>
+        <a href="#" onclick="msg('그룹관리 화면은 준비 중입니다.');return false;">그룹관리</a>
+        <a href="#" onclick="msg('탈퇴회원 화면은 준비 중입니다.');return false;">탈퇴회원</a>
+      </div>
+      <div class="nav-group">
+        <div class="nav-depth1" onclick="toggleNavGroup(this)">💰 정산관리</div>
+        <a href="#" onclick="msg('인보이스관리 화면은 준비 중입니다.');return false;">인보이스관리</a>
+        <a href="#" onclick="msg('입금/환불현황 화면은 준비 중입니다.');return false;">입금/환불현황</a>
+        <a href="#" onclick="msg('미수금관리 화면은 준비 중입니다.');return false;">미수금관리</a>
+        <a href="#" onclick="msg('국제선정산(항공) 화면은 준비 중입니다.');return false;">국제선정산(항공)</a>
+        <a href="#" onclick="msg('발권데이터(항공) 화면은 준비 중입니다.');return false;">발권데이터(항공)</a>
+      </div>
+      <div class="nav-group">
+        <div class="nav-depth1" onclick="toggleNavGroup(this)">📊 통계관리</div>
+        <a href="statistics_dashboard.html">통계 대시보드</a>
+        <a href="statistics_sales.html">매출통계</a>
+        <a href="statistics_reservation.html">예약통계</a>
+        <a href="statistics_product.html">상품별 통계</a>
+        <a href="statistics_seller.html">판매점별 통계</a>
+        <a href="statistics_region.html">지역별 통계</a>
+        <a href="statistics_settlement.html">정산통계</a>
+      </div>
+      <div class="nav-group">
+        <div class="nav-depth1" onclick="toggleNavGroup(this)">🎨 디자인설정</div>
+        <a href="#" onclick="msg('템플릿관리 화면은 준비 중입니다.');return false;">템플릿관리</a>
+        <a href="#" onclick="msg('섹션관리 화면은 준비 중입니다.');return false;">섹션관리</a>
+        <a href="#" onclick="msg('홈페이지 설정 화면은 준비 중입니다.');return false;">홈페이지 설정</a>
+        <a href="#" onclick="msg('메인메뉴관리 화면은 준비 중입니다.');return false;">메인메뉴관리</a>
+        <a href="#" onclick="msg('팝업관리 화면은 준비 중입니다.');return false;">팝업관리</a>
+        <a href="#" onclick="msg('상단띠배너 화면은 준비 중입니다.');return false;">상단띠배너</a>
+        <a href="#" onclick="msg('관리자메뉴관리 화면은 준비 중입니다.');return false;">관리자메뉴관리</a>
+      </div>
+      <div class="nav-group">
+        <div class="nav-depth1" onclick="toggleNavGroup(this)">💬 알림톡/문자관리</div>
+        <a href="#" onclick="msg('알림톡 설정 화면은 준비 중입니다.');return false;">알림톡 설정</a>
+        <a href="#" onclick="msg('이메일발송 화면은 준비 중입니다.');return false;">이메일발송</a>
+        <a href="#" onclick="msg('문자발송 화면은 준비 중입니다.');return false;">문자발송</a>
+        <a href="#" onclick="msg('발송내역 화면은 준비 중입니다.');return false;">발송내역</a>
+        <a href="#" onclick="msg('메크로설정 화면은 준비 중입니다.');return false;">메크로설정</a>
+      </div>
+      <div class="nav-group">
+        <div class="nav-depth1" onclick="toggleNavGroup(this)">📝 게시판관리</div>
+        <a href="#" onclick="msg('공지사항 화면은 준비 중입니다.');return false;">공지사항</a>
+        <a href="#" onclick="msg('고객문의 화면은 준비 중입니다.');return false;">고객문의</a>
+        <a href="#" onclick="msg('여행후기 화면은 준비 중입니다.');return false;">여행후기</a>
+        <a href="#" onclick="msg('자주묻는질문 화면은 준비 중입니다.');return false;">자주묻는질문</a>
+        <a href="#" onclick="msg('고객문의 화면은 준비 중입니다.');return false;">고객문의</a>
+        <a href="#" onclick="msg('스캔목록 화면은 준비 중입니다.');return false;">스캔목록</a>
+        <a href="#" onclick="msg('자료실 화면은 준비 중입니다.');return false;">자료실</a>
+      </div>
+      <div class="nav-group">
+        <div class="nav-depth1" onclick="toggleNavGroup(this)">⚙️ 기본설정</div>
+        <a href="#" onclick="msg('항공사 Bin관리 화면은 준비 중입니다.');return false;">항공사 Bin관리</a>
+        <a href="#" onclick="msg('노선관리 화면은 준비 중입니다.');return false;">노선관리</a>
+        <a href="#" onclick="msg('탑승역관리 화면은 준비 중입니다.');return false;">탑승역관리</a>
+        <a href="#" onclick="msg('열차관리 화면은 준비 중입니다.');return false;">열차관리</a>
+        <a href="#" onclick="msg('템플릿사이트관리 화면은 준비 중입니다.');return false;">템플릿사이트관리</a>
+      </div>
+    </nav>
+  </aside>
+  <main>
+    <header class="topbar"><strong>상품목록</strong><span>윤호님 · 로그아웃</span></header>
+    <div class="page">
+      <h1>상품목록</h1>
+      <div class="desc">상품수정, 일정관리, 요금관리, 예약관리로 바로 이동하는 운영 허브입니다.</div>
 
+      <section class="panel">
+        <div class="panel-head">
+          <span>상품목록 검색</span>
+          <button class="btn blue" onclick="location.href='product_register.html'">+ 신규등록</button>
+        </div>
+        <div class="panel-body">
+          <div class="search-grid">
+            <div class="field">
+              <label>키워드 검색</label>
+              <input placeholder="상품명, 상품코드, 태그, 지역 통합검색">
+            </div>
+            <div class="field">
+              <label>상품유형</label>
+              <select>
+                <option>전체</option><option>당일여행</option><option>숙박여행</option><option>패키지</option><option>항공</option><option>버스</option><option>입장권</option>
+              </select>
+            </div>
+            <div class="field">
+              <label>판매상태</label>
+              <select><option>전체</option><option>판매중</option><option>판매대기</option><option>판매종료</option></select>
+            </div>
+            <div class="field">
+              <label>판매기간</label>
+              <select><option>전체</option><option>오늘 판매중</option><option>기간지정</option></select>
+            </div>
+          </div>
+          <details class="detail-toggle">
+            <summary>상세검색 펼치기/접기</summary>
+            <div class="detail-grid">
+              <div class="field">
+                <label>상품분류</label>
+                <div class="category-row">
+                  <select><option>대분류</option><option>국내여행</option><option>해외여행</option><option>항공</option></select>
+                  <select><option>중분류</option><option>경기/인천</option><option>강원</option><option>제주</option></select>
+                  <select><option>소분류</option><option>당일</option><option>1박2일</option><option>테마</option></select>
+                </div>
+              </div>
+              <div class="field">
+                <label>노출상태</label>
+                <select><option>전체</option><option>노출</option><option>비노출</option></select>
+              </div>
+              <div class="field">
+                <label>품절상태</label>
+                <select><option>전체</option><option>정상</option><option>품절</option></select>
+              </div>
+              <div class="field">
+                <label>일정상태</label>
+                <select><option>전체</option><option>일정등록</option><option>일정미등록</option></select>
+              </div>
+              <div class="field">
+                <label>요금상태</label>
+                <select><option>전체</option><option>요금등록</option><option>요금미등록</option></select>
+              </div>
+              <div class="field">
+                <label>기간지정</label>
+                <div class="date-range"><input type="date"><span>~</span><input type="date"></div>
+              </div>
+            </div>
+          </details>
+          <div class="search-actions">
+            <button class="btn">초기화</button>
+            <button class="btn green">검색</button>
+          </div>
+        </div>
+      </section>
 
+      <section class="summary" aria-label="상품 요약">
+        <div class="card"><span>전체상품</span><strong>128</strong></div>
+        <div class="card"><span>판매중</span><strong>92</strong></div>
+        <div class="card warn"><span>판매대기</span><strong>18</strong></div>
+        <div class="card danger"><span>판매종료</span><strong>18</strong></div>
+        <div class="card"><span>비노출</span><strong>12</strong></div>
+        <div class="card danger"><span>품절</span><strong>7</strong></div>
+        <div class="card warn"><span>일정미등록</span><strong>9</strong></div>
+        <div class="card warn"><span>요금미등록</span><strong>6</strong></div>
+      </section>
+
+      <section class="panel image-list-panel">
+        <div class="panel-body">
+          <div class="image-table-wrap">
+            <table class="image-table">
+              <thead>
+                <tr>
+                  <th class="col-code">상품코드</th>
+                  <th class="col-name">상품명</th>
+                  <th class="col-price">대표가격</th>
+                  <th class="col-period">판매기간</th>
+                  <th class="col-reserve">예약(건/명)</th>
+                  <th class="col-view">조회<br>(누적/오늘)</th>
+                  <th class="col-icon">예약</th>
+                  <th class="col-icon">요금</th>
+                  <th class="col-icon">일정</th>
+                  <th class="col-icon">보기</th>
+                  <th class="col-icon">복사</th>
+                  <th class="col-toggle">품절</th>
+                  <th class="col-toggle">노출</th>
+                  <th class="col-delete">삭제</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr data-product-name="[팔도장터열차] 6월 27일(토) 공주 유구 색동수국정원 / 계룡산 동학사" data-has-reservations="false">
+                  <td class="list-code">18343<br>[paldo-111]</td>
+                  <td class="list-name"><span class="list-category">기차여행 &gt; 특별열차</span><a class="list-title" href="product_detail.html?code=paldo-111">[팔도장터열차] 6월 27일(토) 공주 유구 색동수국정원 / 계룡산 동학사</a></td>
+                  <td class="list-price">79,000</td>
+                  <td class="list-period">~</td>
+                  <td>0/0</td>
+                  <td>0/0</td>
+                  <td><button class="list-icon" title="예약관리" aria-label="예약관리"><svg viewBox="0 0 24 24"><path d="M4 5.5h7a3 3 0 0 1 3 3v10a3 3 0 0 0-3-3H4z"/><path d="M14 8.5a3 3 0 0 1 3-3h3v10h-3a3 3 0 0 0-3 3z"/></svg></button></td>
+                  <td><button class="list-icon" title="요금관리" aria-label="요금관리"><svg viewBox="0 0 24 24"><path d="M12 3v18"/><path d="M17 7.5c-1.1-1-2.7-1.5-5-1.5-2.8 0-4.5 1.2-4.5 3s1.4 2.5 4.5 3 4.5 1.1 4.5 3-1.7 3-4.5 3c-2.1 0-3.8-.5-5-1.6"/></svg></button></td>
+                  <td><button class="list-icon" title="일정관리" aria-label="일정관리"><svg viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M8 3v4M16 3v4M4 10h16M17 14l-3 3-2-2"/></svg></button></td>
+                  <td><button class="list-icon" title="상품보기" aria-label="상품보기" onclick="location.href='product_detail.html?code=paldo-111'"><svg viewBox="0 0 24 24"><path d="M2.5 12s3.5-6 9.5-6 9.5 6 9.5 6-3.5 6-9.5 6-9.5-6-9.5-6z"/><circle cx="12" cy="12" r="2.5"/></svg></button></td>
+                  <td><button class="list-icon" title="상품복사" aria-label="상품복사"><svg viewBox="0 0 24 24"><rect x="8" y="4" width="10" height="13" rx="2"/><path d="M6 7H5a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2v-1"/></svg></button></td>
+                  <td><label class="mini-switch" title="품절상태 변경"><input type="checkbox"><span></span></label></td>
+                  <td><label class="mini-switch" title="노출상태 변경"><input type="checkbox"><span></span></label></td>
+                  <td><button class="list-icon danger" title="상품삭제" aria-label="상품삭제" onclick="requestDelete(this)"><svg viewBox="0 0 24 24"><path d="M5 7h14M10 11v6M14 11v6M8 7l1-3h6l1 3M7 7l1 13h8l1-13"/></svg></button></td>
+                </tr>
+                <tr data-product-name="청도 바캉스~ 운천♨+워터파크 & 관광 &미식투어맥주박물관 5박6일" data-has-reservations="false">
+                  <td class="list-code">18342<br>[HP0001]</td>
+                  <td class="list-name"><span class="list-category">해외여행 &gt; 중국여행 &gt; 청도</span><a class="list-title" href="product_detail.html?code=HP0001">청도 바캉스~ 운천♨+워터파크 &amp; 관광 &amp;미식투어맥주박물관 5박6일</a></td>
+                  <td class="list-price">840,000</td>
+                  <td class="list-period">2026-05-12 ~<br>2026-07-30</td>
+                  <td>0/0</td>
+                  <td>0/0</td>
+                  <td><button class="list-icon" title="예약관리" aria-label="예약관리"><svg viewBox="0 0 24 24"><path d="M4 5.5h7a3 3 0 0 1 3 3v10a3 3 0 0 0-3-3H4z"/><path d="M14 8.5a3 3 0 0 1 3-3h3v10h-3a3 3 0 0 0-3 3z"/></svg></button></td>
+                  <td><button class="list-icon" title="요금관리" aria-label="요금관리"><svg viewBox="0 0 24 24"><path d="M12 3v18"/><path d="M17 7.5c-1.1-1-2.7-1.5-5-1.5-2.8 0-4.5 1.2-4.5 3s1.4 2.5 4.5 3 4.5 1.1 4.5 3-1.7 3-4.5 3c-2.1 0-3.8-.5-5-1.6"/></svg></button></td>
+                  <td><button class="list-icon" title="일정관리" aria-label="일정관리"><svg viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M8 3v4M16 3v4M4 10h16M17 14l-3 3-2-2"/></svg></button></td>
+                  <td><button class="list-icon" title="상품보기" aria-label="상품보기" onclick="location.href='product_detail.html?code=HP0001'"><svg viewBox="0 0 24 24"><path d="M2.5 12s3.5-6 9.5-6 9.5 6 9.5 6-3.5 6-9.5 6-9.5-6-9.5-6z"/><circle cx="12" cy="12" r="2.5"/></svg></button></td>
+                  <td><button class="list-icon" title="상품복사" aria-label="상품복사"><svg viewBox="0 0 24 24"><rect x="8" y="4" width="10" height="13" rx="2"/><path d="M6 7H5a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2v-1"/></svg></button></td>
+                  <td><label class="mini-switch" title="품절상태 변경"><input type="checkbox"><span></span></label></td>
+                  <td><label class="mini-switch" title="노출상태 변경"><input type="checkbox" checked><span></span></label></td>
+                  <td><button class="list-icon danger" title="상품삭제" aria-label="상품삭제" onclick="requestDelete(this)"><svg viewBox="0 0 24 24"><path d="M5 7h14M10 11v6M14 11v6M8 7l1-3h6l1 3M7 7l1 13h8l1-13"/></svg></button></td>
+                </tr>
+                <tr data-product-name="비아젠 견학투어 / 당진 장고항 실치축제 / 삼선산 수목원 / 한진포구 해상둘레길 (당일)" data-has-reservations="false">
+                  <td class="list-code">18341<br>[boram01]</td>
+                  <td class="list-name"><span class="list-category">버스여행 &gt; 당일여행</span><a class="list-title" href="product_detail.html?code=boram01">비아젠 견학투어 / 당진 장고항 실치축제 / 삼선산 수목원 / 한진포구 해상둘레길 (당일)</a></td>
+                  <td class="list-price">15,000</td>
+                  <td class="list-period">~</td>
+                  <td>0/0</td>
+                  <td>0/0</td>
+                  <td><button class="list-icon" title="예약관리" aria-label="예약관리"><svg viewBox="0 0 24 24"><path d="M4 5.5h7a3 3 0 0 1 3 3v10a3 3 0 0 0-3-3H4z"/><path d="M14 8.5a3 3 0 0 1 3-3h3v10h-3a3 3 0 0 0-3 3z"/></svg></button></td>
+                  <td><button class="list-icon" title="요금관리" aria-label="요금관리"><svg viewBox="0 0 24 24"><path d="M12 3v18"/><path d="M17 7.5c-1.1-1-2.7-1.5-5-1.5-2.8 0-4.5 1.2-4.5 3s1.4 2.5 4.5 3 4.5 1.1 4.5 3-1.7 3-4.5 3c-2.1 0-3.8-.5-5-1.6"/></svg></button></td>
+                  <td><button class="list-icon" title="일정관리" aria-label="일정관리"><svg viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M8 3v4M16 3v4M4 10h16M17 14l-3 3-2-2"/></svg></button></td>
+                  <td><button class="list-icon" title="상품보기" aria-label="상품보기" onclick="location.href='product_detail.html?code=boram01'"><svg viewBox="0 0 24 24"><path d="M2.5 12s3.5-6 9.5-6 9.5 6 9.5 6-3.5 6-9.5 6-9.5-6-9.5-6z"/><circle cx="12" cy="12" r="2.5"/></svg></button></td>
+                  <td><button class="list-icon" title="상품복사" aria-label="상품복사"><svg viewBox="0 0 24 24"><rect x="8" y="4" width="10" height="13" rx="2"/><path d="M6 7H5a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2v-1"/></svg></button></td>
+                  <td><label class="mini-switch" title="품절상태 변경"><input type="checkbox"><span></span></label></td>
+                  <td><label class="mini-switch" title="노출상태 변경"><input type="checkbox" checked><span></span></label></td>
+                  <td><button class="list-icon danger" title="상품삭제" aria-label="상품삭제" onclick="requestDelete(this)"><svg viewBox="0 0 24 24"><path d="M5 7h14M10 11v6M14 11v6M8 7l1-3h6l1 3M7 7l1 13h8l1-13"/></svg></button></td>
+                </tr>
+                <tr data-product-name="과거와 현재의 공존 경주 1박2일" data-has-reservations="true">
+                  <td class="list-code">18340<br>[B-11111]</td>
+                  <td class="list-name"><span class="list-category">버스여행 &gt; 당일여행</span><a class="list-title" href="product_detail.html?code=B-11111">과거와 현재의 공존 경주 1박2일</a></td>
+                  <td class="list-price">10,000</td>
+                  <td class="list-period">2026-04-21 ~<br>2026-04-30</td>
+                  <td>0/0</td>
+                  <td>0/0</td>
+                  <td><button class="list-icon" title="예약관리" aria-label="예약관리"><svg viewBox="0 0 24 24"><path d="M4 5.5h7a3 3 0 0 1 3 3v10a3 3 0 0 0-3-3H4z"/><path d="M14 8.5a3 3 0 0 1 3-3h3v10h-3a3 3 0 0 0-3 3z"/></svg></button></td>
+                  <td><button class="list-icon" title="요금관리" aria-label="요금관리"><svg viewBox="0 0 24 24"><path d="M12 3v18"/><path d="M17 7.5c-1.1-1-2.7-1.5-5-1.5-2.8 0-4.5 1.2-4.5 3s1.4 2.5 4.5 3 4.5 1.1 4.5 3-1.7 3-4.5 3c-2.1 0-3.8-.5-5-1.6"/></svg></button></td>
+                  <td><button class="list-icon" title="일정관리" aria-label="일정관리"><svg viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M8 3v4M16 3v4M4 10h16M17 14l-3 3-2-2"/></svg></button></td>
+                  <td><button class="list-icon" title="상품보기" aria-label="상품보기" onclick="location.href='product_detail.html?code=B-11111'"><svg viewBox="0 0 24 24"><path d="M2.5 12s3.5-6 9.5-6 9.5 6 9.5 6-3.5 6-9.5 6-9.5-6-9.5-6z"/><circle cx="12" cy="12" r="2.5"/></svg></button></td>
+                  <td><button class="list-icon" title="상품복사" aria-label="상품복사"><svg viewBox="0 0 24 24"><rect x="8" y="4" width="10" height="13" rx="2"/><path d="M6 7H5a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2v-1"/></svg></button></td>
+                  <td><label class="mini-switch" title="품절상태 변경"><input type="checkbox" checked><span></span></label></td>
+                  <td><label class="mini-switch" title="노출상태 변경"><input type="checkbox" checked><span></span></label></td>
+                  <td><button class="list-icon danger" title="상품삭제" aria-label="상품삭제" onclick="requestDelete(this)"><svg viewBox="0 0 24 24"><path d="M5 7h14M10 11v6M14 11v6M8 7l1-3h6l1 3M7 7l1 13h8l1-13"/></svg></button></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel" style="display:none">
+        <div class="panel-head toolbar">
+          <span>상품목록</span>
+          <div class="bulk-actions">
+            <button class="btn small">선택 노출</button>
+            <button class="btn small">선택 비노출</button>
+            <button class="btn small">선택 품절</button>
+            <button class="btn small">선택 판매종료</button>
+            <button class="btn small green">엑셀 다운로드</button>
+          </div>
+        </div>
+        <div class="table-wrap">
+          <table class="table">
+            <thead>
+              <tr>
+                <th><input type="checkbox" title="전체 선택"></th>
+                <th>상품정보</th>
+                <th>판매정보</th>
+                <th>상태</th>
+                <th>예약현황</th>
+                <th>조회수</th>
+                <th>빠른관리</th>
+                <th>관리</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr data-product-name="화성·수원 나들이" data-has-reservations="true">
+                <td class="center"><input type="checkbox" title="상품 선택"></td>
+                <td class="product-info">
+                  <div class="code">HP0001</div>
+                  <div class="category">국내여행 &gt; 경기/인천 &gt; 당일</div>
+                  <div class="product-name">화성·수원 나들이</div>
+                  <div><span class="tag">지자체지원</span><span class="tag">화성</span><span class="tag">수원</span></div>
+                </td>
+                <td>
+                  <strong>16,000원</strong><br>
+                  2026-06-01 ~ 2026-12-31
+                </td>
+                <td>
+                  <div class="status-stack">
+                    <span class="badge b-green">판매중</span>
+                    <span class="badge b-blue">노출</span>
+                    <span class="badge b-green">정상판매</span>
+                    <span class="badge b-green">일정등록</span>
+                    <span class="badge b-green">요금등록</span>
+                  </div>
+                  <div class="toggle-line">
+                    <span>노출</span><label class="switch" title="노출상태 변경"><input type="checkbox" checked><span class="slider"></span></label>
+                    <span>품절</span><label class="switch" title="품절상태 변경"><input type="checkbox"><span class="slider"></span></label>
+                  </div>
+                </td>
+                <td>
+                  <div class="metric">
+                    <span>예약인원 <b>8명</b></span><span>대기인원 <b>2명</b></span>
+                    <span>취소인원 <b>1명</b></span><span>잔여석 <b>22석</b></span>
+                  </div>
+                </td>
+                <td class="center">누적 1,245<br>오늘 38</td>
+                <td>
+                  <div class="quick-actions">
+                    <button class="btn small" title="예약관리" onclick="msg('예약관리로 이동합니다.')">예약</button>
+                    <button class="btn small" title="요금관리" onclick="location.href='price_setting.html'">요금</button>
+                    <button class="btn small" title="일정관리" onclick="location.href='schedule_register.html'">일정</button>
+                  </div>
+                </td>
+                <td>
+                  <div class="manage-actions">
+                    <button class="btn small" title="상품보기">보기/수정</button>
+                    <button class="btn small" title="상품복사">복사</button>
+                    <div class="menu-wrap">
+                      <button class="btn small icon" title="더보기" onclick="toggleMoreMenu(this)">⋯</button>
+                      <div class="more-menu">
+                        <button onclick="msg('미리보기 화면은 준비 중입니다.')">미리보기</button>
+                        <button class="danger" onclick="requestDelete(this)">삭제</button>
+                      </div>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+              <tr data-product-name="제주 항공 패키지 2박3일" data-has-reservations="false">
+                <td class="center"><input type="checkbox" title="상품 선택"></td>
+                <td class="product-info">
+                  <div class="code">PK0248</div>
+                  <div class="category">국내여행 &gt; 제주 &gt; 패키지</div>
+                  <div class="product-name">제주 항공 패키지 2박3일</div>
+                  <div><span class="tag">제주</span><span class="tag">항공</span><span class="tag">숙박</span></div>
+                </td>
+                <td>
+                  <strong>299,000원</strong><br>
+                  2026-07-01 ~ 2026-08-31
+                </td>
+                <td>
+                  <div class="status-stack">
+                    <span class="badge b-orange">판매대기</span>
+                    <span class="badge b-gray">비노출</span>
+                    <span class="badge b-red">품절</span>
+                    <span class="badge b-red">일정미등록</span>
+                    <span class="badge b-red">요금미등록</span>
+                  </div>
+                  <div class="toggle-line">
+                    <span>노출</span><label class="switch" title="노출상태 변경"><input type="checkbox"><span class="slider"></span></label>
+                    <span>품절</span><label class="switch" title="품절상태 변경"><input type="checkbox" checked><span class="slider"></span></label>
+                  </div>
+                </td>
+                <td>
+                  <div class="metric">
+                    <span>예약인원 <b>0명</b></span><span>대기인원 <b>0명</b></span>
+                    <span>취소인원 <b>0명</b></span><span>잔여석 <b>0석</b></span>
+                  </div>
+                </td>
+                <td class="center">누적 384<br>오늘 9</td>
+                <td>
+                  <div class="quick-actions">
+                    <button class="btn small" title="예약관리" onclick="msg('예약관리로 이동합니다.')">예약</button>
+                    <button class="btn small" title="요금관리" onclick="location.href='price_setting.html'">요금</button>
+                    <button class="btn small" title="일정관리" onclick="location.href='schedule_register.html'">일정</button>
+                  </div>
+                </td>
+                <td>
+                  <div class="manage-actions">
+                    <button class="btn small" title="상품보기">보기/수정</button>
+                    <button class="btn small" title="상품복사">복사</button>
+                    <div class="menu-wrap">
+                      <button class="btn small icon" title="더보기" onclick="toggleMoreMenu(this)">⋯</button>
+                      <div class="more-menu">
+                        <button onclick="msg('미리보기 화면은 준비 중입니다.')">미리보기</button>
+                        <button class="danger" onclick="requestDelete(this)">삭제</button>
+                      </div>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+              <tr data-product-name="남이섬 입장권" data-has-reservations="false">
+                <td class="center"><input type="checkbox" title="상품 선택"></td>
+                <td class="product-info">
+                  <div class="code">TK0115</div>
+                  <div class="category">입장권 &gt; 강원 &gt; 테마</div>
+                  <div class="product-name">남이섬 입장권</div>
+                  <div><span class="tag">입장권</span><span class="tag">강원</span><span class="tag">가족</span></div>
+                </td>
+                <td>
+                  <strong>13,000원</strong><br>
+                  2026-01-01 ~ 2026-06-30
+                </td>
+                <td>
+                  <div class="status-stack">
+                    <span class="badge b-red">판매종료</span>
+                    <span class="badge b-blue">노출</span>
+                    <span class="badge b-green">정상판매</span>
+                    <span class="badge b-green">일정등록</span>
+                    <span class="badge b-green">요금등록</span>
+                  </div>
+                  <div class="toggle-line">
+                    <span>노출</span><label class="switch" title="노출상태 변경"><input type="checkbox" checked><span class="slider"></span></label>
+                    <span>품절</span><label class="switch" title="품절상태 변경"><input type="checkbox"><span class="slider"></span></label>
+                  </div>
+                </td>
+                <td>
+                  <div class="metric">
+                    <span>예약인원 <b>0명</b></span><span>대기인원 <b>0명</b></span>
+                    <span>취소인원 <b>12명</b></span><span>잔여석 <b>0석</b></span>
+                  </div>
+                </td>
+                <td class="center">누적 2,018<br>오늘 3</td>
+                <td>
+                  <div class="quick-actions">
+                    <button class="btn small" title="예약관리" onclick="msg('예약관리로 이동합니다.')">예약</button>
+                    <button class="btn small" title="요금관리" onclick="location.href='price_setting.html'">요금</button>
+                    <button class="btn small" title="일정관리" onclick="location.href='schedule_register.html'">일정</button>
+                  </div>
+                </td>
+                <td>
+                  <div class="manage-actions">
+                    <button class="btn small" title="상품보기">보기/수정</button>
+                    <button class="btn small" title="상품복사">복사</button>
+                    <div class="menu-wrap">
+                      <button class="btn small icon" title="더보기" onclick="toggleMoreMenu(this)">⋯</button>
+                      <div class="more-menu">
+                        <button onclick="msg('미리보기 화면은 준비 중입니다.')">미리보기</button>
+                        <button class="danger" onclick="requestDelete(this)">삭제</button>
+                      </div>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </div>
+  </main>
+</div>
+
+<div class="modal-backdrop" id="deleteModal" role="dialog" aria-modal="true" aria-labelledby="deleteTitle">
+  <div class="modal">
+    <div class="modal-head" id="deleteTitle">상품 삭제 확인</div>
+    <div class="modal-body" id="deleteMessage">선택한 상품을 삭제하시겠습니까?</div>
+    <div class="modal-actions">
+      <button class="btn" onclick="closeDeleteModal()">취소</button>
+      <button class="btn red" onclick="confirmDelete()">삭제</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  let deleteTargetName = "";
+  function msg(t){alert(t)}
+  function toggleNavGroup(el){el.closest('.nav-group').classList.toggle('open')}
+  function toggleMoreMenu(btn){
+    document.querySelectorAll('.more-menu.open').forEach(menu => {
+      if(menu !== btn.nextElementSibling) menu.classList.remove('open');
+    });
+    btn.nextElementSibling.classList.toggle('open');
+  }
+  function requestDelete(btn){
+    const row = btn.closest('tr');
+    deleteTargetName = row.dataset.productName;
+    btn.closest('.more-menu').classList.remove('open');
+    if(row.dataset.hasReservations === 'true'){
+      msg('예약이 있는 상품은 삭제할 수 없습니다.');
+      return;
+    }
+    document.getElementById('deleteMessage').textContent = '"' + deleteTargetName + '" 상품을 삭제하시겠습니까? 삭제 후에는 복구할 수 없습니다.';
+    document.getElementById('deleteModal').classList.add('open');
+  }
+  function closeDeleteModal(){
+    document.getElementById('deleteModal').classList.remove('open');
+  }
+  function confirmDelete(){
+    closeDeleteModal();
+    msg(deleteTargetName + ' 상품이 삭제 처리되었습니다.');
+  }
+  document.addEventListener('click', function(e){
+    if(!e.target.closest('.menu-wrap')){
+      document.querySelectorAll('.more-menu.open').forEach(menu => menu.classList.remove('open'));
+    }
+    if(e.target.id === 'deleteModal') closeDeleteModal();
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>관광지관리</title>
+  <style>
+body{margin:0;background:#f4f6f8;color:#222;font-family:"Malgun Gothic","Noto Sans KR",Arial,sans-serif;font-size:13px}.app{display:grid;grid-template-columns:250px 1fr;min-height:100vh}.sidebar{background:#071122;color:#d7e1f0;padding:18px 0}.brand{padding:0 18px 18px;border-bottom:1px solid rgba(255,255,255,.1)}.brand strong{display:block;color:white;font-size:17px}.nav-title{padding:18px 18px 8px;color:#8ea0bb;font-size:11px}.nav a{display:block;padding:11px 18px;color:#cdd6e5;text-decoration:none;border-left:3px solid transparent}.nav a.active{background:rgba(255,255,255,.08);border-left-color:#5b8cff;color:white}.nav-tree{padding:8px 0 18px}.nav-group{border-bottom:1px solid rgba(255,255,255,.06);padding:6px 0}.nav-depth1{padding:10px 18px 8px;color:#fff;font-weight:900;font-size:13px;cursor:pointer;display:flex;align-items:center;justify-content:space-between}.nav-depth1:after{content:'▾';font-size:10px;color:#8ea0bb}.nav-group:not(.open) .nav-depth1:after{content:'▸'}.nav-group:not(.open) a{display:none}.nav-group a{position:relative;padding:7px 18px 7px 46px;font-size:12px;color:#b9c6d8}.nav-group a:before{content:'├';position:absolute;left:26px;top:7px;color:rgba(185,198,216,.7);font-size:12px;line-height:1}.nav-group a.active{background:rgba(91,140,255,.18);border-left-color:#5b8cff;color:white}.nav-group.open .nav-depth1{color:#8fb3ff}.topbar{height:48px;background:white;border-bottom:1px solid #d9dde3;display:flex;align-items:center;justify-content:space-between;padding:0 16px}.page{padding:16px;max-width:1800px}h1{font-size:24px;margin:0 0 6px}.desc{font-weight:700;color:#555}.page-head{display:flex;justify-content:space-between;gap:12px;align-items:flex-start;margin-bottom:12px}.btn{border:1px solid #cfd5dd;background:white;border-radius:4px;padding:8px 12px;font-weight:800;cursor:pointer;white-space:nowrap;text-decoration:none;color:#222}.btn.green{background:#18a34a;border-color:#18a34a;color:white}.btn.blue{background:#2f63f6;border-color:#2f63f6;color:white}.btn.red{background:#d92d20;border-color:#d92d20;color:white}.btn.small{padding:6px 8px;font-size:12px}.layout{display:grid;grid-template-columns:320px 1fr;gap:12px}.panel{background:white;border:1px solid #d9dde3;border-radius:7px;overflow:hidden}.panel-head{background:#e6e6e6;padding:12px 14px;font-weight:900;border-bottom:1px solid #d9dde3;display:flex;align-items:center;justify-content:space-between;gap:8px}.panel-body{padding:14px}input,select,textarea{border:1px solid #d6dbe1;border-radius:4px;padding:8px 9px;min-height:36px;box-sizing:border-box;background:white;width:100%}textarea{min-height:130px;resize:vertical}.category-list{display:grid;gap:8px}.category-item{display:grid;grid-template-columns:1fr auto auto;gap:8px;align-items:center;border:1px solid #edf0f3;border-radius:6px;background:#fafbfc;padding:10px;cursor:pointer}.category-item.active{border-color:#2563eb;background:#eef5ff}.category-name{font-weight:900}.category-count{font-weight:900;color:#1459e6;background:#eaf1ff;border-radius:14px;padding:4px 9px}.badge{display:inline-flex;border-radius:14px;padding:4px 8px;font-size:12px;font-weight:900;background:#eef1f5;color:#475467}.mode-badge{background:#fff4de;color:#b45309}.mode-badge.edit{background:#eaf1ff;color:#1459e6}.category-form{display:grid;grid-template-columns:1fr auto;gap:8px;margin-bottom:12px}.work-grid{display:grid;grid-template-columns:1fr 1.05fr;gap:12px}.filter-row{display:grid;grid-template-columns:180px 1fr auto;gap:8px;margin-bottom:10px}.table{width:100%;border-collapse:collapse}.table th{background:#e6e6e6;border:1px solid #cfd3d8;padding:9px;text-align:center;white-space:nowrap}.table td{border:1px solid #edf0f3;padding:8px;background:white;vertical-align:middle}.table td.center{text-align:center}.attraction-link{border:0;background:transparent;color:#1459e6;font-weight:900;text-decoration:underline;cursor:pointer;padding:0;text-align:left}.attraction-form{display:grid;gap:10px}.form-row{display:grid;grid-template-columns:150px 1fr;gap:8px}.editor-toolbar{border:1px solid #d9dde3;border-bottom:0;border-radius:5px 5px 0 0;background:#f7f9fb;padding:8px;display:flex;gap:12px;flex-wrap:wrap}.editor-toolbar span{font-weight:900}.hint{color:#667085;font-size:12px;font-weight:700}.thumb{width:54px;height:40px;border:1px solid #d9dde3;border-radius:5px;background:#eef1f5;display:inline-flex;align-items:center;justify-content:center;color:#98a2b3;font-size:11px;font-weight:900}.image-upload-box{border:1px solid #d9dde3;border-radius:6px;padding:10px;background:#fafbfc}.image-preview-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:8px}.image-preview{height:72px;border:1px solid #d9dde3;border-radius:6px;background:linear-gradient(145deg,transparent 49%,#d8dce2 50%,transparent 51%),linear-gradient(35deg,transparent 49%,#d8dce2 50%,transparent 51%),#eef1f5;display:flex;align-items:center;justify-content:center;color:#98a2b3;font-size:11px;font-weight:900}@media(max-width:1200px){.layout,.work-grid{grid-template-columns:1fr}.filter-row{grid-template-columns:1fr auto}}@media(max-width:760px){.app{grid-template-columns:1fr}.sidebar{display:none}.filter-row,.form-row,.category-form{grid-template-columns:1fr}.image-preview-grid{grid-template-columns:repeat(2,1fr)}}
+  </style>
+  <style>
+    .layout{grid-template-columns:320px 1.05fr 1.7fr;align-items:stretch}
+    .panel{min-height:576px}
+    .list-actions{display:flex;gap:8px;margin-top:14px}
+    .list-actions .btn{min-width:82px}
+    .register-panel .panel-body{padding:20px}
+    .register-panel .attraction-form{gap:14px}
+    @media(max-width:1400px){.layout{grid-template-columns:300px 1fr}.register-panel{grid-column:1/-1}}
+    @media(max-width:900px){.layout{grid-template-columns:1fr}.panel{min-height:auto}}
+  </style>
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <div class="brand"><strong>AviaNext</strong><small>AOS Admin Prototype</small></div>
+      <div class="nav-title">관리메뉴</div>
+      <nav class="nav nav-tree">
+        <div class="nav-group open">
+          <div class="nav-depth1" onclick="toggleNavGroup(this)">📦 상품관리</div>
+          <a href="product_list.html">상품목록</a>
+          <a href="product_register.html">상품등록</a>
+          <a href="#" onclick="msg('재고관리 화면은 준비 중입니다.');return false;">재고관리</a>
+          <a href="#" onclick="msg('이미지관리 화면은 준비 중입니다.');return false;">이미지관리</a>
+          <a href="template_manage.html">템플릿관리</a>
+          <a class="active" href="attraction_manage.html">관광지관리</a>
+          <a href="#" onclick="msg('상품분류관리 화면은 준비 중입니다.');return false;">상품분류관리</a>
+        </div>
+        <div class="nav-group">
+          <div class="nav-depth1" onclick="toggleNavGroup(this)">📋 예약관리</div>
+          <a href="reservation_list.html">예약목록</a>
+          <a href="reservation_status.html">예약현황</a>
+          <a href="#" onclick="msg('좌석관리 화면은 준비 중입니다.');return false;">좌석관리</a>
+        </div>
+        <div class="nav-group"><div class="nav-depth1" onclick="toggleNavGroup(this)">📊 통계관리</div><a href="statistics_dashboard.html">통계 대시보드</a><a href="statistics_sales.html">매출통계</a><a href="statistics_reservation.html">예약통계</a><a href="statistics_product.html">상품별 통계</a><a href="statistics_seller.html">판매점별 통계</a></div>
+      </nav>
+    </aside>
+
+    <main>
+      <header class="topbar"><strong>관광지관리</strong><span>윤호님 · 로그아웃</span></header>
+      <div class="page">
+        <div class="page-head">
+          <div>
+            <h1>관광지관리</h1>
+            <div class="desc">일정표에서 사용하는 관광지를 카테고리별로 등록하고 관리합니다.</div>
+          </div>
+          <a class="btn" href="schedule_register.html">일정표등록으로</a>
+        </div>
+
+        <div class="layout">
+          <section class="panel">
+            <div class="panel-head"><span>카테고리</span><span class="badge">관리자 추가/삭제</span></div>
+            <div class="panel-body">
+              <div class="category-form">
+                <input id="newCategoryName" placeholder="카테고리명">
+                <button class="btn green" onclick="addCategory()">추가</button>
+              </div>
+              <div id="categoryList" class="category-list">
+                <div class="category-item active" data-count="6" onclick="selectCategory(this)"><span class="category-name">자연/공원</span><span class="category-count">6개</span><button class="btn small red" onclick="deleteCategory(event,this)">삭제</button></div>
+                <div class="category-item" data-count="4" onclick="selectCategory(this)"><span class="category-name">역사/문화</span><span class="category-count">4개</span><button class="btn small red" onclick="deleteCategory(event,this)">삭제</button></div>
+                <div class="category-item" data-count="3" onclick="selectCategory(this)"><span class="category-name">체험/테마</span><span class="category-count">3개</span><button class="btn small red" onclick="deleteCategory(event,this)">삭제</button></div>
+                <div class="category-item" data-count="2" onclick="selectCategory(this)"><span class="category-name">맛집/쇼핑</span><span class="category-count">2개</span><button class="btn small red" onclick="deleteCategory(event,this)">삭제</button></div>
+              </div>
+              <p class="hint">카테고리를 선택하면 우측 관광지 목록과 등록 폼에 반영됩니다.</p>
+            </div>
+          </section>
+
+          <section class="panel">
+            <div class="panel-head"><span>관광지목록</span></div>
+            <div class="panel-body">
+              <div class="filter-row">
+                <select id="filterCategory" onchange="filterAttractions()"><option>자연/공원</option><option>역사/문화</option><option>체험/테마</option><option>맛집/쇼핑</option></select>
+                <input id="attractionSearch" placeholder="관광지명 검색">
+                <button class="btn" onclick="filterAttractions()">검색</button>
+              </div>
+
+              <table class="table">
+                <thead><tr><th>관광지명</th><th>관리</th></tr></thead>
+                <tbody id="attractionTable">
+                  <tr data-category="자연/공원" data-desc="유구천을 따라 조성된 수국정원"><td><button class="attraction-link" onclick="editAttractionRow(this)">공주 유구 색동수국정원</button></td><td class="center"><button class="btn small red" onclick="deleteAttractionRow(this)">삭제</button></td></tr>
+                  <tr data-category="역사/문화" data-desc="계룡산 자락의 대표 사찰"><td><button class="attraction-link" onclick="editAttractionRow(this)">계룡산 동학사</button></td><td class="center"><button class="btn small red" onclick="deleteAttractionRow(this)">삭제</button></td></tr>
+                  <tr data-category="역사/문화" data-desc="백제 역사문화 관광지"><td><button class="attraction-link" onclick="editAttractionRow(this)">공산성</button></td><td class="center"><button class="btn small red" onclick="deleteAttractionRow(this)">삭제</button></td></tr>
+                </tbody>
+              </table>
+              <div class="list-actions">
+                <button class="btn green" onclick="resetAttractionForm()">+ 추가</button>
+                <button class="btn blue" onclick="openTourApiData()">관광공사데이터</button>
+              </div>
+            </div>
+          </section>
+
+          <section class="panel register-panel">
+            <div class="panel-head"><span>등록 및 수정</span></div>
+            <div class="panel-body">
+              <div class="attraction-form">
+                <div class="form-row">
+                  <div><label>카테고리</label><select id="formCategory"><option>자연/공원</option><option>역사/문화</option><option>체험/테마</option><option>맛집/쇼핑</option></select></div>
+                  <div><label>관광지명</label><input id="formAttractionName"></div>
+                </div>
+                <div>
+                  <label>관광지 설명</label>
+                  <div class="editor-toolbar"><span>파일</span><span>편집</span><span>보기</span><span>삽입</span><span>서식</span><span>B</span><span>I</span></div>
+                  <textarea id="formDescription"></textarea>
+                </div>
+                <div>
+                  <label>이미지 등록</label>
+                  <div class="image-upload-box">
+                    <input id="formImages" type="file" accept="image/*" multiple onchange="previewImages(this)">
+                    <p class="hint">여러 이미지를 한 번에 선택할 수 있습니다.</p>
+                    <div id="imagePreviewGrid" class="image-preview-grid">
+                      <span class="image-preview">이미지1</span>
+                      <span class="image-preview">이미지2</span>
+                      <span class="image-preview">이미지3</span>
+                      <span class="image-preview">이미지4</span>
+                    </div>
+                  </div>
+                </div>
+                <div style="text-align:right"><button id="formSubmitButton" class="btn green" onclick="saveAttraction()">신규등록</button></div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script>
+function msg(t){alert(t)}
+function toggleNavGroup(el){el.closest('.nav-group').classList.toggle('open')}
+var currentAttractionMode='new';
+var currentEditingRow=null;
+var ATTRACTION_STORAGE_KEY='avianext.attractions';
+function setMode(mode){currentAttractionMode=mode;document.getElementById('formSubmitButton').textContent=mode==='edit'?'변경내용저장':'신규등록'}
+function syncCategoryOptions(){
+  var names=[].map.call(document.querySelectorAll('.category-name'),function(el){return el.textContent.trim()});
+  ['filterCategory','formCategory'].forEach(function(id){var sel=document.getElementById(id),current=sel.value;sel.innerHTML=names.map(function(name){return '<option>'+name+'</option>'}).join('');if(names.indexOf(current)>=0)sel.value=current});
+}
+function selectCategory(item){document.querySelectorAll('.category-item').forEach(function(category){category.classList.remove('active')});item.classList.add('active');var name=item.querySelector('.category-name').textContent.trim();document.getElementById('filterCategory').value=name;document.getElementById('formCategory').value=name;resetAttractionForm()}
+function addCategory(){var input=document.getElementById('newCategoryName'),name=input.value.trim();if(!name){msg('카테고리명을 입력하세요.');return}var list=document.getElementById('categoryList');var item=document.createElement('div');item.className='category-item';item.dataset.count='0';item.onclick=function(){selectCategory(item)};item.innerHTML='<span class="category-name">'+name+'</span><span class="category-count">0개</span><button class="btn small red" onclick="deleteCategory(event,this)">삭제</button>';list.appendChild(item);input.value='';syncCategoryOptions();selectCategory(item)}
+function deleteCategory(event,btn){event.stopPropagation();var item=btn.closest('.category-item'),name=item.querySelector('.category-name').textContent.trim();if(!confirm(name+' 카테고리를 삭제할까요?'))return;item.remove();syncCategoryOptions();var first=document.querySelector('.category-item');if(first)selectCategory(first)}
+function filterAttractions(){msg('선택한 카테고리 기준으로 관광지 목록을 조회합니다.')}
+function editAttractionRow(btn){var row=btn.closest('tr');currentEditingRow=row;document.getElementById('formAttractionName').value=row.cells[0].textContent.trim();document.getElementById('formCategory').value=row.dataset.category||document.getElementById('filterCategory').value;document.getElementById('formDescription').value=row.dataset.desc||'';setMode('edit')}
+function resetAttractionForm(){currentEditingRow=null;document.getElementById('formCategory').value=document.getElementById('filterCategory').value;document.getElementById('formAttractionName').value='';document.getElementById('formDescription').value='';document.getElementById('formImages').value='';resetImagePreview();setMode('new')}
+function deleteAttractionRow(btn){var row=btn.closest('tr');if(confirm(row.cells[0].textContent.trim()+' 관광지를 삭제할까요?')){row.remove();if(currentEditingRow===row)resetAttractionForm();persistAttractions();msg('관광지가 삭제되었습니다.')}}
+function saveAttraction(){
+  var name=document.getElementById('formAttractionName').value.trim();
+  if(!name){msg('관광지명을 입력하세요.');return}
+  var category=document.getElementById('formCategory').value;
+  var desc=document.getElementById('formDescription').value.trim();
+  var row=currentAttractionMode==='edit'&&currentEditingRow?currentEditingRow:createAttractionRow();
+  row.dataset.category=category;
+  row.dataset.desc=desc;
+  row.querySelector('.attraction-link').textContent=name;
+  currentEditingRow=row;
+  persistAttractions();
+  msg(currentAttractionMode==='new'?'신규 관광지가 등록되었습니다.':'관광지 정보가 수정되었습니다.');
+  setMode('edit');
+}
+function openTourApiData(){msg('관광공사 API 연동 데이터 선택 화면을 연결할 예정입니다.')}
+function resetImagePreview(){document.getElementById('imagePreviewGrid').innerHTML='<span class="image-preview">이미지1</span><span class="image-preview">이미지2</span><span class="image-preview">이미지3</span><span class="image-preview">이미지4</span>'}
+function previewImages(input){
+  var files=[].slice.call(input.files||[]);
+  var grid=document.getElementById('imagePreviewGrid');
+  if(!files.length){resetImagePreview();return}
+  grid.innerHTML=files.map(function(file,index){return '<span class="image-preview">'+(index+1)+'. '+file.name+'</span>'}).join('');
+}
+function createAttractionRow(){
+  var row=document.createElement('tr');
+  row.innerHTML='<td><button class="attraction-link" onclick="editAttractionRow(this)"></button></td><td class="center"><button class="btn small red" onclick="deleteAttractionRow(this)">삭제</button></td>';
+  document.getElementById('attractionTable').appendChild(row);
+  return row;
+}
+function collectAttractions(){
+  return [].map.call(document.querySelectorAll('#attractionTable tr'),function(row){
+    return{name:row.cells[0].textContent.trim(),category:row.dataset.category||'',description:row.dataset.desc||''};
+  }).filter(function(item){return item.name});
+}
+function persistAttractions(){localStorage.setItem(ATTRACTION_STORAGE_KEY,JSON.stringify(collectAttractions()))}
+function loadAttractionsFromStorage(){
+  var saved=[];
+  try{saved=JSON.parse(localStorage.getItem(ATTRACTION_STORAGE_KEY)||'[]')}catch(e){saved=[]}
+  if(!Array.isArray(saved)||!saved.length){persistAttractions();return}
+  var table=document.getElementById('attractionTable');
+  table.innerHTML='';
+  saved.forEach(function(item){
+    var row=createAttractionRow();
+    row.dataset.category=item.category||'';
+    row.dataset.desc=item.description||'';
+    row.querySelector('.attraction-link').textContent=item.name||'';
+  });
+}
+loadAttractionsFromStorage();syncCategoryOptions();resetAttractionForm();
+  </script>
+</body>
+</html>
