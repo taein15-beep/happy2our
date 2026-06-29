@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="ko">
 <head>
   <meta charset="utf-8">
@@ -14,6 +14,7 @@ body{margin:0;background:#f4f6f8;color:#222;font-family:"Malgun Gothic","Noto Sa
       <div class="brand"><strong>AviaNext</strong><small>AOS Admin Prototype</small></div>
       <div class="nav-title">관리메뉴</div>
       <nav class="nav nav-tree">
+      <a href="popup_manage.html" style="background:rgba(91,140,255,.12);border-left-color:#5b8cff;color:white;font-weight:900">팝업관리</a>
         <div class="nav-group">
           <div class="nav-depth1" onclick="toggleNavGroup(this)">📦 상품관리</div>
           <a href="product_list.html">상품목록</a>
@@ -70,7 +71,7 @@ body{margin:0;background:#f4f6f8;color:#222;font-family:"Malgun Gothic","Noto Sa
           <a href="#" onclick="msg('섹션관리 화면은 준비 중입니다.');return false;">섹션관리</a>
           <a href="#" onclick="msg('홈페이지 설정 화면은 준비 중입니다.');return false;">홈페이지 설정</a>
           <a href="#" onclick="msg('메인메뉴관리 화면은 준비 중입니다.');return false;">메인메뉴관리</a>
-          <a href="#" onclick="msg('팝업관리 화면은 준비 중입니다.');return false;">팝업관리</a>
+          <a href="popup_manage.html">팝업관리</a>
           <a href="#" onclick="msg('상단띠배너 화면은 준비 중입니다.');return false;">상단띠배너</a>
           <a href="#" onclick="msg('관리자메뉴관리 화면은 준비 중입니다.');return false;">관리자메뉴관리</a>
         </div>
@@ -265,4 +266,6 @@ function toggleNavGroup(el){el.closest('.nav-group').classList.toggle('open')}
   </script>
 </body>
 </html>
+
+
 
