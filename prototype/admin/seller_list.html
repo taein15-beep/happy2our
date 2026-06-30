@@ -242,6 +242,7 @@
             <div class="field"><label>판매점코드</label><input id="agencyCode" placeholder="미입력 시 자동생성"><div class="help">중복 불가</div></div>
             <div class="field"><label>사업자유형</label><div class="radio-row compact"><label><input type="radio" name="businessType" value="corporation" checked> 법인</label><label><input type="radio" name="businessType" value="sole"> 개인사업자</label><label><input type="radio" name="businessType" value="individual"> 개인</label></div></div>
             <div class="field"><label>사용여부</label><div class="radio-row compact"><label><input type="radio" name="isActive" value="Y" checked> 사용</label><label><input type="radio" name="isActive" value="N"> 미사용</label></div></div>
+            <div class="field"><label>판매점등급</label><select id="sellerGrade"><option value="일반">일반</option><option value="우수">우수</option><option value="VIP">VIP</option></select></div>
             <div class="field"><label>대표자명</label><input id="ceoName"></div>
             <div class="field"><label>대표전화번호</label><input id="companyPhone"></div>
             <div class="field"><label>휴대폰번호(추천인코드) *</label><input id="mobilePhone" required oninput="syncReferralCode()"></div>
@@ -250,7 +251,8 @@
             <div class="field"><label>사업자등록번호</label><input id="businessNumber"></div>
             <div class="field"><label>관광사업자등록번호</label><input id="tourismBusinessNumber"></div>
             <div class="field"><label>통신판매업번호</label><input id="ecommerceNumber"></div>
-            <div class="field span2"><label>주소</label><input id="address" placeholder="주소"></div>
+            <div class="field"><label>주소</label><input id="address" placeholder="주소" oninput="syncRegionFromAddress()"></div>
+            <div class="field"><label>지역</label><input id="region" class="disabled-field" readonly placeholder="주소 입력 시 자동등록"></div>
             <div class="field span2"><label>상세주소</label><input id="addressDetail"></div>
             <div class="field"><label>홈페이지 URL</label><input id="homepageUrl"></div>
             <div class="field"><label>판매점로고 파일첨부</label><input id="logoUrl" type="file"></div>
@@ -385,9 +387,9 @@
     rejectMessage:'판매점 가입신청이 반려되었습니다. 입력 정보를 확인한 뒤 다시 신청해 주세요.'
   };
   const defaultSellers = [
-    {id:'seller_001',agencyName:'에이비아 강남여행사',agencyCode:'AGN-0001',businessType:'corporation',businessNumber:'123-81-45678',tourismBusinessNumber:'관광-2026-001',ecommerceNumber:'제2026-서울강남-0001호',ceoName:'김대표',companyPhone:'02-1234-5678',mobilePhone:'010-1234-5678',email:'sales@gangnam.example',address:'서울특별시 강남구 테헤란로',addressDetail:'10층',homepageUrl:'https://gangnam.example',logoUrl:'',businessLicenseFileUrl:'',tourismLicenseFileUrl:'',status:'approved',approvalStatus:'approved',accountStatus:'normal',isActive:'Y',managerName:'박담당',managerPosition:'팀장',managerPhone:'010-2222-3333',managerEmail:'manager@gangnam.example',loginId:'gangnam_seller',password:'',allowLogin:'Y',lastLoginAt:'',settlementType:'monthly',bankName:'국민은행',bankAccount:'123456-01-123456',bankHolder:'에이비아강남',invoiceEmail:'tax@gangnam.example',commissionGroup:'A',commissionOverride:'N',commissionType:'amount',commissionAmount:10000,commissionRate:0,referralEnabled:'Y',referralCode:'01012345678',sharedProductCount:0,reservationCount:0,settlementStatus:'none',createdAt:'2026-06-29',updatedAt:'2026-06-29',approvedAt:'2026-06-29',approvedBy:'admin'},
-    {id:'seller_002',agencyName:'수원 파트너투어',agencyCode:'AGN-0002',businessType:'sole',businessNumber:'234-02-56789',tourismBusinessNumber:'관광-2026-002',ecommerceNumber:'제2026-수원팔달-0002호',ceoName:'이대표',companyPhone:'031-222-1234',mobilePhone:'010-9876-5432',email:'partner@suwon.example',address:'경기도 수원시 팔달구',addressDetail:'2층',homepageUrl:'',logoUrl:'',businessLicenseFileUrl:'',tourismLicenseFileUrl:'',status:'pending',approvalStatus:'pending',accountStatus:'loginBlocked',isActive:'Y',managerName:'최담당',managerPosition:'매니저',managerPhone:'010-3333-4444',managerEmail:'manager@suwon.example',loginId:'suwon_partner',password:'',allowLogin:'N',lastLoginAt:'',settlementType:'weekly',bankName:'신한은행',bankAccount:'110-111-222222',bankHolder:'이대표',invoiceEmail:'tax@suwon.example',commissionGroup:'B',commissionOverride:'N',commissionType:'rate',commissionAmount:0,commissionRate:4,referralEnabled:'Y',referralCode:'01098765432',sharedProductCount:0,reservationCount:0,settlementStatus:'pending',createdAt:'2026-06-28',updatedAt:'2026-06-28',approvedAt:'',approvedBy:''},
-    {id:'seller_003',agencyName:'기업복지몰 제휴센터',agencyCode:'AGN-0003',businessType:'corporation',businessNumber:'345-86-67890',tourismBusinessNumber:'관광-2026-003',ecommerceNumber:'제2026-서울중구-0003호',ceoName:'정대표',companyPhone:'02-7777-8888',mobilePhone:'010-5555-7777',email:'bizmall@example.com',address:'서울특별시 중구 세종대로',addressDetail:'5층',homepageUrl:'https://bizmall.example.com',logoUrl:'',businessLicenseFileUrl:'',tourismLicenseFileUrl:'',status:'rejected',approvalStatus:'rejected',accountStatus:'loginBlocked',isActive:'N',managerName:'홍담당',managerPosition:'과장',managerPhone:'010-7777-8888',managerEmail:'hong@bizmall.example.com',loginId:'bizmall',password:'',allowLogin:'N',lastLoginAt:'',settlementType:'case',bankName:'우리은행',bankAccount:'1002-000-000000',bankHolder:'기업복지몰',invoiceEmail:'tax@bizmall.example.com',commissionGroup:'C',commissionOverride:'Y',commissionType:'amount',commissionAmount:8000,commissionRate:0,referralEnabled:'N',referralCode:'',sharedProductCount:0,reservationCount:0,settlementStatus:'hold',createdAt:'2026-06-20',updatedAt:'2026-06-24',approvedAt:'',approvedBy:'admin'}
+    {id:'seller_001',agencyName:'에이비아 강남여행사',agencyCode:'AGN-0001',businessType:'corporation',businessNumber:'123-81-45678',tourismBusinessNumber:'관광-2026-001',ecommerceNumber:'제2026-서울강남-0001호',sellerGrade:'VIP',ceoName:'김대표',companyPhone:'02-1234-5678',mobilePhone:'010-1234-5678',email:'sales@gangnam.example',address:'서울특별시 강남구 테헤란로',region:'서울',addressDetail:'10층',homepageUrl:'https://gangnam.example',logoUrl:'',businessLicenseFileUrl:'',tourismLicenseFileUrl:'',status:'approved',approvalStatus:'approved',accountStatus:'normal',isActive:'Y',managerName:'박담당',managerPosition:'팀장',managerPhone:'010-2222-3333',managerEmail:'manager@gangnam.example',loginId:'gangnam_seller',password:'',allowLogin:'Y',lastLoginAt:'',settlementType:'monthly',bankName:'국민은행',bankAccount:'123456-01-123456',bankHolder:'에이비아강남',invoiceEmail:'tax@gangnam.example',commissionGroup:'A',commissionOverride:'N',commissionType:'amount',commissionAmount:10000,commissionRate:0,referralEnabled:'Y',referralCode:'01012345678',sharedProductCount:0,reservationCount:0,settlementStatus:'none',createdAt:'2026-06-29',updatedAt:'2026-06-29',approvedAt:'2026-06-29',approvedBy:'admin'},
+    {id:'seller_002',agencyName:'수원 파트너투어',agencyCode:'AGN-0002',businessType:'sole',businessNumber:'234-02-56789',tourismBusinessNumber:'관광-2026-002',ecommerceNumber:'제2026-수원팔달-0002호',sellerGrade:'우수',ceoName:'이대표',companyPhone:'031-222-1234',mobilePhone:'010-9876-5432',email:'partner@suwon.example',address:'경기도 수원시 팔달구',region:'경기',addressDetail:'2층',homepageUrl:'',logoUrl:'',businessLicenseFileUrl:'',tourismLicenseFileUrl:'',status:'pending',approvalStatus:'pending',accountStatus:'loginBlocked',isActive:'Y',managerName:'최담당',managerPosition:'매니저',managerPhone:'010-3333-4444',managerEmail:'manager@suwon.example',loginId:'suwon_partner',password:'',allowLogin:'N',lastLoginAt:'',settlementType:'weekly',bankName:'신한은행',bankAccount:'110-111-222222',bankHolder:'이대표',invoiceEmail:'tax@suwon.example',commissionGroup:'B',commissionOverride:'N',commissionType:'rate',commissionAmount:0,commissionRate:4,referralEnabled:'Y',referralCode:'01098765432',sharedProductCount:0,reservationCount:0,settlementStatus:'pending',createdAt:'2026-06-28',updatedAt:'2026-06-28',approvedAt:'',approvedBy:''},
+    {id:'seller_003',agencyName:'기업복지몰 제휴센터',agencyCode:'AGN-0003',businessType:'corporation',businessNumber:'345-86-67890',tourismBusinessNumber:'관광-2026-003',ecommerceNumber:'제2026-서울중구-0003호',sellerGrade:'일반',ceoName:'정대표',companyPhone:'02-7777-8888',mobilePhone:'010-5555-7777',email:'bizmall@example.com',address:'서울특별시 중구 세종대로',region:'서울',addressDetail:'5층',homepageUrl:'https://bizmall.example.com',logoUrl:'',businessLicenseFileUrl:'',tourismLicenseFileUrl:'',status:'rejected',approvalStatus:'rejected',accountStatus:'loginBlocked',isActive:'N',managerName:'홍담당',managerPosition:'과장',managerPhone:'010-7777-8888',managerEmail:'hong@bizmall.example.com',loginId:'bizmall',password:'',allowLogin:'N',lastLoginAt:'',settlementType:'case',bankName:'우리은행',bankAccount:'1002-000-000000',bankHolder:'기업복지몰',invoiceEmail:'tax@bizmall.example.com',commissionGroup:'C',commissionOverride:'Y',commissionType:'amount',commissionAmount:8000,commissionRate:0,referralEnabled:'N',referralCode:'',sharedProductCount:0,reservationCount:0,settlementStatus:'hold',createdAt:'2026-06-20',updatedAt:'2026-06-24',approvedAt:'',approvedBy:'admin'}
   ];
   let sellers = loadSellers();
   let page = 1;
@@ -405,6 +407,16 @@
   function selectedRadio(name){return document.querySelector(`input[name="${name}"]:checked`)?.value || ''}
   function setRadio(name,value){const el=document.querySelector(`input[name="${name}"][value="${value}"]`); if(el) el.checked=true}
   function onlyDigits(input){input.value=String(input.value||'').replace(/\D/g,'')}
+  function inferRegion(value=''){
+    const addressText = String(value || '');
+    const regionMap = [
+      ['서울','서울'],['경기','경기'],['인천','인천'],['부산','부산'],['대구','대구'],['광주','광주'],['대전','대전'],['울산','울산'],['세종','세종'],
+      ['강원','강원'],['충북','충북'],['충청북도','충북'],['충남','충남'],['충청남도','충남'],['전북','전북'],['전라북도','전북'],['전남','전남'],['전라남도','전남'],
+      ['경북','경북'],['경상북도','경북'],['경남','경남'],['경상남도','경남'],['제주','제주']
+    ];
+    return regionMap.find(([keyword]) => addressText.includes(keyword))?.[1] || '';
+  }
+  function syncRegionFromAddress(){region.value = inferRegion(address.value)}
   function toast(text){const el=document.getElementById('toast');el.textContent=text;el.classList.add('show');setTimeout(()=>el.classList.remove('show'),1800)}
   function statusBadge(status){return {approved:'<span class="badge b-green">승인완료</span>',pending:'<span class="badge b-orange">승인대기</span>',rejected:'<span class="badge b-red">반려</span>',hold:'<span class="badge b-gray">보류</span>'}[status] || status}
   function accountLabel(status){return {normal:'정상',loginBlocked:'로그인차단',suspended:'중지',withdrawn:'탈퇴'}[status] || status}
@@ -479,7 +491,7 @@
     sellerModalTitle.textContent = id ? '판매점 수정' : '판매점 신규등록';
     sellerForm.reset();
     sellerId.value = row.id || '';
-    const fields = ['agencyName','agencyCode','businessNumber','tourismBusinessNumber','ecommerceNumber','ceoName','companyPhone','mobilePhone','email','address','addressDetail','homepageUrl','managerName','managerPosition','managerPhone','managerEmail','loginId','password','lastLoginAt','bankName','bankAccount','bankHolder','invoiceEmail','commissionAmount','commissionRate'];
+    const fields = ['agencyName','agencyCode','businessNumber','tourismBusinessNumber','ecommerceNumber','sellerGrade','ceoName','companyPhone','mobilePhone','email','address','region','addressDetail','homepageUrl','managerName','managerPosition','managerPhone','managerEmail','loginId','password','lastLoginAt','bankName','bankAccount','bankHolder','invoiceEmail','commissionAmount','commissionRate'];
     fields.forEach(key => { if(document.getElementById(key)) document.getElementById(key).value = row[key] || ''; });
     commissionGroup.value = row.commissionGroup || 'A';
     setRadio('businessType', row.businessType || 'corporation');
@@ -488,6 +500,7 @@
     setRadio('commissionOverride', row.commissionOverride || 'N');
     setRadio('commissionType', row.commissionType || 'amount');
     status.value = row.status || 'pending';
+    if(!region.value) syncRegionFromAddress();
     applyGroupCommission(row.commissionOverride === 'Y');
   }
 
@@ -534,11 +547,13 @@
       businessNumber:businessNumber.value.trim(),
       tourismBusinessNumber:tourismBusinessNumber.value.trim(),
       ecommerceNumber:ecommerceNumber.value.trim(),
+      sellerGrade:sellerGrade.value,
       ceoName:ceoName.value.trim(),
       companyPhone:companyPhone.value.trim(),
       mobilePhone:mobilePhone.value.trim(),
       email:email.value.trim(),
       address:address.value.trim(),
+      region:region.value || inferRegion(address.value),
       addressDetail:addressDetail.value.trim(),
       homepageUrl:homepageUrl.value.trim(),
       logoUrl:fileValue('logoUrl', existing.logoUrl),
