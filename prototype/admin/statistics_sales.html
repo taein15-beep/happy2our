@@ -4,106 +4,14 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>매출통계</title>
-  <style>
-body{margin:0;background:#f4f6f8;color:#222;font-family:"Malgun Gothic","Noto Sans KR",Arial,sans-serif;font-size:13px}.app{display:grid;grid-template-columns:250px 1fr;min-height:100vh}.sidebar{background:#071122;color:#d7e1f0;padding:18px 0}.brand{padding:0 18px 18px;border-bottom:1px solid rgba(255,255,255,.1)}.brand strong{display:block;color:white;font-size:17px}.nav-title{padding:18px 18px 8px;color:#8ea0bb;font-size:11px}.nav a{display:block;padding:11px 18px;color:#cdd6e5;text-decoration:none;border-left:3px solid transparent}.nav a.active{background:rgba(255,255,255,.08);border-left-color:#5b8cff;color:white}.nav-tree{padding:8px 0 18px}.nav-group{border-bottom:1px solid rgba(255,255,255,.06);padding:6px 0}.nav-depth1{padding:10px 18px 8px;color:#fff;font-weight:900;font-size:13px;cursor:pointer;display:flex;align-items:center;justify-content:space-between}.nav-depth1:after{content:'▾';font-size:10px;color:#8ea0bb}.nav-group:not(.open) .nav-depth1:after{content:'▸'}.nav-group:not(.open) a{display:none}.nav-group a{position:relative;padding:7px 18px 7px 46px;font-size:12px;color:#b9c6d8}.nav-group a:before{content:'├';position:absolute;left:26px;top:7px;color:rgba(185,198,216,.7);font-size:12px;line-height:1}.nav-group a.active{background:rgba(91,140,255,.18);border-left-color:#5b8cff;color:white}.nav-group.open .nav-depth1{color:#8fb3ff}.topbar{height:48px;background:white;border-bottom:1px solid #d9dde3;display:flex;align-items:center;justify-content:space-between;padding:0 16px}.page{padding:16px;max-width:1800px}.page-head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:14px}h1{font-size:24px;margin:0 0 6px}.desc{font-weight:700;color:#555}.btn{border:1px solid #cfd5dd;background:white;border-radius:4px;padding:8px 12px;font-weight:700;cursor:pointer;white-space:nowrap}.btn:hover{background:#f7f9fb}.btn.green{background:#18a34a;border-color:#18a34a;color:white}.btn.green:hover{background:#138a3e}.btn.blue{background:#2f63f6;border-color:#2f63f6;color:white}.panel{background:white;border:1px solid #d9dde3;border-radius:7px;margin-bottom:12px}.panel-head{background:#e6e6e6;padding:12px 14px;font-weight:900;border-bottom:1px solid #d9dde3;display:flex;justify-content:space-between;align-items:center;gap:8px}.panel-body{padding:14px;overflow:auto}input,select{border:1px solid #d6dbe1;border-radius:4px;padding:8px 9px;min-height:36px;box-sizing:border-box;background:white}label{font-weight:800;color:#3b4654}.field{display:flex;flex-direction:column;gap:6px}.summary{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:10px;margin-bottom:12px}.card{background:white;border:1px solid #d9dde3;border-radius:7px;padding:14px;min-width:0}.card span{display:block;color:#667085;font-weight:800;margin-bottom:8px}.card strong{font-size:20px;color:#2f63f6;word-break:keep-all}.card.warn strong{color:#b45309}.card.danger strong{color:#d92d20}.card.good strong{color:#0f8738}.filter-grid{display:grid;grid-template-columns:repeat(7,minmax(116px,1fr)) auto auto auto;gap:8px 10px;align-items:end;min-width:1540px}.filter-grid input,.filter-grid select{width:100%;min-height:34px;padding:6px 7px;font-size:12px}.filter-action button{width:100%;min-height:34px;padding:6px 9px}.table-wrap{overflow:auto}.table{width:100%;border-collapse:collapse;min-width:1360px}.table.wide{min-width:1680px}.table th{background:#e6e6e6;border:1px solid #cfd3d8;padding:10px;text-align:center;white-space:nowrap}.table td{border:1px solid #edf0f3;padding:9px;background:white;vertical-align:middle;white-space:nowrap}.table td.center{text-align:center}.table td.money{text-align:right}.badge{display:inline-flex;border-radius:14px;padding:4px 8px;font-size:12px;font-weight:900;white-space:nowrap}.b-green{background:#e7f8ee;color:#0f8738}.b-blue{background:#eaf1ff;color:#2556d9}.b-orange{background:#fff4de;color:#b45309}.b-red{background:#fff0f0;color:#d92d20}.b-gray{background:#eef1f5;color:#475467}.b-purple{background:#f1ecff;color:#6941c6}.muted{color:#667085;font-size:12px}.top-actions{display:flex;align-items:center;gap:8px;flex-wrap:wrap}.chart-grid{display:grid;grid-template-columns:1.25fr 1fr;gap:12px;margin-bottom:12px}.chart-grid.two{grid-template-columns:1fr 1fr}.chart-box{background:white;border:1px solid #d9dde3;border-radius:7px;overflow:hidden}.chart-head{background:#e6e6e6;padding:12px 14px;font-weight:900;border-bottom:1px solid #d9dde3;display:flex;justify-content:space-between;align-items:center}.chart-body{padding:14px}.chart-bars{display:grid;gap:10px}.chart-bar{display:grid;grid-template-columns:128px 1fr 92px;gap:10px;align-items:center}.chart-label{font-weight:800;color:#344054}.chart-track{height:14px;background:#edf0f3;border-radius:14px;overflow:hidden}.chart-fill{height:100%;background:#2f63f6}.chart-fill.green{background:#18a34a}.chart-fill.orange{background:#f59e0b}.chart-fill.red{background:#d92d20}.chart-fill.purple{background:#7c3aed}.line-chart{width:100%;height:250px}.line-chart text{font-size:11px;fill:#667085}.line-chart .grid{stroke:#edf0f3;stroke-width:1}.line-chart .axis{stroke:#cfd5dd;stroke-width:1}.line-chart .line{fill:none;stroke:#2f63f6;stroke-width:3}.line-chart .line.orange{stroke:#f59e0b}.line-chart .line.prev{stroke:#98a2b3;stroke-dasharray:5 5}.line-chart .dot{fill:white;stroke:#2f63f6;stroke-width:3}.line-chart .dot.orange{stroke:#f59e0b}.table-set{display:grid;gap:12px}@media(max-width:1500px){.summary{grid-template-columns:repeat(4,minmax(0,1fr))}.filter-grid{grid-template-columns:repeat(5,minmax(120px,1fr));min-width:0}.chart-grid,.chart-grid.two{grid-template-columns:1fr 1fr}}@media(max-width:1000px){.app{grid-template-columns:1fr}.sidebar{display:none}.page-head{display:block}.top-actions{margin-top:10px}.summary{grid-template-columns:repeat(2,minmax(0,1fr))}.filter-grid{grid-template-columns:repeat(2,minmax(0,1fr));min-width:0}.chart-grid,.chart-grid.two{grid-template-columns:1fr}.chart-bar{grid-template-columns:100px 1fr 76px}.table,.table.wide{min-width:1120px}}
-  </style>
+  <link rel="stylesheet" href="./css/common.css">
+  <link rel="stylesheet" href="./css/layout.css">
+  <link rel="stylesheet" href="./css/components.css">
 </head>
-<body>
+<body data-page="statistics_sales">
   <div class="app">
-    <aside class="sidebar">
-    <div class="brand"><strong>AviaNext</strong><small>AOS Admin Prototype</small></div>
-    <div class="nav-title">관리메뉴</div>
-    <nav class="nav nav-tree">
-      <a href="popup_manage.html">팝업관리</a>
-      <div class="nav-group">
-        <div class="nav-depth1" onclick="toggleNavGroup(this)">📦 상품관리</div>
-        <a href="product_list.html">상품목록</a>
-        <a href="product_register.html">상품등록</a>
-        <a href="#" onclick="msg('재고관리 화면은 준비 중입니다.');return false;">재고관리</a>
-        <a href="#" onclick="msg('이미지관리 화면은 준비 중입니다.');return false;">이미지관리</a>
-        <a href="template_manage.html">템플릿관리</a>
-          <a href="attraction_manage.html">관광지관리</a>
-        <a href="#" onclick="msg('상품분류관리 화면은 준비 중입니다.');return false;">상품분류관리</a>
-      </div>
-      <div class="nav-group">
-        <div class="nav-depth1" onclick="toggleNavGroup(this)">📋 예약관리</div>
-        <a href="reservation_list.html">예약목록</a>
-        <a href="reservation_status.html">예약현황</a>
-        <a href="#" onclick="msg('좌석관리 화면은 준비 중입니다.');return false;">좌석관리</a>
-      </div>
-      <div class="nav-group">
-        <div class="nav-depth1" onclick="toggleNavGroup(this)">✈️ 항공예약관리</div>
-        <a href="#" onclick="msg('국제선예약 화면은 준비 중입니다.');return false;">국제선예약</a>
-        <a href="#" onclick="msg('국제선예약목록 화면은 준비 중입니다.');return false;">국제선예약목록</a>
-        <a href="#" onclick="msg('국내선예약 화면은 준비 중입니다.');return false;">국내선예약</a>
-        <a href="#" onclick="msg('국내선예약목록 화면은 준비 중입니다.');return false;">국내선예약목록</a>
-      </div>
-      <div class="nav-group">
-        <div class="nav-depth1" onclick="toggleNavGroup(this)">👤 회원관리</div>
-        <a href="#" onclick="msg('웹회원관리 화면은 준비 중입니다.');return false;">웹회원관리</a>
-        <a href="#" onclick="msg('관리자/직원 관리 화면은 준비 중입니다.');return false;">관리자/직원 관리</a>
-        <a href="seller_list.html">판매점관리</a>
-        <a href="#" onclick="msg('거래처관리 화면은 준비 중입니다.');return false;">거래처관리</a>
-        <a href="#" onclick="msg('그룹관리 화면은 준비 중입니다.');return false;">그룹관리</a>
-        <a href="#" onclick="msg('탈퇴회원 화면은 준비 중입니다.');return false;">탈퇴회원</a>
-      </div>
-      <div class="nav-group">
-        <div class="nav-depth1" onclick="toggleNavGroup(this)">💰 정산관리</div>
-        <a href="#" onclick="msg('인보이스관리 화면은 준비 중입니다.');return false;">인보이스관리</a>
-        <a href="#" onclick="msg('입금/환불현황 화면은 준비 중입니다.');return false;">입금/환불현황</a>
-        <a href="#" onclick="msg('미수금관리 화면은 준비 중입니다.');return false;">미수금관리</a>
-        <a href="#" onclick="msg('국제선정산(항공) 화면은 준비 중입니다.');return false;">국제선정산(항공)</a>
-        <a href="#" onclick="msg('발권데이터(항공) 화면은 준비 중입니다.');return false;">발권데이터(항공)</a>
-      </div>
-      <div class="nav-group open">
-        <div class="nav-depth1" onclick="toggleNavGroup(this)">📊 통계관리</div>
-        <a href="statistics_dashboard.html">통계 대시보드</a>
-        <a class="active" href="statistics_sales.html">매출통계</a>
-        <a href="statistics_reservation.html">예약통계</a>
-        <a href="statistics_product.html">상품별 통계</a>
-        <a href="statistics_seller.html">판매점별 통계</a>
-        <a href="statistics_region.html">지역별 통계</a>
-        <a href="statistics_settlement.html">정산통계</a>
-      </div>
-      <div class="nav-group">
-        <div class="nav-depth1" onclick="toggleNavGroup(this)">🎨 디자인설정</div>
-        <a href="#" onclick="msg('템플릿관리 화면은 준비 중입니다.');return false;">템플릿관리</a>
-        <a href="#" onclick="msg('섹션관리 화면은 준비 중입니다.');return false;">섹션관리</a>
-        <a href="#" onclick="msg('홈페이지 설정 화면은 준비 중입니다.');return false;">홈페이지 설정</a>
-        <a href="#" onclick="msg('메인메뉴관리 화면은 준비 중입니다.');return false;">메인메뉴관리</a>
-        <a href="popup_manage.html">팝업관리</a>
-        <a href="#" onclick="msg('상단띠배너 화면은 준비 중입니다.');return false;">상단띠배너</a>
-        <a href="#" onclick="msg('관리자메뉴관리 화면은 준비 중입니다.');return false;">관리자메뉴관리</a>
-      </div>
-      <div class="nav-group">
-        <div class="nav-depth1" onclick="toggleNavGroup(this)">💬 알림톡/문자관리</div>
-        <a href="#" onclick="msg('알림톡 설정 화면은 준비 중입니다.');return false;">알림톡 설정</a>
-        <a href="#" onclick="msg('이메일발송 화면은 준비 중입니다.');return false;">이메일발송</a>
-        <a href="#" onclick="msg('문자발송 화면은 준비 중입니다.');return false;">문자발송</a>
-        <a href="#" onclick="msg('발송내역 화면은 준비 중입니다.');return false;">발송내역</a>
-        <a href="#" onclick="msg('메크로설정 화면은 준비 중입니다.');return false;">메크로설정</a>
-      </div>
-      <div class="nav-group">
-        <div class="nav-depth1" onclick="toggleNavGroup(this)">📝 게시판관리</div>
-        <a href="#" onclick="msg('공지사항 화면은 준비 중입니다.');return false;">공지사항</a>
-        <a href="#" onclick="msg('고객문의 화면은 준비 중입니다.');return false;">고객문의</a>
-        <a href="#" onclick="msg('여행후기 화면은 준비 중입니다.');return false;">여행후기</a>
-        <a href="#" onclick="msg('자주묻는질문 화면은 준비 중입니다.');return false;">자주묻는질문</a>
-        <a href="#" onclick="msg('고객문의 화면은 준비 중입니다.');return false;">고객문의</a>
-        <a href="#" onclick="msg('스캔목록 화면은 준비 중입니다.');return false;">스캔목록</a>
-        <a href="#" onclick="msg('자료실 화면은 준비 중입니다.');return false;">자료실</a>
-      </div>
-      <div class="nav-group">
-        <div class="nav-depth1" onclick="toggleNavGroup(this)">⚙️ 기본설정</div>
-        <a href="#" onclick="msg('항공사 Bin관리 화면은 준비 중입니다.');return false;">항공사 Bin관리</a>
-        <a href="#" onclick="msg('노선관리 화면은 준비 중입니다.');return false;">노선관리</a>
-        <a href="#" onclick="msg('탑승역관리 화면은 준비 중입니다.');return false;">탑승역관리</a>
-        <a href="#" onclick="msg('열차관리 화면은 준비 중입니다.');return false;">열차관리</a>
-        <a href="#" onclick="msg('템플릿사이트관리 화면은 준비 중입니다.');return false;">템플릿사이트관리</a>
-      </div>
-    </nav>
-  </aside>
-    <main>
+  <aside class="sidebar" data-include="./includes/sidebar.html"></aside>
+<main>
       <header class="topbar"><strong>매출통계</strong><span>윤호님 · 로그아웃</span></header>
       <div class="page">
         <div class="page-head">
@@ -171,10 +79,10 @@ body{margin:0;background:#f4f6f8;color:#222;font-family:"Malgun Gothic","Noto Sa
           <section class="chart-box">
             <div class="chart-head"><span>전년동월 총 예약금액 비교</span><span class="muted">2024~2026</span></div>
             <div class="chart-body chart-bars">
-              <div class="chart-bar"><span class="chart-label">2026년</span><div class="chart-track"><div class="chart-fill" style="width:100%"></div></div><strong>186.4백만</strong></div>
-              <div class="chart-bar"><span class="chart-label">2025년</span><div class="chart-track"><div class="chart-fill green" style="width:78%"></div></div><strong>145.8백만</strong></div>
-              <div class="chart-bar"><span class="chart-label">2024년</span><div class="chart-track"><div class="chart-fill orange" style="width:61%"></div></div><strong>113.6백만</strong></div>
-              <div class="chart-bar"><span class="chart-label">성장률</span><div class="chart-track"><div class="chart-fill purple" style="width:28%"></div></div><strong>27.8%</strong></div>
+              <div class="chart-bar"><span class="chart-label">2026년</span><div class="chart-track"><div class="chart-fill u-style-0466783d"></div></div><strong>186.4백만</strong></div>
+              <div class="chart-bar"><span class="chart-label">2025년</span><div class="chart-track"><div class="chart-fill green u-style-55df5a83"></div></div><strong>145.8백만</strong></div>
+              <div class="chart-bar"><span class="chart-label">2024년</span><div class="chart-track"><div class="chart-fill orange u-style-471081db"></div></div><strong>113.6백만</strong></div>
+              <div class="chart-bar"><span class="chart-label">성장률</span><div class="chart-track"><div class="chart-fill purple u-style-3a4f63b7"></div></div><strong>27.8%</strong></div>
             </div>
           </section>
         </div>
@@ -183,18 +91,18 @@ body{margin:0;background:#f4f6f8;color:#222;font-family:"Malgun Gothic","Noto Sa
           <section class="chart-box">
             <div class="chart-head"><span>상품유형별 총 예약금액 비중</span><span class="muted">총 예약금액 기준</span></div>
             <div class="chart-body chart-bars">
-              <div class="chart-bar"><span class="chart-label">자사상품</span><div class="chart-track"><div class="chart-fill green" style="width:42%"></div></div><strong>42.0%</strong></div>
-              <div class="chart-bar"><span class="chart-label">공유상품</span><div class="chart-track"><div class="chart-fill" style="width:36%"></div></div><strong>36.0%</strong></div>
-              <div class="chart-bar"><span class="chart-label">위탁상품</span><div class="chart-track"><div class="chart-fill purple" style="width:22%"></div></div><strong>22.0%</strong></div>
+              <div class="chart-bar"><span class="chart-label">자사상품</span><div class="chart-track"><div class="chart-fill green u-style-6ac1322b"></div></div><strong>42.0%</strong></div>
+              <div class="chart-bar"><span class="chart-label">공유상품</span><div class="chart-track"><div class="chart-fill u-style-85f91f2d"></div></div><strong>36.0%</strong></div>
+              <div class="chart-bar"><span class="chart-label">위탁상품</span><div class="chart-track"><div class="chart-fill purple u-style-c2e49e34"></div></div><strong>22.0%</strong></div>
             </div>
           </section>
           <section class="chart-box">
             <div class="chart-head"><span>판매채널별 순매출</span><span class="muted">채널별 기여도</span></div>
             <div class="chart-body chart-bars">
-              <div class="chart-bar"><span class="chart-label">자사몰</span><div class="chart-track"><div class="chart-fill green" style="width:100%"></div></div><strong>39.2백만</strong></div>
-              <div class="chart-bar"><span class="chart-label">판매점</span><div class="chart-track"><div class="chart-fill" style="width:82%"></div></div><strong>32.1백만</strong></div>
-              <div class="chart-bar"><span class="chart-label">복지몰</span><div class="chart-track"><div class="chart-fill purple" style="width:54%"></div></div><strong>21.3백만</strong></div>
-              <div class="chart-bar"><span class="chart-label">지자체연계</span><div class="chart-track"><div class="chart-fill orange" style="width:40%"></div></div><strong>15.8백만</strong></div>
+              <div class="chart-bar"><span class="chart-label">자사몰</span><div class="chart-track"><div class="chart-fill green u-style-0466783d"></div></div><strong>39.2백만</strong></div>
+              <div class="chart-bar"><span class="chart-label">판매점</span><div class="chart-track"><div class="chart-fill u-style-b576fac1"></div></div><strong>32.1백만</strong></div>
+              <div class="chart-bar"><span class="chart-label">복지몰</span><div class="chart-track"><div class="chart-fill purple u-style-c9a51610"></div></div><strong>21.3백만</strong></div>
+              <div class="chart-bar"><span class="chart-label">지자체연계</span><div class="chart-track"><div class="chart-fill orange u-style-dc39b8f5"></div></div><strong>15.8백만</strong></div>
             </div>
           </section>
         </div>
@@ -246,10 +154,8 @@ body{margin:0;background:#f4f6f8;color:#222;font-family:"Malgun Gothic","Noto Sa
       </div>
     </main>
   </div>
-  <script>
-    function msg(t){alert(t)}
-function toggleNavGroup(el){el.closest('.nav-group').classList.toggle('open')}
-  </script>
+  <script src="./js/common.js"></script>
+  <script src="./js/components.js"></script>
 </body>
 </html>
 

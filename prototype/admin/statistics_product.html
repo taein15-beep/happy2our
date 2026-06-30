@@ -4,106 +4,14 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>상품별 통계</title>
-  <style>
-body{margin:0;background:#f4f6f8;color:#222;font-family:"Malgun Gothic","Noto Sans KR",Arial,sans-serif;font-size:13px}.app{display:grid;grid-template-columns:250px 1fr;min-height:100vh}.sidebar{background:#071122;color:#d7e1f0;padding:18px 0}.brand{padding:0 18px 18px;border-bottom:1px solid rgba(255,255,255,.1)}.brand strong{display:block;color:white;font-size:17px}.nav-title{padding:18px 18px 8px;color:#8ea0bb;font-size:11px}.nav a{display:block;padding:11px 18px;color:#cdd6e5;text-decoration:none;border-left:3px solid transparent}.nav a.active{background:rgba(255,255,255,.08);border-left-color:#5b8cff;color:white}.nav-tree{padding:8px 0 18px}.nav-group{border-bottom:1px solid rgba(255,255,255,.06);padding:6px 0}.nav-depth1{padding:10px 18px 8px;color:#fff;font-weight:900;font-size:13px;cursor:pointer;display:flex;align-items:center;justify-content:space-between}.nav-depth1:after{content:'▾';font-size:10px;color:#8ea0bb}.nav-group:not(.open) .nav-depth1:after{content:'▸'}.nav-group:not(.open) a{display:none}.nav-group a{position:relative;padding:7px 18px 7px 46px;font-size:12px;color:#b9c6d8}.nav-group a:before{content:'├';position:absolute;left:26px;top:7px;color:rgba(185,198,216,.7);font-size:12px;line-height:1}.nav-group a.active{background:rgba(91,140,255,.18);border-left-color:#5b8cff;color:white}.nav-group.open .nav-depth1{color:#8fb3ff}.topbar{height:48px;background:white;border-bottom:1px solid #d9dde3;display:flex;align-items:center;justify-content:space-between;padding:0 16px}.page{padding:16px;max-width:1800px}.page-head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:14px}h1{font-size:24px;margin:0 0 6px}.desc{font-weight:700;color:#555}.btn{border:1px solid #cfd5dd;background:white;border-radius:4px;padding:8px 12px;font-weight:700;cursor:pointer;white-space:nowrap}.btn:hover{background:#f7f9fb}.btn.green{background:#18a34a;border-color:#18a34a;color:white}.btn.green:hover{background:#138a3e}.btn.blue{background:#2f63f6;border-color:#2f63f6;color:white}.panel{background:white;border:1px solid #d9dde3;border-radius:7px;margin-bottom:12px}.panel-head{background:#e6e6e6;padding:12px 14px;font-weight:900;border-bottom:1px solid #d9dde3;display:flex;justify-content:space-between;align-items:center;gap:8px}.panel-body{padding:14px;overflow:auto}input,select{border:1px solid #d6dbe1;border-radius:4px;padding:8px 9px;min-height:36px;box-sizing:border-box;background:white}label{font-weight:800;color:#3b4654}.field{display:flex;flex-direction:column;gap:6px}.summary{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:10px;margin-bottom:12px}.card{background:white;border:1px solid #d9dde3;border-radius:7px;padding:14px;min-width:0}.card span{display:block;color:#667085;font-weight:800;margin-bottom:8px}.card strong{font-size:20px;color:#2f63f6;word-break:keep-all}.card.warn strong{color:#b45309}.card.danger strong{color:#d92d20}.card.good strong{color:#0f8738}.filter-grid{display:grid;grid-template-columns:repeat(8,minmax(110px,1fr)) auto auto auto;gap:8px 10px;align-items:end;min-width:1700px}.filter-grid input,.filter-grid select{width:100%;min-height:34px;padding:6px 7px;font-size:12px}.filter-action button{width:100%;min-height:34px;padding:6px 9px}.table-wrap{overflow:auto}.table{width:100%;border-collapse:collapse;min-width:1320px}.table.wide{min-width:2400px}.table.product-performance{min-width:1580px;table-layout:fixed}.table.product-performance th,.table.product-performance td{width:74px;padding:7px 6px;font-size:12px}.table.product-performance th:nth-child(1),.table.product-performance td:nth-child(1){width:92px}.table.product-performance th:nth-child(2),.table.product-performance td:nth-child(2){width:150px}.table.product-performance th:nth-child(3),.table.product-performance td:nth-child(3){width:70px}.table.product-performance th:nth-child(4),.table.product-performance td:nth-child(4){width:92px}.table.product-performance th:nth-child(8),.table.product-performance td:nth-child(8){width:132px}.table.product-performance th:nth-child(9),.table.product-performance td:nth-child(9),.table.product-performance th:nth-child(10),.table.product-performance td:nth-child(10),.table.product-performance th:nth-child(11),.table.product-performance td:nth-child(11),.table.product-performance th:nth-child(12),.table.product-performance td:nth-child(12),.table.product-performance th:nth-child(13),.table.product-performance td:nth-child(13),.table.product-performance th:nth-child(16),.table.product-performance td:nth-child(16),.table.product-performance th:nth-child(17),.table.product-performance td:nth-child(17),.table.product-performance th:nth-child(18),.table.product-performance td:nth-child(18){width:96px}.table.product-performance .progress-cell{min-width:0}.table.product-performance .progress-meta{gap:4px}.table.product-performance .badge{font-size:11px;padding:3px 6px}.table.product-performance .help-tip{gap:2px}.table.product-performance .help-tip:after{width:14px;height:14px;font-size:10px}.product-link{color:#2556d9;font-weight:900;text-decoration:none}.product-link:hover{text-decoration:underline}.help-tip{position:relative;display:inline-flex;align-items:center;gap:4px;cursor:help}.help-tip:after{content:"?";display:inline-flex;align-items:center;justify-content:center;width:16px;height:16px;border-radius:50%;background:#eef1f5;color:#475467;font-size:11px;font-weight:900}.help-tip .tip-box{display:none;position:absolute;left:50%;top:24px;transform:translateX(-50%);z-index:15;width:260px;background:#071122;color:#fff;border-radius:6px;padding:10px 12px;text-align:left;white-space:normal;line-height:1.45;box-shadow:0 10px 24px rgba(7,17,34,.24)}.help-tip:hover .tip-box{display:block}.table th{background:#e6e6e6;border:1px solid #cfd3d8;padding:10px;text-align:center;white-space:nowrap}.table td{border:1px solid #edf0f3;padding:9px;background:white;vertical-align:middle;white-space:nowrap}.table td.center{text-align:center}.table td.money{text-align:right}.badge{display:inline-flex;border-radius:14px;padding:4px 8px;font-size:12px;font-weight:900;white-space:nowrap}.b-green{background:#e7f8ee;color:#0f8738}.b-blue{background:#eaf1ff;color:#2556d9}.b-orange{background:#fff4de;color:#b45309}.b-red{background:#fff0f0;color:#d92d20}.b-gray{background:#eef1f5;color:#475467}.b-purple{background:#f1ecff;color:#6941c6}.b-warn{background:#fff1f0;color:#b42318;border:1px solid #fecdca}.muted{color:#667085;font-size:12px}.top-actions{display:flex;align-items:center;gap:8px;flex-wrap:wrap}.top-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-bottom:12px}.rank-list{display:grid;gap:8px}.rank-item{display:grid;grid-template-columns:28px 1fr auto;gap:8px;align-items:center;border-bottom:1px solid #edf0f3;padding-bottom:8px}.rank-item:last-child{border-bottom:0;padding-bottom:0}.rank-no{width:24px;height:24px;border-radius:12px;background:#eaf1ff;color:#2556d9;display:flex;align-items:center;justify-content:center;font-weight:900}.rank-name{font-weight:900;color:#344054}.rank-sub{font-size:12px;color:#667085;margin-top:2px}.rank-value{font-weight:900;white-space:nowrap}.chart-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-bottom:12px}.chart-box{background:white;border:1px solid #d9dde3;border-radius:7px;overflow:hidden}.chart-head{background:#e6e6e6;padding:12px 14px;font-weight:900;border-bottom:1px solid #d9dde3;display:flex;justify-content:space-between;align-items:center}.chart-body{padding:14px}.chart-bars{display:grid;gap:10px}.chart-bar{display:grid;grid-template-columns:126px 1fr 86px;gap:10px;align-items:center}.chart-label{font-weight:800;color:#344054}.chart-track,.progress-track{height:14px;background:#edf0f3;border-radius:14px;overflow:hidden}.chart-fill,.progress-fill{height:100%;background:#2f63f6}.chart-fill.green,.progress-fill.green{background:#18a34a}.chart-fill.orange,.progress-fill.orange{background:#f59e0b}.chart-fill.red,.progress-fill.red{background:#d92d20}.chart-fill.purple{background:#7c3aed}.progress-cell{min-width:140px}.progress-meta{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:5px}.table-set{display:grid;gap:12px}@media(max-width:1500px){.summary{grid-template-columns:repeat(4,minmax(0,1fr))}.filter-grid{grid-template-columns:repeat(5,minmax(120px,1fr));min-width:0}.top-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:1000px){.app{grid-template-columns:1fr}.sidebar{display:none}.page-head{display:block}.top-actions{margin-top:10px}.summary{grid-template-columns:repeat(2,minmax(0,1fr))}.filter-grid{grid-template-columns:repeat(2,minmax(0,1fr));min-width:0}.top-grid,.chart-grid{grid-template-columns:1fr}.chart-bar{grid-template-columns:100px 1fr 74px}.table,.table.wide{min-width:1120px}}
-  </style>
+  <link rel="stylesheet" href="./css/common.css">
+  <link rel="stylesheet" href="./css/layout.css">
+  <link rel="stylesheet" href="./css/components.css">
 </head>
-<body>
+<body data-page="statistics_product">
   <div class="app">
-    <aside class="sidebar">
-    <div class="brand"><strong>AviaNext</strong><small>AOS Admin Prototype</small></div>
-    <div class="nav-title">관리메뉴</div>
-    <nav class="nav nav-tree">
-      <a href="popup_manage.html">팝업관리</a>
-      <div class="nav-group">
-        <div class="nav-depth1" onclick="toggleNavGroup(this)">📦 상품관리</div>
-        <a href="product_list.html">상품목록</a>
-        <a href="product_register.html">상품등록</a>
-        <a href="#" onclick="msg('재고관리 화면은 준비 중입니다.');return false;">재고관리</a>
-        <a href="#" onclick="msg('이미지관리 화면은 준비 중입니다.');return false;">이미지관리</a>
-        <a href="template_manage.html">템플릿관리</a>
-          <a href="attraction_manage.html">관광지관리</a>
-        <a href="#" onclick="msg('상품분류관리 화면은 준비 중입니다.');return false;">상품분류관리</a>
-      </div>
-      <div class="nav-group">
-        <div class="nav-depth1" onclick="toggleNavGroup(this)">📋 예약관리</div>
-        <a href="reservation_list.html">예약목록</a>
-        <a href="reservation_status.html">예약현황</a>
-        <a href="#" onclick="msg('좌석관리 화면은 준비 중입니다.');return false;">좌석관리</a>
-      </div>
-      <div class="nav-group">
-        <div class="nav-depth1" onclick="toggleNavGroup(this)">✈️ 항공예약관리</div>
-        <a href="#" onclick="msg('국제선예약 화면은 준비 중입니다.');return false;">국제선예약</a>
-        <a href="#" onclick="msg('국제선예약목록 화면은 준비 중입니다.');return false;">국제선예약목록</a>
-        <a href="#" onclick="msg('국내선예약 화면은 준비 중입니다.');return false;">국내선예약</a>
-        <a href="#" onclick="msg('국내선예약목록 화면은 준비 중입니다.');return false;">국내선예약목록</a>
-      </div>
-      <div class="nav-group">
-        <div class="nav-depth1" onclick="toggleNavGroup(this)">👤 회원관리</div>
-        <a href="#" onclick="msg('웹회원관리 화면은 준비 중입니다.');return false;">웹회원관리</a>
-        <a href="#" onclick="msg('관리자/직원 관리 화면은 준비 중입니다.');return false;">관리자/직원 관리</a>
-        <a href="seller_list.html">판매점관리</a>
-        <a href="#" onclick="msg('거래처관리 화면은 준비 중입니다.');return false;">거래처관리</a>
-        <a href="#" onclick="msg('그룹관리 화면은 준비 중입니다.');return false;">그룹관리</a>
-        <a href="#" onclick="msg('탈퇴회원 화면은 준비 중입니다.');return false;">탈퇴회원</a>
-      </div>
-      <div class="nav-group">
-        <div class="nav-depth1" onclick="toggleNavGroup(this)">💰 정산관리</div>
-        <a href="#" onclick="msg('인보이스관리 화면은 준비 중입니다.');return false;">인보이스관리</a>
-        <a href="#" onclick="msg('입금/환불현황 화면은 준비 중입니다.');return false;">입금/환불현황</a>
-        <a href="#" onclick="msg('미수금관리 화면은 준비 중입니다.');return false;">미수금관리</a>
-        <a href="#" onclick="msg('국제선정산(항공) 화면은 준비 중입니다.');return false;">국제선정산(항공)</a>
-        <a href="#" onclick="msg('발권데이터(항공) 화면은 준비 중입니다.');return false;">발권데이터(항공)</a>
-      </div>
-      <div class="nav-group open">
-        <div class="nav-depth1" onclick="toggleNavGroup(this)">📊 통계관리</div>
-        <a href="statistics_dashboard.html">통계 대시보드</a>
-        <a href="statistics_sales.html">매출통계</a>
-        <a href="statistics_reservation.html">예약통계</a>
-        <a class="active" href="statistics_product.html">상품별 통계</a>
-        <a href="statistics_seller.html">판매점별 통계</a>
-        <a href="statistics_region.html">지역별 통계</a>
-        <a href="statistics_settlement.html">정산통계</a>
-      </div>
-      <div class="nav-group">
-        <div class="nav-depth1" onclick="toggleNavGroup(this)">🎨 디자인설정</div>
-        <a href="#" onclick="msg('템플릿관리 화면은 준비 중입니다.');return false;">템플릿관리</a>
-        <a href="#" onclick="msg('섹션관리 화면은 준비 중입니다.');return false;">섹션관리</a>
-        <a href="#" onclick="msg('홈페이지 설정 화면은 준비 중입니다.');return false;">홈페이지 설정</a>
-        <a href="#" onclick="msg('메인메뉴관리 화면은 준비 중입니다.');return false;">메인메뉴관리</a>
-        <a href="popup_manage.html">팝업관리</a>
-        <a href="#" onclick="msg('상단띠배너 화면은 준비 중입니다.');return false;">상단띠배너</a>
-        <a href="#" onclick="msg('관리자메뉴관리 화면은 준비 중입니다.');return false;">관리자메뉴관리</a>
-      </div>
-      <div class="nav-group">
-        <div class="nav-depth1" onclick="toggleNavGroup(this)">💬 알림톡/문자관리</div>
-        <a href="#" onclick="msg('알림톡 설정 화면은 준비 중입니다.');return false;">알림톡 설정</a>
-        <a href="#" onclick="msg('이메일발송 화면은 준비 중입니다.');return false;">이메일발송</a>
-        <a href="#" onclick="msg('문자발송 화면은 준비 중입니다.');return false;">문자발송</a>
-        <a href="#" onclick="msg('발송내역 화면은 준비 중입니다.');return false;">발송내역</a>
-        <a href="#" onclick="msg('메크로설정 화면은 준비 중입니다.');return false;">메크로설정</a>
-      </div>
-      <div class="nav-group">
-        <div class="nav-depth1" onclick="toggleNavGroup(this)">📝 게시판관리</div>
-        <a href="#" onclick="msg('공지사항 화면은 준비 중입니다.');return false;">공지사항</a>
-        <a href="#" onclick="msg('고객문의 화면은 준비 중입니다.');return false;">고객문의</a>
-        <a href="#" onclick="msg('여행후기 화면은 준비 중입니다.');return false;">여행후기</a>
-        <a href="#" onclick="msg('자주묻는질문 화면은 준비 중입니다.');return false;">자주묻는질문</a>
-        <a href="#" onclick="msg('고객문의 화면은 준비 중입니다.');return false;">고객문의</a>
-        <a href="#" onclick="msg('스캔목록 화면은 준비 중입니다.');return false;">스캔목록</a>
-        <a href="#" onclick="msg('자료실 화면은 준비 중입니다.');return false;">자료실</a>
-      </div>
-      <div class="nav-group">
-        <div class="nav-depth1" onclick="toggleNavGroup(this)">⚙️ 기본설정</div>
-        <a href="#" onclick="msg('항공사 Bin관리 화면은 준비 중입니다.');return false;">항공사 Bin관리</a>
-        <a href="#" onclick="msg('노선관리 화면은 준비 중입니다.');return false;">노선관리</a>
-        <a href="#" onclick="msg('탑승역관리 화면은 준비 중입니다.');return false;">탑승역관리</a>
-        <a href="#" onclick="msg('열차관리 화면은 준비 중입니다.');return false;">열차관리</a>
-        <a href="#" onclick="msg('템플릿사이트관리 화면은 준비 중입니다.');return false;">템플릿사이트관리</a>
-      </div>
-    </nav>
-  </aside>
-    <main>
+  <aside class="sidebar" data-include="./includes/sidebar.html"></aside>
+<main>
       <header class="topbar"><strong>상품별 통계</strong><span>윤호님 · 로그아웃</span></header>
       <div class="page">
         <div class="page-head">
@@ -205,26 +113,26 @@ body{margin:0;background:#f4f6f8;color:#222;font-family:"Malgun Gothic","Noto Sa
 
         <div class="chart-grid">
           <section class="chart-box"><div class="chart-head"><span>상품유형별 총 예약금액 비중</span><span class="muted">상품유형 기준</span></div><div class="chart-body chart-bars">
-            <div class="chart-bar"><span class="chart-label">자사상품</span><div class="chart-track"><div class="chart-fill green" style="width:42%"></div></div><strong>42.0%</strong></div>
-            <div class="chart-bar"><span class="chart-label">공유상품</span><div class="chart-track"><div class="chart-fill" style="width:36%"></div></div><strong>36.0%</strong></div>
-            <div class="chart-bar"><span class="chart-label">위탁상품</span><div class="chart-track"><div class="chart-fill purple" style="width:22%"></div></div><strong>22.0%</strong></div>
+            <div class="chart-bar"><span class="chart-label">자사상품</span><div class="chart-track"><div class="chart-fill green u-style-6ac1322b"></div></div><strong>42.0%</strong></div>
+            <div class="chart-bar"><span class="chart-label">공유상품</span><div class="chart-track"><div class="chart-fill u-style-85f91f2d"></div></div><strong>36.0%</strong></div>
+            <div class="chart-bar"><span class="chart-label">위탁상품</span><div class="chart-track"><div class="chart-fill purple u-style-c2e49e34"></div></div><strong>22.0%</strong></div>
           </div></section>
           <section class="chart-box"><div class="chart-head"><span>상품지역별 상품 순매출</span><span class="muted">지역별 기여도</span></div><div class="chart-body chart-bars">
-            <div class="chart-bar"><span class="chart-label">제주</span><div class="chart-track"><div class="chart-fill" style="width:100%"></div></div><strong>38.4백만</strong></div>
-            <div class="chart-bar"><span class="chart-label">전남 순천</span><div class="chart-track"><div class="chart-fill green" style="width:81%"></div></div><strong>31.2백만</strong></div>
-            <div class="chart-bar"><span class="chart-label">강원 속초</span><div class="chart-track"><div class="chart-fill orange" style="width:64%"></div></div><strong>24.6백만</strong></div>
+            <div class="chart-bar"><span class="chart-label">제주</span><div class="chart-track"><div class="chart-fill u-style-0466783d"></div></div><strong>38.4백만</strong></div>
+            <div class="chart-bar"><span class="chart-label">전남 순천</span><div class="chart-track"><div class="chart-fill green u-style-c15f0e8e"></div></div><strong>31.2백만</strong></div>
+            <div class="chart-bar"><span class="chart-label">강원 속초</span><div class="chart-track"><div class="chart-fill orange u-style-c250eca3"></div></div><strong>24.6백만</strong></div>
           </div></section>
           <section class="chart-box"><div class="chart-head"><span>모객률 구간별 상품 수</span><span class="muted">운영 위험도</span></div><div class="chart-body chart-bars">
-            <div class="chart-bar"><span class="chart-label">마감</span><div class="chart-track"><div class="chart-fill green" style="width:24%"></div></div><strong>12개</strong></div>
-            <div class="chart-bar"><span class="chart-label">양호</span><div class="chart-track"><div class="chart-fill green" style="width:58%"></div></div><strong>29개</strong></div>
-            <div class="chart-bar"><span class="chart-label">보통</span><div class="chart-track"><div class="chart-fill orange" style="width:42%"></div></div><strong>21개</strong></div>
-            <div class="chart-bar"><span class="chart-label">주의</span><div class="chart-track"><div class="chart-fill red" style="width:18%"></div></div><strong>9개</strong></div>
+            <div class="chart-bar"><span class="chart-label">마감</span><div class="chart-track"><div class="chart-fill green u-style-e3bda251"></div></div><strong>12개</strong></div>
+            <div class="chart-bar"><span class="chart-label">양호</span><div class="chart-track"><div class="chart-fill green u-style-fcc4f900"></div></div><strong>29개</strong></div>
+            <div class="chart-bar"><span class="chart-label">보통</span><div class="chart-track"><div class="chart-fill orange u-style-6ac1322b"></div></div><strong>21개</strong></div>
+            <div class="chart-bar"><span class="chart-label">주의</span><div class="chart-track"><div class="chart-fill red u-style-55b2e172"></div></div><strong>9개</strong></div>
           </div></section>
           <section class="chart-box"><div class="chart-head"><span>상품상태별 분포</span><span class="muted">판매상태 기준</span></div><div class="chart-body chart-bars">
-            <div class="chart-bar"><span class="chart-label">판매중</span><div class="chart-track"><div class="chart-fill green" style="width:67%"></div></div><strong>86개</strong></div>
-            <div class="chart-bar"><span class="chart-label">마감</span><div class="chart-track"><div class="chart-fill red" style="width:9%"></div></div><strong>12개</strong></div>
-            <div class="chart-bar"><span class="chart-label">출발완료</span><div class="chart-track"><div class="chart-fill" style="width:20%"></div></div><strong>26개</strong></div>
-            <div class="chart-bar"><span class="chart-label">판매중지</span><div class="chart-track"><div class="chart-fill orange" style="width:3%"></div></div><strong>4개</strong></div>
+            <div class="chart-bar"><span class="chart-label">판매중</span><div class="chart-track"><div class="chart-fill green u-style-7116cdf9"></div></div><strong>86개</strong></div>
+            <div class="chart-bar"><span class="chart-label">마감</span><div class="chart-track"><div class="chart-fill red u-style-006a6141"></div></div><strong>12개</strong></div>
+            <div class="chart-bar"><span class="chart-label">출발완료</span><div class="chart-track"><div class="chart-fill u-style-44b21af7"></div></div><strong>26개</strong></div>
+            <div class="chart-bar"><span class="chart-label">판매중지</span><div class="chart-track"><div class="chart-fill orange u-style-9d7e1414"></div></div><strong>4개</strong></div>
           </div></section>
         </div>
 
@@ -232,18 +140,18 @@ body{margin:0;background:#f4f6f8;color:#222;font-family:"Malgun Gothic","Noto Sa
           <section class="panel">
             <div class="panel-head"><span>상품별 실적</span><span class="muted">모객률, 정산 후 예상수익 기준</span></div>
             <div class="table-wrap"><table class="table product-performance"><thead><tr><th>상품코드</th><th>상품명</th><th>상품상태</th><th>공급여행사</th><th>예약건수</th><th>모집인원</th><th>예약인원</th><th>모객률</th><th><span class="help-tip">총 예약금액<span class="tip-box">예약 생성 시점의 총 상품금액입니다. 계산: 상품 판매가 × 예약인원 + 옵션금액 - 할인금액. 취소/환불 전 기준입니다.</span></span></th><th><span class="help-tip">실결제금액<span class="tip-box">고객이 실제 결제 완료한 금액입니다. 카드결제, 계좌입금, 예약금, 잔금 입금 내역의 합계로 계산합니다.</span></span></th><th><span class="help-tip">환불금액<span class="tip-box">취소 또는 환불 처리로 고객에게 돌려줄 금액입니다. 계산: 환불완료금액 + 환불예정금액 기준으로 집계합니다.</span></span></th><th><span class="help-tip">순매출<span class="tip-box">실제로 남은 매출입니다. 계산: 실결제금액 - 환불금액. 상품별 실적 비교의 기본 기준입니다.</span></span></th><th><span class="help-tip">평균객단가<span class="tip-box">예약인원 1명당 평균 결제 단가입니다. 계산: 순매출 ÷ 예약인원.</span></span></th><th>취소건수</th><th>취소율</th><th><span class="help-tip">판매수수료<span class="tip-box">판매점/제휴채널에 지급할 수수료입니다. 계산: 정률이면 판매가 × 판매수수료율, 정액이면 예약건별 또는 인원별 설정금액을 적용합니다.</span></span></th><th><span class="help-tip">공급여행사 정산금액<span class="tip-box">공급여행사에 정산할 금액입니다. 계산: 순매출 - 판매수수료 - AOS 수익/운영 공제액 기준입니다.</span></span></th><th><span class="help-tip">예상수익<span class="tip-box">AOS 기준 예상 수익입니다. 계산: 순매출 - 공급여행사 정산금액 - 판매수수료 - 환불/기타 조정금액.</span></span></th></tr></thead><tbody>
-              <tr><td><a class="product-link" href="product_detail.html" onclick="msg('상품 상세 페이지로 이동합니다.');return false;">PDT-260601</a></td><td>제주 2박3일 패키지</td><td><span class="badge b-green">판매중</span></td><td>제주로컬투어</td><td class="center">104건</td><td class="center">325명</td><td class="center">312명</td><td><div class="progress-cell"><div class="progress-meta"><strong>96%</strong><span class="badge b-green">양호</span></div><div class="progress-track"><div class="progress-fill green" style="width:96%"></div></div></div></td><td class="money">42,600,000원</td><td class="money">39,200,000원</td><td class="money">800,000원</td><td class="money">38,400,000원</td><td class="money">123,077원</td><td class="center">6건</td><td class="center">5.8%</td><td class="money">2,880,000원</td><td class="money">29,100,000원</td><td class="money">6,420,000원</td></tr>
-              <tr><td><a class="product-link" href="product_detail.html" onclick="msg('상품 상세 페이지로 이동합니다.');return false;">PDT-260602</a></td><td>남도 힐링여행</td><td><span class="badge b-green">판매중</span></td><td>현담여행사</td><td class="center">96건</td><td class="center">334명</td><td class="center">288명</td><td><div class="progress-cell"><div class="progress-meta"><strong>86%</strong><span class="badge b-green">양호</span></div><div class="progress-track"><div class="progress-fill green" style="width:86%"></div></div></div></td><td class="money">34,400,000원</td><td class="money">32,100,000원</td><td class="money">900,000원</td><td class="money">31,200,000원</td><td class="money">108,333원</td><td class="center">8건</td><td class="center">8.4%</td><td class="money">2,120,000원</td><td class="money">23,900,000원</td><td class="money">5,180,000원</td></tr>
-              <tr><td><a class="product-link" href="product_detail.html" onclick="msg('상품 상세 페이지로 이동합니다.');return false;">PDT-260603</a></td><td>속초 당일여행</td><td><span class="badge b-orange">판매중</span></td><td>AOS 직영</td><td class="center">80건</td><td class="center">500명</td><td class="center">240명</td><td><div class="progress-cell"><div class="progress-meta"><strong>48%</strong><span class="badge b-warn">주의</span></div><div class="progress-track"><div class="progress-fill red" style="width:48%"></div></div></div></td><td class="money">28,400,000원</td><td class="money">25,900,000원</td><td class="money">1,300,000원</td><td class="money">24,600,000원</td><td class="money">102,500원</td><td class="center">10건</td><td class="center">11.6%</td><td class="money">0원</td><td class="money">0원</td><td class="money">3,260,000원</td></tr>
-              <tr><td><a class="product-link" href="product_detail.html" onclick="msg('상품 상세 페이지로 이동합니다.');return false;">PDT-260604</a></td><td>화성·수원 만원의행복</td><td><span class="badge b-red">마감</span></td><td>AOS 직영</td><td class="center">128건</td><td class="center">384명</td><td class="center">384명</td><td><div class="progress-cell"><div class="progress-meta"><strong>100%</strong><span class="badge b-red">마감</span></div><div class="progress-track"><div class="progress-fill red" style="width:100%"></div></div></div></td><td class="money">20,100,000원</td><td class="money">19,400,000원</td><td class="money">500,000원</td><td class="money">18,900,000원</td><td class="money">49,219원</td><td class="center">4건</td><td class="center">3.4%</td><td class="money">650,000원</td><td class="money">10,700,000원</td><td class="money">2,840,000원</td></tr>
+              <tr><td><a class="product-link" href="product_detail.html" onclick="msg('상품 상세 페이지로 이동합니다.');return false;">PDT-260601</a></td><td>제주 2박3일 패키지</td><td><span class="badge b-green">판매중</span></td><td>제주로컬투어</td><td class="center">104건</td><td class="center">325명</td><td class="center">312명</td><td><div class="progress-cell"><div class="progress-meta"><strong>96%</strong><span class="badge b-green">양호</span></div><div class="progress-track"><div class="progress-fill green u-style-1ce66320"></div></div></div></td><td class="money">42,600,000원</td><td class="money">39,200,000원</td><td class="money">800,000원</td><td class="money">38,400,000원</td><td class="money">123,077원</td><td class="center">6건</td><td class="center">5.8%</td><td class="money">2,880,000원</td><td class="money">29,100,000원</td><td class="money">6,420,000원</td></tr>
+              <tr><td><a class="product-link" href="product_detail.html" onclick="msg('상품 상세 페이지로 이동합니다.');return false;">PDT-260602</a></td><td>남도 힐링여행</td><td><span class="badge b-green">판매중</span></td><td>현담여행사</td><td class="center">96건</td><td class="center">334명</td><td class="center">288명</td><td><div class="progress-cell"><div class="progress-meta"><strong>86%</strong><span class="badge b-green">양호</span></div><div class="progress-track"><div class="progress-fill green u-style-f3c21c6c"></div></div></div></td><td class="money">34,400,000원</td><td class="money">32,100,000원</td><td class="money">900,000원</td><td class="money">31,200,000원</td><td class="money">108,333원</td><td class="center">8건</td><td class="center">8.4%</td><td class="money">2,120,000원</td><td class="money">23,900,000원</td><td class="money">5,180,000원</td></tr>
+              <tr><td><a class="product-link" href="product_detail.html" onclick="msg('상품 상세 페이지로 이동합니다.');return false;">PDT-260603</a></td><td>속초 당일여행</td><td><span class="badge b-orange">판매중</span></td><td>AOS 직영</td><td class="center">80건</td><td class="center">500명</td><td class="center">240명</td><td><div class="progress-cell"><div class="progress-meta"><strong>48%</strong><span class="badge b-warn">주의</span></div><div class="progress-track"><div class="progress-fill red u-style-8c8cd3a2"></div></div></div></td><td class="money">28,400,000원</td><td class="money">25,900,000원</td><td class="money">1,300,000원</td><td class="money">24,600,000원</td><td class="money">102,500원</td><td class="center">10건</td><td class="center">11.6%</td><td class="money">0원</td><td class="money">0원</td><td class="money">3,260,000원</td></tr>
+              <tr><td><a class="product-link" href="product_detail.html" onclick="msg('상품 상세 페이지로 이동합니다.');return false;">PDT-260604</a></td><td>화성·수원 만원의행복</td><td><span class="badge b-red">마감</span></td><td>AOS 직영</td><td class="center">128건</td><td class="center">384명</td><td class="center">384명</td><td><div class="progress-cell"><div class="progress-meta"><strong>100%</strong><span class="badge b-red">마감</span></div><div class="progress-track"><div class="progress-fill red u-style-0466783d"></div></div></div></td><td class="money">20,100,000원</td><td class="money">19,400,000원</td><td class="money">500,000원</td><td class="money">18,900,000원</td><td class="money">49,219원</td><td class="center">4건</td><td class="center">3.4%</td><td class="money">650,000원</td><td class="money">10,700,000원</td><td class="money">2,840,000원</td></tr>
             </tbody></table></div>
           </section>
 
           <section class="panel">
             <div class="panel-head"><span>출발임박 모객주의 상품</span><span class="muted">출발일 임박 + 모객률 50% 미만은 주의</span></div>
             <div class="table-wrap"><table class="table"><thead><tr><th>출발일</th><th>D-Day</th><th>상품명</th><th>모집인원</th><th>예약인원</th><th>잔여좌석</th><th>모객률</th><th>결제완료인원</th><th>담당자</th><th>상태</th></tr></thead><tbody>
-              <tr><td>2026-06-20</td><td class="center">D-2</td><td>속초 당일여행</td><td class="center">500명</td><td class="center">240명</td><td class="center">260석</td><td><div class="progress-cell"><div class="progress-meta"><strong>48%</strong><span class="badge b-warn">주의</span></div><div class="progress-track"><div class="progress-fill red" style="width:48%"></div></div></div></td><td class="center">198명</td><td>박서연</td><td><span class="badge b-warn">주의</span></td></tr>
-              <tr><td>2026-06-24</td><td class="center">D-6</td><td>남도 힐링여행</td><td class="center">334명</td><td class="center">288명</td><td class="center">46석</td><td><div class="progress-cell"><div class="progress-meta"><strong>86%</strong><span class="badge b-green">양호</span></div><div class="progress-track"><div class="progress-fill green" style="width:86%"></div></div></div></td><td class="center">251명</td><td>김윤호</td><td><span class="badge b-green">양호</span></td></tr>
+              <tr><td>2026-06-20</td><td class="center">D-2</td><td>속초 당일여행</td><td class="center">500명</td><td class="center">240명</td><td class="center">260석</td><td><div class="progress-cell"><div class="progress-meta"><strong>48%</strong><span class="badge b-warn">주의</span></div><div class="progress-track"><div class="progress-fill red u-style-8c8cd3a2"></div></div></div></td><td class="center">198명</td><td>박서연</td><td><span class="badge b-warn">주의</span></td></tr>
+              <tr><td>2026-06-24</td><td class="center">D-6</td><td>남도 힐링여행</td><td class="center">334명</td><td class="center">288명</td><td class="center">46석</td><td><div class="progress-cell"><div class="progress-meta"><strong>86%</strong><span class="badge b-green">양호</span></div><div class="progress-track"><div class="progress-fill green u-style-f3c21c6c"></div></div></div></td><td class="center">251명</td><td>김윤호</td><td><span class="badge b-green">양호</span></td></tr>
             </tbody></table></div>
           </section>
 
@@ -260,10 +168,8 @@ body{margin:0;background:#f4f6f8;color:#222;font-family:"Malgun Gothic","Noto Sa
       </div>
     </main>
   </div>
-  <script>
-    function msg(t){alert(t)}
-function toggleNavGroup(el){el.closest('.nav-group').classList.toggle('open')}
-  </script>
+  <script src="./js/common.js"></script>
+  <script src="./js/components.js"></script>
 </body>
 </html>
 

@@ -4,112 +4,14 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>예약상세</title>
-  <style>
-body{margin:0;background:#f4f6f8;color:#222;font-family:"Malgun Gothic","Noto Sans KR",Arial,sans-serif;font-size:13px}.app{display:grid;grid-template-columns:250px 1fr;min-height:100vh}.sidebar{background:#071122;color:#d7e1f0;padding:18px 0}.brand{padding:0 18px 18px;border-bottom:1px solid rgba(255,255,255,.1)}.brand strong{display:block;color:white;font-size:17px}.nav-title{padding:18px 18px 8px;color:#8ea0bb;font-size:11px}.nav a{display:block;padding:11px 18px;color:#cdd6e5;text-decoration:none;border-left:3px solid transparent}.nav a.active{background:rgba(255,255,255,.08);border-left-color:#5b8cff;color:white}.nav-tree{padding:8px 0 18px}.nav-group{border-bottom:1px solid rgba(255,255,255,.06);padding:6px 0}.nav-depth1{padding:10px 18px 8px;color:#fff;font-weight:900;font-size:13px;cursor:pointer;display:flex;align-items:center;justify-content:space-between}.nav-depth1:after{content:'▾';font-size:10px;color:#8ea0bb}.nav-group:not(.open) .nav-depth1:after{content:'▸'}.nav-group:not(.open) a{display:none}.nav-group a{position:relative;padding:7px 18px 7px 46px;font-size:12px;color:#b9c6d8}.nav-group a:before{content:'├';position:absolute;left:26px;top:7px;color:rgba(185,198,216,.7);font-size:12px;line-height:1}.nav-group a.active{background:rgba(91,140,255,.18);border-left-color:#5b8cff;color:white}.nav-group.open .nav-depth1{color:#8fb3ff}.topbar{height:48px;background:white;border-bottom:1px solid #d9dde3;display:flex;align-items:center;justify-content:space-between;padding:0 16px}.page{padding:16px;max-width:1800px}.page-head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:14px}h1{font-size:24px;margin:0 0 6px}.desc{font-weight:700;color:#555}.btn{border:1px solid #cfd5dd;background:white;border-radius:4px;padding:8px 12px;font-weight:700;cursor:pointer;white-space:nowrap}.btn:hover{background:#f7f9fb}.btn.green{background:#18a34a;border-color:#18a34a;color:white}.btn.blue{background:#2f63f6;border-color:#2f63f6;color:white}.btn.red{background:#d92d20;border-color:#d92d20;color:white}.btn.small{padding:6px 8px;font-size:12px}.panel{background:white;border:1px solid #d9dde3;border-radius:7px;margin-bottom:12px}.panel-head{background:#e6e6e6;padding:12px 14px;font-weight:900;border-bottom:1px solid #d9dde3;display:flex;justify-content:space-between;align-items:center}.panel-body{padding:14px}input,select,textarea{border:1px solid #d6dbe1;border-radius:4px;padding:8px 9px;min-height:36px;box-sizing:border-box;background:white}textarea{width:100%;min-height:84px;resize:vertical}label{font-weight:800;color:#3b4654}.top-actions{display:flex;align-items:center;gap:8px;flex-wrap:wrap}.summary{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:10px;margin-bottom:12px}.card{background:white;border:1px solid #d9dde3;border-radius:7px;padding:14px;min-width:0}.card > span{display:block;color:#667085;font-weight:800;margin-bottom:7px}.card strong{font-size:20px;color:#2f63f6}.card.money strong{color:#0f8738}.card.paid strong{color:#2f63f6}.card.due strong{color:#d92d20}.summary .card strong .summary-date-received{color:#2f63f6}.summary .card strong .summary-date-departure{color:#d92d20}.summary .card.summary-date-card strong{white-space:nowrap;font-size:clamp(15px,1.1vw,20px)}.badge{display:inline-flex;border-radius:14px;padding:4px 8px;font-size:12px;font-weight:900;white-space:nowrap}.b-green{background:#e7f8ee;color:#0f8738}.b-blue{background:#eaf1ff;color:#2556d9}.b-orange{background:#fff4de;color:#b45309}.b-red{background:#fff0f0;color:#d92d20}.b-gray{background:#eef1f5;color:#475467}.b-purple{background:#f1ecff;color:#6941c6}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.form-grid{display:grid;grid-template-columns:repeat(3,minmax(150px,1fr));gap:10px}.field{display:flex;flex-direction:column;gap:6px}.field.wide{grid-column:span 2}.field.full{grid-column:1/-1}.value{min-height:36px;border:1px solid #edf0f3;background:#fafbfc;border-radius:4px;padding:8px 9px;box-sizing:border-box}.money-line{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}.money-box{border:1px solid #d9dde3;border-radius:7px;padding:12px;background:#fafbfc}.money-box span{display:block;color:#667085;font-weight:800;margin-bottom:6px}.money-box strong{font-size:18px}.money-box.total strong{color:#0f8738}.money-box.paid strong{color:#2f63f6}.table-wrap{overflow:auto}.table{width:100%;border-collapse:collapse;min-width:1000px}.table th{background:#e6e6e6;border:1px solid #cfd3d8;padding:10px;text-align:center;white-space:nowrap}.table td{border:1px solid #edf0f3;padding:9px;background:white;vertical-align:middle}.table td.center{text-align:center}.table td.money{text-align:right;white-space:nowrap}.muted{color:#667085;font-size:12px}.link{color:#2556d9;font-weight:900;text-decoration:none}.link:hover{text-decoration:underline}.memo-row{display:grid;grid-template-columns:1fr 1fr;gap:10px}.file-list{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}.file-item{border:1px solid #d9dde3;border-radius:7px;padding:12px;background:#fafbfc}.modal-backdrop{display:none;position:fixed;inset:0;background:rgba(7,17,34,.42);align-items:center;justify-content:center;padding:16px}.modal{width:min(520px,100%);background:white;border-radius:7px;border:1px solid #d9dde3}.modal.edit-modal{width:min(980px,100%);max-height:92vh;display:flex;flex-direction:column}.modal.option-modal{width:min(1180px,100%);max-height:92vh;display:flex;flex-direction:column}.modal-head{padding:14px;font-weight:900;border-bottom:1px solid #d9dde3;background:#e6e6e6;display:flex;align-items:center;justify-content:space-between}.modal-body{padding:14px}.edit-modal .modal-body,.option-modal .modal-body{overflow:auto}.modal-foot{padding:12px 14px;border-top:1px solid #edf0f3;text-align:right}.edit-section{border:1px solid #edf0f3;border-radius:7px;margin-bottom:12px}.edit-section-title{background:#f7f9fb;border-bottom:1px solid #edf0f3;padding:10px 12px;font-weight:900}.edit-section-body{padding:12px}.edit-help{background:#fff8e6;border:1px solid #f2d48b;border-radius:7px;padding:10px 12px;margin-bottom:12px;color:#6b4e00;font-weight:700}.edit-readonly{background:#f3f5f7;color:#667085}.foot-left{float:left;color:#667085;font-weight:700;padding-top:8px}.option-config-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}.option-config-head h2{font-size:22px;margin:0}.option-chip{display:inline-flex;align-items:center;border:1px solid #d9dde3;border-radius:5px;padding:6px 10px;margin:2px 4px 2px 0;background:#fff;font-weight:900}.option-chip .plus{color:#4d6dde}.option-chip .minus{color:red}.drag-mark{font-size:24px;color:#333}.icon-delete{width:30px;height:30px;border:0;border-radius:50%;background:#ff4848;color:white;font-weight:900;cursor:pointer}.option-add-form{display:none;border-top:2px solid #999;margin-top:14px}.option-add-row{display:grid;grid-template-columns:170px 1fr;border-bottom:1px solid #cfd3d8}.option-add-label{background:#ddd;font-weight:900;text-align:center;padding:17px 10px}.option-add-cell{padding:10px 12px;display:flex;gap:10px;align-items:center;flex-wrap:wrap}.option-add-cell input,.option-add-cell select{min-width:180px}.option-add-cell input.price{width:160px;text-align:right}.radio-group{display:flex;gap:16px;align-items:center;font-weight:900}.radio-group input{min-height:auto}.option-actions{display:flex;gap:8px}.option-list-table{min-width:980px}.option-list-table th,.option-list-table td{font-size:14px}.option-row-order{display:flex;gap:12px;align-items:center;justify-content:center;font-weight:900}.option-price{color:#4d6dde}.option-price.minus{color:red}@media(max-width:1300px){.summary{grid-template-columns:repeat(4,minmax(0,1fr))}.form-grid{grid-template-columns:repeat(2,1fr)}.file-list{grid-template-columns:repeat(3,1fr)}}@media(max-width:1000px){.app{grid-template-columns:1fr}.sidebar{display:none}.page-head{display:block}.top-actions{margin-top:10px}.summary,.grid,.money-line,.memo-row,.file-list{grid-template-columns:1fr}.form-grid{grid-template-columns:1fr}.field.wide{grid-column:span 1}.foot-left{float:none;display:block;margin-bottom:8px}.option-add-row{grid-template-columns:1fr}.option-add-label{text-align:left}.option-add-cell input,.option-add-cell select{min-width:100%;width:100%}}
-  </style>
-  <style>
-.modal.option-modal{width:min(1680px,calc(100vw - 32px))}.option-edit-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:14px}.option-edit-block{border:1px solid #d9dde3;border-radius:7px;background:#fff;overflow:hidden;min-width:0}.option-edit-title{background:#f1f3f5;border-bottom:1px solid #d9dde3;padding:12px 14px;font-weight:900;display:flex;align-items:center;justify-content:space-between}.option-edit-body{padding:12px;min-width:0}.option-edit-body .table-wrap{overflow-x:visible}.option-note{background:#fff8e6;border:1px solid #f2d48b;border-radius:7px;padding:10px 12px;margin-bottom:12px;color:#6b4e00;font-weight:700}.qty-control{display:inline-flex;align-items:center;gap:6px}.qty-control button{width:28px;height:28px;border:1px solid #cfd5dd;background:white;border-radius:4px;font-weight:900;cursor:pointer}.qty-control input{width:48px;text-align:center;min-height:30px;padding:4px}.option-select{width:100%;min-width:0}.option-total-line{display:flex;justify-content:flex-end;gap:18px;align-items:center;margin-top:10px;font-size:14px;font-weight:900}.option-total-line strong{color:#2f63f6;font-size:18px}.option-available-table,.option-selected-table{min-width:0;width:100%;table-layout:auto}.option-available-table th,.option-available-table td,.option-selected-table th,.option-selected-table td{padding:8px 7px;font-size:13px}.option-empty{padding:18px;text-align:center;color:#667085;font-weight:800;border:1px dashed #cfd5dd;border-radius:7px;background:#fafbfc}.price-negative{color:#d92d20}@media(max-width:1280px){.option-edit-grid{grid-template-columns:1fr}.option-edit-body .table-wrap{overflow-x:auto}.option-available-table,.option-selected-table{min-width:760px}}
-.reservation-option-table{min-width:0;table-layout:fixed}.reservation-option-table th,.reservation-option-table td{padding:8px 6px}.reservation-option-table th:nth-child(1),.reservation-option-table td:nth-child(1){width:auto;word-break:keep-all}.reservation-option-table th:nth-child(2),.reservation-option-table td:nth-child(2){width:104px}.reservation-option-table th:nth-child(3),.reservation-option-table td:nth-child(3){width:48px}.reservation-option-table th:nth-child(4),.reservation-option-table td:nth-child(4){width:82px}.reservation-option-table th:nth-child(5),.reservation-option-table td:nth-child(5){width:64px}.reservation-option-table .badge{padding:3px 6px;font-size:11px}.reservation-option-table td.money{font-size:12px}
-.billing-grid{display:grid;grid-template-columns:minmax(360px,.72fr) minmax(720px,1.28fr);gap:14px}.billing-block{border:1px solid #d9dde3;border-radius:7px;background:#fff;overflow:hidden}.billing-title{background:#f7f9fb;border-bottom:1px solid #edf0f3;padding:10px 12px;font-weight:900;display:flex;justify-content:space-between;align-items:center}.billing-body{padding:12px}.calc-table{width:100%;border-collapse:collapse}.calc-table th,.calc-table td{border-bottom:1px solid #edf0f3;padding:9px;text-align:left}.calc-table td.money{text-align:right;font-weight:900;white-space:nowrap}.calc-table .minus{color:#d92d20}.calc-table .plus{color:#0f8738}.calc-table .total td{background:#eef6ff;font-size:15px}.payment-mini-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.payment-status-line{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin-bottom:10px}.payment-status-card{border:1px solid #edf0f3;background:#fafbfc;border-radius:6px;padding:9px}.payment-status-card span{display:block;color:#667085;font-weight:800;margin-bottom:5px}.payment-status-card strong{font-size:15px}.payment-table{width:100%;border-collapse:collapse;min-width:0}.payment-table th,.payment-table td{border:1px solid #edf0f3;padding:8px}.payment-table th{background:#f1f3f5}.payment-table td.money{text-align:right;font-weight:900}.payment-actions{display:flex;gap:6px;flex-wrap:wrap}.adjust-table{width:100%;border-collapse:collapse;margin-top:10px}.adjust-table th,.adjust-table td{border:1px solid #edf0f3;padding:8px}.adjust-table th{background:#f1f3f5}.adjust-table td.money{text-align:right;font-weight:900}.adjust-actions{display:flex;gap:6px;flex-wrap:wrap}.amount-modal,.payment-modal{width:min(720px,100%)}@media(max-width:1280px){.billing-grid{grid-template-columns:1fr}.payment-mini-grid,.payment-status-line{grid-template-columns:1fr 1fr}}@media(max-width:760px){.payment-status-line{grid-template-columns:1fr}}
-.save-bar{position:sticky;bottom:0;z-index:5;background:#fff;border:1px solid #d9dde3;border-radius:7px;padding:12px 14px;margin:12px 0;display:flex;align-items:center;justify-content:space-between;gap:12px;box-shadow:0 -4px 14px rgba(7,17,34,.06)}.save-bar strong{display:block;margin-bottom:4px}.save-bar .muted{font-size:12px}.save-actions{display:flex;gap:8px;flex-wrap:wrap}.memo-file-row{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.memo-file-row .panel,.bottom-history-grid .panel{min-width:0}.attachment-table,.send-history-table,.change-history-table{min-width:0;table-layout:fixed}.attachment-table th,.attachment-table td,.send-history-table th,.send-history-table td,.change-history-table th,.change-history-table td{padding:8px 6px;font-size:12px;word-break:keep-all}.attachment-table th:nth-child(1){width:78px}.attachment-table th:nth-child(3){width:78px}.attachment-table th:nth-child(4){width:82px}.attachment-table th:nth-child(5){width:64px}.send-history-table th:nth-child(2),.send-history-table td:nth-child(2){width:70px}.send-history-table th:nth-child(3),.send-history-table td:nth-child(3){width:112px}.send-history-table th:nth-child(4),.send-history-table td:nth-child(4){width:56px}.send-history-table th:nth-child(5),.send-history-table td:nth-child(5){width:56px}.send-history-table .btn.small{padding:5px 6px;font-size:11px}.change-history-table th:nth-child(1),.change-history-table td:nth-child(1){width:112px}.change-history-table th:nth-child(2),.change-history-table td:nth-child(2){width:66px}.change-history-table th:nth-child(3),.change-history-table td:nth-child(3){width:92px}.change-history-table th:nth-child(4),.change-history-table td:nth-child(4){width:98px}.change-history-table th:nth-child(5),.change-history-table td:nth-child(5){width:66px}.bottom-history-grid{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,6fr);gap:12px}@media(max-width:1000px){.memo-file-row,.bottom-history-grid{grid-template-columns:1fr}}
-  </style>
+  <link rel="stylesheet" href="./css/common.css">
+  <link rel="stylesheet" href="./css/layout.css">
+  <link rel="stylesheet" href="./css/components.css">
 </head>
-<body>
+<body data-page="reservation_detail">
   <div class="app">
-        <aside class="sidebar">
-    <div class="brand"><strong>AviaNext</strong><small>AOS Admin Prototype</small></div>
-    <div class="nav-title">관리메뉴</div>
-    <nav class="nav nav-tree">
-      <a href="popup_manage.html">팝업관리</a>
-      <div class="nav-group">
-        <div class="nav-depth1" onclick="toggleNavGroup(this)">📦 상품관리</div>
-        <a href="product_list.html">상품목록</a>
-        <a href="product_register.html">상품등록</a>
-        <a href="#" onclick="msg('재고관리 화면은 준비 중입니다.');return false;">재고관리</a>
-        <a href="#" onclick="msg('이미지관리 화면은 준비 중입니다.');return false;">이미지관리</a>
-        <a href="template_manage.html">템플릿관리</a>
-          <a href="attraction_manage.html">관광지관리</a>
-        <a href="#" onclick="msg('상품분류관리 화면은 준비 중입니다.');return false;">상품분류관리</a>
-      </div>
-      <div class="nav-group">
-        <div class="nav-depth1" onclick="toggleNavGroup(this)">📋 예약관리</div>
-        <a href="reservation_list.html">예약목록</a>
-        <a href="reservation_status.html">예약현황</a>
-        <a href="#" onclick="msg('좌석관리 화면은 준비 중입니다.');return false;">좌석관리</a>
-      </div>
-      <div class="nav-group">
-        <div class="nav-depth1" onclick="toggleNavGroup(this)">✈️ 항공예약관리</div>
-        <a href="#" onclick="msg('국제선예약 화면은 준비 중입니다.');return false;">국제선예약</a>
-        <a href="#" onclick="msg('국제선예약목록 화면은 준비 중입니다.');return false;">국제선예약목록</a>
-        <a href="#" onclick="msg('국내선예약 화면은 준비 중입니다.');return false;">국내선예약</a>
-        <a href="#" onclick="msg('국내선예약목록 화면은 준비 중입니다.');return false;">국내선예약목록</a>
-      </div>
-      <div class="nav-group">
-        <div class="nav-depth1" onclick="toggleNavGroup(this)">👤 회원관리</div>
-        <a href="#" onclick="msg('웹회원관리 화면은 준비 중입니다.');return false;">웹회원관리</a>
-        <a href="#" onclick="msg('관리자/직원 관리 화면은 준비 중입니다.');return false;">관리자/직원 관리</a>
-        <a href="seller_list.html">판매점관리</a>
-        <a href="#" onclick="msg('거래처관리 화면은 준비 중입니다.');return false;">거래처관리</a>
-        <a href="#" onclick="msg('그룹관리 화면은 준비 중입니다.');return false;">그룹관리</a>
-        <a href="#" onclick="msg('탈퇴회원 화면은 준비 중입니다.');return false;">탈퇴회원</a>
-      </div>
-      <div class="nav-group">
-        <div class="nav-depth1" onclick="toggleNavGroup(this)">💰 정산관리</div>
-        <a href="#" onclick="msg('인보이스관리 화면은 준비 중입니다.');return false;">인보이스관리</a>
-        <a href="#" onclick="msg('입금/환불현황 화면은 준비 중입니다.');return false;">입금/환불현황</a>
-        <a href="#" onclick="msg('미수금관리 화면은 준비 중입니다.');return false;">미수금관리</a>
-        <a href="#" onclick="msg('국제선정산(항공) 화면은 준비 중입니다.');return false;">국제선정산(항공)</a>
-        <a href="#" onclick="msg('발권데이터(항공) 화면은 준비 중입니다.');return false;">발권데이터(항공)</a>
-      </div>
-      <div class="nav-group">
-        <div class="nav-depth1" onclick="toggleNavGroup(this)">📊 통계관리</div>
-        <a href="statistics_dashboard.html">통계 대시보드</a>
-        <a href="statistics_sales.html">매출통계</a>
-        <a href="statistics_reservation.html">예약통계</a>
-        <a href="statistics_product.html">상품별 통계</a>
-        <a href="statistics_seller.html">판매점별 통계</a>
-        <a href="statistics_region.html">지역별 통계</a>
-        <a href="statistics_settlement.html">정산통계</a>
-      </div>
-      <div class="nav-group">
-        <div class="nav-depth1" onclick="toggleNavGroup(this)">🎨 디자인설정</div>
-        <a href="#" onclick="msg('템플릿관리 화면은 준비 중입니다.');return false;">템플릿관리</a>
-        <a href="#" onclick="msg('섹션관리 화면은 준비 중입니다.');return false;">섹션관리</a>
-        <a href="#" onclick="msg('홈페이지 설정 화면은 준비 중입니다.');return false;">홈페이지 설정</a>
-        <a href="#" onclick="msg('메인메뉴관리 화면은 준비 중입니다.');return false;">메인메뉴관리</a>
-        <a href="popup_manage.html">팝업관리</a>
-        <a href="#" onclick="msg('상단띠배너 화면은 준비 중입니다.');return false;">상단띠배너</a>
-        <a href="#" onclick="msg('관리자메뉴관리 화면은 준비 중입니다.');return false;">관리자메뉴관리</a>
-      </div>
-      <div class="nav-group">
-        <div class="nav-depth1" onclick="toggleNavGroup(this)">💬 알림톡/문자관리</div>
-        <a href="#" onclick="msg('알림톡 설정 화면은 준비 중입니다.');return false;">알림톡 설정</a>
-        <a href="#" onclick="msg('이메일발송 화면은 준비 중입니다.');return false;">이메일발송</a>
-        <a href="#" onclick="msg('문자발송 화면은 준비 중입니다.');return false;">문자발송</a>
-        <a href="#" onclick="msg('발송내역 화면은 준비 중입니다.');return false;">발송내역</a>
-        <a href="#" onclick="msg('메크로설정 화면은 준비 중입니다.');return false;">메크로설정</a>
-      </div>
-      <div class="nav-group">
-        <div class="nav-depth1" onclick="toggleNavGroup(this)">📝 게시판관리</div>
-        <a href="#" onclick="msg('공지사항 화면은 준비 중입니다.');return false;">공지사항</a>
-        <a href="#" onclick="msg('고객문의 화면은 준비 중입니다.');return false;">고객문의</a>
-        <a href="#" onclick="msg('여행후기 화면은 준비 중입니다.');return false;">여행후기</a>
-        <a href="#" onclick="msg('자주묻는질문 화면은 준비 중입니다.');return false;">자주묻는질문</a>
-        <a href="#" onclick="msg('고객문의 화면은 준비 중입니다.');return false;">고객문의</a>
-        <a href="#" onclick="msg('스캔목록 화면은 준비 중입니다.');return false;">스캔목록</a>
-        <a href="#" onclick="msg('자료실 화면은 준비 중입니다.');return false;">자료실</a>
-      </div>
-      <div class="nav-group">
-        <div class="nav-depth1" onclick="toggleNavGroup(this)">⚙️ 기본설정</div>
-        <a href="#" onclick="msg('항공사 Bin관리 화면은 준비 중입니다.');return false;">항공사 Bin관리</a>
-        <a href="#" onclick="msg('노선관리 화면은 준비 중입니다.');return false;">노선관리</a>
-        <a href="#" onclick="msg('탑승역관리 화면은 준비 중입니다.');return false;">탑승역관리</a>
-        <a href="#" onclick="msg('열차관리 화면은 준비 중입니다.');return false;">열차관리</a>
-        <a href="#" onclick="msg('템플릿사이트관리 화면은 준비 중입니다.');return false;">템플릿사이트관리</a>
-      </div>
-    </nav>
-  </aside>
-    <main>
+  <aside class="sidebar" data-include="./includes/sidebar.html"></aside>
+<main>
       <header class="topbar"><strong>예약상세</strong><span>윤호님 · 로그아웃</span></header>
       <div class="page">
         <div class="page-head">
@@ -199,7 +101,7 @@ body{margin:0;background:#f4f6f8;color:#222;font-family:"Malgun Gothic","Noto Sa
             </div>
           </section>
 
-          <section class="panel" style="grid-column:1/-1">
+          <section class="panel u-style-068a8ddc">
             <div class="panel-head">
               <span>인원/요금/결제 정보</span>
               <div class="adjust-actions">
@@ -209,11 +111,11 @@ body{margin:0;background:#f4f6f8;color:#222;font-family:"Malgun Gothic","Noto Sa
               </div>
             </div>
             <div class="panel-body">
-              <div class="money-line" style="margin-bottom:12px">
+              <div class="money-line u-style-da12f285">
                 <div class="money-box"><span>대인/소인/유아</span><strong>대3 / 소1 / 유0</strong></div>
                 <div class="money-box total"><span>총 예약금액</span><strong id="billingTotalAmount">240,000원</strong></div>
                 <div class="money-box paid"><span>결제완료금액</span><strong id="billingPaidAmount">80,000원</strong></div>
-                <div class="money-box"><span>미수금</span><strong id="billingBalanceAmount" style="color:#d92d20">160,000원</strong></div>
+                <div class="money-box"><span>미수금</span><strong class="u-style-331b7a1e" id="billingBalanceAmount">160,000원</strong></div>
               </div>
               <div class="billing-grid">
                 <div class="billing-block">
@@ -251,7 +153,7 @@ body{margin:0;background:#f4f6f8;color:#222;font-family:"Malgun Gothic","Noto Sa
                       <div class="payment-status-card"><span>결제상태</span><strong id="paymentStatusText">예약금완료</strong></div>
                       <div class="payment-status-card"><span>최근 결제일</span><strong id="lastPaymentDate">2026-06-10</strong></div>
                     </div>
-                    <div class="payment-actions" style="margin-bottom:10px">
+                    <div class="payment-actions u-style-761d3add">
                       <button class="btn small blue" onclick="openPaymentRegisterModal('card')">카드결제 내역추가</button>
                       <button class="btn small" onclick="openPaymentRegisterModal('bank')">무통장입금 등록</button>
                       <button class="btn small" onclick="msg('계좌 API 연동으로 통장 입금내역을 불러오는 샘플입니다.')">계좌확인</button>
@@ -264,7 +166,7 @@ body{margin:0;background:#f4f6f8;color:#222;font-family:"Malgun Gothic","Noto Sa
                         </tbody>
                       </table>
                     </div>
-                    <div class="payment-mini-grid" style="margin-top:10px">
+                    <div class="payment-mini-grid u-style-d2c171b1">
                       <div class="field"><label>현금영수증</label><div class="value"><span class="badge b-blue">신청</span></div></div>
                       <div class="field"><label>세금계산서</label><div class="value"><span class="badge b-gray">미신청</span></div></div>
                     </div>
@@ -571,333 +473,8 @@ body{margin:0;background:#f4f6f8;color:#222;font-family:"Malgun Gothic","Noto Sa
       </div>
     </div>
   </div>
-
-  <script>
-function msg(t){alert(t)}
-function openModal(title, body){
-  document.getElementById('modalTitle').textContent=title;
-  document.getElementById('modalBody').textContent=body;
-  document.getElementById('sampleModal').style.display='flex';
-}
-function closeModal(){
-  document.getElementById('sampleModal').style.display='none';
-}
-function getValue(id){return document.getElementById(id).value}
-function setValue(id,value){document.getElementById(id).value=value}
-function nowText(){
-  var now=new Date();
-  return now.getFullYear()+'-'+String(now.getMonth()+1).padStart(2,'0')+'-'+String(now.getDate()).padStart(2,'0')+' '+String(now.getHours()).padStart(2,'0')+':'+String(now.getMinutes()).padStart(2,'0');
-}
-function addHistoryRow(type,beforeText,afterText,manager,memo){
-  var row=document.getElementById('changeHistoryBody').insertRow(0);
-  [nowText(),type,beforeText,afterText,manager,memo].forEach(function(text){
-    row.insertCell().textContent=text;
-  });
-}
-function saveReservationDetail(){
-  var manager=getValue('detailManager');
-  addHistoryRow('예약상세 저장','화면 수정중','저장완료',manager,'예약상세 화면의 직접 수정 항목 저장');
-  msg('예약상세 변경사항이 저장되었습니다. 변경이력에 저장 기록을 추가했습니다.');
-}
-function openEditModal(){
-  setValue('editRoute', getValue('detailRoute'));
-  setValue('editReservationStatus', getValue('detailReservationStatus'));
-  setValue('editManager', getValue('detailManager'));
-  setValue('editRequest', getValue('detailRequest'));
-  setValue('editCustomerName', getValue('detailCustomerName'));
-  setValue('editPhone', getValue('detailPhone'));
-  setValue('editEmail', getValue('detailEmail'));
-  setValue('editEmergencyPhone', getValue('detailEmergencyPhone'));
-  setValue('editAddress', getValue('detailAddress'));
-  setValue('editInternalMemo', getValue('detailInternalMemo'));
-  setValue('editSharedMemo', getValue('detailSharedMemo'));
-  document.getElementById('editReservationModal').style.display='flex';
-}
-function closeEditModal(){
-  document.getElementById('editReservationModal').style.display='none';
-}
-function statusClass(status){
-  if(status==='예약확정'||status==='출발완료') return 'badge b-green';
-  if(status==='예약접수') return 'badge b-blue';
-  if(status==='취소요청'||status==='취소완료') return 'badge b-red';
-  if(status==='예약보류'||status==='대기예약') return 'badge b-orange';
-  return 'badge b-gray';
-}
-function saveEditReservation(){
-  var beforeStatus=getValue('detailReservationStatus');
-  var beforeManager=getValue('detailManager');
-  setValue('detailRoute', getValue('editRoute'));
-  setValue('detailReservationStatus', getValue('editReservationStatus'));
-  setValue('detailManager', getValue('editManager'));
-  setValue('detailRequest', getValue('editRequest'));
-  setValue('detailCustomerName', getValue('editCustomerName'));
-  setValue('detailPhone', getValue('editPhone'));
-  setValue('detailEmail', getValue('editEmail'));
-  setValue('detailEmergencyPhone', getValue('editEmergencyPhone'));
-  setValue('detailAddress', getValue('editAddress'));
-  setValue('detailInternalMemo', getValue('editInternalMemo'));
-  setValue('detailSharedMemo', getValue('editSharedMemo'));
-
-  var status=getValue('editReservationStatus');
-  var manager=getValue('editManager');
-  var statusBadge=document.getElementById('summaryReservationStatus');
-  statusBadge.textContent=status;
-  statusBadge.className=statusClass(status);
-  document.getElementById('summaryCustomerPeople').textContent=getValue('editCustomerName')+' / 4명';
-
-  var history=document.getElementById('changeHistoryBody');
-  var row=history.insertRow(0);
-  var memo=getValue('editReasonType')+' - 예약 기본정보/예약자 정보 수정';
-  var now=new Date();
-  var nowText=now.getFullYear()+'-'+String(now.getMonth()+1).padStart(2,'0')+'-'+String(now.getDate()).padStart(2,'0')+' '+String(now.getHours()).padStart(2,'0')+':'+String(now.getMinutes()).padStart(2,'0');
-  [nowText,'예약수정',beforeStatus+' / '+beforeManager,status+' / '+manager,manager,memo].forEach(function(text){
-    row.insertCell().textContent=text;
-  });
-  closeEditModal();
-  msg('예약 수정내용이 저장되었습니다. 결제상태와 금액은 별도 처리 영역에서 관리됩니다.');
-}
-function openOptionModal(){
-  document.getElementById('optionModal').style.display='flex';
-  renderSelectedOptions();
-}
-function closeOptionModal(){
-  document.getElementById('optionModal').style.display='none';
-}
-var billingBaseAmount=220000;
-var billingOptionAmount=30000;
-var billingDiscountAmount=10000;
-var billingExtraAmount=0;
-var billingPaidAmount=80000;
-var currentAmountType='discount';
-var currentPaymentRegisterMode='bank';
-function openAmountModal(type){
-  currentAmountType=type;
-  document.getElementById('amountModalTitle').textContent=type==='discount'?'할인금액 추가':'추가금액 추가';
-  document.getElementById('amountTypeLabel').value=type==='discount'?'할인금액':'추가금액';
-  document.getElementById('amountValue').value='';
-  document.getElementById('amountReason').value='';
-  document.getElementById('amountModal').style.display='flex';
-}
-function closeAmountModal(){
-  document.getElementById('amountModal').style.display='none';
-}
-function saveAmountAdjustment(){
-  var raw=document.getElementById('amountValue').value.replace(/[^0-9]/g,'');
-  var amount=parseInt(raw,10);
-  var reason=document.getElementById('amountReason').value.trim();
-  var manager=document.getElementById('amountManager').value;
-  if(!amount){
-    msg('금액을 입력해주세요.');
-    return;
-  }
-  if(!reason){
-    msg('조정사유를 입력해주세요.');
-    return;
-  }
-  if(currentAmountType==='discount') billingDiscountAmount+=amount;
-  if(currentAmountType==='extra') billingExtraAmount+=amount;
-  addAdjustmentRow(currentAmountType,reason,amount,manager);
-  updateBillingSummary();
-  addBillingHistory(currentAmountType,amount,reason,manager);
-  closeAmountModal();
-  msg('금액 조정이 반영되었습니다. 결제완료금액은 변경하지 않고 미수금만 재계산했습니다.');
-}
-function addAdjustmentRow(type,reason,amount,manager){
-  var row=document.getElementById('adjustmentBody').insertRow();
-  row.insertCell().textContent=type==='discount'?'할인':'추가';
-  row.insertCell().textContent=reason;
-  var amountCell=row.insertCell();
-  amountCell.className='money';
-  amountCell.textContent=(type==='discount'?'-':'+')+amount.toLocaleString('ko-KR')+'원';
-  row.insertCell().textContent=manager;
-}
-function updateBillingSummary(){
-  var total=billingBaseAmount+billingOptionAmount-billingDiscountAmount+billingExtraAmount;
-  var balance=total-billingPaidAmount;
-  document.getElementById('billingDiscountAmount').textContent='-'+billingDiscountAmount.toLocaleString('ko-KR')+'원';
-  document.getElementById('billingExtraAmount').textContent=billingExtraAmount.toLocaleString('ko-KR')+'원';
-  document.getElementById('billingCalcTotal').textContent=formatMoney(total);
-  document.getElementById('billingTotalAmount').textContent=formatMoney(total);
-  document.getElementById('billingPaidAmount').textContent=formatMoney(billingPaidAmount);
-  document.getElementById('billingBalanceAmount').textContent=formatMoney(balance);
-  document.getElementById('remainingAmount').textContent=formatMoney(Math.max(balance,0));
-  updatePaymentStatusByBalance(balance);
-}
-function addBillingHistory(type,amount,reason,manager){
-  var history=document.getElementById('changeHistoryBody');
-  var row=history.insertRow(0);
-  var now=new Date();
-  var nowText=now.getFullYear()+'-'+String(now.getMonth()+1).padStart(2,'0')+'-'+String(now.getDate()).padStart(2,'0')+' '+String(now.getHours()).padStart(2,'0')+':'+String(now.getMinutes()).padStart(2,'0');
-  var label=type==='discount'?'할인금액':'추가금액';
-  [nowText,'금액조정',label,label+' '+formatMoney(amount),manager,reason].forEach(function(text){
-    row.insertCell().textContent=text;
-  });
-}
-function openPaymentRegisterModal(mode){
-  currentPaymentRegisterMode=mode;
-  var balance=currentBalanceAmount();
-  document.getElementById('paymentRegisterTitle').textContent=mode==='card'?'카드결제 내역추가':'무통장입금 등록';
-  document.getElementById('paymentInputMethod').value=mode==='card'?'카드결제':'무통장입금';
-  document.getElementById('paymentInputType').value=balance>0?'잔금':'추가입금';
-  document.getElementById('paymentInputAmount').value=balance>0?balance.toLocaleString('ko-KR'):'';
-  document.getElementById('paymentInputStatus').value=mode==='card'?'승인완료':'입금완료';
-  document.getElementById('paymentInputRef').value=mode==='card'?'CARD-AUTO-20260614':'최정우';
-  document.getElementById('paymentInputMemo').value=mode==='card'?'카드 승인 자동수집 샘플':'무통장입금 관리자 확인 샘플';
-  document.getElementById('paymentRegisterModal').style.display='flex';
-}
-function closePaymentRegisterModal(){
-  document.getElementById('paymentRegisterModal').style.display='none';
-}
-function currentTotalAmount(){
-  return billingBaseAmount+billingOptionAmount-billingDiscountAmount+billingExtraAmount;
-}
-function currentBalanceAmount(){
-  return currentTotalAmount()-billingPaidAmount;
-}
-function savePaymentRecord(){
-  var raw=document.getElementById('paymentInputAmount').value.replace(/[^0-9]/g,'');
-  var amount=parseInt(raw,10);
-  if(!amount){
-    msg('결제금액을 입력해주세요.');
-    return;
-  }
-  billingPaidAmount+=amount;
-  var date=document.getElementById('paymentInputDate').value;
-  var method=document.getElementById('paymentInputMethod').value;
-  var type=document.getElementById('paymentInputType').value;
-  var status=document.getElementById('paymentInputStatus').value;
-  var ref=document.getElementById('paymentInputRef').value;
-  addPaymentHistoryRow(date,method,type,amount,status,ref,currentPaymentRegisterMode==='card'?'자동수집':'관리자등록');
-  updateBillingSummary();
-  document.getElementById('lastPaymentDate').textContent=date;
-  addPaymentHistory(date,method,type,amount,status);
-  closePaymentRegisterModal();
-  msg(currentBalanceAmount()<=0?'미수금이 0원이 되어 결제상태가 전액결제완료로 자동 변경되었습니다.':'결제내역이 저장되었습니다.');
-}
-function addPaymentHistoryRow(date,method,type,amount,status,ref,source){
-  var row=document.getElementById('paymentHistoryBody').insertRow(0);
-  row.insertCell().textContent=date;
-  row.insertCell().textContent=method;
-  row.insertCell().textContent=type;
-  var amountCell=row.insertCell();
-  amountCell.className='money';
-  amountCell.textContent=formatMoney(amount);
-  var statusCell=row.insertCell();
-  statusCell.innerHTML='<span class="badge b-blue"></span>';
-  statusCell.querySelector('span').textContent=status;
-  row.insertCell().textContent=ref;
-  row.insertCell().textContent=source;
-}
-function updatePaymentStatusByBalance(balance){
-  var status=balance<=0?'전액결제완료':(billingPaidAmount>0?'예약금완료':'미결제');
-  document.getElementById('paymentStatusText').textContent=status;
-  document.getElementById('paymentStatusBadge').textContent=status;
-  document.getElementById('paymentStatusBadge').className=balance<=0?'badge b-green':'badge b-blue';
-  document.getElementById('summaryPaymentStatus').textContent=status;
-  document.getElementById('summaryPaymentStatus').className=balance<=0?'badge b-green':'badge b-blue';
-}
-function addPaymentHistory(date,method,type,amount,status){
-  var history=document.getElementById('changeHistoryBody');
-  var row=history.insertRow(0);
-  [date,'결제상태','미수금 '+formatMoney(currentBalanceAmount()+amount),'미수금 '+formatMoney(currentBalanceAmount()),'이도현',method+' '+type+' '+formatMoney(amount)+' '+status].forEach(function(text){
-    row.insertCell().textContent=text;
-  });
-}
-var reservationOptions=[
-  {name:'강화 루지 체험권', item:'일반', unit:10000, qty:3, people:'수량선택 가능', required:'선택'}
-];
-function formatMoney(value){
-  var sign=value<0?'-':'';
-  return sign+Math.abs(value).toLocaleString('ko-KR')+'원';
-}
-function optionKey(name,item){
-  return name+'||'+item;
-}
-function renderSelectedOptions(){
-  var tbody=document.getElementById('selectedOptionBody');
-  tbody.innerHTML='';
-  var total=0;
-  reservationOptions.forEach(function(opt,index){
-    var amount=opt.unit*opt.qty;
-    total+=amount;
-    var row=tbody.insertRow();
-    row.innerHTML='<td></td><td></td><td class="money"></td><td class="center"></td><td class="money"></td><td class="center"><button class="icon-delete" onclick="removeReservationOption('+index+')">×</button></td>';
-    row.cells[0].textContent=opt.name;
-    row.cells[1].textContent=opt.item;
-    row.cells[2].textContent=formatMoney(opt.unit);
-    row.cells[2].className=opt.unit<0?'money price-negative':'money';
-    row.cells[3].innerHTML='<div class="qty-control"><button onclick="changeOptionQty('+index+',-1)">-</button><input value="'+opt.qty+'" onchange="setOptionQty('+index+',this.value)"><button onclick="changeOptionQty('+index+',1)">+</button></div>';
-    row.cells[4].textContent=formatMoney(amount);
-    row.cells[4].className=amount<0?'money price-negative':'money';
-  });
-  document.getElementById('selectedOptionEmpty').style.display=reservationOptions.length?'none':'block';
-  document.getElementById('selectedOptionCount').textContent=reservationOptions.length+'건';
-  document.getElementById('reservationOptionTotal').textContent=formatMoney(total);
-}
-function changeOptionQty(index,delta){
-  reservationOptions[index].qty=Math.max(1,reservationOptions[index].qty+delta);
-  renderSelectedOptions();
-}
-function setOptionQty(index,value){
-  var qty=parseInt(value,10);
-  reservationOptions[index].qty=isNaN(qty)||qty<1?1:qty;
-  renderSelectedOptions();
-}
-function addRegisteredOption(name,item,unit,people,required){
-  var exists=reservationOptions.some(function(opt){return optionKey(opt.name,opt.item)===optionKey(name,item)});
-  if(exists){
-    msg('이미 선택된 옵션 항목입니다. 인원/수량을 수정해주세요.');
-    return;
-  }
-  reservationOptions.push({name:name,item:item,unit:unit,qty:people==='전체인원 자동선택'?4:1,people:people,required:required});
-  renderSelectedOptions();
-}
-function removeReservationOption(index){
-  var opt=reservationOptions[index];
-  if(opt.required==='필수'&&!confirm('필수 옵션입니다. 이 예약에서 제외 처리하시겠습니까?')) return;
-  reservationOptions.splice(index,1);
-  renderSelectedOptions();
-}
-function applyReservationOptions(){
-  renderOptionSummary();
-  addOptionHistory();
-  closeOptionModal();
-  msg('예약 옵션 변경내용이 반영되었습니다. 상품 옵션 마스터는 변경되지 않습니다.');
-}
-function renderOptionSummary(){
-  var tbody=document.getElementById('reservationOptionSummaryBody');
-  tbody.innerHTML='';
-  if(!reservationOptions.length){
-    var empty=tbody.insertRow();
-    empty.innerHTML='<td colspan="5" class="center">선택된 옵션이 없습니다.</td>';
-    return;
-  }
-  reservationOptions.forEach(function(opt){
-    var row=tbody.insertRow();
-    row.innerHTML='<td></td><td><span class="badge b-blue"></span></td><td class="center"></td><td class="money"></td><td><span class="badge b-gray"></span></td>';
-    row.cells[0].textContent=opt.name+' / '+opt.item;
-    row.cells[1].querySelector('span').textContent=opt.people;
-    row.cells[2].textContent=opt.qty;
-    row.cells[3].textContent=formatMoney(opt.unit*opt.qty);
-    row.cells[4].querySelector('span').textContent=opt.required;
-  });
-}
-function addOptionHistory(){
-  var history=document.getElementById('changeHistoryBody');
-  var row=history.insertRow(0);
-  var now=new Date();
-  var nowText=now.getFullYear()+'-'+String(now.getMonth()+1).padStart(2,'0')+'-'+String(now.getDate()).padStart(2,'0')+' '+String(now.getHours()).padStart(2,'0')+':'+String(now.getMinutes()).padStart(2,'0');
-  [nowText,'옵션', '예약 선택옵션', reservationOptions.length+'건 / '+document.getElementById('reservationOptionTotal').textContent, '이도현', '예약 옵션 인원/항목 수정'].forEach(function(text){
-    row.insertCell().textContent=text;
-  });
-}
-function escapeHtml(text){
-  return text.replace(/[&<>"']/g,function(ch){
-    return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[ch];
-  });
-}
-  function toggleNavGroup(el){el.closest('.nav-group').classList.toggle('open')}
-  </script>
+  <script src="./js/common.js"></script>
+  <script src="./js/components.js"></script>
 </body>
 </html>
 
