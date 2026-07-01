@@ -26,7 +26,7 @@
           <a class="tab active" href="product_detail.html">상품기본설정</a>
           <a class="tab" href="schedule_register.html">일정표</a>
           <a class="tab" href="price_setting.html">요금설정</a>
-          <a class="tab" href="#" onclick="msg('판매점설정 샘플입니다.');return false;">판매점설정</a>
+          <a class="tab" href="#" onclick="openSellerSettingModal();return false;">판매점설정</a>
           <a class="tab" href="#" onclick="msg('거래처설정 샘플입니다.');return false;">거래처설정</a>
         </nav>
 
@@ -190,47 +190,6 @@
             </div>
           </section>
 
-          <!-- 판매점 설정: 선택된 판매점에만 판매점 로그인 시 이 상품을 노출합니다. -->
-          <section class="panel commission-panel">
-            <div class="panel-head">
-              <span class="commission-title">판매점 설정</span>
-              <button class="btn small green" onclick="location.href='seller_list.html'">판매점 관리</button>
-            </div>
-            <div class="panel-body">
-              <div class="seller-setting-filter">
-                <div class="field"><label>판매점명</label><input id="sellerSearchName" placeholder="판매점명 검색"></div>
-                <div class="field"><label>등급별검색</label><select id="sellerSearchGrade"><option value="">전체</option><option value="A">A그룹</option><option value="B">B그룹</option><option value="C">C그룹</option><option value="D">D그룹</option></select></div>
-                <div class="field"><label>그룹별</label><select id="sellerSearchGroup"><option value="">전체</option><option value="A">A그룹</option><option value="B">B그룹</option><option value="C">C그룹</option><option value="D">D그룹</option></select></div>
-                <div class="field"><label>지역</label><select id="sellerSearchRegion"><option value="">전체</option></select></div>
-                <div class="field"><label>&nbsp;</label><button class="btn small green" onclick="renderProductSellerRows()">검색</button></div>
-                <div class="field"><label>&nbsp;</label><button class="btn small" onclick="resetProductSellerFilters()">초기화</button></div>
-              </div>
-              <div class="seller-setting-summary">
-                <span id="sellerSettingCount">총 0개 판매점</span>
-                <span id="sellerSelectedCount">선택 0개</span>
-              </div>
-              <div class="table-wrap">
-                <table class="table compact seller-setting-table">
-                  <thead>
-                    <tr>
-                      <th><input type="checkbox" id="sellerSelectAll" onchange="toggleAllProductSellers(this.checked)"></th>
-                      <th>판매점명</th>
-                      <th>등급</th>
-                      <th>그룹</th>
-                      <th>지역</th>
-                      <th>대표자명</th>
-                      <th>담당자명</th>
-                      <th>연락처</th>
-                      <th>상품노출</th>
-                    </tr>
-                  </thead>
-                  <tbody id="productSellerRows"></tbody>
-                </table>
-              </div>
-              <p class="seller-setting-note">선택한 판매점만 판매점 로그인 시 이 상품이 노출됩니다. 지역은 판매점관리에서 주소 입력 시 자동 등록된 값을 사용합니다.</p>
-            </div>
-          </section>
-
           <!-- 포함/불포함 사항: 템플릿 선택 시 기존 내용을 덮어쓰기합니다. -->
           <section class="panel">
             <div class="panel-head"><span>포함사항</span><button class="btn small green" onclick="openSimpleTemplateModal('includeEditor','include')">템플릿 선택</button></div>
@@ -295,6 +254,53 @@
               </div>
             </div>
           </section>
+
+          <div id="sellerSettingModal" class="modal-backdrop seller-setting-modal" onclick="closeSellerSettingModal(event)">
+            <div class="modal-box seller-setting-box" onclick="event.stopPropagation()">
+              <div class="modal-head">
+                <span>판매점 설정</span>
+                <div class="modal-head-actions">
+                  <button class="btn small green" onclick="location.href='seller_list.html'">판매점 관리</button>
+                  <button class="btn small" onclick="closeSellerSettingModal()">닫기</button>
+                </div>
+              </div>
+              <div class="modal-body">
+                <div class="seller-setting-filter">
+                  <div class="field"><label>판매점명</label><input id="sellerSearchName" placeholder="판매점명 검색"></div>
+                  <div class="field"><label>그룹별</label><select id="sellerSearchGroup"><option value="">전체</option><option value="A">A그룹</option><option value="B">B그룹</option><option value="C">C그룹</option><option value="D">D그룹</option></select></div>
+                  <div class="field"><label>지역</label><select id="sellerSearchRegion"><option value="">전체</option></select></div>
+                  <div class="field"><label>&nbsp;</label><button class="btn small green" onclick="renderProductSellerRows()">검색</button></div>
+                  <div class="field"><label>&nbsp;</label><button class="btn small" onclick="resetProductSellerFilters()">초기화</button></div>
+                </div>
+                <div class="seller-setting-summary">
+                  <span id="sellerSettingCount">총 0개 판매점</span>
+                  <span id="sellerSelectedCount">선택 0개</span>
+                </div>
+                <div class="table-wrap">
+                  <table class="table compact seller-setting-table">
+                    <thead>
+                      <tr>
+                        <th><input type="checkbox" id="sellerSelectAll" onchange="toggleAllProductSellers(this.checked)"></th>
+                        <th>판매점명</th>
+                        <th>그룹</th>
+                        <th>지역</th>
+                        <th>대표자명</th>
+                        <th>담당자명</th>
+                        <th>연락처</th>
+                        <th>상품노출</th>
+                      </tr>
+                    </thead>
+                    <tbody id="productSellerRows"></tbody>
+                  </table>
+                </div>
+                <p class="seller-setting-note">선택한 판매점만 판매점 로그인 시 이 상품이 노출됩니다. 지역은 판매점관리에서 주소 입력 시 자동 등록된 값을 사용합니다.</p>
+              </div>
+              <div class="modal-foot seller-setting-foot">
+                <span>선택된 판매점만 이 상품을 판매점 로그인 화면에 노출합니다.</span>
+                <div><button class="btn" onclick="closeSellerSettingModal()">취소</button> <button class="btn green" onclick="saveProductSellerSettings()">저장</button></div>
+              </div>
+            </div>
+          </div>
 
           <div id="templatePreviewModal" class="modal-backdrop" onclick="closeTemplatePreview(event)">
             <div class="modal-box" onclick="event.stopPropagation()">

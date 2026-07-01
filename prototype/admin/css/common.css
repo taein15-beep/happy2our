@@ -444,3 +444,16 @@ body[data-page="template_manage"] .desc{font-weight:700;color:#555}
 body[data-page="template_manage"] .badge{display:inline-flex;border-radius:14px;padding:4px 8px;font-size:12px;font-weight:900;background:#eef1f5;color:#475467}
 
 body[data-page="template_manage"] .hint{color:#667085;font-size:12px;font-weight:700}
+body[data-page="member_vendor_list"],body[data-page="member_vendor_form"]{margin:0;background:#f4f6f8;color:#222;font-family:"Malgun Gothic","Noto Sans KR",Arial,sans-serif;font-size:13px}
+body[data-page="member_vendor_list"] h1,body[data-page="member_vendor_form"] h1{font-size:24px;margin:0 0 6px}
+body[data-page="member_vendor_list"] .desc,body[data-page="member_vendor_form"] .desc{font-weight:700;color:#555}
+body[data-page="member_vendor_list"] .center,body[data-page="member_vendor_form"] .center{text-align:center}
+body[data-page="member_vendor_list"] .money,body[data-page="member_vendor_form"] .money{text-align:right}
+body[data-page="member_vendor_list"] .muted,body[data-page="member_vendor_form"] .muted{color:#667085;font-size:12px}
+body[data-page="member_vendor_list"] .badge,body[data-page="member_vendor_form"] .badge{display:inline-flex;border-radius:14px;padding:4px 8px;font-size:12px;font-weight:900;white-space:nowrap}
+body[data-page="member_vendor_list"] .b-green,body[data-page="member_vendor_form"] .b-green{background:#e7f8ee;color:#0f8738}
+body[data-page="member_vendor_list"] .b-blue,body[data-page="member_vendor_form"] .b-blue{background:#eaf1ff;color:#2556d9}
+body[data-page="member_vendor_list"] .b-orange,body[data-page="member_vendor_form"] .b-orange{background:#fff4de;color:#b45309}
+body[data-page="member_vendor_list"] .b-red,body[data-page="member_vendor_form"] .b-red{background:#fff0f0;color:#d92d20}
+body[data-page="member_vendor_list"] .b-gray,body[data-page="member_vendor_form"] .b-gray{background:#eef1f5;color:#475467}
+body[data-page="member_vendor_list"] .b-purple,body[data-page="member_vendor_form"] .b-purple{background:#f1ecff;color:#6941c6}

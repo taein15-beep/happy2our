@@ -1340,3 +1340,32 @@ body[data-page="template_manage"] .app{grid-template-columns:1fr}
 @media(max-width:760px){
 body[data-page="template_manage"] .sidebar{display:none}
 }
+body[data-page="member_vendor_list"] .app,body[data-page="member_vendor_form"] .app{display:grid;grid-template-columns:250px 1fr;min-height:100vh}
+body[data-page="member_vendor_list"] .sidebar,body[data-page="member_vendor_form"] .sidebar{background:#071122;color:#d7e1f0;padding:18px 0}
+body[data-page="member_vendor_list"] .brand,body[data-page="member_vendor_form"] .brand{padding:0 18px 18px;border-bottom:1px solid rgba(255,255,255,.1)}
+body[data-page="member_vendor_list"] .brand strong,body[data-page="member_vendor_form"] .brand strong{display:block;color:white;font-size:17px}
+body[data-page="member_vendor_list"] .nav-title,body[data-page="member_vendor_form"] .nav-title{padding:18px 18px 8px;color:#8ea0bb;font-size:11px}
+body[data-page="member_vendor_list"] .nav a,body[data-page="member_vendor_form"] .nav a{display:block;padding:11px 18px;color:#cdd6e5;text-decoration:none;border-left:3px solid transparent}
+body[data-page="member_vendor_list"] .nav a.active,body[data-page="member_vendor_form"] .nav a.active{background:rgba(255,255,255,.08);border-left-color:#5b8cff;color:white}
+body[data-page="member_vendor_list"] .nav-tree,body[data-page="member_vendor_form"] .nav-tree{padding:8px 0 18px}
+body[data-page="member_vendor_list"] .nav-group,body[data-page="member_vendor_form"] .nav-group{border-bottom:1px solid rgba(255,255,255,.06);padding:6px 0}
+body[data-page="member_vendor_list"] .nav-depth1,body[data-page="member_vendor_form"] .nav-depth1{padding:10px 18px 8px;color:#fff;font-weight:900;font-size:13px;cursor:pointer;display:flex;align-items:center;justify-content:space-between}
+body[data-page="member_vendor_list"] .nav-depth1:after,body[data-page="member_vendor_form"] .nav-depth1:after{content:'▾';font-size:10px;color:#8ea0bb}
+body[data-page="member_vendor_list"] .nav-group:not(.open) .nav-depth1:after,body[data-page="member_vendor_form"] .nav-group:not(.open) .nav-depth1:after{content:'▸'}
+body[data-page="member_vendor_list"] .nav-group:not(.open) a,body[data-page="member_vendor_form"] .nav-group:not(.open) a{display:none}
+body[data-page="member_vendor_list"] .nav-group a,body[data-page="member_vendor_form"] .nav-group a{position:relative;padding:7px 18px 7px 46px;font-size:12px;color:#b9c6d8}
+body[data-page="member_vendor_list"] .nav-group a:before,body[data-page="member_vendor_form"] .nav-group a:before{content:'├';position:absolute;left:26px;top:7px;color:rgba(185,198,216,.7);font-size:12px;line-height:1}
+body[data-page="member_vendor_list"] .nav-group a.active,body[data-page="member_vendor_form"] .nav-group a.active{background:rgba(91,140,255,.18);border-left-color:#5b8cff;color:white}
+body[data-page="member_vendor_list"] .nav-group.open .nav-depth1,body[data-page="member_vendor_form"] .nav-group.open .nav-depth1{color:#8fb3ff}
+body[data-page="member_vendor_list"] .topbar,body[data-page="member_vendor_form"] .topbar{height:48px;background:white;border-bottom:1px solid #d9dde3;display:flex;align-items:center;justify-content:space-between;padding:0 16px}
+body[data-page="member_vendor_list"] .page,body[data-page="member_vendor_form"] .page{padding:16px;max-width:1800px}
+body[data-page="member_vendor_list"] .page-head,body[data-page="member_vendor_form"] .page-head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:14px}
+body[data-page="member_vendor_list"] .top-actions,body[data-page="member_vendor_form"] .top-actions{display:flex;gap:8px;align-items:center;justify-content:flex-end;flex-wrap:wrap}
+body[data-page="member_vendor_list"] .panel,body[data-page="member_vendor_form"] .panel{background:white;border:1px solid #d9dde3;border-radius:7px;margin-bottom:12px;overflow:hidden}
+body[data-page="member_vendor_list"] .panel-head,body[data-page="member_vendor_form"] .panel-head{background:#e6e6e6;padding:12px 14px;font-weight:900;border-bottom:1px solid #d9dde3;display:flex;justify-content:space-between;align-items:center;gap:8px}
+body[data-page="member_vendor_list"] .panel-body,body[data-page="member_vendor_form"] .panel-body{padding:14px}
+@media(max-width:1000px){
+body[data-page="member_vendor_list"] .app,body[data-page="member_vendor_form"] .app{grid-template-columns:1fr}
+body[data-page="member_vendor_list"] .sidebar,body[data-page="member_vendor_form"] .sidebar{display:none}
+body[data-page="member_vendor_list"] .page-head,body[data-page="member_vendor_form"] .page-head{display:block}
+}

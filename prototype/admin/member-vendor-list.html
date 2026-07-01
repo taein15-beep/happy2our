@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>랜드사관리</title>
+  <link rel="stylesheet" href="./css/common.css">
+  <link rel="stylesheet" href="./css/layout.css">
+  <link rel="stylesheet" href="./css/components.css">
+</head>
+<body data-page="member_vendor_list">
+<div class="app">
+  <aside class="sidebar" data-include="./includes/sidebar.html"></aside>
+  <main>
+    <header class="topbar"><strong>랜드사관리</strong><span>윤호님 · 로그아웃</span></header>
+    <div class="page">
+      <div class="page-head">
+        <div>
+          <h1>랜드사관리</h1>
+          <div class="desc">여행상품 운영에 필요한 식당, 숙박, 선박, 액티비티 등 랜드사 정보를 관리합니다.</div>
+        </div>
+        <div class="top-actions">
+          <a class="btn blue" href="member-vendor-form.html">+ 랜드사 등록</a>
+        </div>
+      </div>
+
+      <section class="panel">
+        <div class="panel-head">랜드사 검색</div>
+        <div class="panel-body">
+          <div class="vendor-filter-grid">
+            <div class="field"><label>카테고리</label><select><option>전체</option><option>식당</option><option>숙박</option><option>선박</option><option>액티비티</option><option>관광지</option><option>차량</option><option>가이드</option><option>기타</option></select></div>
+            <div class="field"><label>지역</label><select><option>전체</option><option>서울</option><option>경기</option><option>인천</option><option>강원</option><option>충청</option><option>전라</option><option>경상</option><option>제주</option><option>기타</option></select></div>
+            <div class="field"><label>사용상태</label><select><option>전체</option><option>사용중</option><option>사용중지</option><option>승인대기</option></select></div>
+            <div class="field"><label>로그인계정</label><select><option>전체</option><option>사용</option><option>미사용</option></select></div>
+            <div class="field"><label>정산방식</label><select><option>전체</option><option>건별정산</option><option>월정산</option><option>행사종료 후 정산</option></select></div>
+            <div class="field keyword"><label>키워드 검색</label><input placeholder="랜드사명, 담당자명, 연락처 검색"></div>
+            <div class="field action"><label>&nbsp;</label><button class="btn green" type="button" data-vendor-action="search">검색</button></div>
+            <div class="field action"><label>&nbsp;</label><button class="btn" type="button" data-vendor-action="reset">초기화</button></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel">
+        <div class="panel-head">
+          <span>랜드사 목록 <span class="muted">총 8개</span></span>
+        </div>
+        <div class="table-wrap">
+          <table class="table vendor-list-table">
+            <thead>
+              <tr>
+                <th><input type="checkbox" aria-label="전체 선택"></th>
+                <th>랜드사코드</th>
+                <th>카테고리</th>
+                <th>랜드사명</th>
+                <th>지역</th>
+                <th>담당자</th>
+                <th>연락처</th>
+                <th>정산방식</th>
+                <th>로그인계정</th>
+                <th>상태</th>
+                <th>등록일</th>
+                <th>관리</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td class="center"><input type="checkbox" aria-label="선택"></td><td>VND-260001</td><td><span class="badge b-green">식당</span></td><td>제주 해담정</td><td>제주</td><td>김민지</td><td>064-711-2030</td><td>건별정산</td><td><span class="badge b-blue">사용</span></td><td><span class="badge b-green">사용중</span></td><td>2026-06-12</td><td><div class="manage-actions"><button class="btn small" type="button" data-vendor-action="detail">상세</button><a class="btn small" href="member-vendor-form.html?mode=edit&id=VND-260001">수정</a><button class="btn small" type="button" data-vendor-action="rate">요금관리</button></div></td></tr>
+              <tr><td class="center"><input type="checkbox" aria-label="선택"></td><td>VND-260002</td><td><span class="badge b-purple">숙박</span></td><td>강릉 오션스테이</td><td>강원</td><td>박도윤</td><td>033-642-8801</td><td>월정산</td><td><span class="badge b-blue">사용</span></td><td><span class="badge b-green">사용중</span></td><td>2026-06-10</td><td><div class="manage-actions"><button class="btn small" type="button" data-vendor-action="detail">상세</button><a class="btn small" href="member-vendor-form.html?mode=edit&id=VND-260002">수정</a><button class="btn small" type="button" data-vendor-action="rate">요금관리</button></div></td></tr>
+              <tr><td class="center"><input type="checkbox" aria-label="선택"></td><td>VND-260003</td><td><span class="badge b-blue">선박</span></td><td>남해 크루즈라인</td><td>경상</td><td>이서준</td><td>055-860-1200</td><td>행사종료 후 정산</td><td><span class="badge b-gray">미사용</span></td><td><span class="badge b-orange">승인대기</span></td><td>2026-06-08</td><td><div class="manage-actions"><button class="btn small" type="button" data-vendor-action="detail">상세</button><a class="btn small" href="member-vendor-form.html?mode=edit&id=VND-260003">수정</a><button class="btn small" type="button" data-vendor-action="rate">요금관리</button></div></td></tr>
+              <tr><td class="center"><input type="checkbox" aria-label="선택"></td><td>VND-260004</td><td><span class="badge b-orange">액티비티</span></td><td>가평 레이크어드벤처</td><td>경기</td><td>최하은</td><td>031-584-3770</td><td>건별정산</td><td><span class="badge b-blue">사용</span></td><td><span class="badge b-green">사용중</span></td><td>2026-06-05</td><td><div class="manage-actions"><button class="btn small" type="button" data-vendor-action="detail">상세</button><a class="btn small" href="member-vendor-form.html?mode=edit&id=VND-260004">수정</a><button class="btn small" type="button" data-vendor-action="rate">요금관리</button></div></td></tr>
+              <tr><td class="center"><input type="checkbox" aria-label="선택"></td><td>VND-260005</td><td><span class="badge b-green">관광지</span></td><td>순천만 국가정원</td><td>전라</td><td>정유나</td><td>061-749-3114</td><td>월정산</td><td><span class="badge b-gray">미사용</span></td><td><span class="badge b-green">사용중</span></td><td>2026-06-01</td><td><div class="manage-actions"><button class="btn small" type="button" data-vendor-action="detail">상세</button><a class="btn small" href="member-vendor-form.html?mode=edit&id=VND-260005">수정</a><button class="btn small" type="button" data-vendor-action="rate">요금관리</button></div></td></tr>
+              <tr><td class="center"><input type="checkbox" aria-label="선택"></td><td>VND-260006</td><td><span class="badge b-blue">차량</span></td><td>서울 프리미엄버스</td><td>서울</td><td>한지훈</td><td>02-557-9120</td><td>행사종료 후 정산</td><td><span class="badge b-blue">사용</span></td><td><span class="badge b-red">사용중지</span></td><td>2026-05-28</td><td><div class="manage-actions"><button class="btn small" type="button" data-vendor-action="detail">상세</button><a class="btn small" href="member-vendor-form.html?mode=edit&id=VND-260006">수정</a><button class="btn small" type="button" data-vendor-action="rate">요금관리</button></div></td></tr>
+              <tr><td class="center"><input type="checkbox" aria-label="선택"></td><td>VND-260007</td><td><span class="badge b-green">식당</span></td><td>부산 바다횟집</td><td>경상</td><td>오세린</td><td>051-746-3321</td><td>건별정산</td><td><span class="badge b-gray">미사용</span></td><td><span class="badge b-green">사용중</span></td><td>2026-05-24</td><td><div class="manage-actions"><button class="btn small" type="button" data-vendor-action="detail">상세</button><a class="btn small" href="member-vendor-form.html?mode=edit&id=VND-260007">수정</a><button class="btn small" type="button" data-vendor-action="rate">요금관리</button></div></td></tr>
+              <tr><td class="center"><input type="checkbox" aria-label="선택"></td><td>VND-260008</td><td><span class="badge b-purple">숙박</span></td><td>인천 에어포트호텔</td><td>인천</td><td>문태오</td><td>032-721-4500</td><td>월정산</td><td><span class="badge b-blue">사용</span></td><td><span class="badge b-orange">승인대기</span></td><td>2026-05-19</td><td><div class="manage-actions"><button class="btn small" type="button" data-vendor-action="detail">상세</button><a class="btn small" href="member-vendor-form.html?mode=edit&id=VND-260008">수정</a><button class="btn small" type="button" data-vendor-action="rate">요금관리</button></div></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </div>
+  </main>
+</div>
+
+<script src="./js/common.js"></script>
+<script src="./js/components.js"></script>
+<script src="./js/member-vendor.js"></script>
+</body>
+</html>
