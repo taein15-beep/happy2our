@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>그룹관리</title>
+  <link rel="stylesheet" href="./css/common.css">
+  <link rel="stylesheet" href="./css/layout.css">
+  <link rel="stylesheet" href="./css/components.css">
+  <link rel="stylesheet" href="./css/member-groups.css">
+</head>
+<body data-page="member_group_list">
+<div class="app">
+  <aside class="sidebar" data-include="./includes/sidebar.html"></aside>
+  <main>
+    <header class="topbar"><strong>그룹관리</strong><span>권한 그룹과 계정별 권한을 관리합니다.</span></header>
+    <div class="page member-groups-page">
+      <div class="page-head">
+        <div>
+          <h1>그룹관리</h1>
+          <div class="desc">웹회원, 관리자/직원, 판매점, 거래처 그룹과 관리자 메뉴 권한을 샘플 데이터 기준으로 관리합니다.</div>
+        </div>
+        <div class="top-actions">
+          <button class="btn blue" type="button" data-group-action="open-create">+ 그룹등록</button>
+          <button class="btn red" type="button" data-group-action="bulk-delete">선택삭제</button>
+        </div>
+      </div>
+
+      <section class="panel">
+        <div class="panel-head">그룹 검색</div>
+        <div class="panel-body">
+          <div class="group-filter-grid">
+            <div class="field">
+              <label>그룹유형</label>
+              <select id="filterType">
+                <option value="">전체</option>
+                <option value="web">웹회원</option>
+                <option value="admin">관리자/직원</option>
+                <option value="seller">판매점</option>
+                <option value="partner">거래처</option>
+              </select>
+            </div>
+            <div class="field">
+              <label>사용여부</label>
+              <select id="filterActive">
+                <option value="">전체</option>
+                <option value="Y">사용</option>
+                <option value="N">미사용</option>
+              </select>
+            </div>
+            <div class="field">
+              <label>기본그룹 여부</label>
+              <select id="filterDefault">
+                <option value="">전체</option>
+                <option value="Y">기본그룹</option>
+                <option value="N">일반그룹</option>
+              </select>
+            </div>
+            <div class="field keyword">
+              <label>검색어</label>
+              <input id="filterKeyword" placeholder="그룹명 또는 그룹코드 검색">
+            </div>
+            <div class="field action"><label>&nbsp;</label><button class="btn green" type="button" data-group-action="search">검색</button></div>
+            <div class="field action"><label>&nbsp;</label><button class="btn" type="button" data-group-action="reset">초기화</button></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel">
+        <div class="panel-head">
+          <span>그룹 목록 <span id="groupCountText" class="muted">총 0개</span></span>
+          <span class="muted">시스템 기본그룹과 가입자가 있는 그룹은 삭제할 수 없습니다.</span>
+        </div>
+        <div class="table-wrap">
+          <table class="table group-table">
+            <thead>
+              <tr>
+                <th><input id="checkAllGroups" type="checkbox" aria-label="전체 선택"></th>
+                <th>번호</th>
+                <th>그룹유형</th>
+                <th>그룹명</th>
+                <th>그룹코드</th>
+                <th>설명</th>
+                <th>기본그룹</th>
+                <th>사용여부</th>
+                <th>가입수</th>
+                <th>정렬순서</th>
+                <th>최근수정일</th>
+                <th>권한설정</th>
+                <th>수정</th>
+                <th>삭제</th>
+              </tr>
+            </thead>
+            <tbody id="groupRows"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="panel">
+        <div class="panel-head">
+          <span>소속 계정 및 개별권한</span>
+          <span class="muted">개별권한이 있으면 그룹권한보다 우선 적용됩니다.</span>
+        </div>
+        <div class="table-wrap">
+          <table class="table account-permission-table">
+            <thead>
+              <tr>
+                <th>이름/상호</th>
+                <th>아이디</th>
+                <th>계정유형</th>
+                <th>소속그룹</th>
+                <th>그룹권한 적용 상태</th>
+                <th>개별권한 상태</th>
+                <th>최근수정일</th>
+                <th>개별권한 설정</th>
+              </tr>
+            </thead>
+            <tbody id="accountRows"></tbody>
+          </table>
+        </div>
+      </section>
+    </div>
+  </main>
+</div>
+
+<div id="groupModal" class="modal group-modal" aria-hidden="true">
+  <div class="modal-card">
+    <div class="modal-head">
+      <strong id="groupModalTitle">그룹등록</strong>
+      <button type="button" class="modal-close" data-group-action="close-group">×</button>
+    </div>
+    <form id="groupForm" class="modal-body">
+      <input id="groupId" type="hidden">
+      <div class="form-grid two">
+        <div class="field">
+          <label>그룹유형 <span class="required">*</span></label>
+          <select id="groupType" required>
+            <option value="">선택</option>
+            <option value="web">웹회원</option>
+            <option value="admin">관리자/직원</option>
+            <option value="seller">판매점</option>
+            <option value="partner">거래처</option>
+          </select>
+        </div>
+        <div class="field"><label>그룹명 <span class="required">*</span></label><input id="groupName" required></div>
+        <div class="field"><label>그룹코드 <span class="required">*</span></label><input id="groupCode" required></div>
+        <div class="field"><label>정렬순서</label><input id="groupSort" type="number" min="1"></div>
+        <div class="field"><label>기본그룹 여부</label><select id="groupDefault"><option value="N">일반그룹</option><option value="Y">기본그룹</option></select></div>
+        <div class="field"><label>사용여부</label><select id="groupActive"><option value="Y">사용</option><option value="N">미사용</option></select></div>
+        <div class="field wide"><label>설명</label><textarea id="groupDescription" rows="3"></textarea></div>
+      </div>
+      <div id="groupLockNotice" class="notice warning hidden">시스템 기본 그룹은 삭제할 수 없도록 처리됩니다.</div>
+      <div class="modal-actions">
+        <button class="btn blue" type="submit">저장</button>
+        <button class="btn" type="button" data-group-action="close-group">취소</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<div id="deleteModal" class="modal" aria-hidden="true">
+  <div class="modal-card small">
+    <div class="modal-head">
+      <strong>그룹 삭제 확인</strong>
+      <button type="button" class="modal-close" data-group-action="close-delete">×</button>
+    </div>
+    <div class="modal-body">
+      <p id="deleteMessage">선택한 그룹을 삭제하시겠습니까?</p>
+      <div id="deleteBlockReason" class="notice danger hidden"></div>
+      <div class="modal-actions">
+        <button id="confirmDeleteButton" class="btn red" type="button" data-group-action="confirm-delete">삭제</button>
+        <button class="btn" type="button" data-group-action="close-delete">취소</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="permissionModal" class="modal permission-modal" aria-hidden="true">
+  <div class="modal-card large">
+    <div class="modal-head">
+      <strong>그룹별 메뉴 권한 설정</strong>
+      <button type="button" class="modal-close" data-group-action="close-permission">×</button>
+    </div>
+    <div class="modal-body">
+      <div class="permission-summary">
+        <div><span>그룹명</span><strong id="permGroupName">-</strong></div>
+        <div><span>그룹유형</span><strong id="permGroupType">-</strong></div>
+        <div><span>그룹코드</span><strong id="permGroupCode">-</strong></div>
+      </div>
+      <div id="permissionNotice" class="notice info">메뉴사용을 해제하면 하위 메뉴와 조회/등록·수정/삭제 권한이 함께 비활성화됩니다.</div>
+      <div id="permissionTree" class="permission-tree"></div>
+      <div class="data-scope-box">
+        <strong>데이터 접근 범위 안내</strong>
+        <ul>
+          <li>최고관리자: 전체 데이터 접근</li>
+          <li>관리자/직원: 부여된 메뉴와 업무 범위 내 접근</li>
+          <li>판매점: 본인 판매점의 상품, 예약, 정산 데이터만 접근</li>
+          <li>거래처: 본인 거래처가 연결된 출발일, 인원, 가이드, 기사 정보만 접근</li>
+        </ul>
+        <p>현재 화면은 안내 UI이며 실제 데이터 제한 로직은 추후 백엔드 연동 시 적용됩니다.</p>
+      </div>
+      <div class="history-box">
+        <strong>권한 변경 이력</strong>
+        <div class="table-wrap">
+          <table class="table">
+            <thead><tr><th>변경일시</th><th>변경자</th><th>변경대상</th><th>변경내용</th><th>변경전</th><th>변경후</th></tr></thead>
+            <tbody id="historyRows"></tbody>
+          </table>
+        </div>
+      </div>
+      <div class="modal-actions">
+        <button class="btn blue" type="button" data-group-action="save-permission">저장</button>
+        <button class="btn" type="button" data-group-action="close-permission">취소</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="accountPermissionModal" class="modal permission-modal" aria-hidden="true">
+  <div class="modal-card large">
+    <div class="modal-head">
+      <strong>개별권한 설정</strong>
+      <button type="button" class="modal-close" data-group-action="close-account-permission">×</button>
+    </div>
+    <div class="modal-body">
+      <div class="permission-summary">
+        <div><span>계정</span><strong id="accountPermName">-</strong></div>
+        <div><span>아이디</span><strong id="accountPermLogin">-</strong></div>
+        <div><span>소속그룹</span><strong id="accountPermGroup">-</strong></div>
+      </div>
+      <div class="override-options">
+        <label><input type="radio" name="accountOverrideMode" value="group"> 그룹권한 적용</label>
+        <label><input type="radio" name="accountOverrideMode" value="allow"> 개별 허용</label>
+        <label><input type="radio" name="accountOverrideMode" value="deny"> 개별 차단</label>
+      </div>
+      <div class="notice info">개별권한이 있으면 개별권한이 그룹권한보다 우선 적용됩니다. 개별권한이 없으면 그룹권한을 그대로 적용합니다.</div>
+      <div id="accountPermissionTree" class="permission-tree"></div>
+      <div class="modal-actions">
+        <button class="btn blue" type="button" data-group-action="save-account-permission">저장</button>
+        <button class="btn" type="button" data-group-action="close-account-permission">취소</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="./js/common.js"></script>
+<script src="./js/components.js"></script>
+<script src="./js/member-groups.js"></script>
+</body>
+</html>

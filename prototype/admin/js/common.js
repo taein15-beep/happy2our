@@ -9,6 +9,11 @@
     '<a href="member-vendor-list.html">거래처관리</a>'
   );
 
+  window.AdminAssets.sidebarHtml = window.AdminAssets.sidebarHtml.replace(
+    '<a href="#" onclick="msg(\'그룹관리 화면은 준비 중입니다.\');return false;">그룹관리</a>',
+    '<a href="member_group_list.html">그룹관리</a>'
+  );
+
   window.msg = window.msg || function (text) {
     alert(text);
   };
